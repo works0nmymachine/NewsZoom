@@ -6,6 +6,12 @@ In Agenda ziet de gebruiker wat er binnenkort gebeurt en welke actuele verstorin
 
 **Voorstel:** gebruik een chronologische lijst met Vandaag, Deze week en Later. Toon per item datum, locatie of traject, status, bron en tijdstip van de laatste update. Maak bij treinuitval onderscheid tussen geplande werkzaamheden en een actuele verstoring. Toon een gewijzigde datum, route of annulering bij het oorspronkelijke item.
 
+## Uitagenda
+
+De Uitagenda helpt je iets te vinden om te doen in een gekozen stad of land. Kies **Vandaag**, **Deze week** of **Deze maand** en blader door bijvoorbeeld festivals, open dagen, concerten, exposities en films. Ook een andere stad of een ander land is handmatig te kiezen.
+
+**Voorstel:** geef de Uitagenda een eigen weergave binnen Agenda. Demonstraties en reisverstoringen blijven zichtbaar in het algemene agendaoverzicht wanneer de voorkeuren daarop aansluiten. Gebruik in de Uitagenda dezelfde categorie- en itemfilters. Toon bij filmreleases de releasedatum voor het gekozen land en eventuele lokale voorstellingen als afzonderlijke vermeldingen.
+
 ## Persoonlijke filters
 
 - Kies regio's, plaatsen en relevante treintrajecten of wegen.
