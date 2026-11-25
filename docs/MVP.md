@@ -6,7 +6,7 @@
 - **Verhaalpagina.** Werk één lopend verhaal uit met drie updates, een gedeelde tijdlijn en een korte contextbriefing per update.
 - **Finance.** Maak één wekelijkse marktrecap en één koersgrafiek met tijdlijn. Neem een voorbeeld op waarin een ouder bericht opnieuw verschijnt en een vervolgartikel een concreet nieuw feit bevat.
 
-- **Agenda.** Toon voorbeelditems voor evenementen, verstoringen en filmreleases. Laat de gebruiker een festival volgen en een ander festival verbergen binnen dezelfde categorie.
+- **Agenda.** Toon voorbeelditems voor evenementen, verstoringen en filmreleases. Laat de gebruiker een festival volgen en een ander festival verbergen binnen dezelfde categorie. Laat de gebruiker in de Uitagenda wisselen tussen Vandaag, Deze week en Deze maand voor een gekozen stad of land.
 
 Begin met handmatig samengestelde en duidelijk gelabelde voorbeeldgegevens.
 
