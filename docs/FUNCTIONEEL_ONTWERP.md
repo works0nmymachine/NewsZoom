@@ -14,13 +14,15 @@ Bij elk geopend artikel is **Achtergrond** beschikbaar, ook voor een onderwerp d
 
 ## Je nieuwsfilter stap voor stap opbouwen
 
-De dagoverzichten Nederland en Wereld beginnen met een brede selectie uit meerdere bronnen. De gebruiker bouwt daar geleidelijk een persoonlijk filter bovenop.
+NewsZoom verzamelt nieuws uit de volle breedte voor Nederland en Wereld, uit landelijke, regionale, internationale en gespecialiseerde bronnen. Persoonlijke voorkeuren bepalen welke berichten je ziet en hoe prominent ze verschijnen. Ze bepalen niet welke onderwerpen worden verzameld of doorzoekbaar blijven. De gebruiker bouwt het filter geleidelijk op en kan iedere keuze later aanpassen.
+
+In **Breed overzicht** staan de belangrijkste ontwikkelingen van de dag bovenaan. Via **Alle berichten** en zoeken blijft ook het overige verzamelde nieuws toegankelijk, inclusief minder prominente en lokaal of specialistisch gemelde ontwikkelingen. **Met mijn filters** past de persoonlijke keuzes toe. Zo kun je een onderwerp hoger zetten, lager zetten of verbergen, en per artikel kiezen hoeveel achtergrond je wilt.
 
 - Per bericht kun je **Meer hiervan**, **Minder hiervan** of **Verbergen** kiezen. Geef aan of de keuze geldt voor dit verhaal, een onderwerp of een bron. Minder hiervan verlaagt de prioriteit. Verbergen sluit de gekozen selectie uit van de gefilterde weergave.
 - Met **Ik mis iets** kun je een onderwerp, ontwikkeling of bron toevoegen. NewsZoom zoekt ook buiten de bestaande bronnen naar passende berichten en laat voorbeelden zien voordat je de nieuwe voorkeur opslaat.
 - Via **Waarom zie ik dit?** toont NewsZoom welke voorkeur of algemene selectiecriteria meespeelden. In **Mijn filters** kun je iedere opgeslagen voorkeur bekijken, aanpassen of verwijderen. Een leesklik wijzigt je voorkeuren niet automatisch.
 
-**Voorstel:** zet bij Nederland en Wereld een schakelaar **Met mijn filters / Breed overzicht**. Het brede overzicht omzeilt persoonlijke filters, zodat je zelf kunt zien wat eruit valt. Het toont de beschikbare algemene selectie; ontbrekende berichtgeving kan via Ik mis iets aanleiding geven om meer bronnen te zoeken.
+Bij Nederland en Wereld kun je wisselen tussen **Met mijn filters** en **Breed overzicht**. Via **Ik mis iets** kun je NewsZoom vragen aanvullende bronnen te zoeken wanneer een ontwikkeling nog niet in het verzamelde aanbod zit.
 
 ## Zelf een interesse toevoegen
 
