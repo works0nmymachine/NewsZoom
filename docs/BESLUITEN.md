@@ -13,10 +13,15 @@
 
 - De Uitagenda maakt ook kleine theaters, buurtpodia en kroegen met liveconcerten vindbaar.
 
+- Vandaag is het startscherm met Nederland, Wereld, persoonlijke interesses en lokaal nieuws.
+- Specifieke verhaalkeuzes krijgen voorrang op bredere onderwerpvoorkeuren. De doorslaggevende regel is zichtbaar en voorkeuren blijven aanpasbaar.
+- Bij lokaal nieuws zijn de aangesloten bronnen, hun laatste controle en Bron toevoegen zichtbaar.
+- Dossiers tonen de bronnen bij de duiding en vermelden inhoudelijke correcties met datum en bron.
+- De eerste proef focust op Vandaag, één lokaal gebied en een paar dossiers. Zie [MVP](MVP.md).
+
 ## Voorstellen
 
 - Mijn Nieuws en Ontdekken krijgen elk een eigen tabblad.
-- Een specifieke mute krijgt voorrang op een breder gevolgd onderwerp.
 - Sinds je laatste bezoek vult de vaste tijdsvensters aan.
 - Het eerste prototype gebruikt handmatig samengestelde gegevens.
 
