@@ -1,20 +1,24 @@
 # MVP
 
-## Voorstel voor het eerste prototype
+## Eerste proef
 
-- **Mijn Nieuws.** Laat de gebruiker een onderwerp volgen, een afzonderlijk verhaal volgen en een ongewenst verhaal dempen binnen een gevolgd onderwerp.
-- **Verhaalpagina.** Werk één lopend verhaal uit met drie updates, een gedeelde tijdlijn en een korte contextbriefing per update.
-- **Finance.** Maak één wekelijkse marktrecap en één koersgrafiek met tijdlijn. Neem een voorbeeld op waarin een ouder bericht opnieuw verschijnt en een vervolgartikel een concreet nieuw feit bevat.
+Begin met **Vandaag**, één lokaal gebied en een paar lopende dossiers. Gebruik handmatig samengestelde, duidelijk gelabelde voorbeeldgegevens om de interacties te testen.
 
-- **Agenda.** Toon voorbeelditems voor evenementen, verstoringen en filmreleases. Laat de gebruiker een festival volgen en een ander festival verbergen binnen dezelfde categorie. Laat de gebruiker in de Uitagenda wisselen tussen Vandaag, Deze week en Deze maand voor een gekozen stad of land.
-
-Begin met handmatig samengestelde en duidelijk gelabelde voorbeeldgegevens.
-
-Neem voor de Uitagenda als proef één stad. Voeg minstens één voorstelling uit de eigen agenda van een klein theater toe en één liveoptreden dat alleen op de agenda van een café staat. Toets of beide via stad, datum en type locatie vindbaar zijn.
+- **Vandaag.** Toon de belangrijkste ontwikkelingen uit Nederland en Wereld, daarna updates uit gevolgde interesses en het gekozen lokale gebied.
+- **Filters.** Laat de gebruiker een onderwerp volgen, een specifiek verhaal binnen dat onderwerp verbergen en zien welke regel doorslaggevend is. Die keuze blijft bewerkbaar en het verhaal blijft vindbaar in Breed overzicht.
+- **Lokaal.** Toon welke bronnen zijn aangesloten, de laatste geslaagde controle en hoe je een ontbrekende bron toevoegt. Neem ook een voorbeeld van beperkte dekking op.
+- **Dossiers.** Werk achtergrond per artikel uit voor Kort, Deze week, Afgelopen maanden en Vanaf het begin. Toon bronlinks en neem één voorbeeld op waarbij een bron een eerder bericht corrigeert en het dossier laat zien wat er is aangepast.
 
 ## Wat willen we toetsen?
 
-- Een lezer kan na een week afwezigheid vertellen wat er gebeurd is en waarom het laatste nieuws ertoe doet.
-- Een gebruiker kan aangeven waarom een verhaal in de feed staat en het gericht dempen.
-- Een gebruiker kan binnen één agendacategorie gericht bepalen welke items verschijnen.
-- Een gebruiker kan bij een koersdaling zien hoeveel de koers bewoog, wat al bekend was en welke nieuwe informatie mogelijk meespeelde.
+Gebruik de proef een paar dagen en toets deze vragen.
+
+- Vind je relevant nieuws dat je anders had gemist?
+- Krijg je minder berichten die je niet interesseren en kun je nagaan welke filterregel daarvoor zorgde?
+- Kun je na een paar dagen afwezigheid sneller uitleggen wat er is gebeurd en wat het verandert?
+- Kun je zien welke lokale bron ontbreekt en een correctie in een dossier terugvinden?
+
+## Vervolgproeven
+
+- **Finance.** Maak een wekelijkse marktrecap en een koersgrafiek met tijdlijn. Test het onderscheid tussen oud nieuws, een concreet nieuw feit en de gemeten koersbeweging.
+- **Agenda en Uitagenda.** Gebruik voorbeelditems voor evenementen, verstoringen en filmreleases. Test Vandaag, Deze week en Deze maand voor stad of land. Laat de gebruiker binnen dezelfde categorie een festival volgen en een ander verbergen. Neem in één proefstad een voorstelling uit de eigen agenda van een klein theater en een optreden uit de agenda van een café op. Test vindbaarheid op stad, datum en type locatie.
