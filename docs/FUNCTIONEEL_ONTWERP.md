@@ -1,5 +1,9 @@
 # Functioneel ontwerp
 
+## Vandaag
+
+Vandaag is het startscherm. Eerst zie je de belangrijkste ontwikkelingen uit Nederland en de wereld, daarna nieuwe updates uit je interesses en gekozen lokale gebied. Bij elk onderdeel kun je doorklikken naar het volledige overzicht. Vanuit een bericht kun je direct achtergrond openen.
+
 ## Mijn Nieuws
 
 De gebruiker volgt onderwerpen en afzonderlijke verhalen. Een onderwerp kan nieuwe verhalen opleveren. Een gevolgd verhaal blijft terugkomen wanneer er iets relevants verandert. De gebruiker kan voorkeuren op elk moment bekijken en aanpassen.
@@ -18,6 +22,8 @@ Kies in Ontdekken **Lokaal** om te zien wat er speelt in een buurt, dorp, stad o
 
 NewsZoom verzamelt hiervoor nieuws uit onder meer lokale kranten, regionale omroepen, gemeenten en wijkorganisaties. Een bericht verschijnt bij het gebied waar het over gaat, ook als de uitgever elders gevestigd is. Maak onderscheid tussen journalistieke berichtgeving en mededelingen van bijvoorbeeld de gemeente.
 
+Via **Bronnen in dit gebied** zie je welke bronnen zijn aangesloten, wanneer ze voor het laatst succesvol zijn gecontroleerd en of er controles zijn mislukt. Bij een leeg overzicht maakt NewsZoom zichtbaar of er geen nieuwe berichten zijn gevonden of dat de dekking beperkt is. Via **Bron toevoegen** kun je een ontbrekend dorpsblad of een andere lokale bron aandragen.
+
 Je kunt ook lokaal wisselen tussen **Breed overzicht** en **Met mijn filters**. Zo kun je bijvoorbeeld meer lezen over bouwplannen en wegwerkzaamheden in je buurt, en een specifiek onderwerp verbergen. Bij elk artikel kun je dezelfde achtergrond opvragen als bij Nederland en Wereld, voor zover de bronnen dat ondersteunen.
 
 ## Je nieuwsfilter stap voor stap opbouwen
@@ -29,6 +35,10 @@ In **Breed overzicht** staan de belangrijkste ontwikkelingen van de dag bovenaan
 - Per bericht kun je **Meer hiervan**, **Minder hiervan** of **Verbergen** kiezen. Geef aan of de keuze geldt voor dit verhaal, een onderwerp of een bron. Minder hiervan verlaagt de prioriteit. Verbergen sluit de gekozen selectie uit van de gefilterde weergave.
 - Met **Ik mis iets** kun je een onderwerp, ontwikkeling of bron toevoegen. NewsZoom zoekt ook buiten de bestaande bronnen naar passende berichten en laat voorbeelden zien voordat je de nieuwe voorkeur opslaat.
 - Via **Waarom zie ik dit?** toont NewsZoom welke voorkeur of algemene selectiecriteria meespeelden. In **Mijn filters** kun je iedere opgeslagen voorkeur bekijken, aanpassen of verwijderen. Een leesklik wijzigt je voorkeuren niet automatisch.
+
+### Als regels botsen
+
+Een specifieke keuze voor een verhaal gaat in de gefilterde weergave voor op een bredere onderwerpvoorkeur. Bij tegenstrijdige onderwerpregels gaat **Verbergen** voor **Meer hiervan** en **Minder hiervan**. Een verborgen bron blijft buiten de gefilterde weergave. **Waarom zie ik dit?** toont de doorslaggevende regel bij zichtbare berichten. In **Breed overzicht** kun je bij verborgen berichten zien welke regel ze filterde en die regel aanpassen. Zo blijft een artikel over gemeentelijke uitgaven voor Eurovisie buiten je gefilterde overzicht als je het Eurovisieverhaal expliciet hebt verborgen.
 
 Bij Nederland en Wereld kun je wisselen tussen **Met mijn filters** en **Breed overzicht**. Via **Ik mis iets** kun je NewsZoom vragen aanvullende bronnen te zoeken wanneer een ontwikkeling nog niet in het verzamelde aanbod zit.
 
@@ -63,3 +73,7 @@ Een verhaal bundelt ontwikkelingen uit meerdere artikelen. Bij een afzonderlijk 
 ## Wat verandert dit?
 
 Leg per update uit wat er veranderde, voor wie en wat nog onzeker is. Een gebeurtenis kan grote gevolgen hebben voor burgers en tegelijk weinig veranderen aan de territoriale situatie. Benoem die gevolgen afzonderlijk en link naar de bronnen. Meerdere artikelen die hetzelfde feit melden, blijven gekoppeld aan dezelfde ontwikkeling.
+
+### Bronnen en correcties
+
+Toon bij belangrijke beweringen en bij **Wat verandert dit?** de bronnen en maak zichtbaar welke uitleg een interpretatie is. Bij tegenstrijdige bronnen ziet de lezer wie welke lezing geeft en wat nog onzeker is. Als een bron een feit corrigeert, wordt de dossierwijziging beoordeeld voordat die wordt gepubliceerd. Het dossier toont daarna wat is aangepast, wanneer en op basis van welke bron. In Finance blijft de gemeten koersbeweging apart staan van de mogelijke verklaring.
