@@ -12,6 +12,13 @@ De Uitagenda helpt je iets te vinden om te doen in een gekozen stad of land. Kie
 
 **Voorstel:** geef de Uitagenda een eigen weergave binnen Agenda. Demonstraties en reisverstoringen blijven zichtbaar in het algemene agendaoverzicht wanneer de voorkeuren daarop aansluiten. Gebruik in de Uitagenda dezelfde categorie- en itemfilters. Toon bij filmreleases de releasedatum voor het gekozen land en eventuele lokale voorstellingen als afzonderlijke vermeldingen.
 
+## Open dagen en lokale feestweken
+
+- **Open dagen en bedrijfsbezoeken.** Denk aan fabrieksrondleidingen, open dagen bij bedrijven en organisaties en een kijkje achter de schermen. Toon waar bekend de locatie, tijden en of aanmelden verplicht is.
+- **Wijk- en stadsfeesten.** Neem lokale feestweken en buurtfeesten op. Een meerdaagse feestweek krijgt één overzicht met de begin- en einddatum. Als er een programma beschikbaar is, staan de losse activiteiten bij de juiste dag.
+
+Gebruik ook de eigen agenda's van bedrijven, organisaties, wijkverenigingen en feestcomités als bron. Laat de gebruiker filteren op plaats of wijk en type activiteit, en een specifieke open dag of feestweek volgen of verbergen.
+
 ## Kleine podia en livemuziek
 
 De Uitagenda moet ook voorstellingen in kleine theaters en optredens in kroegen, cafés en buurtpodia kunnen vinden. Neem bijvoorbeeld jamsessies, open mics en gratis optredens mee. Ook een optreden dat alleen op de eigen agenda van een café staat, moet vindbaar kunnen zijn.
