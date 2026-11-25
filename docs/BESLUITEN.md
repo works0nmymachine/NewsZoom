@@ -7,6 +7,8 @@
 - Nieuws wordt uitgelegd op meerdere tijdschalen, met de achtergrond, de betrokken partijen en de betekenis van nieuwe ontwikkelingen.
 - Finance combineert koersverloop met nieuws uit dezelfde periode en maakt onderscheid tussen oudere berichtgeving en nieuwe feiten.
 
+- Agenda toont demonstraties, treinuitval, wegwerkzaamheden, festivals, open dagen en filmreleases. Gebruikers kunnen categorieën én specifieke evenementen kiezen of verbergen.
+
 ## Voorstellen
 
 - Mijn Nieuws en Ontdekken krijgen elk een eigen tabblad.
