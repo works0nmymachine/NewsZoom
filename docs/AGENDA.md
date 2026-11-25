@@ -27,6 +27,14 @@ De Uitagenda moet ook voorstellingen in kleine theaters en optredens in kroegen,
 
 Filter op type locatie, muziekgenre, gratis toegang of een specifiek podium. Je kunt bijvoorbeeld een jazzcafé volgen en een ander podium verbergen.
 
+## Grondig zoeken en vinden
+
+Den Helder en Schiphol zijn voorbeelden. Pas dezelfde aanpak toe op andere plaatsen, organisaties en sectoren.
+
+- **Bronnen ontdekken.** Zoek per regio bij locaties, bedrijven en organisatoren zelf, en kijk ook bij gemeenten, lokale media, brancheverenigingen en wijkorganisaties. Controleer naast agenda's ook nieuwspagina's, programmapagina's en openbare programmabijlagen. Gebruik varianten zoals open dag, havendag, publieksdag, rondleiding en bedrijfsbezoek in combinatie met plaatsen, locaties en organisaties. Zoek bij volgende rondes door naar ontbrekende bronnen en nieuwe evenementen.
+- **Zoeken in de Uitagenda.** Doorzoek titel, beschrijving, locatie, plaats, organisator en onderwerp. Ondersteun samenstellingen, schrijfvarianten en relevante verwante termen. Een opgeslagen Open Havendag in Den Helder moet vindbaar zijn met `haven`, `havendag` en `haven Den Helder`. Een opgeslagen rondleiding of open dag op Schiphol moet vindbaar zijn met `Schiphol`, ook als de titel de locatienaam niet bevat.
+- **Relevantie en dekking.** Geef directe matches voorrang op bredere associaties en respecteer de gekozen regio, periode en filters. Noteer welke bronnen al zijn gecontroleerd en waar landelijke of lokale dekking nog ontbreekt. Toon per evenement de oorspronkelijke bron en sla bekende ongewijzigde vermeldingen over.
+
 ## Persoonlijke filters
 
 - Kies regio's, plaatsen en relevante treintrajecten of wegen.
