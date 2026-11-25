@@ -19,6 +19,14 @@ Bij nieuws buiten beursuren begint het handelsvenster bij de eerstvolgende sessi
 
 Het percentage beschrijft de gemeten beweging na publicatie. De duiding vermeldt afzonderlijk welke nieuwe informatie en bredere marktbewegingen mogelijk meespeelden.
 
+## Een markt als interesse volgen
+
+Met **Interesse toevoegen** kun je een hele markt volgen, bijvoorbeeld **Datamarkt**. Geef die interesse een eigen overzicht in Finance en toon relevante ontwikkelingen ook in Mijn Nieuws. Databricks kan daarin één van de spelers zijn, naast beursgenoteerde bedrijven zoals Snowflake en andere relevante aanbieders.
+
+**Voorstel:** laat de gebruiker de markt afbakenen met deelonderwerpen, bijvoorbeeld datawarehouses, dataplatformen, data-integratie en datagovernance. Je kunt een deelonderwerp of speler toevoegen, volgen of dempen. De tijdlijn bundelt relevante ontwikkelingen zoals overnames, financieringsrondes, productintroducties en kwartaalcijfers. Leg per update uit wat er nieuw is en voor welk deel van de markt het gevolgen kan hebben.
+
+Toon koersbewegingen van beursgenoteerde spelers afzonderlijk. Als er een passende index of ETF beschikbaar is, label die als vergelijking en geef aan welk deel van de markt die vertegenwoordigt.
+
 ## Bedrijven volgen zonder beurskoers
 
 Je kunt een bedrijf zoals Databricks als interesse toevoegen zonder een ticker op te geven. Finance toont relevante ontwikkelingen, zoals financieringsrondes, waarderingen met bron en datum, productnieuws en eventuele beursplannen. Een gemelde waardering is geen koerspunt. De koersgrafiek en procentuele koerswijziging worden beschikbaar zodra er betrouwbare koersdata voor het bedrijf zijn.
