@@ -8,6 +8,10 @@ Een gedempt verhaal verdwijnt uit Mijn Nieuws, ook als het binnen een gevolgd on
 
 **Voorstel:** bied een apart tabblad Ontdekken voor nieuws buiten de gevolgde onderwerpen. Een nieuw onderwerp verschijnt in Mijn Nieuws zodra de gebruiker het volgt.
 
+## Zelf een interesse toevoegen
+
+Met **Interesse toevoegen** kun je zelf een bedrijf, organisatie of onderwerp invoeren, bijvoorbeeld Databricks. Kies waar mogelijk een herkenbare match. Als die ontbreekt, kun je de naam opslaan en later aanpassen. De interesse verschijnt bij je voorkeuren, ook als er nog geen nieuws is gevonden. Relevante berichten verschijnen in Mijn Nieuws en worden waar mogelijk gekoppeld aan een lopend verhaal. Je kunt de interesse later dempen of verwijderen.
+
 ## Verhaal en artikelcontext
 
 Een verhaal bundelt ontwikkelingen uit meerdere artikelen. Bij een afzonderlijk artikel ziet de lezer eerst wat er nieuw is, welke achtergrond nodig is om het te begrijpen en waarom het ertoe doet. Dezelfde verhaalpagina biedt meer diepgang.
