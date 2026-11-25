@@ -31,6 +31,17 @@ Filter op type locatie, muziekgenre, gratis toegang of een specifiek podium. Je 
 
 Toon aankomende filmreleases onder Films. **Voorstel:** begin met Nederlandse bioscoopreleases en toon titel, releasedatum, genre en bron. De landelijke releasedatum en een lokale voorstelling krijgen afzonderlijke labels. Laat de gebruiker filteren op genre en specifieke titels volgen of verbergen. Streamingreleases kunnen later als aparte optie worden toegevoegd.
 
+## Opslag en nieuwe zoekrondes
+
+NewsZoom bewaart gevonden podia, theaters, kroegen en evenementen blijvend in een database op de eigen Hetzner-server. De Uitagenda leest uit die database. Een eenmaal gevonden evenement blijft beschikbaar zonder dat een zoekopdracht het opnieuw hoeft te vinden. Na afloop verdwijnt het uit de aankomende agenda en blijft het bewaard.
+
+Bij een volgende zoekronde:
+
+1. Controleer of de bron, locatie of het evenement al bekend is. Gebruik voor evenementen bij voorkeur een vaste bron-ID of URL, met titel, locatie en aanvang als aanvullende kenmerken om vermeldingen uit verschillende bronnen te koppelen.
+2. Sla ongewijzigde duplicaten over en ga door naar andere evenementen of bronnen. Bewaar per bron waar de vorige zoekronde eindigde als de bron dat ondersteunt.
+3. Werk bij een nieuwe datum, locatie of annulering het bestaande item bij zodra de bron die wijziging meldt. Bewaar verschillende speeldata en festivaledities als afzonderlijke items.
+4. Gebruik bekende locaties als vaste bronnen voor nieuwe programma-items. Nieuwe zoekrondes kunnen zich richten op locaties en evenementen die nog ontbreken.
+
 ## Open vragen
 
-Welke bronnen leveren betrouwbare evenementendata, actuele verkeersinformatie en filmreleasekalenders? Hoe actueel moeten verstoringen zijn en hoe herken je dubbele vermeldingen?
+Welke bronnen leveren betrouwbare evenementendata, actuele verkeersinformatie en filmreleasekalenders? Hoe actueel moeten verstoringen zijn?
