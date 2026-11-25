@@ -11,6 +11,8 @@
 
 - De Uitagenda toont wat er vandaag, deze week of deze maand te doen is in een gekozen stad of land.
 
+- De Uitagenda maakt ook kleine theaters, buurtpodia en kroegen met liveconcerten vindbaar.
+
 ## Voorstellen
 
 - Mijn Nieuws en Ontdekken krijgen elk een eigen tabblad.
