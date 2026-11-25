@@ -1,0 +1,15 @@
+# MVP
+
+## Voorstel voor het eerste prototype
+
+- **Mijn Nieuws.** Laat de gebruiker een onderwerp volgen, een afzonderlijk verhaal volgen en een ongewenst verhaal dempen binnen een gevolgd onderwerp.
+- **Verhaalpagina.** Werk één lopend verhaal uit met drie updates, een gedeelde tijdlijn en een korte contextbriefing per update.
+- **Finance.** Maak één wekelijkse marktrecap en één koersgrafiek met tijdlijn. Neem een voorbeeld op waarin een ouder bericht opnieuw verschijnt en een vervolgartikel een concreet nieuw feit bevat.
+
+Begin met handmatig samengestelde en duidelijk gelabelde voorbeeldgegevens.
+
+## Wat willen we toetsen?
+
+- Een lezer kan na een week afwezigheid vertellen wat er gebeurd is en waarom het laatste nieuws ertoe doet.
+- Een gebruiker kan aangeven waarom een verhaal in de feed staat en het gericht dempen.
+- Een gebruiker kan bij een koersdaling zien hoeveel de koers bewoog, wat al bekend was en welke nieuwe informatie mogelijk meespeelde.
