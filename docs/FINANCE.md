@@ -8,6 +8,17 @@ Voor een gekozen periode, bijvoorbeeld vorige week, ziet de gebruiker hoeveel de
 
 Koppel een koersgrafiek aan een nieuwstijdlijn. Bij een gekozen periode of beweging toont de app het rendement, een passende benchmark en relevante publicaties. Toon wanneer een bericht verscheen en of dat voor, tijdens of na de beursuren was. Bitcoin handelt doorlopend. Maak bij vergelijkingen duidelijk welke tijdzone en meetperiode gebruikt worden.
 
+## Koerswijziging per nieuwsbericht
+
+Toon per nieuwsbericht hoeveel procent de koers na publicatie is gestegen of gedaald. Vermeld steeds het meetvenster. **Voorstel:** bied bij aandelen de eerste handelsdag en vijf handelsdagen aan, en bij doorlopend verhandelde crypto 24 uur en zeven dagen. Gebruik de laatst beschikbare koers vóór publicatie als referentie en bereken de wijziging als `(eindkoers / referentiekoers − 1) × 100%`.
+
+Bij nieuws buiten beursuren begint het handelsvenster bij de eerstvolgende sessie. De referentie blijft de laatst beschikbare koers vóór publicatie, zodat een openingssprong meetelt. Vermeld bij ontbrekende of nog onvolledige koersdata dat de wijziging nog niet beschikbaar is.
+
+- **Tijdlijn.** Elk bericht toont de publicatietijd, het gekozen meetvenster en de procentuele koerswijziging, bijvoorbeeld **−2,4% na één handelsdag**.
+- **Grafiek.** Markeer de publicatie op de tijdas. Bij selectie toont de grafiek hetzelfde percentage en licht het de periode tussen de referentiekoers en eindkoers uit. Selectie in de tijdlijn opent dezelfde markering op de grafiek.
+
+Het percentage beschrijft de gemeten beweging na publicatie. De duiding vermeldt afzonderlijk welke nieuwe informatie en bredere marktbewegingen mogelijk meespeelden.
+
 ## Wat wist de markt al?
 
 1. **Eerder bekend.** Link naar de eerste publicatie en vermeld wat toen bekend was.
