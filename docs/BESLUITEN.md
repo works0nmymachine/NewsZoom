@@ -9,6 +9,8 @@
 
 - Agenda toont demonstraties, treinuitval, wegwerkzaamheden, festivals, open dagen en filmreleases. Gebruikers kunnen categorieën én specifieke evenementen kiezen of verbergen.
 
+- De Uitagenda toont wat er vandaag, deze week of deze maand te doen is in een gekozen stad of land.
+
 ## Voorstellen
 
 - Mijn Nieuws en Ontdekken krijgen elk een eigen tabblad.
