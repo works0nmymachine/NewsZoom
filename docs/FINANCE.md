@@ -19,6 +19,10 @@ Bij nieuws buiten beursuren begint het handelsvenster bij de eerstvolgende sessi
 
 Het percentage beschrijft de gemeten beweging na publicatie. De duiding vermeldt afzonderlijk welke nieuwe informatie en bredere marktbewegingen mogelijk meespeelden.
 
+## Bedrijven volgen zonder beurskoers
+
+Je kunt een bedrijf zoals Databricks als interesse toevoegen zonder een ticker op te geven. Finance toont relevante ontwikkelingen, zoals financieringsrondes, waarderingen met bron en datum, productnieuws en eventuele beursplannen. Een gemelde waardering is geen koerspunt. De koersgrafiek en procentuele koerswijziging worden beschikbaar zodra er betrouwbare koersdata voor het bedrijf zijn.
+
 ## Wat wist de markt al?
 
 1. **Eerder bekend.** Link naar de eerste publicatie en vermeld wat toen bekend was.
