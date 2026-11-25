@@ -12,6 +12,14 @@ Ontdekken geeft toegang tot belangrijk nieuws buiten je gevolgde interesses. Kie
 
 Bij elk geopend artikel is **Achtergrond** beschikbaar, ook voor een onderwerp dat je niet volgt. Kies **Kort**, **Deze week**, **Afgelopen maanden** of **Vanaf het begin**. De briefing sluit aan bij het artikel en gebruikt de beschikbare bronnen en verhaalcontext. Als er nog geen uitgebreid dossier is, toont NewsZoom welke achtergrond wel beschikbaar is en welke informatie ontbreekt.
 
+## Lokaal nieuws
+
+Kies in Ontdekken **Lokaal** om te zien wat er speelt in een buurt, dorp, stad of streek. Je kunt meerdere gebieden bewaren en ertussen wisselen, bijvoorbeeld je eigen buurt en de streek waar je werkt. Je kiest de gebieden zelf.
+
+NewsZoom verzamelt hiervoor nieuws uit onder meer lokale kranten, regionale omroepen, gemeenten en wijkorganisaties. Een bericht verschijnt bij het gebied waar het over gaat, ook als de uitgever elders gevestigd is. Maak onderscheid tussen journalistieke berichtgeving en mededelingen van bijvoorbeeld de gemeente.
+
+Je kunt ook lokaal wisselen tussen **Breed overzicht** en **Met mijn filters**. Zo kun je bijvoorbeeld meer lezen over bouwplannen en wegwerkzaamheden in je buurt, en een specifiek onderwerp verbergen. Bij elk artikel kun je dezelfde achtergrond opvragen als bij Nederland en Wereld, voor zover de bronnen dat ondersteunen.
+
 ## Je nieuwsfilter stap voor stap opbouwen
 
 NewsZoom verzamelt nieuws uit de volle breedte voor Nederland en Wereld, uit landelijke, regionale, internationale en gespecialiseerde bronnen. Persoonlijke voorkeuren bepalen welke berichten je ziet en hoe prominent ze verschijnen. Ze bepalen niet welke onderwerpen worden verzameld of doorzoekbaar blijven. De gebruiker bouwt het filter geleidelijk op en kan iedere keuze later aanpassen.
