@@ -12,6 +12,16 @@ Ontdekken geeft toegang tot belangrijk nieuws buiten je gevolgde interesses. Kie
 
 Bij elk geopend artikel is **Achtergrond** beschikbaar, ook voor een onderwerp dat je niet volgt. Kies **Kort**, **Deze week**, **Afgelopen maanden** of **Vanaf het begin**. De briefing sluit aan bij het artikel en gebruikt de beschikbare bronnen en verhaalcontext. Als er nog geen uitgebreid dossier is, toont NewsZoom welke achtergrond wel beschikbaar is en welke informatie ontbreekt.
 
+## Je nieuwsfilter stap voor stap opbouwen
+
+De dagoverzichten Nederland en Wereld beginnen met een brede selectie uit meerdere bronnen. De gebruiker bouwt daar geleidelijk een persoonlijk filter bovenop.
+
+- Per bericht kun je **Meer hiervan**, **Minder hiervan** of **Verbergen** kiezen. Geef aan of de keuze geldt voor dit verhaal, een onderwerp of een bron. Minder hiervan verlaagt de prioriteit. Verbergen sluit de gekozen selectie uit van de gefilterde weergave.
+- Met **Ik mis iets** kun je een onderwerp, ontwikkeling of bron toevoegen. NewsZoom zoekt ook buiten de bestaande bronnen naar passende berichten en laat voorbeelden zien voordat je de nieuwe voorkeur opslaat.
+- Via **Waarom zie ik dit?** toont NewsZoom welke voorkeur of algemene selectiecriteria meespeelden. In **Mijn filters** kun je iedere opgeslagen voorkeur bekijken, aanpassen of verwijderen. Een leesklik wijzigt je voorkeuren niet automatisch.
+
+**Voorstel:** zet bij Nederland en Wereld een schakelaar **Met mijn filters / Breed overzicht**. Het brede overzicht omzeilt persoonlijke filters, zodat je zelf kunt zien wat eruit valt. Het toont de beschikbare algemene selectie; ontbrekende berichtgeving kan via Ik mis iets aanleiding geven om meer bronnen te zoeken.
+
 ## Zelf een interesse toevoegen
 
 Met **Interesse toevoegen** kun je zelf een bedrijf, organisatie of onderwerp invoeren, bijvoorbeeld Databricks. Kies waar mogelijk een herkenbare match. Als die ontbreekt, kun je de naam opslaan en later aanpassen. De interesse verschijnt bij je voorkeuren, ook als er nog geen nieuws is gevonden. Relevante berichten verschijnen in Mijn Nieuws en worden waar mogelijk gekoppeld aan een lopend verhaal. Je kunt de interesse later dempen of verwijderen.
