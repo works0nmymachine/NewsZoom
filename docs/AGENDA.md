@@ -12,6 +12,14 @@ De Uitagenda helpt je iets te vinden om te doen in een gekozen stad of land. Kie
 
 **Voorstel:** geef de Uitagenda een eigen weergave binnen Agenda. Demonstraties en reisverstoringen blijven zichtbaar in het algemene agendaoverzicht wanneer de voorkeuren daarop aansluiten. Gebruik in de Uitagenda dezelfde categorie- en itemfilters. Toon bij filmreleases de releasedatum voor het gekozen land en eventuele lokale voorstellingen als afzonderlijke vermeldingen.
 
+## Kleine podia en livemuziek
+
+De Uitagenda moet ook voorstellingen in kleine theaters en optredens in kroegen, cafés en buurtpodia kunnen vinden. Neem bijvoorbeeld jamsessies, open mics en gratis optredens mee. Ook een optreden dat alleen op de eigen agenda van een café staat, moet vindbaar kunnen zijn.
+
+**Voorstel:** gebruik naast stadsagenda's ook de eigen agenda's en openbare aankondigingen van lokale podia, organisatoren en cafés. Link per optreden naar de oorspronkelijke aankondiging en vermeld wanneer die voor het laatst is gecontroleerd. Maak zichtbaar welke plaatsen en podia worden gevolgd, zodat de gebruiker de dekking kan inschatten.
+
+Filter op type locatie, muziekgenre, gratis toegang of een specifiek podium. Je kunt bijvoorbeeld een jazzcafé volgen en een ander podium verbergen.
+
 ## Persoonlijke filters
 
 - Kies regio's, plaatsen en relevante treintrajecten of wegen.
