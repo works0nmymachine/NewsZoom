@@ -6,7 +6,11 @@ De gebruiker volgt onderwerpen en afzonderlijke verhalen. Een onderwerp kan nieu
 
 Een gedempt verhaal verdwijnt uit Mijn Nieuws, ook als het binnen een gevolgd onderwerp valt. Je kunt bijvoorbeeld cultuur volgen en Eurovision dempen. Elke kaart toont één lopend verhaal met de laatste ontwikkeling en een korte uitleg van wat die verandert.
 
-**Voorstel:** bied een apart tabblad Ontdekken voor nieuws buiten de gevolgde onderwerpen. Een nieuw onderwerp verschijnt in Mijn Nieuws zodra de gebruiker het volgt.
+## Ontdekken: Nederland en Wereld
+
+Ontdekken geeft toegang tot belangrijk nieuws buiten je gevolgde interesses. Kies **Nederland** voor wat er vandaag in Nederland is gebeurd of **Wereld** voor de belangrijkste internationale ontwikkelingen. Volgen is niet nodig om een bericht te openen. **Voorstel:** bundel meerdere berichten over dezelfde ontwikkeling en selecteer op maatschappelijke impact, actualiteit en spreiding over onderwerpen. Een verhaal volgen kan rechtstreeks vanuit het overzicht.
+
+Bij elk geopend artikel is **Achtergrond** beschikbaar, ook voor een onderwerp dat je niet volgt. Kies **Kort**, **Deze week**, **Afgelopen maanden** of **Vanaf het begin**. De briefing sluit aan bij het artikel en gebruikt de beschikbare bronnen en verhaalcontext. Als er nog geen uitgebreid dossier is, toont NewsZoom welke achtergrond wel beschikbaar is en welke informatie ontbreekt.
 
 ## Zelf een interesse toevoegen
 
