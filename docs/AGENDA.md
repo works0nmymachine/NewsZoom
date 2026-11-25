@@ -19,6 +19,12 @@ De Uitagenda helpt je iets te vinden om te doen in een gekozen stad of land. Kie
 
 Gebruik ook de eigen agenda's van bedrijven, organisaties, wijkverenigingen en feestcomités als bron. Laat de gebruiker filteren op plaats of wijk en type activiteit, en een specifieke open dag of feestweek volgen of verbergen.
 
+## Corso’s, carnaval en andere lokale tradities
+
+Neem ook bloemencorso’s, carnavalsvieringen en -optochten, dorpskermissen, jaarmarkten en andere terugkerende lokale tradities op. Zoek daarvoor ook bij corsoverenigingen, carnavalsverenigingen en plaatselijke feestcomités.
+
+Een lokale editie is ook vindbaar bij de landselectie, zonder vooraf een plaats te kiezen. Zoektermen als `bloemencorso`, `corso` en `carnaval` vinden relevante evenementen binnen de gekozen periode en filters. Toon de plaats en datum per editie. Koppel losse optochten of programmaonderdelen aan het hoofdevenement wanneer de bron die relatie vermeldt.
+
 ## Kleine podia en livemuziek
 
 De Uitagenda moet ook voorstellingen in kleine theaters en optredens in kroegen, cafés en buurtpodia kunnen vinden. Neem bijvoorbeeld jamsessies, open mics en gratis optredens mee. Ook een optreden dat alleen op de eigen agenda van een café staat, moet vindbaar kunnen zijn.
