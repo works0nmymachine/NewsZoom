@@ -10,6 +10,8 @@
 
 Begin met handmatig samengestelde en duidelijk gelabelde voorbeeldgegevens.
 
+Neem voor de Uitagenda als proef één stad. Voeg minstens één voorstelling uit de eigen agenda van een klein theater toe en één liveoptreden dat alleen op de agenda van een café staat. Toets of beide via stad, datum en type locatie vindbaar zijn.
+
 ## Wat willen we toetsen?
 
 - Een lezer kan na een week afwezigheid vertellen wat er gebeurd is en waarom het laatste nieuws ertoe doet.
