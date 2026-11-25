@@ -35,6 +35,10 @@ Den Helder en Schiphol zijn voorbeelden. Pas dezelfde aanpak toe op andere plaat
 - **Zoeken in de Uitagenda.** Doorzoek titel, beschrijving, locatie, plaats, organisator en onderwerp. Ondersteun samenstellingen, schrijfvarianten en relevante verwante termen. Een opgeslagen Open Havendag in Den Helder moet vindbaar zijn met `haven`, `havendag` en `haven Den Helder`. Een opgeslagen rondleiding of open dag op Schiphol moet vindbaar zijn met `Schiphol`, ook als de titel de locatienaam niet bevat.
 - **Relevantie en dekking.** Geef directe matches voorrang op bredere associaties en respecteer de gekozen regio, periode en filters. Noteer welke bronnen al zijn gecontroleerd en waar landelijke of lokale dekking nog ontbreekt. Toon per evenement de oorspronkelijke bron en sla bekende ongewijzigde vermeldingen over.
 
+### Zoeken op land
+
+Een landselectie doorzoekt ook de evenementen uit lokale bronnen in steden en wijken binnen dat land. Bij **Nederland** moet een opgeslagen editie van het Dickens Festijn in Deventer zichtbaar kunnen zijn binnen de gekozen periode en filters, zonder dat je eerst Deventer selecteert of de naam van het evenement kent. Toon de plaats bij elk resultaat. Als je een zoekterm toevoegt, moeten binnen Nederland zowel `Dickens` als `Charles Dickens` het evenement kunnen vinden.
+
 ## Persoonlijke filters
 
 - Kies regio's, plaatsen en relevante treintrajecten of wegen.
