@@ -1,0 +1,577 @@
+{
+  "bronnen": [
+    {
+      "id": "parool",
+      "naam": "Het Parool",
+      "url": "https://www.parool.nl",
+      "soort": "journalistiek",
+      "gebied": "amsterdam"
+    },
+    {
+      "id": "at5",
+      "naam": "AT5",
+      "url": "https://www.at5.nl",
+      "soort": "journalistiek",
+      "gebied": "amsterdam"
+    },
+    {
+      "id": "nh-nieuws",
+      "naam": "NH Nieuws",
+      "url": "https://www.nhnieuws.nl",
+      "soort": "journalistiek",
+      "gebied": "amsterdam"
+    },
+    {
+      "id": "gemeente-amsterdam",
+      "naam": "Gemeente Amsterdam",
+      "url": "https://www.amsterdam.nl/nieuws/nieuwsoverzicht/",
+      "soort": "overheid",
+      "gebied": "amsterdam"
+    },
+    {
+      "id": "olvg",
+      "naam": "OLVG",
+      "url": "https://www.olvg.nl/nieuws/",
+      "soort": "organisatie",
+      "gebied": "amsterdam"
+    },
+    {
+      "id": "westerpost",
+      "naam": "De Westerpost (Nieuw-West)",
+      "url": "https://www.rodi.nl/amsterdam-nieuw-west",
+      "soort": "journalistiek",
+      "gebied": "amsterdam"
+    },
+    {
+      "id": "rodi-amsterdam-noord",
+      "naam": "Rodi Amsterdam-Noord",
+      "url": "https://www.rodi.nl/amsterdam-noord",
+      "soort": "journalistiek",
+      "gebied": "amsterdam"
+    },
+    {
+      "id": "weespernieuws",
+      "naam": "WeesperNieuws",
+      "url": "https://www.weespernieuws.nl",
+      "soort": "journalistiek",
+      "gebied": "amsterdam"
+    },
+    {
+      "id": "salto",
+      "naam": "SALTO, de omroep van Amsterdam",
+      "url": "https://www.salto.nl",
+      "soort": "organisatie",
+      "gebied": "amsterdam"
+    }
+  ],
+  "onderwerpen": [
+    {
+      "id": "zorg",
+      "naam": "Zorg"
+    },
+    {
+      "id": "verkeer",
+      "naam": "Verkeer"
+    },
+    {
+      "id": "veiligheid",
+      "naam": "Veiligheid"
+    },
+    {
+      "id": "wonen",
+      "naam": "Wonen"
+    },
+    {
+      "id": "gemeentepolitiek",
+      "naam": "Gemeentepolitiek"
+    },
+    {
+      "id": "cultuur",
+      "naam": "Cultuur"
+    }
+  ],
+  "verhalen": [
+    {
+      "id": "ams-olvg-spoedzorg-oost",
+      "titel": "OLVG wil spoedzorg in Oost sluiten en alles naar West halen",
+      "onderwerpen": [
+        "zorg"
+      ],
+      "reikwijdte": "lokaal",
+      "gebied": "amsterdam",
+      "laatsteOntwikkeling": "OLVG heeft het voornemen bekendgemaakt om vanaf 2032 de spoedeisende hulp en de huisartsenspoedpost bij het Oosterpark te sluiten en alle spoedzorg in OLVG West onder te brengen.",
+      "watVerandert": {
+        "tekst": "Voorlopig verandert er voor patiënten niets: tot 2032 blijven de SEH en de huisartsenspoedpost in Oost open. Daarna houdt Amsterdam drie SEH's over: OLVG West, BovenIJ in Noord en Amsterdam UMC locatie AMC. Wie in Oost woont en 's avonds, 's nachts of in het weekend een arts nodig heeft, belt nog steeds de huisartsenspoedpost, maar krijgt dan een afspraak op een van die drie locaties. OLVG Oost blijft open voor poliklinische zorg, onderzoeken en planbare operaties.",
+        "onzeker": "Het is een voorgenomen besluit: adviesorganen en medezeggenschap mogen nog reageren, en OLVG en de huisartsenposten verwachten pas in de loop van 2027 een definitief besluit. Hoe de spoedzorg bereikbaar blijft voor minder mobiele bewoners van Oost en mensen die van het ov afhankelijk zijn, wordt nog uitgewerkt.",
+        "bronnen": [
+          {
+            "bron": "olvg",
+            "titel": "Vanaf 2032 verplaatst OLVG alle spoedeisende zorg naar OLVG, locatie West",
+            "url": "https://www.olvg.nl/nieuws/vanaf-2032-verplaatst-olvg-alle-spoedeisende-zorg-naar-olvg-locatie-west/",
+            "datum": "2026-11-26"
+          },
+          {
+            "bron": "at5",
+            "titel": "OLVG wil stoppen met spoedzorg in Oost, vanaf 2032 alleen nog in West",
+            "url": "https://www.at5.nl/artikelen/241270/olvg-wil-stoppen-met-spoedzorg-in-oost-vanaf-2032-alleen-nog-in-west",
+            "datum": "2026-11-26"
+          }
+        ]
+      },
+      "partijen": [
+        {
+          "naam": "OLVG (raad van bestuur, voorzitter Wietske Vrijland)",
+          "belang": "Wil met schaars spoedpersoneel één veilige spoedlocatie overhouden in de nieuwbouw in West."
+        },
+        {
+          "naam": "Huisartsenposten Amsterdam (HpA)",
+          "belang": "Runt de huisartsenspoedpost in Oost en onderzocht met OLVG of daar kleinschalige spoedzorg kon blijven; nam het besluit samen met OLVG."
+        },
+        {
+          "naam": "Bewoners van Oost",
+          "belang": "Moeten na 2032 verder reizen voor een spoedconsult of SEH-bezoek; vooral lastig voor wie minder mobiel is."
+        },
+        {
+          "naam": "Ambulance Amsterdam",
+          "belang": "Moet patiënten uit Oost naar andere SEH's brengen; OLVG wil hier afspraken over maken."
+        },
+        {
+          "naam": "BovenIJ en Amsterdam UMC (AMC)",
+          "belang": "Blijven samen met OLVG West de SEH's van de stad en vangen een deel van de patiëntenstroom op."
+        }
+      ],
+      "dossier": {
+        "kort": {
+          "tekst": "OLVG wil vanaf 2032 geen spoedeisende hulp meer bieden op de locatie in Oost bij het Oosterpark. Ook de huisartsenspoedpost daar verdwijnt dan. Het ziekenhuis noemt het tekort aan gespecialiseerd personeel en de groeiende, ouder wordende bevolking als redenen: twee volwaardige spoedlocaties bemensen houdt het niet meer vol. Alle acute zorg gaat naar de nieuwbouw in OLVG West. Het gaat nog om een voornemen; een definitief besluit volgt naar verwachting in 2027.",
+          "bronnen": [
+            {
+              "bron": "olvg",
+              "titel": "Vanaf 2032 verplaatst OLVG alle spoedeisende zorg naar OLVG, locatie West",
+              "url": "https://www.olvg.nl/nieuws/vanaf-2032-verplaatst-olvg-alle-spoedeisende-zorg-naar-olvg-locatie-west/",
+              "datum": "2026-11-26"
+            },
+            {
+              "bron": "at5",
+              "titel": "OLVG wil stoppen met spoedzorg in Oost, vanaf 2032 alleen nog in West",
+              "url": "https://www.at5.nl/artikelen/241270/olvg-wil-stoppen-met-spoedzorg-in-oost-vanaf-2032-alleen-nog-in-west",
+              "datum": "2026-11-26"
+            }
+          ]
+        },
+        "dezeWeek": {
+          "tekst": "Op 26 november maakten OLVG en Huisartsenposten Amsterdam het voorgenomen besluit bekend. Ze hadden ook onderzocht of in Oost een kleinere vorm van spoedzorg kon blijven, maar vonden dat te kwetsbaar omdat er te weinig mensen met specifieke SEH-kennis zouden overblijven. Volgens OLVG doet de keuze 'pijn in het hart', maar is het nodig om de spoedzorg veilig te houden.\n\nNa 2032 blijven er in Amsterdam drie SEH's over: OLVG West, BovenIJ en het AMC. In Oost blijven wel een spoedinterventieteam en een reanimatieteam voor patiënten die al in het ziekenhuis zijn. AT5 wees erop dat de stad hiermee in een paar jaar tijd een derde SEH kwijtraakt. Het Parool ging een dag later in op de vraag waarom de SEH in Oost volgens het ziekenhuis niet open kan blijven.",
+          "bronnen": [
+            {
+              "bron": "olvg",
+              "titel": "Vanaf 2032 verplaatst OLVG alle spoedeisende zorg naar OLVG, locatie West",
+              "url": "https://www.olvg.nl/nieuws/vanaf-2032-verplaatst-olvg-alle-spoedeisende-zorg-naar-olvg-locatie-west/",
+              "datum": "2026-11-26"
+            },
+            {
+              "bron": "at5",
+              "titel": "OLVG wil stoppen met spoedzorg in Oost, vanaf 2032 alleen nog in West",
+              "url": "https://www.at5.nl/artikelen/241270/olvg-wil-stoppen-met-spoedzorg-in-oost-vanaf-2032-alleen-nog-in-west",
+              "datum": "2026-11-26"
+            },
+            {
+              "bron": "parool",
+              "titel": "Voor een gebroken been of een hartstilstand moeten Amsterdammers vanaf 2032 naar OLVG West: waarom de SEH in Oost niet open kan blijven",
+              "url": "https://www.parool.nl/amsterdam/voor-een-gebroken-been-of-een-hartstilstand-moeten-amsterdammers-vanaf-2032-naar-olvg-west-waarom-de-seh-in-oost-niet-open-kan-blijven~bdc4aea1/",
+              "datum": "2026-11-27"
+            }
+          ]
+        },
+        "afgelopenMaanden": {
+          "tekst": "De verschuiving van acute zorg tussen de twee OLVG-locaties is niet nieuw. Sinds 1 januari 2026 concentreert OLVG de acute hartzorg op locatie Oost, zo meldde het ziekenhuis aan verwijzers in de nieuwsbrief van december 2025. In de maanden voor de aankondiging onderzochten OLVG en de huisartsenposten samen wat er na 2032 in Oost aan spoedzorg zou kunnen blijven; de uitkomst was dat dat niet veilig te organiseren is.\n\nHet besluit hangt samen met de nieuwbouw in West, die volgens OLVG in 2032 klaar is. Die locatie moet dan het centrum worden voor complexe acute zorg, met een grote intensive care, SEH, spoedoperatiekamers, Eerste Hart Hulp en geboortezorg.",
+          "bronnen": [
+            {
+              "bron": "olvg",
+              "titel": "Verwijsnieuws: december 2025",
+              "url": "https://olvg.nl/media/p0an0khj/verwijsnieuws-olvg-december-2025-aanpassing-foto-astma.pdf",
+              "datum": "2025-12-01"
+            },
+            {
+              "bron": "olvg",
+              "titel": "Vanaf 2032 verplaatst OLVG alle spoedeisende zorg naar OLVG, locatie West",
+              "url": "https://www.olvg.nl/nieuws/vanaf-2032-verplaatst-olvg-alle-spoedeisende-zorg-naar-olvg-locatie-west/",
+              "datum": "2026-11-26"
+            }
+          ]
+        },
+        "vanafBegin": {
+          "tekst": "Amsterdam heeft de afgelopen jaren al vaker spoedzorg zien verdwijnen. In 2018 sloot met het Slotervaartziekenhuis een SEH, en in 2023 bracht het VUmc zijn spoedzorg onder bij het AMC. Het voornemen van OLVG zou de derde sluiting in korte tijd zijn.\n\nPersoneelstekorten speelden bij OLVG al langer. In februari 2024 kondigde het ziekenhuis aan dat de geboortezorg in West zou sluiten en alleen in Oost doorging, omdat er te weinig personeel was, onder meer neonatologieverpleegkundigen. OLVG zei toen dat de dure stad het moeilijk maakt om zorgpersoneel aan te trekken en sprak met de gemeente over oplossingen zoals woningen voor zorgmedewerkers. Wat op het spel staat: of iedere Amsterdammer, ook in Oost, snel genoeg bij een SEH kan komen.",
+          "bronnen": [
+            {
+              "bron": "at5",
+              "titel": "OLVG wil stoppen met spoedzorg in Oost, vanaf 2032 alleen nog in West",
+              "url": "https://www.at5.nl/artikelen/241270/olvg-wil-stoppen-met-spoedzorg-in-oost-vanaf-2032-alleen-nog-in-west",
+              "datum": "2026-11-26"
+            },
+            {
+              "bron": "nh-nieuws",
+              "titel": "Binnenkort geen geboortes meer in Amsterdamse OLVG West, alleen in locatie Oost",
+              "url": "https://www.nhnieuws.nl/nieuws/332466/binnenkort-geen-geboortes-meer-in-olvg-west-alleen-in-locatie-oost",
+              "datum": "2024-02-23"
+            }
+          ]
+        }
+      },
+      "correcties": [
+        {
+          "datum": "2026-11-27",
+          "was": "Voorbeeld: een eerdere samenvatting noemde niet wanneer het definitieve besluit over de SEH in Oost wordt verwacht.",
+          "wordt": "Voorbeeld: aangevuld dat OLVG en Huisartsenposten Amsterdam het definitieve besluit in de loop van volgend jaar verwachten.",
+          "bron": {
+            "bron": "olvg",
+            "titel": "Vanaf 2032 verplaatst OLVG alle spoedeisende zorg naar OLVG, locatie West",
+            "url": "https://www.olvg.nl/nieuws/vanaf-2032-verplaatst-olvg-alle-spoedeisende-zorg-naar-olvg-locatie-west/",
+            "datum": "2026-11-26"
+          },
+          "voorbeeld": true
+        }
+      ]
+    },
+    {
+      "id": "ams-a10-zuidasdok-afsluiting",
+      "titel": "Weekendafsluiting A10 West richting Zuid voor Zuidasdok",
+      "onderwerpen": [
+        "verkeer"
+      ],
+      "reikwijdte": "lokaal",
+      "gebied": "amsterdam",
+      "laatsteOntwikkeling": "Van vrijdagavond 27 november tot maandagochtend 30 november is de verbinding van de A10 West naar de A10 Zuid dicht, omdat bij knooppunt De Nieuwe Meer onderdelen van een nieuw viaduct worden geplaatst.",
+      "watVerandert": {
+        "tekst": "Het gaat om de buitenring van de A10 West naar de A10 Zuid en oprit S107, van vrijdag 22.00 uur tot maandag 05.00 uur; de binnenring blijft open. Verkeer wordt via de A9 omgeleid en moet rekenen op 10 tot 30 minuten extra reistijd. De afsluiting hoort bij Zuidasdok, het project van Rijkswaterstaat, ProRail en de gemeente om de A10 Zuid te verbreden, dat tot 2036 loopt.",
+        "onzeker": "Of en wanneer er nieuwe weekendafsluitingen rond De Nieuwe Meer volgen, staat niet in deze berichten.",
+        "bronnen": [
+          {
+            "bron": "at5",
+            "titel": "A10 West naar A10 Zuid dit weekend dicht, tot halfuur langer onderweg",
+            "url": "https://www.at5.nl/artikelen/241203/a10-west-naar-a10-zuid-dit-weekend-dicht-tot-halfuur-langer-onderweg",
+            "datum": "2026-11-23"
+          },
+          {
+            "bron": "gemeente-amsterdam",
+            "titel": "A10 West naar A10 Zuid afgesloten van 27 tot 30 november",
+            "url": "https://www.amsterdam.nl/nieuws/nieuwsoverzicht/a10-west-a10-zuid-afgesloten-november/",
+            "datum": "2026-11-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ams-roltrap-bijlmer-arena",
+      "titel": "Op hol geslagen roltrap bij station Bijlmer ArenA",
+      "onderwerpen": [
+        "verkeer",
+        "veiligheid"
+      ],
+      "reikwijdte": "lokaal",
+      "gebied": "amsterdam",
+      "laatsteOntwikkeling": "ProRail heeft op 26 november meerdere roltrappen op station Bijlmer ArenA buiten werking gesteld, vier dagen nadat acht mensen gewond raakten toen een roltrap plotseling op hol sloeg.",
+      "watVerandert": {
+        "tekst": "De drie roltrappen naar de sporen 2 en 3 staan stil: één voor gepland onderhoud, één vanwege het ongeluk en één uit voorzorg omdat er speling is gevonden. De roltrappen naar de sporen 1, 6, 7 en 8 zijn vergrendeld en alleen nog als gewone trap te gebruiken. Bij drukte zet ProRail mensen in om de reizigersstromen te begeleiden.",
+        "onzeker": "De oorzaak is nog onbekend; ProRail en de Arbeidsinspectie doen onderzoek. Ook is nog niet duidelijk waarom de roltrap na een eerste incident, tien minuten eerder, niet direct werd afgezet.",
+        "bronnen": [
+          {
+            "bron": "nh-nieuws",
+            "titel": "Roltrappen op Amsterdams station uitgezet na ongeluk met zwaargewonden",
+            "url": "https://www.nhnieuws.nl/nieuws/365850/roltrappen-op-amsterdams-station-uitgezet-na-ongeluk-met-zwaargewonden",
+            "datum": "2026-11-26"
+          },
+          {
+            "bron": "at5",
+            "titel": "Roltrap sloeg twee keer op hol, maar bleef in gebruik: ''Ik loop er nu met angst overheen''",
+            "url": "https://www.at5.nl/artikelen/241205/roltrap-sloeg-twee-keer-op-hol-maar-bleef-in-gebruik-ik-loop-er-nu-met-angst-overheen",
+            "datum": "2026-11-23"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ams-azc-willinklaan",
+      "titel": "Azc Willinklaan in Osdorp blijft waarschijnlijk nog tien tot vijftien jaar",
+      "onderwerpen": [
+        "wonen",
+        "gemeentepolitiek"
+      ],
+      "reikwijdte": "lokaal",
+      "gebied": "amsterdam",
+      "laatsteOntwikkeling": "De gemeente wil het azc aan de Willinklaan in Osdorp minstens tien jaar langer openhouden, met een optie op nog vijf jaar, zo schreef wethouder Pels aan de gemeenteraad.",
+      "watVerandert": {
+        "tekst": "Bij de opening in 2018 kreeg de buurt te horen dat de opvang tijdelijk was en zou sluiten zodra het nieuwe azc in de Houthaven open is; dat gaat nu niet door. Het aantal bewoners moet van zo'n 700 naar 650. Het COA gaat er meer alleenstaanden en minder gezinnen plaatsen, betaalt voor taallessen en jongerenwerk en laat de pendelbus blijven rijden. De gemeente zegt de plek nodig te hebben om minder geschikte noodopvang te sluiten en aan de Spreidingswet te voldoen.",
+        "onzeker": "Volgens de gemeente gaat het om een verlenging die ze 'overweegt'; het besluit is dus nog niet definitief. Ook hangt veel af van andere locaties: de asielboot in het Westelijk Havengebied sluit volgens de wethouder in oktober 2027 en het azc aan de Hogehilweg mogelijk in 2028.",
+        "bronnen": [
+          {
+            "bron": "at5",
+            "titel": "Wethouder wil asielopvang in Osdorp nog maximaal 15 jaar openhouden",
+            "url": "https://www.at5.nl/artikelen/241217/wethouder-wil-asielopvang-in-osdorp-nog-maximaal-15-jaar-openhouden",
+            "datum": "2026-11-23"
+          },
+          {
+            "bron": "gemeente-amsterdam",
+            "titel": "Amsterdam overweegt verlenging azc Willinklaan",
+            "url": "https://www.amsterdam.nl/nieuws/nieuwsoverzicht/verlenging-azc-willinklaan/",
+            "datum": "2026-11-25"
+          },
+          {
+            "bron": "parool",
+            "titel": "Amsterdam houdt azc Willinklaan 10 tot 15 jaar langer open: ‘Door de landelijke chaos durf ik niet te beloven dat andere locaties sluiten’",
+            "url": "https://www.parool.nl/amsterdam/amsterdam-houdt-azc-willinklaan-10-tot-15-jaar-langer-open-door-de-landelijke-chaos-durf-ik-niet-te-beloven-dat-andere-locaties-sluiten~b267a60b/",
+            "datum": "2026-11-23"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ams-studentenwoningen",
+      "titel": "Gemeente betaalt mee aan 408 studentenwoningen",
+      "onderwerpen": [
+        "wonen"
+      ],
+      "reikwijdte": "lokaal",
+      "gebied": "amsterdam",
+      "laatsteOntwikkeling": "Amsterdam trekt 2 miljoen euro uit voor de bouw van 408 studentenwoningen met gedeelde voorzieningen, meldde Het Parool op 25 november.",
+      "watVerandert": {
+        "tekst": "Er komen 408 woningen voor studenten bij waarin bewoners voorzieningen delen; de gemeente draagt daar 2 miljoen euro aan bij.",
+        "onzeker": "Waar de woningen komen, wie ze bouwt en wanneer ze klaar zijn, kon NewsZoom niet controleren: de artikeltekst was niet bereikbaar, alleen de kop.",
+        "bronnen": [
+          {
+            "bron": "parool",
+            "titel": "Amsterdam trekt 2 miljoen euro uit voor 408 studentenwoningen met gedeelde voorzieningen",
+            "url": "https://www.parool.nl/amsterdam/amsterdam-trekt-2-miljoen-euro-uit-voor-408-studentenwoningen-met-gedeelde-voorzieningen~b873d7ff/",
+            "datum": "2026-11-25"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ams-music-on-evaluatie",
+      "titel": "Evaluatie van het afgelaste festival Music On",
+      "onderwerpen": [
+        "cultuur",
+        "veiligheid"
+      ],
+      "reikwijdte": "lokaal",
+      "gebied": "amsterdam",
+      "laatsteOntwikkeling": "Een gemeentelijke evaluatie concludeert dat de afgelasting van Music On in mei alle kenmerken had van een crisis, maar dat gemeente, Omgevingsdienst en organisatie daar niet naar handelden.",
+      "watVerandert": {
+        "tekst": "Burgemeester Halsema blies het tweedaagse festival op de ochtend van 9 mei af omdat er geen goedgekeurde vergunning lag voor een andere hoofdtent; 20.000 bezoekers werden teleurgesteld. Uit de evaluatie blijkt dat het wijzigingsverzoek voor de nieuwe tent bij de Omgevingsdienst in een al gesloten dossier belandde, waardoor meldingen niet aankwamen, en dat de technische gegevens van de tent onvolledig waren. Ook had de organisatie de tent niet mogen opbouwen zonder toestemming. De Omgevingsdienst heeft haar e-mailsysteem inmiddels aangepast en adviezen moeten voortaan begrijpelijker worden opgeschreven.",
+        "onzeker": "Welke andere aanbevelingen de gemeente overneemt en hoe de vergunningverlening voor grote festivals verder verandert, staat niet in de berichtgeving.",
+        "bronnen": [
+          {
+            "bron": "at5",
+            "titel": "Evaluatie afgelast festival Music On: doelgerichter handelen had veel kunnen voorkomen",
+            "url": "https://www.at5.nl/artikelen/241272/evaluatie-afgelast-festival-music-on-doelgerichter-handelen-had-veel-kunnen-voorkomen",
+            "datum": "2026-11-26"
+          },
+          {
+            "bron": "parool",
+            "titel": "Evaluatierapport over afgekeurde tent festival Music On: situatie had alle kenmerken van een crisis, maar niemand handelde daarnaar",
+            "url": "https://www.parool.nl/amsterdam/evaluatierapport-over-afgekeurde-tent-festival-music-on-situatie-had-alle-kenmerken-van-een-crisis-maar-niemand-handelde-daarnaar~b6a45910/",
+            "datum": "2026-11-26"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ams-jongerenwerk-nieuw-west",
+      "titel": "Gemeente grijpt in bij jongerenwerk Nieuw-West na signalen van witwassen",
+      "onderwerpen": [
+        "gemeentepolitiek",
+        "veiligheid"
+      ],
+      "reikwijdte": "lokaal",
+      "gebied": "amsterdam",
+      "laatsteOntwikkeling": "De rechtbank heeft de besturen van de stichtingen Be Ok en IMD, actief in het jongerenwerk in Nieuw-West, per direct geschorst; de gemeente stopt de samenwerking, vordert subsidie terug en doet aangifte.",
+      "watVerandert": {
+        "tekst": "Be Ok en IMD komen voor in een strafrechtelijk onderzoek naar een netwerk dat geldstromen voor criminele organisaties regelt. De oude bestuurders kunnen niet meer bij de bankrekeningen; tijdelijke onafhankelijke besturen nemen het over. Om te voorkomen dat het jongerenwerk stilvalt, komt er een overgangsperiode tot 1 juli 2027. De alliantie ONE, waar beide stichtingen deel van uitmaken, kreeg in 2025 zo'n 7,6 miljoen euro en in 2026 zo'n 6,9 miljoen euro subsidie.",
+        "onzeker": "Hoeveel geld mogelijk is weggevloeid, is niet bekend. Omdat de subsidie via penvoerder Combiwel loopt, kan de gemeente het geld voor Be Ok en IMD niet los intrekken zonder ook de rest van de alliantie te raken.",
+        "bronnen": [
+          {
+            "bron": "at5",
+            "titel": "Twee stichtingen in Nieuw-West mogelijk betrokken bij criminele activiteiten, gemeente doet aangifte",
+            "url": "https://www.at5.nl/artikelen/241276/twee-stichtingen-in-nieuw-west-mogelijk-betrokken-bij-criminele-activiteiten-gemeente-doet-aangifte",
+            "datum": "2026-11-26"
+          },
+          {
+            "bron": "westerpost",
+            "titel": "Miljoenen aan jongerenwerk mogelijk in crimineel circuit beland: gemeente grijpt in bij Be Ok en IMD",
+            "url": "https://www.rodi.nl/amsterdam-nieuw-west/nieuws/513827/miljoenen-aan-jongerenwerk-mogelijk-in-crimineel-circuit-beland-gemeente-grijpt-in-bij-be-ok-en-imd",
+            "datum": "2026-11-26"
+          }
+        ]
+      }
+    }
+  ],
+  "berichten": [
+    {
+      "id": "ams-b1",
+      "verhaal": "ams-olvg-spoedzorg-oost",
+      "titel": "Vanaf 2032 verplaatst OLVG alle spoedeisende zorg naar OLVG, locatie West",
+      "bron": "olvg",
+      "url": "https://www.olvg.nl/nieuws/vanaf-2032-verplaatst-olvg-alle-spoedeisende-zorg-naar-olvg-locatie-west/",
+      "gepubliceerd": "2026-11-26T12:00:00+01:00",
+      "samenvatting": "OLVG en Huisartsenposten Amsterdam willen vanaf 2032 alle spoedzorg uit Oost naar OLVG West verplaatsen, omdat twee spoedlocaties met het beschikbare personeel niet veilig te bemensen zijn. Oost blijft open voor poliklinische zorg en planbare operaties.",
+      "nieuw": "Het ziekenhuis maakt zelf het voorgenomen besluit bekend, met de stappen tot een definitief besluit in 2027.",
+      "soort": "mededeling",
+      "belang": 3
+    },
+    {
+      "id": "ams-b2",
+      "verhaal": "ams-olvg-spoedzorg-oost",
+      "titel": "OLVG wil stoppen met spoedzorg in Oost, vanaf 2032 alleen nog in West",
+      "bron": "at5",
+      "url": "https://www.at5.nl/artikelen/241270/olvg-wil-stoppen-met-spoedzorg-in-oost-vanaf-2032-alleen-nog-in-west",
+      "gepubliceerd": "2026-11-26T14:03:00+01:00",
+      "samenvatting": "AT5 meldt dat OLVG de SEH en de huisartsenspoedpost bij het Oosterpark wil sluiten wegens personeelskrapte en groeiende zorgvraag. Na het Slotervaart (2018) en het VUmc (2023) zou dit de derde SEH zijn die in korte tijd verdwijnt.",
+      "nieuw": "Plaatst het besluit naast eerdere SEH-sluitingen in de stad.",
+      "soort": "journalistiek",
+      "belang": 3
+    },
+    {
+      "id": "ams-b3",
+      "verhaal": "ams-olvg-spoedzorg-oost",
+      "titel": "Voor een gebroken been of een hartstilstand moeten Amsterdammers vanaf 2032 naar OLVG West: waarom de SEH in Oost niet open kan blijven",
+      "bron": "parool",
+      "url": "https://www.parool.nl/amsterdam/voor-een-gebroken-been-of-een-hartstilstand-moeten-amsterdammers-vanaf-2032-naar-olvg-west-waarom-de-seh-in-oost-niet-open-kan-blijven~bdc4aea1/",
+      "gepubliceerd": "2026-11-27T10:31:00+01:00",
+      "samenvatting": "Het Parool legt uit waarom de spoedeisende hulp in Oost volgens OLVG niet open kan blijven, en wat het betekent dat Amsterdammers vanaf 2032 voor bijvoorbeeld een gebroken been of hartstilstand naar West moeten.",
+      "nieuw": "Achtergrond bij de afweging, een dag na de aankondiging.",
+      "soort": "journalistiek",
+      "belang": 2
+    },
+    {
+      "id": "ams-b4",
+      "verhaal": "ams-a10-zuidasdok-afsluiting",
+      "titel": "A10 West naar A10 Zuid dit weekend dicht, tot halfuur langer onderweg",
+      "bron": "at5",
+      "url": "https://www.at5.nl/artikelen/241203/a10-west-naar-a10-zuid-dit-weekend-dicht-tot-halfuur-langer-onderweg",
+      "gepubliceerd": "2026-11-23T15:53:37+01:00",
+      "samenvatting": "Voor Zuidasdok gaat de buitenring van de A10 West naar de A10 Zuid een weekend dicht, inclusief oprit S107. Bij knooppunt De Nieuwe Meer worden met een grote kraan delen van een nieuwe fly-over geplaatst.",
+      "nieuw": "Nieuwe weekendafsluiting aangekondigd, met omleiding via de A9 en tot een half uur vertraging.",
+      "soort": "journalistiek",
+      "belang": 2
+    },
+    {
+      "id": "ams-b5",
+      "verhaal": "ams-a10-zuidasdok-afsluiting",
+      "titel": "A10 West naar A10 Zuid afgesloten van 27 tot 30 november",
+      "bron": "gemeente-amsterdam",
+      "url": "https://www.amsterdam.nl/nieuws/nieuwsoverzicht/a10-west-a10-zuid-afgesloten-november/",
+      "gepubliceerd": "2026-11-24T12:00:00+01:00",
+      "samenvatting": "De gemeente meldt dat de A10 West richting A10 Zuid van vrijdagavond 27 tot maandagochtend 30 november is afgesloten en vraagt weggebruikers rekening te houden met extra reistijd.",
+      "nieuw": "Officiële bevestiging van de afsluitingsdata.",
+      "soort": "mededeling",
+      "belang": 2
+    },
+    {
+      "id": "ams-b6",
+      "verhaal": "ams-roltrap-bijlmer-arena",
+      "titel": "Roltrap slaat op hol bij Bijlmer Arena: meerdere gewonden, onder wie twee zwaargewonden",
+      "bron": "at5",
+      "url": "https://www.at5.nl/artikelen/241191/roltrap-slaat-op-hol-bij-bijlmer-arena-meerdere-gewonden-onder-wie-twee-zwaargewonden",
+      "gepubliceerd": "2026-11-22T15:00:00+01:00",
+      "samenvatting": "Op station Bijlmer ArenA raakten acht mensen gewond toen een roltrap plotseling met hoge snelheid naar beneden ging, enkele uren voor Ajax-ADO. Twee van hen zijn zwaargewond maar niet in levensgevaar.",
+      "nieuw": "Eerste melding van het ongeluk; ProRail en de Arbeidsinspectie starten onderzoek.",
+      "soort": "journalistiek",
+      "belang": 3
+    },
+    {
+      "id": "ams-b7",
+      "verhaal": "ams-roltrap-bijlmer-arena",
+      "titel": "Roltrap sloeg twee keer op hol, maar bleef in gebruik: ''Ik loop er nu met angst overheen''",
+      "bron": "at5",
+      "url": "https://www.at5.nl/artikelen/241205/roltrap-sloeg-twee-keer-op-hol-maar-bleef-in-gebruik-ik-loop-er-nu-met-angst-overheen",
+      "gepubliceerd": "2026-11-23T18:05:15+01:00",
+      "samenvatting": "De roltrap sloeg binnen tien minuten twee keer op hol. Na het eerste incident werd de noodknop gebruikt, maar de trap werd niet afgezet; ProRail erkent dat dat beter direct had gekund.",
+      "nieuw": "Er blijkt een eerder incident te zijn geweest vóór het ongeluk met acht gewonden.",
+      "soort": "journalistiek",
+      "belang": 2
+    },
+    {
+      "id": "ams-b8",
+      "verhaal": "ams-roltrap-bijlmer-arena",
+      "titel": "Roltrappen op Amsterdams station uitgezet na ongeluk met zwaargewonden",
+      "bron": "nh-nieuws",
+      "url": "https://www.nhnieuws.nl/nieuws/365850/roltrappen-op-amsterdams-station-uitgezet-na-ongeluk-met-zwaargewonden",
+      "gepubliceerd": "2026-11-26T13:18:00+01:00",
+      "samenvatting": "ProRail zet de roltrappen naar de sporen 2 en 3 stil en vergrendelt die naar de sporen 1, 6, 7 en 8, zodat ze alleen als trap te gebruiken zijn. Bij een andere roltrap werd speling gevonden.",
+      "nieuw": "Maatregelen op het hele station, inclusief crowd control bij drukte.",
+      "soort": "journalistiek",
+      "belang": 2
+    },
+    {
+      "id": "ams-b9",
+      "verhaal": "ams-azc-willinklaan",
+      "titel": "Wethouder wil asielopvang in Osdorp nog maximaal 15 jaar openhouden",
+      "bron": "at5",
+      "url": "https://www.at5.nl/artikelen/241217/wethouder-wil-asielopvang-in-osdorp-nog-maximaal-15-jaar-openhouden",
+      "gepubliceerd": "2026-11-23T20:17:26+01:00",
+      "samenvatting": "Wethouder Pels wil het azc aan de Willinklaan, waar zo'n 700 asielzoekers wonen, nog tien jaar openhouden met een optie op vijf jaar extra. In 2018 was de buurt beloofd dat de opvang tijdelijk zou zijn.",
+      "nieuw": "De gemeente laat de belofte van sluiting bij opening van het azc Houthaven los.",
+      "soort": "journalistiek",
+      "belang": 2
+    },
+    {
+      "id": "ams-b10",
+      "verhaal": "ams-azc-willinklaan",
+      "titel": "Amsterdam overweegt verlenging azc Willinklaan",
+      "bron": "gemeente-amsterdam",
+      "url": "https://www.amsterdam.nl/nieuws/nieuwsoverzicht/verlenging-azc-willinklaan/",
+      "gepubliceerd": "2026-11-25T12:00:00+01:00",
+      "samenvatting": "De gemeente schrijft dat ze verlenging van het azc Willinklaan overweegt, omdat de plek nodig is om minder geschikte noodopvang te sluiten en aan de Spreidingswet te voldoen.",
+      "nieuw": "De gemeente geeft haar eigen onderbouwing en spreekt van een overweging, niet van een besluit.",
+      "soort": "mededeling",
+      "belang": 2
+    },
+    {
+      "id": "ams-b11",
+      "verhaal": "ams-studentenwoningen",
+      "titel": "Amsterdam trekt 2 miljoen euro uit voor 408 studentenwoningen met gedeelde voorzieningen",
+      "bron": "parool",
+      "url": "https://www.parool.nl/amsterdam/amsterdam-trekt-2-miljoen-euro-uit-voor-408-studentenwoningen-met-gedeelde-voorzieningen~b873d7ff/",
+      "gepubliceerd": "2026-11-25T17:43:11+01:00",
+      "samenvatting": "Volgens Het Parool stelt de gemeente 2 miljoen euro beschikbaar voor 408 studentenwoningen waarin bewoners voorzieningen delen.",
+      "nieuw": "Gemeentelijk geld voor een nieuw blok studentenhuisvesting.",
+      "soort": "journalistiek",
+      "belang": 1
+    },
+    {
+      "id": "ams-b12",
+      "verhaal": "ams-music-on-evaluatie",
+      "titel": "Evaluatie afgelast festival Music On: doelgerichter handelen had veel kunnen voorkomen",
+      "bron": "at5",
+      "url": "https://www.at5.nl/artikelen/241272/evaluatie-afgelast-festival-music-on-doelgerichter-handelen-had-veel-kunnen-voorkomen",
+      "gepubliceerd": "2026-11-26T17:30:00+01:00",
+      "samenvatting": "De gemeentelijke evaluatie van het op het laatste moment afgelaste festival Music On wijst zowel de vergunningverleners als de organisatie aan. Een wijzigingsverzoek voor de tent belandde in een gesloten dossier en het advies aan de burgemeester was vol vakjargon.",
+      "nieuw": "Voor het eerst is op een rij gezet hoe het misging, met lessen voor volgende festivals.",
+      "soort": "journalistiek",
+      "belang": 2
+    },
+    {
+      "id": "ams-b13",
+      "verhaal": "ams-jongerenwerk-nieuw-west",
+      "titel": "Twee stichtingen in Nieuw-West mogelijk betrokken bij criminele activiteiten, gemeente doet aangifte",
+      "bron": "at5",
+      "url": "https://www.at5.nl/artikelen/241276/twee-stichtingen-in-nieuw-west-mogelijk-betrokken-bij-criminele-activiteiten-gemeente-doet-aangifte",
+      "gepubliceerd": "2026-11-26T16:25:25+01:00",
+      "samenvatting": "De gemeente denkt dat Be Ok en IMD subsidie voor jongerenwerk mogelijk voor criminele doeleinden hebben gebruikt. De rechtbank schorste de besturen; wethouder Lahlah wil dat het jongerenwerk zoveel mogelijk doorgaat.",
+      "nieuw": "Ingrijpen na een politierapportage van 21 oktober; de gemeente had al sinds 2024 signalen.",
+      "soort": "journalistiek",
+      "belang": 3
+    },
+    {
+      "id": "ams-b14",
+      "verhaal": "ams-jongerenwerk-nieuw-west",
+      "titel": "Miljoenen aan jongerenwerk mogelijk in crimineel circuit beland: gemeente grijpt in bij Be Ok en IMD",
+      "bron": "westerpost",
+      "url": "https://www.rodi.nl/amsterdam-nieuw-west/nieuws/513827/miljoenen-aan-jongerenwerk-mogelijk-in-crimineel-circuit-beland-gemeente-grijpt-in-bij-be-ok-en-imd",
+      "gepubliceerd": "2026-11-26T18:37:19+01:00",
+      "samenvatting": "De Westerpost zet op een rij om hoeveel geld het gaat: de alliantie ONE kreeg in 2025 circa 7,6 miljoen en in 2026 circa 6,9 miljoen euro. Omdat Combiwel het geld verdeelt, is ingrijpen bij alleen Be Ok en IMD ingewikkeld.",
+      "nieuw": "Laat zien hoe de subsidieconstructie het terugvorderen bemoeilijkt.",
+      "soort": "journalistiek",
+      "belang": 2
+    }
+  ]
+}

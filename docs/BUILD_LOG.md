@@ -34,9 +34,9 @@ Op verzoek van de eigenaar zijn alle fases achter elkaar uitgevoerd.
 
 | Fase | Resultaat |
 | --- | --- |
-| Inhoud | Echte berichten en dossiers voor Oekraïne, Israël–Gaza, Jensen Huang/Nvidia, Vandaag (NL en Wereld), Amsterdam, Finance en Agenda, verzameld met webzoekopdrachten. Samenvattingen in eigen woorden, met links. |
+| Inhoud | Echte berichten en dossiers voor Oekraïne, Israël–Gaza, Jensen Huang/Nvidia, Vandaag (NL en Wereld), Amsterdam (7 verhalen, dossier over de OLVG-spoedzorg), Finance en Agenda, verzameld met webzoekopdrachten. Samenvattingen in eigen woorden, met links. |
 | Inloggen | craftstudio-account via Supabase password grant; eigen sessies (alleen tokenhash in de database); lokale testlogin alleen buiten productie. |
-| MVP | Vandaag, Mijn Nieuws, Ontdekken (Nederland, Wereld, Lokaal met wijken), verhaalpagina met vier achtergrondlagen en Sinds je laatste bezoek, Wat verandert dit?, correcties, Mijn filters, Waarom zie ik dit?, Breed overzicht, eigen interesses met voorproef, Bronnen in dit gebied en Bron toevoegen. |
+| MVP | Vandaag, Mijn Nieuws, Ontdekken (Nederland, Wereld, Lokaal: Amsterdam met Noord, Nieuw-West en Weesp, inclusief melding bij beperkte dekking), verhaalpagina met vier achtergrondlagen en Sinds je laatste bezoek, Wat verandert dit?, correcties, Mijn filters, Waarom zie ik dit?, Breed overzicht, eigen interesses met voorproef, Bronnen in dit gebied en Bron toevoegen. |
 | Ingest | `scripts/ingest-worker.mjs`: 14 feeds (NOS, NU.nl, Parool, BBC, Al Jazeera, Kyiv Independent, TechCrunch, Nvidia, Databricks e.a.), conditionele requests, ontdubbelen, bijwerken bij wijziging, bronstatus, koersen. AT5 (404) en gemeente Amsterdam (403) hebben geen werkende feed en tonen een mislukte controle. |
 | Finance | Watchlist, koersgrafiek met nieuwsmarkeringen, koerswijziging per bericht (1/5 handelsdagen, 24 uur/7 dagen), benchmark Nasdaq-100, Wat wist de markt al?, marktbeeld. Echte koersen van Nasdaq en CoinGecko. |
 | Agenda | Vandaag/Deze week/Later met verstoringen (gepland of actueel), categorieën aan/uit, evenement en podium volgen/verbergen (specifiek gaat voor categorie), Uitagenda per stad of land met periode, deelwoordzoeken en filters, Films. |
@@ -58,5 +58,6 @@ Op verzoek van de eigenaar zijn alle fases achter elkaar uitgevoerd.
 ### Bekende beperkingen
 
 - De voorbeeldset is een momentopname van 27 november 2026. Feedberichten worden niet automatisch aan verhalen gekoppeld en hebben geen eigen achtergrond.
+- Amsterdam: Parool-artikelen zijn alleen op kop en RSS-gegevens samengevat; de correctie in het OLVG-dossier is een gelabeld voorbeeld (geen echte correctie gevonden). De correcties bij Oekraïne, Israël–Gaza en Nvidia zijn echt.
 - Bronnen in de voorbeeldset: niet alle grote titels waren doorzoekbaar (o.a. Reuters, NRC, Volkskrant). Waar alleen een datum bekend was, staat 12:00 als tijd.
 - Marktbeeld: de cijfers komen uit de bronnen; de bijdrage per bedrijf aan de index is niet berekend.

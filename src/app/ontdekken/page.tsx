@@ -78,6 +78,9 @@ export default async function Ontdekken({ searchParams }: { searchParams: Zoek }
         <p className="melding">{verborgen} {verborgen === 1 ? 'bericht is' : 'berichten zijn'} verborgen door je filters. <Link href={url({ weergave: 'breed' })}>Bekijk in Breed overzicht</Link></p>
       )}
 
+      {r === 'lokaal' && gebied.ouder && gesorteerd.length > 0 && gesorteerd.length < 5 && (
+        <p className="melding"><strong>Beperkte dekking voor {gebied.naam}:</strong> {gesorteerd.length} {gesorteerd.length === 1 ? 'bericht noemt' : 'berichten noemen'} dit gebied. Wijkbronnen{gebied.wijkbronnen?.length ? ` zoals ${gebied.wijkbronnen.map((b) => inhoud.bronnen.get(b)?.naam ?? b).join(', ')}` : ''} worden nog niet automatisch gevolgd. <a href="#bronnen">Bron toevoegen</a></p>
+      )}
       {gesorteerd.length === 0 && <LeegOverzicht lokaal={r === 'lokaal'} gebiedNaam={gebied.naam} zoek={q} />}
 
       {belangrijk.length > 0 && <section className="sectie"><h2>Belangrijkste ontwikkelingen</h2>
@@ -98,7 +101,7 @@ function LeegOverzicht({ lokaal, gebiedNaam, zoek }: { lokaal: boolean; gebiedNa
   if (lokaal) return (
     <div className="leeg">
       <p><strong>Beperkte dekking voor {gebiedNaam}.</strong> Er zijn geen berichten gevonden die over dit gebied gaan.</p>
-      <p>Dat betekent niet dat er niets gebeurt: NewsZoom volgt hier alleen stadsbrede bronnen en nog geen wijkkrant of buurtorganisatie. Ken je een bron? Voeg hem hieronder toe.</p>
+      <p>Dat betekent niet dat er niets gebeurt: NewsZoom volgt hier alleen stadsbrede bronnen automatisch, nog geen wijkkrant of buurtorganisatie. Ken je een bron? Voeg hem hieronder toe.</p>
     </div>
   );
   return <p className="leeg">Geen nieuwe berichten gevonden.</p>;
