@@ -81,3 +81,16 @@ export async function interesseWijzig(form: FormData) {
   revalidatePath('/', 'layout');
   redirect(veiligTerug(form.get('terug')));
 }
+
+export async function watchlistActie(form: FormData) {
+  const g = await vereisGebruiker();
+  const instrument = String(form.get('instrument') ?? '').slice(0, 50);
+  if (!instrument) redirect('/finance');
+  if (form.get('wat') === 'volg') {
+    await pool().query(`INSERT INTO nz_watchlist (gebruiker, instrument) VALUES ($1, $2) ON CONFLICT DO NOTHING`, [g.id, instrument]);
+  } else {
+    await pool().query(`DELETE FROM nz_watchlist WHERE gebruiker = $1 AND instrument = $2`, [g.id, instrument]);
+  }
+  revalidatePath('/finance', 'layout');
+  redirect(veiligTerug(form.get('terug')));
+}
