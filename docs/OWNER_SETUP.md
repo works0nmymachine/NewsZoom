@@ -8,8 +8,10 @@ Wat de eigenaar zelf moet doen. Claude kan vanuit een cloudsessie niet via SSH b
 - [ ] Cloudflare volgens [SERVER_SETUP](SERVER_SETUP.md) §8: DNS-record, Full (strict), origin-certificaat.
 - [ ] GitHub-environment `production` met secrets en variables (hieronder).
 - [ ] Een craftstudio-account hebben (dezelfde login als de todo-app). Daarmee log je straks in op NewsZoom.
-- [ ] Inhoud voor de eerste proef kiezen (hieronder).
-- [ ] Later: provider en budget voor de LLM-duiding, en een bron voor koersdata.
+- [x] Inhoud voor de eerste proef kiezen: Amsterdam, Oekraïne, Israël–Gaza, Jensen Huang.
+- [ ] Eerste release: Actions → Deploy NewsZoom → Run workflow ([DEPLOYMENT](DEPLOYMENT.md)).
+- [ ] Optioneel: Android-sleutel en eerste APK ([ANDROID](ANDROID.md)).
+- [ ] Later: provider en budget voor de LLM-duiding. Koersdata komen zonder sleutel van Nasdaq en CoinGecko.
 
 ## GitHub: environment `production`
 
@@ -85,11 +87,3 @@ Pas nodig als de webapp draait.
 
 - **Android:** een eigen ondertekensleutel, als repository-secrets `ANDROID_KEYSTORE_BASE64` en `ANDROID_KEYSTORE_PASSWORD`. Bewaar de sleutel ook in je wachtwoordmanager: met een andere sleutel kun je de geïnstalleerde app niet bijwerken. Het maken van de sleutel gaat zoals in helpout `docs/ANDROID.md`, met alias `newszoom`.
 - **iPhone (optioneel):** een Mac met Xcode en een Apple Developer-account ($99 per jaar).
-
-## Inhoud voor de eerste proef
-
-De [MVP](MVP.md) gebruikt geen echte nieuwsfeeds, maar een kleine, handgemaakte set berichten. Daarvoor zijn drie keuzes nodig:
-
-1. **Lokaal gebied.** Welke plaats, wijk of streek wil je als voorbeeld zien bij Lokaal nieuws? Bijvoorbeeld je eigen woonplaats.
-2. **Dossiers.** Welke 2 à 3 lopende nieuwsverhalen wil je als voorbeeld uitgewerkt zien, met Kort, Deze week, Afgelopen maanden en Vanaf het begin? Bijvoorbeeld een kabinetsformatie, een oorlog of een lokaal bouwproject.
-3. **Echt of verzonnen.** Gebaseerd op echte gebeurtenissen (geloofwaardiger, maar Claude schrijft de samenvattingen en linkt naar echte bronnen) of volledig verzonnen (sneller, geen discussie over juistheid)? In beide gevallen staat er een label "voorbeelddata" bij.

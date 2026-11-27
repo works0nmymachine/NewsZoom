@@ -1,6 +1,6 @@
 # Deployment
 
-**Status: gebouwd, nog nooit uitgevoerd.** De workflow werkt pas als de server ([SERVER_SETUP](SERVER_SETUP.md)) en GitHub ([OWNER_SETUP](OWNER_SETUP.md)) zijn ingericht. Werkwijze en scripts volgen helpout.
+**Status: gebouwd, nog nooit uitgevoerd.** Lokaal getest: build, migraties, standalone server, healthcheck en de worker met alleen zijn eigen dependencies; `docker build` zelf niet (geen Docker in de ontwikkelomgeving). De workflow werkt pas als de server ([SERVER_SETUP](SERVER_SETUP.md)) en GitHub ([OWNER_SETUP](OWNER_SETUP.md)) zijn ingericht. Werkwijze en scripts volgen helpout.
 
 ## Beleid (vastgesteld 27 november 2026)
 
@@ -13,7 +13,7 @@
 1. Checks: `npm ci`, lint, typecheck, tests, `next build`. Faalt er iets, dan verandert er niets op de server.
 2. Configuratie controleren: secrets en variables aanwezig, SSH met vaste hostkey.
 3. Precies deze commit uploaden naar `/srv/newszoom/app/releases/COMMIT`.
-4. Op de server via `scripts/deploy.sh`: image bouwen, schemadump maken, migreren als rol `newszoom`, `NZ_TAG` omzetten, containers starten.
+4. Op de server via `scripts/deploy.sh`: image bouwen, schemadump maken, migreren als rol `newszoom`, `NZ_TAG` omzetten, containers starten: `app` (Next.js) en `ingest` (feeds en koersen).
 5. `/api/health` lokaal en publiek controleren op de juiste commit. Pas dan wordt `/srv/newszoom/deploy/last-successful` bijgewerkt.
 6. Bij een fout: vorige tag en compose terugzetten en opnieuw starten. De database wordt nooit automatisch teruggezet.
 
@@ -23,7 +23,8 @@
 | --- | --- |
 | `.github/workflows/deploy.yml` | Handmatige workflow: checks, upload, deploy, controle van buitenaf |
 | `scripts/deploy.sh` | Draait op de server als `deploy`: build, dump, migratie, start, health, terugdraaien bij fout |
-| `deploy/docker-compose.yml` | App op `127.0.0.1:${NZ_APP_PORT}`, 384 MiB, netwerk `supabase_default` |
+| `deploy/docker-compose.yml` | `app` op `127.0.0.1:${NZ_APP_PORT}` (384 MiB) en `ingest` (192 MiB), netwerk `supabase_default` |
+| `scripts/ingest-worker.mjs` | Feeds uit `data/feeds.json` elke 20 minuten, koersen elke 6 uur |
 | `Dockerfile` | Next.js standalone, met `scripts/` en `db/migrations/` |
 | `src/app/api/health/route.ts` | `{status, commit}` plus databasecheck |
 | `scripts/migrate.mjs` | Past `db/migrations/*.sql` toe, bijgehouden in `nz_migraties` |
@@ -41,3 +42,10 @@ docker rmi newszoom-app:OUDE_TAG
 ~~~
 
 Houd de huidige (`/srv/newszoom/app/.env`) en de vorige tag.
+
+## Na de eerste release
+
+- Inloggen: open https://newszoom.craftstudio.work en log in met je craftstudio-account.
+- Ingest controleren (als root): `newszoom-stack logs` toont per bron `{"nieuw":…}` of een fout. In de app: Ontdekken → Lokaal → Bronnen in dit gebied.
+- Instelbaar in `.env.newszoom` (optioneel): `NZ_INGEST_MINUTEN` (standaard 20), `NZ_KOERS_UREN` (6), `NZ_BEWAAR_DAGEN` (60), `NZ_USER_AGENT`. Na wijzigen: `newszoom-stack up`.
+- Nieuwe feed toevoegen: `data/feeds.json` aanpassen, committen en deployen.

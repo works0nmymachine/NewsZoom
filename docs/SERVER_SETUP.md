@@ -15,7 +15,7 @@ Stappen die afhangen van nog niet gebouwde code (Dockerfile, healthroute, deploy
 | Publiek IPv4 | 178.104.160.209 (uit de helpout-inventaris; controleren in §0) |
 | App-root | /srv/newszoom |
 | Compose-project | newszoom, plus extern netwerk supabase_default |
-| Services | newszoom-app (Next.js, containerpoort 3000); later newszoom-ingest |
+| Services | newszoom-app (Next.js, containerpoort 3000) en newszoom-ingest (feeds en koersen) |
 | Databaserol | newszoom (LOGIN, geen superuser, geen BYPASSRLS) |
 | Schema's | newszoom (tabellen) en newszoom_jobs (taakwachtrij) |
 | Wrappers | /usr/local/sbin/newszoom-db en newszoom-stack |
@@ -61,7 +61,7 @@ cd ~
 
 Noteer:
 
-- **Geheugen.** Op 17 november was 1,5 GiB van 3,7 GiB beschikbaar, vóór helpout live ging. NewsZoom vraagt 384 MiB (app) plus later ±256 MiB (ingest). Is `available` in `free -h` onder ±900 MiB: eerst overleggen (bijvoorbeeld een grotere Hetzner-server), niet doorgaan.
+- **Geheugen.** Op 17 november was 1,5 GiB van 3,7 GiB beschikbaar, vóór helpout live ging. NewsZoom vraagt 384 MiB (app) plus 192 MiB (ingest). Is `available` in `free -h` onder ±900 MiB: eerst overleggen (bijvoorbeeld een grotere Hetzner-server), niet doorgaan.
 - **Poort.** 8096 mag niet in `ss -tulnp` staan. Anders een andere vrije poort kiezen.
 - **Extensies.** `pg_trgm` en `vector` horen in de lijst te staan, met hun schema (meestal `extensions`).
 - **Rol/schema.** Geen regels met `bestaat al`. Wel: stoppen en beoordelen.
@@ -277,7 +277,8 @@ nano /srv/newszoom/app/.env.newszoom
 | APP_URL | https://newszoom.craftstudio.work | Nu |
 | CRAFTSTUDIO_AUTH_URL | http://supabase-kong:8000 | Nu |
 | CRAFTSTUDIO_AUTH_KEY | De publieke **anon key** van supabase.craftstudio.work (dezelfde als in de todo-app en helpout) | Nu |
-| Later | LLM-key, koersdata-key | Pas na besluit over provider |
+| NZ_INGEST_MINUTEN e.a. | Optioneel, zie [DEPLOYMENT](DEPLOYMENT.md) | Niet nodig |
+| Later | LLM-key | Pas na besluit over provider |
 
 Geen aanhalingstekens rond waarden: Docker `env_file` neemt ze letterlijk over. Nooit de service-role key.
 
@@ -510,9 +511,9 @@ diff -u /root/newszoom-setup/baseline-before.txt /root/newszoom-setup/baseline-a
 free -h
 ~~~
 
-## 12. Eerste release (pas als de code er is)
+## 12. Eerste release
 
-Vereist: Dockerfile, healthroute `/api/health`, `deploy/docker-compose.yml`, `scripts/deploy.sh` en de workflow **Deploy NewsZoom**. Starten: GitHub → Actions → Deploy NewsZoom → Run workflow → main.
+De code is er (Dockerfile, healthroute, compose, deployscript, workflow). Starten: GitHub → Actions → Deploy NewsZoom → Run workflow → main.
 
 ~~~bash
 source /root/newszoom-setup/values.sh

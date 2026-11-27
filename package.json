@@ -9,7 +9,8 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "test": "vitest run --passWithNoTests",
-    "migrate": "node scripts/migrate.mjs"
+    "migrate": "node --env-file-if-exists=.env.local scripts/migrate.mjs",
+    "ingest": "node --env-file-if-exists=.env.local scripts/ingest-worker.mjs"
   },
   "dependencies": {
     "fast-xml-parser": "5.12.1",

@@ -1,5 +1,7 @@
 # MVP
 
+**Status (27 november 2026): gebouwd, inclusief de vervolgproeven Finance en Agenda/Uitagenda. Nog niet uitgerold.** Proefinhoud: Amsterdam als lokaal gebied en dossiers over Oekraïne, Israël–Gaza en Jensen Huang/Nvidia, met echte berichten (zie [Besluiten](BESLUITEN.md)).
+
 ## Eerste proef
 
 Begin met **Vandaag**, één lokaal gebied en een paar lopende dossiers. Gebruik handmatig samengestelde, duidelijk gelabelde voorbeeldgegevens om de interacties te testen.

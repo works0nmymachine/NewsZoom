@@ -28,6 +28,8 @@
 - **Deployen:** alleen handmatig via de workflow Deploy NewsZoom. Een push start geen workflow, om Actions-minuten te sparen.
 - **Server:** inrichting volgens het helpout-patroon, zie [SERVER_SETUP](SERVER_SETUP.md).
 - **Platform:** één Next.js-webapp, installeerbaar als PWA, met een **Capacitor**-app als schil. De Capacitor-app laadt de live site (`server.url`), dus na een deploy is de app direct bijgewerkt. Pakketnaam `work.craftstudio.newszoom`, één vaste ondertekensleutel. Android eerst; iOS vraagt een Mac en een Apple Developer-account. Data loopt via API-routes en meldingen via Web Push, zodat native onderdelen later kunnen aanhaken.
+- **Eerste proef (27 november 2026):** lokaal gebied **Amsterdam**; dossiers **Oekraïne**, **Israël–Gaza** en **Jensen Huang/Nvidia**. Echt nieuws, geen verzonnen voorbeelden: samenvattingen in eigen woorden met links naar de oorspronkelijke berichten. De voorbeeldset is een momentopname; de ingest-worker vult aan met actuele feedberichten.
+- **Werkwijze:** alle bouwfases achter elkaar uitvoeren (27 november 2026).
 
 ## Voorstellen
 
@@ -42,4 +44,5 @@
 - Welke nieuws- en koersdatabronnen passen bij het product en welke gebruiksrechten zijn nodig?
 - Hoe worden artikelen aan verhalen gekoppeld en wie controleert context en koersduiding?
 - Welke LLM-provider en welk maandbudget voor briefings en duiding?
-- Inhoud van de eerste proef: welk lokaal gebied, welke dossiers, echte of verzonnen gebeurtenissen? Zie [OWNER_SETUP](OWNER_SETUP.md).
+- Wie houdt de dossiers bij na de momentopname? Handmatig, of later met een taalmodel en een controle vóór publicatie?
+- Moeten feedberichten automatisch aan lopende verhalen worden gekoppeld (taalmodel of embeddings)?

@@ -9,7 +9,7 @@ import type { Item } from '@/lib/inhoud';
 import { paginaContext } from '@/lib/pagina';
 import { wanneer } from '@/lib/weergave';
 
-type Zoek = Promise<{ r?: string; weergave?: string; q?: string; gebied?: string; bron?: string }>;
+type Zoek = Promise<{ r?: string; weergave?: string; q?: string; gebied?: string; bron?: string; n?: string }>;
 const REIKWIJDTE = { nederland: 'Nederland', wereld: 'Wereld', lokaal: 'Lokaal' } as const;
 
 export default async function Ontdekken({ searchParams }: { searchParams: Zoek }) {
@@ -41,7 +41,9 @@ export default async function Ontdekken({ searchParams }: { searchParams: Zoek }
     : sorteer(items.filter((i) => beoordeel(i, regels).zichtbaar), (i) => beoordeel(i, regels).gewicht);
   const verborgen = items.filter((i) => !beoordeel(i, regels).zichtbaar).length;
   const belangrijk = gesorteerd.filter((i) => i.belang >= 3);
-  const overig = gesorteerd.filter((i) => i.belang < 3);
+  const overigAlles = gesorteerd.filter((i) => i.belang < 3);
+  const aantal = Math.min(500, Math.max(30, Number(p.n) || 30));
+  const overig = overigAlles.slice(0, aantal);
 
   return (
     <main className="pagina">
@@ -83,6 +85,7 @@ export default async function Ontdekken({ searchParams }: { searchParams: Zoek }
       </section>}
       {overig.length > 0 && <section className="sectie"><h2>Alle berichten</h2>
         {overig.map((i: Item) => <BerichtKaart key={i.id} item={i} inhoud={inhoud} regels={regels} terug={hier} />)}
+        {overigAlles.length > overig.length && <p><Link className="knop" href={`${url({ n: String(aantal + 30) })}`}>Meer berichten ({overigAlles.length - overig.length})</Link></p>}
       </section>}
 
       {r === 'lokaal' && <BronnenPaneel gebiedId={gebied.ouder ?? gebied.id} gebiedNaam={gebied.naam} terug={hier} status={p.bron} />}

@@ -1,6 +1,6 @@
 # NewsZoom: projectopzet
 
-Bijgewerkt 27 november 2026. **Status: app-skelet gebouwd (startpagina, healthcheck, deploy). Nog niet uitgerold.** Zie [BUILD_LOG](BUILD_LOG.md).
+Bijgewerkt 27 november 2026. **Status: alle fases gebouwd en lokaal getest (zie [BUILD_LOG](BUILD_LOG.md)). Nog niet uitgerold.** Zie [BUILD_LOG](BUILD_LOG.md).
 
 ## Architectuur
 
@@ -13,58 +13,71 @@ Bijgewerkt 27 november 2026. **Status: app-skelet gebouwd (startpagina, healthch
 - Eén Next.js-app (`output: "standalone"`) in een Docker-container levert pagina's en API. Installeerbaar als PWA.
 - Een Capacitor-app (`work.craftstudio.newszoom`) als schil die de live site laadt. Android eerst. De schil komt nadat de webapp draait.
 
-**Voorstel:**
+**Gebouwd (27 november 2026):**
 
-- Een aparte **ingest-worker** (zelfde image, ander startcommando) haalt periodiek bronnen op (RSS/Atom, API's, openbare pagina's) en houdt per bron de laatste geslaagde controle bij. De server heeft geen `pg_cron`; de worker plant zelf.
+- Een aparte **ingest-worker** (zelfde image, ander startcommando) haalt elke 20 minuten de bronnen uit `data/feeds.json` op (RSS/Atom), slaat nieuwe en gewijzigde berichten op en houdt per bron de laatste (geslaagde) controle bij. Elke 6 uur haalt hij ook dagkoersen op (Nasdaq, CoinGecko; geen API-sleutel). De server heeft geen `pg_cron`; de worker plant zelf.
 - Directe PostgreSQL-verbinding (`pg`, `DATABASE_URL`) via Docker-netwerk `supabase_default` naar `supabase-db:5432`. Geen Supabase-API, geen service-role key.
-- Zoeken met `pg_trgm` (schrijfvarianten, deelwoorden zoals `haven` → `Open Havendag`). Artikelen aan verhalen koppelen kan later met `vector`. Beide extensies staan al op de server.
-- Het eerste prototype ([MVP](MVP.md)) gebruikt handmatig samengestelde, gelabelde voorbeelddata als seed in de database. De ingest-worker komt pas na de MVP.
+- Inhoud komt uit twee lagen: de **voorbeeldset** in `data/mvp/*.json` (echte berichten met dossiers, handmatig verzameld en in eigen woorden samengevat) en de **feeds** uit de database. Feedberichten worden nog niet automatisch aan verhalen gekoppeld; dat vraagt later een taalmodel of embeddings (`vector` staat al op de server).
+- Zoeken in de Uitagenda gebruikt deelwoorden en accentloze vergelijking in de app; `pg_trgm` is nog niet nodig.
 
 ## Onderdelen
 
-| Onderdeel | Doel | Wanneer |
+| Onderdeel | Waar | Status |
 | --- | --- | --- |
-| App | Vandaag, Mijn Nieuws, Ontdekken, Mijn filters, Achtergrond | MVP |
-| Inloggen | craftstudio-account via Supabase Auth password grant; NewsZoom bewaart alleen de gebruikers-id | MVP |
-| Database | Schema `newszoom` (data) en `newszoom_jobs` (taakwachtrij) | MVP |
-| Seed | Voorbeelddata, duidelijk gelabeld | MVP |
-| Ingest-worker | Bronnen ophalen, ontdubbelen, laatste controle bijhouden | Na MVP |
-| LLM-duiding | Briefings, afbakening van interesses, *Wat verandert dit?* | Na MVP; provider en budget open |
-| Koersdata | Finance | Vervolgproef; bron open |
-| Agenda-bronnen | Agenda en Uitagenda | Vervolgproef; bronnen open |
+| Inloggen | `src/lib/craftstudio.ts`, `src/lib/sessie.ts`, `/inloggen` | Gebouwd; craftstudio-login niet live getest |
+| Vandaag, Mijn Nieuws, Ontdekken, Lokaal | `src/app/` | Gebouwd |
+| Filterregels en Waarom zie ik dit? | `src/lib/filters.ts` | Gebouwd, getest |
+| Verhaalpagina met achtergrondlagen, Wat verandert dit?, correcties | `src/app/verhaal/[id]` | Gebouwd |
+| Eigen interesses met afbakening en voorproef | `/mijn-nieuws#interesse` | Gebouwd (zoektermen; geen taalmodel) |
+| Bronnen in dit gebied en Bron toevoegen | `/ontdekken?r=lokaal` | Gebouwd |
+| Ingest-worker | `scripts/ingest-worker.mjs`, `data/feeds.json` | Gebouwd, lokaal getest |
+| Finance: watchlist, grafiek, % per bericht, marktbeeld | `/finance`, `src/lib/koersmeting.ts` | Gebouwd, getest |
+| Agenda, Uitagenda, Films | `/agenda` | Gebouwd, getest |
+| Android-app | `capacitor.config.ts`, `android/`, [ANDROID](ANDROID.md) | Gebouwd, nog geen APK gemaakt |
+| LLM-duiding | – | Open: provider en budget |
 
-## Logisch gegevensmodel (voorstel, nog geen migraties)
+## Gegevens
 
-| Onderdeel | Doel |
+| Tabel | Inhoud |
 | --- | --- |
-| Bron | URL, type (krant, omroep, gemeente, vakmedium), gebied, laatste geslaagde/mislukte controle |
-| Artikel | Bron, URL, titel, publicatietijd, korte samenvatting; geen volledige tekst opslaan |
-| Verhaal | Lopende ontwikkeling die artikelen bundelt |
-| Ontwikkeling | Eén nieuw feit binnen een verhaal, met bronnen |
-| Onderwerp / interesse | Zelf toegevoegd of gekozen, met afbakening |
-| Gebied | Buurt, dorp, stad of streek |
-| Filterregel | Meer / minder / verbergen op verhaal, onderwerp of bron, per gebruiker |
-| Dossierlaag | Kort, Deze week, Afgelopen maanden, Vanaf het begin |
-| Correctie | Wat is aangepast, wanneer, op basis van welke bron |
-| Gebruiker | Supabase-gebruikers-id, gekozen gebieden, laatste leesmoment per verhaal |
+| `nz_gebruikers`, `nz_sessies` | Account (Supabase-gebruikers-id) en sessies (alleen hash van het token) |
+| `nz_filterregels` | Meer / Minder / Verbergen per verhaal, onderwerp of bron |
+| `nz_interesses` | Eigen interesses met zoektermen en uitsluitingen |
+| `nz_leesmomenten` | Laatste bezoek per verhaal, voor Sinds je laatste bezoek |
+| `nz_bronvoorstellen` | Voorgestelde bronnen (Bron toevoegen) |
+| `nz_feedbronnen`, `nz_feeditems` | Gevolgde feeds, controlestatus en opgehaalde berichten (60 dagen bewaard) |
+| `nz_koersen`, `nz_koersbronnen` | Dagkoersen en status van de koersbron |
+| `nz_watchlist`, `nz_agendakeuzes` | Watchlist en volgen/verbergen in Agenda |
 
-## Lokaal ontwikkelen (zodra de code er is)
+Voorbeeldset: `data/mvp/*.json`, beschreven in `src/lib/inhoud-types.ts` en `src/lib/finance-agenda-types.ts`. Elk bestand is een deel; de app voegt ze samen. `src/lib/inhoud.test.ts` controleert ids, verwijzingen, links en datums.
+
+## Lokaal ontwikkelen
 
 Node 22 en PostgreSQL 16 of nieuwer.
 
 ```bash
 npm install
 cp .env.example .env.local
-npm run migrate -- "$DATABASE_URL"
-npm run seed
+npm run migrate
 npm run dev
 ```
 
-## Bouwvolgorde (voorstel)
+Zonder craftstudio-instellingen toont `/inloggen` lokaal een knop **Inloggen als testgebruiker** (nooit in productie). Feeds en koersen lokaal ophalen:
 
-1. Repo-basis en serverdraaiboek (gedaan, alleen documenten).
-2. Server inrichten volgens [SERVER_SETUP](SERVER_SETUP.md) en GitHub volgens [OWNER_SETUP](OWNER_SETUP.md).
-3. App-skelet: Next.js, healthroute, Dockerfile, compose, deployscript, handmatige deployworkflow (gedaan). Eerste release met de startpagina om de keten te testen.
-4. Inloggen met craftstudio-account.
-5. MVP: Vandaag, filters, één lokaal gebied, een paar dossiers met voorbeelddata.
-6. Na de proef: ingest-worker met echte bronnen.
+```bash
+npm run ingest -- --once
+```
+
+Tests: `npm test`. Koersmomentopname vernieuwen: `node scripts/koersen-ophalen.mjs`.
+
+## Bouwvolgorde
+
+1. Repo-basis en serverdraaiboek. **Gedaan.**
+2. Server inrichten volgens [SERVER_SETUP](SERVER_SETUP.md) en GitHub volgens [OWNER_SETUP](OWNER_SETUP.md). **Eigenaar, open.**
+3. App-skelet met handmatige deploy. **Gedaan.**
+4. Inloggen met craftstudio-account. **Gedaan.**
+5. MVP: Vandaag, filters, Lokaal Amsterdam, dossiers met echte berichten. **Gedaan.**
+6. Ingest-worker met echte feeds. **Gedaan.**
+7. Vervolgproeven Finance en Agenda/Uitagenda. **Gedaan.**
+8. Android-app (Capacitor). **Gedaan; eerste APK via de workflow.**
+9. Daarna: eerste release, de proef een paar dagen gebruiken ([MVP](MVP.md)), en besluiten over LLM-duiding en automatisch koppelen van berichten aan verhalen.
