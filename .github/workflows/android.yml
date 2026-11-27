@@ -1,0 +1,74 @@
+name: Android-app (APK)
+# Alleen handmatig: Actions → Android-app (APK) → Run workflow.
+# Een nieuwe APK is alleen nodig als de schil verandert (naam, icoon, Capacitor-versie):
+# de app laadt de live site, dus een gewone deploy staat meteen ook in de app.
+on:
+  workflow_dispatch:
+    inputs:
+      versie:
+        description: 'Versienaam, bijvoorbeeld 0.2'
+        required: false
+        default: ''
+permissions:
+  contents: read
+concurrency:
+  group: newszoom-android
+  cancel-in-progress: false
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - run: npm ci
+      - run: npx cap sync android
+      - name: Versie bepalen
+        id: versie
+        run: |
+          v="${{ inputs.versie }}"
+          if [ -z "$v" ]; then v="0.1.${GITHUB_RUN_NUMBER}"; fi
+          [[ "$v" =~ ^[A-Za-z0-9._-]{1,32}$ ]]
+          echo "naam=$v" >> "$GITHUB_OUTPUT"
+      - name: Sleutel klaarzetten
+        id: sleutel
+        env:
+          KEYSTORE_B64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+        run: |
+          if [ -z "$KEYSTORE_B64" ] || [ -z "$KEYSTORE_PASSWORD" ]; then
+            echo "::warning::Geen ANDROID_KEYSTORE_BASE64/ANDROID_KEYSTORE_PASSWORD: dit wordt een debug-testversie. Zie docs/ANDROID.md."
+            echo "soort=debug" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "$KEYSTORE_B64" | base64 -d > "$RUNNER_TEMP/newszoom.keystore"
+          echo "NEWSZOOM_KEYSTORE=$RUNNER_TEMP/newszoom.keystore" >> "$GITHUB_ENV"
+          echo "soort=release" >> "$GITHUB_OUTPUT"
+      - name: APK bouwen
+        env:
+          NEWSZOOM_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          NEWSZOOM_VERSION_NAME: ${{ steps.versie.outputs.naam }}
+          NEWSZOOM_VERSION_CODE: ${{ github.run_number }}
+        run: |
+          cd android
+          chmod +x gradlew
+          if [ "${{ steps.sleutel.outputs.soort }}" = release ]; then ./gradlew assembleRelease --no-daemon; else ./gradlew assembleDebug --no-daemon; fi
+          cd ..
+          mkdir -p apk
+          cp android/app/build/outputs/apk/*/*.apk "apk/newszoom-${{ steps.versie.outputs.naam }}-${{ steps.sleutel.outputs.soort }}.apk"
+          ls -la apk
+      - name: Sleutel opruimen
+        if: always()
+        run: rm -f "$RUNNER_TEMP/newszoom.keystore"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: newszoom-apk
+          path: apk/*.apk
+          if-no-files-found: error
