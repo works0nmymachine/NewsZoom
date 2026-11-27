@@ -1,0 +1,413 @@
+{
+  "bronnen": [
+    {
+      "id": "euromaidan-press",
+      "naam": "Euromaidan Press",
+      "url": "https://euromaidanpress.com",
+      "soort": "journalistiek"
+    },
+    {
+      "id": "united24-media",
+      "naam": "United24 Media",
+      "url": "https://united24media.com",
+      "soort": "journalistiek"
+    },
+    {
+      "id": "meduza",
+      "naam": "Meduza",
+      "url": "https://meduza.io/en",
+      "soort": "journalistiek"
+    },
+    {
+      "id": "ukrinform",
+      "naam": "Ukrinform",
+      "url": "https://www.ukrinform.net",
+      "soort": "journalistiek"
+    },
+    {
+      "id": "euronews",
+      "naam": "Euronews",
+      "url": "https://www.euronews.com",
+      "soort": "journalistiek"
+    },
+    {
+      "id": "cnn",
+      "naam": "CNN",
+      "url": "https://edition.cnn.com",
+      "soort": "journalistiek"
+    },
+    {
+      "id": "european-pravda",
+      "naam": "European Pravda",
+      "url": "https://www.eurointegration.com.ua/eng/",
+      "soort": "journalistiek"
+    },
+    {
+      "id": "novaya-gazeta-europe",
+      "naam": "Novaya Gazeta Europe",
+      "url": "https://novayagazeta.eu",
+      "soort": "journalistiek"
+    },
+    {
+      "id": "al-jazeera",
+      "naam": "Al Jazeera",
+      "url": "https://www.aljazeera.com",
+      "soort": "journalistiek"
+    },
+    {
+      "id": "isw",
+      "naam": "Institute for the Study of War (via Critical Threats)",
+      "url": "https://www.criticalthreats.org",
+      "soort": "organisatie"
+    },
+    {
+      "id": "kyiv-independent",
+      "naam": "The Kyiv Independent",
+      "url": "https://kyivindependent.com",
+      "soort": "journalistiek"
+    },
+    {
+      "id": "itv",
+      "naam": "ITV News",
+      "url": "https://www.itv.com/news",
+      "soort": "journalistiek"
+    },
+    {
+      "id": "wikipedia",
+      "naam": "Wikipedia",
+      "url": "https://en.wikipedia.org",
+      "soort": "organisatie"
+    },
+    {
+      "id": "pbs",
+      "naam": "PBS NewsHour",
+      "url": "https://www.pbs.org/newshour",
+      "soort": "journalistiek"
+    },
+    {
+      "id": "us-news",
+      "naam": "U.S. News & World Report (Reuters-bericht)",
+      "url": "https://www.usnews.com",
+      "soort": "journalistiek"
+    }
+  ],
+  "onderwerpen": [
+    {
+      "id": "oorlog-en-conflict",
+      "naam": "Oorlog en conflict"
+    },
+    {
+      "id": "internationale-politiek",
+      "naam": "Internationale politiek"
+    }
+  ],
+  "verhalen": [
+    {
+      "id": "oorlog-oekraine",
+      "titel": "Oorlog in Oekraïne",
+      "onderwerpen": [
+        "oorlog-en-conflict",
+        "internationale-politiek"
+      ],
+      "reikwijdte": "wereld",
+      "laatsteOntwikkeling": "EU-leiders kregen in de nacht van 26 op 27 november een extra lening van 45 miljard euro voor Oekraïne niet rond omdat drie lidstaten niet meededen; het besluit schuift door naar december.",
+      "watVerandert": {
+        "tekst": "Militair en territoriaal: de frontlijn beweegt nauwelijks. Rusland boekt in 2026 per saldo heel weinig terreinwinst en verloor in september en oktober volgens het Institute for the Study of War zelfs grond. De strijd verschuift deels naar aanvallen over lange afstand: Oekraïne trof de Krimbrug, die op 17 november gedeeltelijk instortte, en meldt geregeld aanvallen op Russische olieraffinaderijen.\n\nVoor burgers: Russische raket- en droneaanvallen op steden en het energienet gaan in de aanloop naar de winter door en kosten bijna dagelijks levens. In Kryvyi Rih kwamen rond 21 november een jongen van zeven en een 20-jarige ambulancemedewerker om bij een aanval waarbij dezelfde plek herhaaldelijk werd getroffen; bijna zestig mensen raakten gewond, onder wie hulpverleners. Op 26 november vielen zeker drie doden, onder wie twee in een woongebouw in Charkiv. Voor de Oekraïense staat betekent het uitstel van de EU-lening dat het geld voor 2027 nog niet zeker is.",
+        "onzeker": "Of en wanneer er een nieuwe onderhandelingsronde komt, en of Europa daarbij aan tafel zit, is onduidelijk: de VS en Oekraïne willen dat, het Kremlin heeft het niet bevestigd. Ook onzeker is of de EU in december alsnog de lening van 45 miljard euro rondkrijgt, en hoe zwaar het Oekraïense energienet deze winter wordt geraakt. Slachtoffer- en verliescijfers van beide kanten zijn niet onafhankelijk te controleren.",
+        "bronnen": [
+          {
+            "bron": "euromaidan-press",
+            "titel": "EU leaders push Ukraine's €45 billion loan to December as three of 27 states hold out. Germany's Merz ties the bloc's budget to it",
+            "url": "https://euromaidanpress.com/2026/11/27/eu-leaders-push-ukraines-e45-billion-loan-to-december-as-three-of-27-states-hold-out-germanys-merz-ties-the-blocs-budget-to-it/",
+            "datum": "2026-11-27"
+          },
+          {
+            "bron": "cnn",
+            "titel": "Russian ‘triple-tap’ attack in Ukraine kills emergency worker and 7-year-old in Zelensky’s home city",
+            "url": "https://edition.cnn.com/2026/11/21/europe/kryvyi-rih-ukraine-russia-attack-intl",
+            "datum": "2026-11-21"
+          },
+          {
+            "bron": "novaya-gazeta-europe",
+            "titel": "Part of Crimean Bridge collapses after second Ukrainian attack in two days",
+            "url": "https://novayagazeta.eu/articles/2026/11/17/part-of-crimean-bridge-collapses-after-second-ukrainian-attack-in-two-days-en-news",
+            "datum": "2026-11-17"
+          },
+          {
+            "bron": "euronews",
+            "titel": "Russia launches ballistic missile and drone barrage on Ukraine, killing at least three",
+            "url": "https://euronews.com/2026/11/26/russia-launches-ballistic-missile-and-drone-barrage-on-ukraine-killing-at-least-three",
+            "datum": "2026-11-26"
+          },
+          {
+            "bron": "isw",
+            "titel": "Russian Offensive Campaign Assessment, November 1, 2026",
+            "url": "https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-november-1-2026",
+            "datum": "2026-11-01"
+          }
+        ]
+      },
+      "partijen": [
+        {
+          "naam": "Oekraïne (president Zelensky)",
+          "belang": "Wil een einde aan de gevechten langs de huidige frontlijn zonder bezette gebieden als Russisch te erkennen, eist stevige veiligheidsgaranties en wil Europa bij de onderhandelingen."
+        },
+        {
+          "naam": "Rusland (president Poetin)",
+          "belang": "Eist de hele Donbas, wil geen buitenlandse troepen in Oekraïne na een akkoord en houdt een Europese rol aan de onderhandelingstafel af."
+        },
+        {
+          "naam": "Verenigde Staten (president Trump, gezanten Witkoff en Kushner)",
+          "belang": "Bemiddelen tussen Kyiv en Moskou; lieten volgens de Financial Times zakelijke lokkertjes voor Rusland vallen en richten zich weer op grondgebied en veiligheid."
+        },
+        {
+          "naam": "EU en Europese landen, waaronder Nederland",
+          "belang": "Financieren en bewapenen Oekraïne en willen met een team van vijf grote landen plus de EU-instellingen mee onderhandelen, omdat de uitkomst ook hun eigen veiligheid raakt."
+        },
+        {
+          "naam": "Hongarije, Slowakije en Tsjechië",
+          "belang": "Deden niet mee aan de nieuwe EU-lening van 45 miljard euro, waardoor een besluit op de top van 26-27 november uitbleef."
+        },
+        {
+          "naam": "Oekraïense burgers",
+          "belang": "Dragen de gevolgen van aanhoudende aanvallen op woonwijken en het energienet, met stroomuitval in de winter."
+        }
+      ],
+      "dossier": {
+        "kort": {
+          "tekst": "Ruim vierenhalf jaar na de Russische invasie van 24 februari 2022 wordt er nog steeds gevochten, terwijl de VS een vredesregeling proberen te bemiddelen. Op het slagveld komt Rusland dit jaar nauwelijks vooruit: onafhankelijke schattingen komen uit op een nettowinst van ongeveer 117 vierkante kilometer in 2026. Tegelijk bestookt Rusland Oekraïense steden en het energienet met raketten en drones, en valt Oekraïne Russische raffinaderijen aan. Gesprekken in november leverden een grote gevangenenruil op maar geen doorbraak over grondgebied, en de EU kreeg op 26-27 november een nieuwe lening van 45 miljard euro voor Oekraïne nog niet rond.",
+          "bronnen": [
+            {
+              "bron": "al-jazeera",
+              "titel": "Ukraine claims record 3,000 Russian casualties in one day as war drags on",
+              "url": "https://www.aljazeera.com/news/2026/11/13/russias-demands-come-from-different-reality-as-war-efforts-stagnates",
+              "datum": "2026-11-13"
+            },
+            {
+              "bron": "meduza",
+              "titel": "Trump administration abandons business deals as incentive for Russia to end Ukraine war, shifts back to ‘land for peace’ approach, FT reports",
+              "url": "https://meduza.io/en/feature/2026/11/25/trump-administration-abandons-business-deals-as-incentive-for-russia-to-end-ukraine-war-shifts-back-to-land-for-peace-approach-ft-reports",
+              "datum": "2026-11-25"
+            },
+            {
+              "bron": "euromaidan-press",
+              "titel": "EU leaders push Ukraine's €45 billion loan to December as three of 27 states hold out. Germany's Merz ties the bloc's budget to it",
+              "url": "https://euromaidanpress.com/2026/11/27/eu-leaders-push-ukraines-e45-billion-loan-to-december-as-three-of-27-states-hold-out-germanys-merz-ties-the-blocs-budget-to-it/",
+              "datum": "2026-11-27"
+            },
+            {
+              "bron": "united24-media",
+              "titel": "EU Fails to Finalize €45B Ukraine Loan as Hungary, Slovakia and Czechia Hold Out",
+              "url": "https://united24media.com/world/eu-leaders-delay-eur45b-ukraine-loan-until-december-as-three-countries-hold-out-24771",
+              "datum": "2026-11-27"
+            },
+            {
+              "bron": "euronews",
+              "titel": "Russia launches ballistic missile and drone barrage on Ukraine, killing at least three",
+              "url": "https://euronews.com/2026/11/26/russia-launches-ballistic-missile-and-drone-barrage-on-ukraine-killing-at-least-three",
+              "datum": "2026-11-26"
+            }
+          ]
+        },
+        "dezeWeek": {
+          "tekst": "Op woensdag 25 november zei president Zelensky dat Kyiv wacht tot Washington een datum vastlegt voor een nieuwe gespreksronde met Rusland. Hij wil dat Europa daar mee aan tafel zit. Rusland heeft dat niet toegezegd; volgens Poetin beslist Moskou pas over de vorm van de gesprekken als er een datum is.\n\nDezelfde dag meldde de Financial Times, op basis van anonieme functionarissen, dat de regering-Trump het idee heeft laten varen om Rusland met zakelijke deals, zoals energie- en luchtvaartprojecten, tot vrede te bewegen. Moskou toonde weinig belangstelling. Washington richt zich nu weer op ruil van grondgebied en veiligheidsafspraken. Rusland blijft de hele Donbas eisen; Oekraïne wil het front bevriezen op de huidige lijn.\n\nIn Brussel lukte het de EU-leiders in de nacht van 26 op 27 november niet om een extra lening van maximaal 45 miljard euro voor Oekraïne in 2027 goed te keuren. Volgens Europees Raadsvoorzitter Costa stonden 24 van de 27 lidstaten erachter; Hongarije, Slowakije en Tsjechië deden niet mee en Bulgarije wilde alleen bijdragen aan het niet-militaire deel. Het besluit schuift door naar december. Ook over de EU-meerjarenbegroting voor 2028-2034 kwam geen akkoord.\n\nIntussen gingen de aanvallen door. Op 25 november vielen volgens Oekraïense autoriteiten zeker zeven doden in zes regio's, onder wie twee bij een aanval op een treinstation bij Lviv; Oekraïne meldde die dag aanvallen op drie Russische raffinaderijen. Een nachtelijke aanval met ballistische raketten en drones op 26 november kostte zeker drie mensen het leven, onder wie twee in een woongebouw in Charkiv.",
+          "bronnen": [
+            {
+              "bron": "ukrinform",
+              "titel": "Zelensky waiting for US to set date for next round of peace talks",
+              "url": "https://www.ukrinform.net/rubric-polytics/4188617-zelensky-waiting-for-us-to-set-date-for-next-round-of-peace-talks.html",
+              "datum": "2026-11-25"
+            },
+            {
+              "bron": "meduza",
+              "titel": "Trump administration abandons business deals as incentive for Russia to end Ukraine war, shifts back to ‘land for peace’ approach, FT reports",
+              "url": "https://meduza.io/en/feature/2026/11/25/trump-administration-abandons-business-deals-as-incentive-for-russia-to-end-ukraine-war-shifts-back-to-land-for-peace-approach-ft-reports",
+              "datum": "2026-11-25"
+            },
+            {
+              "bron": "euromaidan-press",
+              "titel": "EU leaders push Ukraine's €45 billion loan to December as three of 27 states hold out. Germany's Merz ties the bloc's budget to it",
+              "url": "https://euromaidanpress.com/2026/11/27/eu-leaders-push-ukraines-e45-billion-loan-to-december-as-three-of-27-states-hold-out-germanys-merz-ties-the-blocs-budget-to-it/",
+              "datum": "2026-11-27"
+            },
+            {
+              "bron": "euronews",
+              "titel": "Russian strikes kill seven in Ukraine as Kyiv hits three refineries",
+              "url": "https://www.euronews.com/2026/11/25/russian-strikes-kill-seven-in-ukraine-as-kyiv-hits-three-refineries",
+              "datum": "2026-11-25"
+            },
+            {
+              "bron": "euronews",
+              "titel": "Russia launches ballistic missile and drone barrage on Ukraine, killing at least three",
+              "url": "https://euronews.com/2026/11/26/russia-launches-ballistic-missile-and-drone-barrage-on-ukraine-killing-at-least-three",
+              "datum": "2026-11-26"
+            }
+          ]
+        },
+        "afgelopenMaanden": {
+          "tekst": "Het Russische offensief is de afgelopen maanden vrijwel tot stilstand gekomen. Volgens het Amerikaanse Institute for the Study of War (ISW) verloor Rusland in september en oktober per saldo terrein; in oktober ging het om een netto verlies van ongeveer 27 vierkante kilometer. Al Jazeera komt op basis van onafhankelijke schattingen uit op een Russische nettowinst van circa 117 vierkante kilometer over heel 2026, wat de zender een pover resultaat noemt. ISW concludeert dat Rusland in een groot deel van het front het initiatief kwijt is, behalve rond Dobropillia in de regio Donetsk. Oekraïne claimt dat Rusland daarbij zeer zware verliezen lijdt, maar die cijfers zijn niet onafhankelijk te controleren.\n\nRusland legde het zwaartepunt bij aanvallen uit de lucht, met grote golven raketten en drones op het energienet en op steden. In oktober versoepelde president Trump sancties op Russische diesel; een dag later doodde een Russische aanval in Zaporizja volgens Oekraïense autoriteiten 17 mensen, wat Zelensky een Russisch 'bedankje' voor die versoepeling noemde. Oekraïne voerde op zijn beurt aanvallen uit op Russische olie-installaties en vliegtuigfabrieken.\n\nDiplomatiek kwam er in november weer beweging. Op 10 en 11 november spraken onderhandelaars van Rusland, Oekraïne en de VS in Abu Dhabi. Ze spraken een gevangenenruil af van naar verluidt meer dan duizend mensen per kant, maar over grondgebied bleven de verschillen groot. Zelensky zei op 14 november dat de VS voor het eerst hadden gevraagd of Oekraïne zich uit de Donbas zou terugtrekken in ruil voor NAVO-lidmaatschap; volgens hem komt er in geen geval erkenning van bezet gebied.",
+          "bronnen": [
+            {
+              "bron": "isw",
+              "titel": "Russian Offensive Campaign Assessment, November 1, 2026",
+              "url": "https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-november-1-2026",
+              "datum": "2026-11-01"
+            },
+            {
+              "bron": "al-jazeera",
+              "titel": "Ukraine claims record 3,000 Russian casualties in one day as war drags on",
+              "url": "https://www.aljazeera.com/news/2026/11/13/russias-demands-come-from-different-reality-as-war-efforts-stagnates",
+              "datum": "2026-11-13"
+            },
+            {
+              "bron": "al-jazeera",
+              "titel": "Russia-Ukraine talks in Abu Dhabi end with prisoner exchange agreement",
+              "url": "https://www.aljazeera.com/news/2026/11/11/russia-ukraine-talks-in-abu-dhabi-end-with-prisoner-exchange-agreement",
+              "datum": "2026-11-11"
+            },
+            {
+              "bron": "kyiv-independent",
+              "titel": "US floats NATO membership for Ukraine in exchange for Donbas withdrawal, Zelensky says",
+              "url": "https://kyivindependent.com/us-floats-nato-membership-for-ukraine-in-exchange-for-donbas-withdrawal-zelensky-says/",
+              "datum": "2026-11-14"
+            },
+            {
+              "bron": "itv",
+              "titel": "Russian attacks kill 17 in Ukraine after Trump strikes diesel deal with Putin",
+              "url": "https://www.itv.com/news/2026-10-10/russian-strikes-kill-17-in-ukraines-zaporizhzhia-region",
+              "datum": "2026-10-10"
+            }
+          ]
+        },
+        "vanafBegin": {
+          "tekst": "De oorlog begon niet in 2022. In 2014, na de pro-Europese Maidan-protesten in Kyiv en het vertrek van president Janoekovytsj, annexeerde Rusland de Krim en steunde het gewapende separatisten in de Donbas (de regio's Donetsk en Loehansk). Daar werd jarenlang gevochten, ondanks de Minsk-akkoorden.\n\nOp 24 februari 2022 viel Rusland Oekraïne op grote schaal binnen. De opmars naar Kyiv mislukte. In het najaar van 2022 heroverde Oekraïne grote delen van de regio Charkiv en de stad Cherson, terwijl Rusland vier Oekraïense regio's eenzijdig annexeerde. In oktober 2022 raakte de Krimbrug zwaar beschadigd bij een explosie. Een Oekraïens tegenoffensief in 2023 leverde geen doorbraak op; daarna won Rusland langzaam terrein in het oosten, en in augustus 2024 drong Oekraïne de Russische regio Koersk binnen.\n\nNa de terugkeer van Trump in het Witte Huis in 2025 zetten de VS in op een snelle vredesregeling, onder meer met een top tussen Trump en Poetin in Alaska in augustus 2025. De EU sprak in december 2025 een lening van 90 miljard euro af om Oekraïne in 2026 en 2027 overeind te houden, zonder bevroren Russische tegoeden te gebruiken.\n\nInterpretatie: op het spel staan de soevereiniteit en grenzen van Oekraïne, de vraag of grenzen in Europa met geweld te verleggen zijn, en de veiligheid van Europa als geheel. De kern van het conflict aan de onderhandelingstafel is grondgebied: Rusland eist de hele Donbas, Oekraïne wil hooguit het front bevriezen.",
+          "bronnen": [
+            {
+              "bron": "wikipedia",
+              "titel": "Timeline of the Russo-Ukrainian war (2022–present)",
+              "url": "https://en.wikipedia.org/wiki/Timeline_of_the_Russo-Ukrainian_war_(2022%E2%80%93present)",
+              "datum": "2026-11-27"
+            },
+            {
+              "bron": "pbs",
+              "titel": "Truck bombing of Crimea bridge damages key Russian supply route, kills 3",
+              "url": "https://www.pbs.org/newshour/world/truck-bombing-of-crimea-bridge-damages-key-russian-supply-route-kills-3",
+              "datum": "2022-10-08"
+            },
+            {
+              "bron": "al-jazeera",
+              "titel": "EU agrees hefty $105bn Ukraine loan without using Russian assets",
+              "url": "https://www.aljazeera.com/news/2025/12/19/eu-agrees-hefty-105b-ukraine-loan-without-using-russian-assets",
+              "datum": "2025-12-19"
+            },
+            {
+              "bron": "meduza",
+              "titel": "Trump administration abandons business deals as incentive for Russia to end Ukraine war, shifts back to ‘land for peace’ approach, FT reports",
+              "url": "https://meduza.io/en/feature/2026/11/25/trump-administration-abandons-business-deals-as-incentive-for-russia-to-end-ukraine-war-shifts-back-to-land-for-peace-approach-ft-reports",
+              "datum": "2026-11-25"
+            }
+          ]
+        }
+      },
+      "correcties": [
+        {
+          "datum": "2026-11-16",
+          "was": "Na hun gesprek met Poetin op 12 november zeiden de Amerikaanse gezanten Witkoff en Kushner dat Rusland had ingestemd met Europese deelname aan de volgende onderhandelingsronde.",
+          "wordt": "Kremlin-adviseur Joeri Oesjakov sprak dat op 16 november tegen: volgens hem had Rusland nog niet ingestemd met Europese deelname en moet er eerst nog een ronde met alleen Rusland, Oekraïne en de VS komen.",
+          "bron": {
+            "bron": "us-news",
+            "titel": "Kremlin Aide Denies US Assertion That Europeans Will Join Next Round of Ukraine Peace Talks",
+            "url": "https://www.usnews.com/news/world/articles/2026-11-16/kremlin-aide-denies-russia-agreed-to-include-europe-in-ukraine-peace-talks",
+            "datum": "2026-11-16"
+          }
+        }
+      ]
+    }
+  ],
+  "berichten": [
+    {
+      "id": "oek-1",
+      "verhaal": "oorlog-oekraine",
+      "titel": "EU leaders push Ukraine's €45 billion loan to December as three of 27 states hold out. Germany's Merz ties the bloc's budget to it",
+      "bron": "euromaidan-press",
+      "url": "https://euromaidanpress.com/2026/11/27/eu-leaders-push-ukraines-e45-billion-loan-to-december-as-three-of-27-states-hold-out-germanys-merz-ties-the-blocs-budget-to-it/",
+      "gepubliceerd": "2026-11-27T12:00:00+02:00",
+      "samenvatting": "Een extra EU-top in Brussel eindigde zonder besluit over de lening van 45 miljard euro voor Oekraïne in 2027. Hongarije, Slowakije en Tsjechië deden niet mee; ook over de EU-meerjarenbegroting kwam geen akkoord.",
+      "nieuw": "De beslissing over de lening is uitgesteld tot december.",
+      "soort": "journalistiek",
+      "belang": 3
+    },
+    {
+      "id": "oek-2",
+      "verhaal": "oorlog-oekraine",
+      "titel": "Russia launches ballistic missile and drone barrage on Ukraine, killing at least three",
+      "bron": "euronews",
+      "url": "https://euronews.com/2026/11/26/russia-launches-ballistic-missile-and-drone-barrage-on-ukraine-killing-at-least-three",
+      "gepubliceerd": "2026-11-26T12:00:00+01:00",
+      "samenvatting": "Rusland bestookte Oekraïne 's nachts met ballistische raketten en drones. Er vielen zeker drie doden, onder wie twee bij een treffer op een woongebouw in Charkiv.",
+      "nieuw": "Een nieuwe grote luchtaanval terwijl de diplomatie stilligt.",
+      "soort": "journalistiek",
+      "belang": 2
+    },
+    {
+      "id": "oek-3",
+      "verhaal": "oorlog-oekraine",
+      "titel": "Trump administration abandons business deals as incentive for Russia to end Ukraine war, shifts back to ‘land for peace’ approach, FT reports",
+      "bron": "meduza",
+      "url": "https://meduza.io/en/feature/2026/11/25/trump-administration-abandons-business-deals-as-incentive-for-russia-to-end-ukraine-war-shifts-back-to-land-for-peace-approach-ft-reports",
+      "gepubliceerd": "2026-11-25T12:00:00+02:00",
+      "samenvatting": "Volgens de Financial Times, op basis van anonieme functionarissen, heeft Washington het idee laten varen om Rusland met energie- en luchtvaartdeals tot vrede te verleiden. De nadruk ligt weer op grondgebied en veiligheid.",
+      "nieuw": "De VS veranderen hun onderhandelingsstrategie richting 'land voor vrede'.",
+      "soort": "journalistiek",
+      "belang": 3
+    },
+    {
+      "id": "oek-4",
+      "verhaal": "oorlog-oekraine",
+      "titel": "Zelensky waiting for US to set date for next round of peace talks",
+      "bron": "ukrinform",
+      "url": "https://www.ukrinform.net/rubric-polytics/4188617-zelensky-waiting-for-us-to-set-date-for-next-round-of-peace-talks.html",
+      "gepubliceerd": "2026-11-25T12:00:00+02:00",
+      "samenvatting": "Zelensky zegt dat Oekraïne wacht tot de VS een datum vastleggen voor de volgende gespreksronde met Rusland. Hij wil dat Europa daarbij aanwezig is.",
+      "nieuw": "Er is nog geen datum voor nieuwe onderhandelingen.",
+      "soort": "journalistiek",
+      "belang": 2
+    },
+    {
+      "id": "oek-5",
+      "verhaal": "oorlog-oekraine",
+      "titel": "Russian strikes kill seven in Ukraine as Kyiv hits three refineries",
+      "bron": "euronews",
+      "url": "https://www.euronews.com/2026/11/25/russian-strikes-kill-seven-in-ukraine-as-kyiv-hits-three-refineries",
+      "gepubliceerd": "2026-11-25T12:00:00+01:00",
+      "samenvatting": "Russische aanvallen doodden volgens Oekraïense autoriteiten zeker zeven mensen in zes regio's, onder meer bij een treinstation bij Lviv. Oekraïne meldde aanvallen op drie Russische raffinaderijen.",
+      "nieuw": "Beide kanten voerden hun aanvallen over lange afstand verder op.",
+      "soort": "journalistiek",
+      "belang": 2
+    },
+    {
+      "id": "oek-6",
+      "verhaal": "oorlog-oekraine",
+      "titel": "Russian ‘triple-tap’ attack in Ukraine kills emergency worker and 7-year-old in Zelensky’s home city",
+      "bron": "cnn",
+      "url": "https://edition.cnn.com/2026/11/21/europe/kryvyi-rih-ukraine-russia-attack-intl",
+      "gepubliceerd": "2026-11-21T12:00:00-05:00",
+      "samenvatting": "Bij een Russische aanval op Kryvyi Rih, waarbij dezelfde plek meermaals werd getroffen, kwamen een jongen van zeven en een ambulancemedewerker om. Bijna zestig mensen raakten gewond, onder wie hulpverleners.",
+      "nieuw": "Hulpverleners worden opnieuw getroffen bij herhaalde aanvallen op dezelfde plek.",
+      "soort": "journalistiek",
+      "belang": 2
+    },
+    {
+      "id": "oek-7",
+      "verhaal": "oorlog-oekraine",
+      "titel": "Zelenskyy meets leaders of Germany, UK and France in Berlin",
+      "bron": "european-pravda",
+      "url": "https://www.eurointegration.com.ua/eng/news/2026/11/19/7250386/",
+      "gepubliceerd": "2026-11-19T12:00:00+02:00",
+      "samenvatting": "Zelensky sprak in Berlijn met de leiders van Duitsland, het Verenigd Koninkrijk en Frankrijk, rond een overleg van de 'coalitie van bereidwilligen'. Centraal stonden luchtverdediging, diplomatie en veiligheidsgaranties.",
+      "nieuw": "Europese bondgenoten werken aan meer luchtverdediging en garanties voor na een eventueel akkoord.",
+      "soort": "journalistiek",
+      "belang": 1
+    }
+  ]
+}

@@ -21,6 +21,24 @@ services:
       options:
         max-size: "10m"
         max-file: "3"
+  ingest:
+    image: newszoom-app:${NZ_TAG:?Release ontbreekt}
+    command: ["node", "scripts/ingest-worker.mjs"]
+    env_file: .env.newszoom
+    environment:
+      NODE_OPTIONS: --max-old-space-size=128
+    networks: [default, supabase_default]
+    restart: unless-stopped
+    mem_limit: 192m
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: [ALL]
+    healthcheck:
+      disable: true
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "2"
 networks:
   supabase_default:
     external: true

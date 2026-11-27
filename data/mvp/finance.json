@@ -1,0 +1,157 @@
+{
+  "bronnen": [
+    { "id": "nvidia", "naam": "Nvidia", "url": "https://nvidianews.nvidia.com", "soort": "bedrijf" },
+    { "id": "cnbc", "naam": "CNBC", "url": "https://www.cnbc.com", "soort": "journalistiek" },
+    { "id": "ap", "naam": "Associated Press", "url": "https://apnews.com", "soort": "journalistiek" },
+    { "id": "shacknews", "naam": "Shacknews", "url": "https://www.shacknews.com", "soort": "vakmedium" },
+    { "id": "yahoo-finance", "naam": "Yahoo Finance", "url": "https://finance.yahoo.com", "soort": "journalistiek" },
+    { "id": "motley-fool", "naam": "The Motley Fool", "url": "https://www.fool.com", "soort": "vakmedium" },
+    { "id": "ceoeconomy", "naam": "CEO Economy", "url": "https://ceoeconomy.com", "soort": "vakmedium" }
+  ],
+  "instrumenten": [
+    { "id": "nvda", "naam": "Nvidia", "ticker": "NVDA", "soort": "aandeel", "valuta": "USD", "beurs": "Nasdaq", "tijdzone": "America/New_York", "benchmark": "Nasdaq-100" },
+    { "id": "btc", "naam": "Bitcoin", "ticker": "BTC", "soort": "crypto", "valuta": "USD", "tijdzone": "UTC" },
+    { "id": "databricks", "naam": "Databricks", "soort": "bedrijf" }
+  ],
+  "berichten": [
+    {
+      "id": "fin-nvda-1",
+      "instrument": "nvda",
+      "titel": "A brutal sell-off for AI stocks sends Wall Street reeling; S&P 500 sees worst day since 2025 ‘Liberation Day’ tariffs",
+      "bron": "ap",
+      "url": "https://www.wowt.com/2026/11/05/brutal-sell-off-ai-stocks-sends-wall-street-reeling-sp-500-sees-worst-day-since-2025-liberation-day-tariffs/",
+      "gepubliceerd": "2026-11-05T12:00:00-05:00",
+      "eerderBekend": {
+        "tekst": "AI- en chipaandelen stonden al weken onder druk; de Nasdaq had begin oktober een record gezet en was sindsdien gedaald."
+      },
+      "nieuw": "Na een grote verkiezingswinst van de Democraten vreesden beleggers beperkingen voor nieuwe datacenters; de S&P 500 verloor 4,4 procent en Nvidia daalde 9,3 procent, de grootste drukker op de index.",
+      "mogelijkeInvloed": "Strengere regels voor datacenters zouden de bouw van AI-capaciteit kunnen afremmen, en daarmee de vraag naar Nvidia-chips.",
+      "onzekerheid": "Het gaat om verwachtingen van beleggers; de bron noemt geen concreet aangenomen moratorium.",
+      "soort": "beleid"
+    },
+    {
+      "id": "fin-nvda-2",
+      "instrument": "nvda",
+      "titel": "NVIDIA Announces CEO Transition",
+      "bron": "nvidia",
+      "url": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition",
+      "gepubliceerd": "2026-11-12T12:00:00-05:00",
+      "eerderBekend": {
+        "tekst": "Sinds eind oktober waren er berichten over Huangs relatie met een zakenvrouw die Amerikaanse functionarissen als Chinese inlichtingenbron zien, en volgens The Wall Street Journal had het bestuur de dag ervoor over zijn positie vergaderd."
+      },
+      "nieuw": "Huang treedt per direct af als president, topman en bestuurslid; financieel directeur Colette Kress wordt interim-topman en Harvey C. Jones de eerste bestuursvoorzitter. De kwartaalcijfers blijven gepland op 17 november.",
+      "mogelijkeInvloed": "Het vertrek van de oprichter die het bedrijf 33 jaar leidde, schept onzekerheid over strategie, klantrelaties en de band met de Amerikaanse regering.",
+      "onzekerheid": "Nvidia gaf geen reden voor het vertrek. AP meldde dat het aandeel fors lager opende; de bronnen noemen uiteenlopende percentages voor de daling die dag.",
+      "soort": "overig"
+    },
+    {
+      "id": "fin-nvda-3",
+      "instrument": "nvda",
+      "titel": "Nvidia chairman says board does not intend to reinstate Jensen Huang as CEO",
+      "bron": "ap",
+      "url": "https://www.wrdw.com/2026/11/17/former-nvidia-ceo-jensen-huang-appear-before-congress-national-security-questions-intensify/",
+      "gepubliceerd": "2026-11-17T12:00:00-05:00",
+      "eerderBekend": {
+        "tekst": "Huang was op 12 november vertrokken; president Trump had op 16 november gezegd een terugkeer niet erg te vinden.",
+        "link": { "bron": "nvidia", "titel": "NVIDIA Announces CEO Transition", "url": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition", "datum": "2026-11-12" }
+      },
+      "nieuw": "Voorzitter Harvey Jones zei dat het bestuur Huang niet wil terughalen, uren nadat Huang had gezegd terug te willen komen als het bestuur hem dat vroeg.",
+      "mogelijkeInvloed": "Beleggers moesten rekenen met een langere periode onder een interim-topman en een zoektocht naar een opvolger.",
+      "onzekerheid": "Zes dagen later draaide het bestuur dit standpunt terug; zie de herbenoeming van 23 november.",
+      "soort": "overig"
+    },
+    {
+      "id": "fin-nvda-4",
+      "instrument": "nvda",
+      "titel": "NVIDIA Announces Financial Results for Third Quarter Fiscal 2027",
+      "bron": "nvidia",
+      "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Third-Quarter-Fiscal-2027/default.aspx",
+      "gepubliceerd": "2026-11-17T16:20:00-05:00",
+      "eerderBekend": {
+        "tekst": "De publicatiedatum stond vast en werd bij het vertrek van Huang bevestigd. Analisten rekenden volgens Shacknews op een aangepaste winst van 2,49 dollar per aandeel.",
+        "link": { "bron": "nvidia", "titel": "NVIDIA Announces CEO Transition", "url": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition", "datum": "2026-11-12" }
+      },
+      "nieuw": "Omzet 115,8 miljard dollar (+103 procent), datacenteromzet 107,6 miljard (+110 procent), winst per aandeel 2,70 dollar (GAAP) en 2,68 dollar (aangepast). Verwachting vierde kwartaal: 130 miljard dollar plus of min 3 procent, brutomarge 71 tot 72 procent, zonder datacenteromzet uit China. Inkoopprogramma eigen aandelen verhoogd met 150 miljard dollar.",
+      "mogelijkeInvloed": "De cijfers en prognose lieten zien dat de vraag naar AI-chips ook na het vertrek van Huang groot was, wat twijfels over het leiderschap kon dempen.",
+      "onzekerheid": "Het vierde kwartaal telt een extra week, wat vergelijkingen met vorig jaar vertekent. China blijft buiten beeld; Kress zei dat leveringen daar zijn gestopt. Bronnen beschrijven de koersreactie verschillend, van gedempt tot een daling van 2,9 procent.",
+      "soort": "kwartaalcijfers"
+    },
+    {
+      "id": "fin-nvda-5",
+      "instrument": "nvda",
+      "titel": "Jensen Huang reinstated as Nvidia CEO. Stock skyrockets 31%",
+      "bron": "cnbc",
+      "url": "https://www.cnbc.com/2026/11/23/nvidia-jensen-huang-ceo.html",
+      "gepubliceerd": "2026-11-23T12:00:00-05:00",
+      "eerderBekend": {
+        "tekst": "Op 17 november had het bestuur nog gezegd Huang niet terug te willen halen; president Trump had zich wel voor zijn terugkeer uitgesproken.",
+        "link": { "bron": "ap", "titel": "Nvidia chairman says board does not intend to reinstate Jensen Huang as CEO", "url": "https://www.wrdw.com/2026/11/17/former-nvidia-ceo-jensen-huang-appear-before-congress-national-security-questions-intensify/", "datum": "2026-11-17" }
+      },
+      "nieuw": "Het bestuur herbenoemde Huang unaniem als president, topman en bestuurslid. Volgens Nvidia kreeg het bestuur input van hooggeplaatste regeringsfunctionarissen en vormt zijn terugkeer geen risico voor de nationale veiligheid.",
+      "mogelijkeInvloed": "Het einde van de onzekerheid over het leiderschap kan de verwachtingen over strategie en klantrelaties weer stabiliseren.",
+      "onzekerheid": "CNBC meldt dat het aandeel die dag 31 procent hoger sloot en dinsdag ruim 5 procent inleverde. De onderzoeken naar de zaak lopen door.",
+      "soort": "overig"
+    },
+    {
+      "id": "fin-nvda-6",
+      "instrument": "nvda",
+      "titel": "Nvidia brought Jensen Huang back. But the investigations aren’t over",
+      "bron": "cnbc",
+      "url": "https://www.cnbc.com/2026/11/24/nvidia-jensen-huang-ceo-return.html",
+      "gepubliceerd": "2026-11-24T12:00:00-05:00",
+      "eerderBekend": {
+        "tekst": "Huang was een dag eerder herbenoemd; Nvidia had gezegd mee te blijven werken aan lopende overheidsonderzoeken.",
+        "link": { "bron": "cnbc", "titel": "Jensen Huang reinstated as Nvidia CEO. Stock skyrockets 31%", "url": "https://www.cnbc.com/2026/11/23/nvidia-jensen-huang-ceo.html", "datum": "2026-11-23" }
+      },
+      "nieuw": "Het onafhankelijke onderzoek van het bestuur loopt door, net als een onderzoek van de procureur-generaal van Californië en de aandacht vanuit het Congres.",
+      "mogelijkeInvloed": "Nieuwe bevindingen uit die onderzoeken kunnen de positie van Huang opnieuw ter discussie stellen.",
+      "onzekerheid": "Wanneer de onderzoeken klaar zijn en wat ze opleveren, is niet bekend.",
+      "soort": "overig"
+    }
+  ],
+  "recap": {
+    "periode": { "van": "2026-11-16", "tot": "2026-11-20" },
+    "indices": [
+      {
+        "naam": "S&P 500",
+        "rendement": -8.6,
+        "bron": { "bron": "yahoo-finance", "titel": "Stock market today: Dow and S&P 500 enter correction, Nasdaq sinks 5% to erase 2026 gains as AI trade melts down", "url": "https://finance.yahoo.com/markets/live/stock-market-today-friday-november-19-dow-sp-500-nasdaq-anthropic-nvidia-141644188.html", "datum": "2026-11-20" }
+      },
+      {
+        "naam": "Nasdaq Composite",
+        "rendement": -10.0,
+        "bron": { "bron": "motley-fool", "titel": "The Nasdaq Just Had 1 of Its 10 Worst Weeks in the Past 45 Years. Here's What History Says Comes Next.", "url": "https://www.fool.com/investing/2026/11/23/nasdaq-had-one-of-worst-weeks-50-years-here-what-history-says-comes-next/", "datum": "2026-11-23" }
+      }
+    ],
+    "sectoren": [
+      {
+        "naam": "Halfgeleiders (PHLX Semiconductor Index)",
+        "rendement": -17.0,
+        "bron": { "bron": "ceoeconomy", "titel": "Nasdaq loses 10% in its worst week since March 2020 as chip stocks suffer their deepest weekly drop since 2001", "url": "https://ceoeconomy.com/article/nasdaq-worst-week-since-march-2020-chip-stocks-week-ending-nov-20-2026", "datum": "2026-11-20" }
+      }
+    ],
+    "bijdragers": [
+      {
+        "naam": "Nvidia",
+        "toelichting": "Daalde na de kwartaalcijfers en het vertrek van Huang de hele week; Yahoo Finance spreekt van de slechtste week sinds oktober 2008, met een verlies van meer dan 20 procent.",
+        "bron": { "bron": "yahoo-finance", "titel": "Stock market today: Dow and S&P 500 enter correction, Nasdaq sinks 5% to erase 2026 gains as AI trade melts down", "url": "https://finance.yahoo.com/markets/live/stock-market-today-friday-november-19-dow-sp-500-nasdaq-anthropic-nvidia-141644188.html", "datum": "2026-11-20" }
+      },
+      {
+        "naam": "Micron Technology",
+        "toelichting": "Een van de chipbedrijven die in deze week meer dan 20 procent verloren, samen met Marvell Technology.",
+        "bron": { "bron": "ceoeconomy", "titel": "Nasdaq loses 10% in its worst week since March 2020 as chip stocks suffer their deepest weekly drop since 2001", "url": "https://ceoeconomy.com/article/nasdaq-worst-week-since-march-2020-chip-stocks-week-ending-nov-20-2026", "datum": "2026-11-20" }
+      },
+      {
+        "naam": "CoreWeave",
+        "toelichting": "AI-cloudbedrijf dat net als Nebius meer dan 20 procent verloor in deze week.",
+        "bron": { "bron": "ceoeconomy", "titel": "Nasdaq loses 10% in its worst week since March 2020 as chip stocks suffer their deepest weekly drop since 2001", "url": "https://ceoeconomy.com/article/nasdaq-worst-week-since-march-2020-chip-stocks-week-ending-nov-20-2026", "datum": "2026-11-20" }
+      }
+    ],
+    "toelichting": "Een zware week voor Wall Street, gedreven door een verkoopgolf in AI- en chipaandelen. De Nasdaq Composite verloor 10 procent, de grootste weekdaling sinds maart 2020, en stond daarna lager dan aan het begin van 2026. De S&P 500 had met 8,6 procent verlies de slechtste week sinds de tariefschok van april 2025; S&P 500 en Dow Jones kwamen in correctiegebied (meer dan 10 procent onder de top). Chipaandelen hadden hun zwaarste week sinds 2001. De sterke kwartaalcijfers van Nvidia op 17 november brachten geen herstel. Betrouwbare weekcijfers voor de AEX en de Euro Stoxx 50 ontbreken in deze recap.",
+    "bronnen": [
+      { "bron": "yahoo-finance", "titel": "Stock market today: Dow and S&P 500 enter correction, Nasdaq sinks 5% to erase 2026 gains as AI trade melts down", "url": "https://finance.yahoo.com/markets/live/stock-market-today-friday-november-19-dow-sp-500-nasdaq-anthropic-nvidia-141644188.html", "datum": "2026-11-20" },
+      { "bron": "motley-fool", "titel": "The Nasdaq Just Had 1 of Its 10 Worst Weeks in the Past 45 Years. Here's What History Says Comes Next.", "url": "https://www.fool.com/investing/2026/11/23/nasdaq-had-one-of-worst-weeks-50-years-here-what-history-says-comes-next/", "datum": "2026-11-23" },
+      { "bron": "ceoeconomy", "titel": "Nasdaq loses 10% in its worst week since March 2020 as chip stocks suffer their deepest weekly drop since 2001", "url": "https://ceoeconomy.com/article/nasdaq-worst-week-since-march-2020-chip-stocks-week-ending-nov-20-2026", "datum": "2026-11-20" }
+    ]
+  }
+}

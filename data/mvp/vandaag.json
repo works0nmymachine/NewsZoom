@@ -1,0 +1,520 @@
+{
+  "bronnen": [
+    { "id": "nos", "naam": "NOS", "url": "https://nos.nl", "soort": "journalistiek" },
+    { "id": "nl-times", "naam": "NL Times", "url": "https://nltimes.nl", "soort": "journalistiek" },
+    { "id": "rijnmond", "naam": "Rijnmond", "url": "https://www.rijnmond.nl", "soort": "journalistiek" },
+    { "id": "washington-post", "naam": "The Washington Post", "url": "https://www.washingtonpost.com", "soort": "journalistiek" },
+    { "id": "eurovoix", "naam": "Eurovoix", "url": "https://eurovoix.com", "soort": "vakmedium" },
+    { "id": "euromix", "naam": "Euromix", "url": "https://en.euromix.co.il", "soort": "vakmedium" }
+  ],
+  "onderwerpen": [
+    { "id": "binnenland-politiek", "naam": "Binnenlandse politiek" },
+    { "id": "internationale-politiek", "naam": "Internationale politiek" },
+    { "id": "economie", "naam": "Economie" },
+    { "id": "zorg", "naam": "Zorg" },
+    { "id": "klimaat", "naam": "Klimaat en weer" },
+    { "id": "veiligheid", "naam": "Veiligheid" },
+    { "id": "cultuur", "naam": "Cultuur" },
+    { "id": "sport", "naam": "Sport" },
+    { "id": "techniek", "naam": "Techniek" },
+    { "id": "rechtspraak", "naam": "Rechtspraak" }
+  ],
+  "verhalen": [
+    {
+      "id": "nl-vvd-onrust-yesilgoz",
+      "titel": "Onrust in VVD over dubbelrol Yesilgöz",
+      "onderwerpen": ["binnenland-politiek"],
+      "reikwijdte": "nederland",
+      "laatsteOntwikkeling": "VVD-ministers springen voor Yesilgöz in de bres na kritiek van oud-partijvoorzitter Van der Wal, terwijl Yesilgöz zelf de pers vrijdag ontliep.",
+      "watVerandert": {
+        "tekst": "Oud-partijvoorzitter Christianne van der Wal zei op televisie dat veel leden zich ongemakkelijk voelen bij de combinatie van partijleider, vicepremier en minister van Defensie. Dat legt de spanning binnen de grootste rechtse partij in het minderheidskabinet open, kort nadat het kabinet-Jetten eerder deze maand bijna viel. De VVD-bewindspersonen Karremans, Van Weel, Aartsen en Heinen spraken vrijdag hun steun uit.",
+        "onzeker": "Yesilgöz heeft nog niet inhoudelijk gereageerd. Onduidelijk is of de interne kritiek leidt tot een andere rolverdeling, en hoe dit doorwerkt in de samenwerking binnen het minderheidskabinet met D66 en CDA.",
+        "bronnen": [
+          { "bron": "nos", "titel": "VVD-ministers verdedigen Yesilgöz, die zelf camera's even mijdt", "url": "https://nos.nl/l/2641231", "datum": "2026-11-27" },
+          { "bron": "nl-times", "titel": "VVD members questioning Dilan Yeşilgöz's double role as Defense Minister, party leader", "url": "https://nltimes.nl/2026/11/26/vvd-members-questioning-dilan-yesilgozs-double-role-defense-minister-party-leader", "datum": "2026-11-26" }
+        ]
+      }
+    },
+    {
+      "id": "nl-asml-match-act",
+      "titel": "Kabinet verzet zich tegen Amerikaanse chipwet die ASML raakt",
+      "onderwerpen": ["economie", "techniek", "internationale-politiek"],
+      "reikwijdte": "nederland",
+      "laatsteOntwikkeling": "Minister Sjoerdsma (Buitenlandse Handel) zegt dat het kabinet 'alles op alles' zet om de Amerikaanse MATCH Act tegen te houden, omdat die ASML grotendeels uit China kan weren.",
+      "watVerandert": {
+        "tekst": "Het Amerikaanse wetsvoorstel moet Chinese bedrijven de toegang tot chiptechnologie ontzeggen en geeft Washington zeggenschap over wat andere landen naar China mogen exporteren. Voor ASML kan dat betekenen dat verkoop en onderhoud van machines in China onmogelijk of veel moeilijker wordt. Het kabinet noemt het tegenhouden van de wet een landsbelang; een brede Kamermeerderheid steunt die lijn.",
+        "onzeker": "Of en wanneer het Amerikaanse Congres de wet aanneemt is onduidelijk, net als welke diplomatieke of internationale tegenmaatregelen Nederland kan inzetten.",
+        "bronnen": [
+          { "bron": "nos", "titel": "'Alles op alles' om Amerikaanse wet tegen te houden: wat kan Nederland doen?", "url": "https://nos.nl/l/2641269", "datum": "2026-11-27" },
+          { "bron": "nl-times", "titel": "Netherlands draws line over U.S. plan to restrict ASML exports to China", "url": "https://nltimes.nl/2026/11/26/netherlands-draws-line-us-plan-restrict-asml-exports-china", "datum": "2026-11-26" }
+        ]
+      }
+    },
+    {
+      "id": "nl-recordkou-natuurijs",
+      "titel": "Recordkou: schaatsen op natuurijs, wedstrijden afgelast",
+      "onderwerpen": ["klimaat", "sport"],
+      "reikwijdte": "nederland",
+      "laatsteOntwikkeling": "Op 27 meetstations was de nacht van 27 november de koudste ooit voor die datum, met -8,1 graden in Twente; de KNVB en de hockeybond schrappen wedstrijden.",
+      "watVerandert": {
+        "tekst": "Op meerdere plekken wordt geschaatst op natuurijs en ijsbanen zijn open. Vier van de zeven duels in de Keuken Kampioen Divisie gaan vrijdagavond niet door en het hele weekendprogramma in de hoofdklasse hockey is afgelast. In De Bilt werd met -5,4 graden geen record gehaald; daar staat het record sinds 1921 op -9,6 graden.",
+        "onzeker": "Hoe lang de vorst aanhoudt en of ook eredivisieduels in gevaar komen; volgens de KNVB is daar nu geen zorg over.",
+        "bronnen": [
+          { "bron": "nos", "titel": "Op veel plekken koudste 27 november ooit gemeten, ijsbanen open", "url": "https://nos.nl/l/2641196", "datum": "2026-11-27" },
+          { "bron": "nos", "titel": "Kou in Nederland: schaatsen op natuurijs, eerstedivisieduels en hockeyprogramma afgelast", "url": "https://nos.nl/l/2641224", "datum": "2026-11-27" }
+        ]
+      }
+    },
+    {
+      "id": "nl-tarwekamp-eis",
+      "titel": "OM eist levenslang voor dodelijke explosie Tarwekamp",
+      "onderwerpen": ["rechtspraak", "veiligheid"],
+      "reikwijdte": "nederland",
+      "laatsteOntwikkeling": "Het OM eist levenslang tegen de vermeende opdrachtgever van de explosie aan de Haagse Tarwekamp, waarbij in december 2024 zes doden vielen.",
+      "watVerandert": {
+        "tekst": "Volgens het OM handelde de 35-jarige Rotterdammer Moshtag B. uit wraak op zijn ex-partner, die een bruidsmodezaak had in het getroffen complex in Mariahoeve. Tegen de twee vermeende uitvoerders eist het OM 30 en 28 jaar cel, tegen een man die bij de voorbereiding betrokken was vier jaar.",
+        "onzeker": "Dit is een strafeis; de rechtbank in Den Haag doet later uitspraak. De verdediging moet nog volledig aan het woord komen.",
+        "bronnen": [
+          { "bron": "nos", "titel": "OM eist levenslang tegen opdrachtgever dodelijke explosie Tarwekamp", "url": "https://nos.nl/artikel/2640862-om-eist-levenslang-tegen-opdrachtgever-dodelijke-explosie-tarwekamp", "datum": "2026-11-24" },
+          { "bron": "rijnmond", "titel": "Levenslang geëist tegen Rotterdammer voor explosie Haagse Tarwekamp", "url": "https://www.rijnmond.nl/nieuws/2287526/levenslang-geeist-tegen-rotterdammer-voor-explosie-haagse-tarwekamp", "datum": "2026-11-24" }
+        ]
+      }
+    },
+    {
+      "id": "nl-zembla-neonazi-onderzoek",
+      "titel": "OM onderzoekt neonazi's uit Zembla-documentaire",
+      "onderwerpen": ["rechtspraak", "veiligheid"],
+      "reikwijdte": "nederland",
+      "laatsteOntwikkeling": "Het Openbaar Ministerie is een onderzoek begonnen naar de mensen die in de Zembla-uitzending over neonazi's te zien waren.",
+      "watVerandert": {
+        "tekst": "Het OM kijkt onder meer of er sprake is van strafbare 'activiteiten gericht op discriminatie'. De documentaire toonde kooigevechten met Hitlergroeten en hakenkruizen, en verbanden tussen neonazistische groepen en Forum voor Democratie; FvD royeerde daarna meerdere leden.",
+        "onzeker": "Of het tot vervolging komt is onzeker: uitlatingen zijn vaak pas strafbaar als ze in het openbaar worden gedaan. Het OM doet verder geen mededelingen.",
+        "bronnen": [
+          { "bron": "nos", "titel": "OM start onderzoek na neo-nazidocumentaire Zembla", "url": "https://nos.nl/l/2641206", "datum": "2026-11-27" }
+        ]
+      }
+    },
+    {
+      "id": "nl-defensie-cv90",
+      "titel": "Defensie koopt extra CV90-pantservoertuigen",
+      "onderwerpen": ["veiligheid"],
+      "reikwijdte": "nederland",
+      "laatsteOntwikkeling": "Nederland krijgt via een gezamenlijke Noord-Europese bestelling enkele tientallen extra CV90-gevechtsvoertuigen voor een nieuw pantserinfanteriebataljon in Budel.",
+      "watVerandert": {
+        "tekst": "Samen met Zweden, Noorwegen, Litouwen en Finland bestelt Nederland in totaal meer dan 400 voertuigen bij BAE Systems, voor zo'n 5,5 miljard euro. Voor het nieuwe bataljon op de Nassau-Dietz kazerne zijn er ruim veertig nodig. De ruim honderd CV90's die Nederland al heeft, worden gemoderniseerd zodat ze tot ongeveer 2039 meegaan.",
+        "onzeker": "Hoeveel voertuigen Nederland precies krijgt en wat het Nederlandse deel kost, is niet bekendgemaakt.",
+        "bronnen": [
+          { "bron": "nos", "titel": "Nederland schaft extra pantservoertuigen aan voor nieuw infanteriebataljon", "url": "https://nos.nl/l/2641281", "datum": "2026-11-27" }
+        ]
+      }
+    },
+    {
+      "id": "nl-corona-stijging",
+      "titel": "Meer coronabesmettingen, RIVM niet ongerust",
+      "onderwerpen": ["zorg"],
+      "reikwijdte": "nederland",
+      "laatsteOntwikkeling": "Het aantal mensen met corona en de hoeveelheid virus in het rioolwater stijgen, maar het RIVM ziet geen reden tot zorg.",
+      "watVerandert": {
+        "tekst": "Volgens het RIVM past de stijging bij het luchtwegseizoen, waarin griep, corona en het rhinovirus vaker klachten geven. Corona verloopt nu meestal mild door opgebouwde afweer. De varianten XFG en KP.3 overheersen.",
+        "onzeker": "Het RIVM houdt een nieuwe variant in de gaten; hoe die zich ontwikkelt, is nog niet bekend.",
+        "bronnen": [
+          { "bron": "nos", "titel": "Weer meer mensen met corona, maar geen reden tot zorg, zegt RIVM", "url": "https://nos.nl/l/2641234", "datum": "2026-11-27" }
+        ]
+      }
+    },
+    {
+      "id": "nl-feyenoord-champions-league",
+      "titel": "Feyenoord blijft worstelen in Champions League",
+      "onderwerpen": ["sport"],
+      "reikwijdte": "nederland",
+      "laatsteOntwikkeling": "Feyenoord verloor dinsdag thuis met 1-0 van FC Porto door een vroeg eigen doelpunt.",
+      "watVerandert": {
+        "tekst": "De nederlaag zet de moeizame Europese campagne van Feyenoord voort en verkleint de ruimte om in de Champions League verder te komen.",
+        "onzeker": "Wat de uitslag precies betekent voor doorgaan in het toernooi hangt af van de resterende wedstrijden; de stand is in de gebruikte bron niet nagegaan.",
+        "bronnen": [
+          { "bron": "nl-times", "titel": "Feyenoord beaten by Porto as UEFA Champions League struggles continue", "url": "https://nltimes.nl/2026/11/24/feyenoord-beaten-porto-uefa-champions-league-struggles-continue", "datum": "2026-11-24" }
+        ]
+      }
+    },
+    {
+      "id": "w-eu-meerjarenbegroting",
+      "titel": "EU-leiders botsen over meerjarenbegroting 2028-2034",
+      "onderwerpen": ["internationale-politiek", "economie"],
+      "reikwijdte": "wereld",
+      "laatsteOntwikkeling": "Een extra EU-top over de begroting voor 2028-2034 eindigde zonder akkoord; de leiders proberen het over ongeveer drie weken opnieuw.",
+      "watVerandert": {
+        "tekst": "Op tafel ligt een voorstel van Europese Raad-voorzitter Costa van 1582 miljard euro. Een groep 'zuinige' landen, onder wie Nederland, Duitsland, Denemarken, Zweden, Oostenrijk, Finland en België, wil fors minder uitgeven. Premier Jetten eist een lager totaal, behoud van de Nederlandse korting plus een extra korting, en 25 in plaats van 10 procent van de douane-inkomsten. Frankrijk dreigt elk voorstel met een korting te vetoën en een meerderheid van zeventien landen wil het geld voor landbouw en armere regio's behouden.",
+        "onzeker": "Of er voor het eind van het jaar een compromis komt is onzeker; Jetten noemde de posities 'nog ver uit elkaar'. Ook andere financieringsvragen die aan de top hingen, bleven open.",
+        "bronnen": [
+          { "bron": "nos", "titel": "Hard tegen hard bij begrotingsonderhandelingen EU, geen akkoord na lange dag overleg", "url": "https://nos.nl/l/2641176", "datum": "2026-11-26" },
+          { "bron": "washington-post", "titel": "A Ukraine loan is in limbo after EU budget talks stall. Leaders will try again in 3 weeks", "url": "https://www.washingtonpost.com/world/2026/11/27/europe-budget-ukraine-2028-summit-costa/5e86cf42-ea5d-11f1-8db0-6f1e3c389e7c_story.html", "datum": "2026-11-27" }
+        ]
+      }
+    },
+    {
+      "id": "w-spanje-verkiezingen",
+      "titel": "Spanje kiest zondag: blijft Sánchez aan de macht?",
+      "onderwerpen": ["internationale-politiek"],
+      "reikwijdte": "wereld",
+      "laatsteOntwikkeling": "Spanje gaat zondag naar de stembus en de peilingen tonen een nek-aan-nekrace tussen de socialistische premier Sánchez en rechts.",
+      "watVerandert": {
+        "tekst": "De verkiezingen bepalen of Spanje een socialistische regering houdt of naar rechts opschuift. Ook bij een goede uitslag wordt het voor Sánchez moeilijk een coalitie te vormen.",
+        "onzeker": "De uitslag en de daaropvolgende formatie; de peilingen geven geen duidelijke winnaar.",
+        "bronnen": [
+          { "bron": "nos", "titel": "Podcast De Dag: de negen levens van de Spaanse premier", "url": "https://nos.nl/l/2641282", "datum": "2026-11-27" }
+        ]
+      }
+    },
+    {
+      "id": "w-nieuw-zeeland-uitslag",
+      "titel": "Nieuw-Zeeland: geen meerderheid na definitieve uitslag",
+      "onderwerpen": ["internationale-politiek"],
+      "reikwijdte": "wereld",
+      "laatsteOntwikkeling": "Na het tellen van de buitenlandse en speciale stemmen heeft de regeringscoalitie van premier Luxon 65 van de 130 zetels, één te weinig voor een meerderheid.",
+      "watVerandert": {
+        "tekst": "De National-partij van Luxon zakte naar 40 zetels; met ACT (13) en NZ First (12) komt het centrumrechtse blok net tekort. Ook het linkse blok heeft geen meerderheid. De nieuwe centrumpartij Opportunity (7 zetels) krijgt daardoor een sleutelrol en zegt met beide kanten te willen praten.",
+        "onzeker": "Of er een regering komt; Luxon sloot samenwerking met Opportunity eerder uit. Lukt een coalitie niet, dan kunnen nieuwe verkiezingen volgen.",
+        "bronnen": [
+          { "bron": "nos", "titel": "Definitieve uitslag verkiezingen Nieuw-Zeeland: geen meerderheid voor links of rechts", "url": "https://nos.nl/l/2641181", "datum": "2026-11-27" }
+        ]
+      }
+    },
+    {
+      "id": "w-vs-noodweer-thanksgiving",
+      "titel": "Noodweer legt deel VS plat met Thanksgiving",
+      "onderwerpen": ["klimaat"],
+      "reikwijdte": "wereld",
+      "laatsteOntwikkeling": "Meer dan 800.000 Amerikanen zaten op Thanksgiving zonder stroom door storm, regen en sneeuw, vooral aan de oostkust.",
+      "watVerandert": {
+        "tekst": "Ook in Missouri zitten tienduizenden mensen zonder elektriciteit. Zo'n 1600 binnenlandse vluchten liepen vertraging op en meer dan 400 werden geschrapt, vooral via Washington en New York. De Thanksgiving-parade in New York is uitgesteld tot zaterdag; in Virginia staan wegen onder water.",
+        "onzeker": "Hoe snel de stroom overal terug is en hoeveel schade het noodweer nog aanricht nu het verder trekt.",
+        "bronnen": [
+          { "bron": "nos", "titel": "Honderdduizenden Amerikanen op feestdag zonder stroom door noodweer", "url": "https://nos.nl/l/2641174", "datum": "2026-11-26" }
+        ]
+      }
+    },
+    {
+      "id": "w-hack-amerikaanse-luchtmacht",
+      "titel": "Hackers binnen bij cloudplatform Amerikaanse luchtmacht",
+      "onderwerpen": ["techniek", "veiligheid"],
+      "reikwijdte": "wereld",
+      "laatsteOntwikkeling": "Hackers hebben volgens bronnen van Reuters toegang gekregen tot Cloud One, het belangrijkste cloudplatform van de Amerikaanse luchtmacht.",
+      "watVerandert": {
+        "tekst": "Op het platform staan onder meer gegevens over radarsystemen en munitievoorraden op luchtmachtbases. De inbraak werd eerder deze maand ontdekt bij een software-update; uit voorzorg zijn onder meer migraties naar de cloud stilgelegd. Het is de zoveelste cyberinbraak bij Amerikaanse overheidsdiensten.",
+        "onzeker": "De luchtmacht bevestigt de hack niet. Hoe groot de schade is en of er gegevens zijn gestolen, is onbekend.",
+        "bronnen": [
+          { "bron": "nos", "titel": "'Hackers breken in bij clouddienst Amerikaanse luchtmacht'", "url": "https://nos.nl/l/2641242", "datum": "2026-11-27" }
+        ]
+      }
+    },
+    {
+      "id": "w-russische-sabotage-europa",
+      "titel": "Russische sabotage in Europa neemt toe",
+      "onderwerpen": ["veiligheid", "internationale-politiek"],
+      "reikwijdte": "wereld",
+      "laatsteOntwikkeling": "Denktank IISS telt 16 procent meer vermoedelijke Russische sabotageacties in Europa, met verdubbeld gebruik van brandstichting en explosieven.",
+      "watVerandert": {
+        "tekst": "Tussen september 2025 en september 2026 registreerde het Britse IISS rond de honderd meldingen. Ruim de helft was gericht op militaire en industriële infrastructuur. De meeste acties worden uitgevoerd door ingehuurde 'wegwerpspionnen', aangevuld met beter getrainde tussenpersonen.",
+        "onzeker": "Het gaat om meldingen van mogelijke Russische acties; niet bij elk incident is de betrokkenheid van Rusland bewezen.",
+        "bronnen": [
+          { "bron": "nos", "titel": "'Meer Russische sabotage in Europa, brandstichting en explosieven vaker ingezet'", "url": "https://nos.nl/l/2641236", "datum": "2026-11-27" }
+        ]
+      }
+    },
+    {
+      "id": "w-duitsland-afd-wapenvergunningen",
+      "titel": "Duitse rechter: wapenvergunning AfD-jongeren onterecht ingetrokken",
+      "onderwerpen": ["rechtspraak", "internationale-politiek"],
+      "reikwijdte": "wereld",
+      "laatsteOntwikkeling": "Het Bundesverwaltungsgericht in Leipzig oordeelt dat twee leden van de opgeheven AfD-jongerentak hun wapenvergunning ten onrechte kwijtraakten.",
+      "watVerandert": {
+        "tekst": "De Beierse binnenlandse veiligheidsdienst had in 2022 gemeld dat de twee banden hadden met de Junge Alternative, waarna hun vergunningen werden ingetrokken. De hoogste bestuursrechter vindt dat onterecht, wat gevolgen kan hebben voor hoe Duitsland zijn strenge wapenwet toepast op leden van als extremistisch aangemerkte groepen.",
+        "onzeker": "Hoe breed de uitspraak doorwerkt in andere zaken tegen AfD-leden met een wapenvergunning.",
+        "bronnen": [
+          { "bron": "nos", "titel": "Wapenvergunningen van twee AfD'ers onterecht ingetrokken, oordeelt hoogste bestuursrechter", "url": "https://nos.nl/l/2641163", "datum": "2026-11-26" }
+        ]
+      }
+    },
+    {
+      "id": "w-eurovisie-estland-poldvere",
+      "titel": "Estland houdt Laura Põldvere in songfestivalvoorronde ondanks drugsaffaire",
+      "onderwerpen": ["cultuur"],
+      "reikwijdte": "wereld",
+      "laatsteOntwikkeling": "De Estse omroep ERR laat zangeres Laura Põldvere meedoen aan Eesti Laul 2027, de voorronde voor het Eurovisie Songfestival, nadat haar naam opdook in een cocaïne-onderzoek.",
+      "watVerandert": {
+        "tekst": "Põldvere werd genoemd in een onderzoek naar een veroordeelde drugsdealer en erkende eerder drugsgebruik; ze zegt geen drugs meer te gebruiken. ERR-amusementschef Karmel Killandi bevestigde op Raadio 2 dat ze in de race blijft met het lied 'Metsapiiga'. De Eesti Laul-finale is op 30 januari 2027; het songfestival zelf is in mei 2027 in het Bulgaarse Burgas.",
+        "onzeker": "ERR zegt de ontwikkelingen te volgen; of er later alsnog consequenties volgen, is open.",
+        "bronnen": [
+          { "bron": "eurovoix", "titel": "🇪🇪 Estonia: ERR Confirms Laura Põldvere Will Remain in Eesti Laul 2027", "url": "https://eurovoix.com/2026/11/25/err-confirms-laura-poldvere-will-remain-in-eesti-laul-2027", "datum": "2026-11-25" },
+          { "bron": "euromix", "titel": "Estonian Eurovision Star Laura Põldvere Involved in Drug Scandal", "url": "https://en.euromix.co.il/2026/11/24/estonian-eurovision-star-laura-poldvere-involved-in-drug-scandal/", "datum": "2026-11-24" }
+        ]
+      }
+    }
+  ],
+  "berichten": [
+    {
+      "id": "nl-b1",
+      "verhaal": "nl-vvd-onrust-yesilgoz",
+      "titel": "VVD-ministers verdedigen Yesilgöz, die zelf camera's even mijdt",
+      "bron": "nos",
+      "url": "https://nos.nl/l/2641231",
+      "gepubliceerd": "2026-11-27T12:31:45+01:00",
+      "samenvatting": "Bij binnenkomst voor de ministerraad namen Karremans, Van Weel, Aartsen en Heinen het op voor Yesilgöz, na kritiek van oud-partijvoorzitter Van der Wal op haar dubbelfuncties. Yesilgöz liep zelf met een boog om de pers heen.",
+      "nieuw": "De VVD-bewindspersonen reageren voor het eerst publiekelijk en scharen zich achter hun leider.",
+      "soort": "journalistiek",
+      "belang": 3
+    },
+    {
+      "id": "nl-b2",
+      "verhaal": "nl-vvd-onrust-yesilgoz",
+      "titel": "VVD members questioning Dilan Yeşilgöz's double role as Defense Minister, party leader",
+      "bron": "nl-times",
+      "url": "https://nltimes.nl/2026/11/26/vvd-members-questioning-dilan-yesilgozs-double-role-defense-minister-party-leader",
+      "gepubliceerd": "2026-11-26T12:00:00+01:00",
+      "samenvatting": "Een voormalig VVD-voorzitter zegt op tv dat veel leden moeite hebben met de combinatie van partijleiderschap en ministerschap van Yesilgöz. De onvrede groeit door slechte peilingen voor de Statenverkiezingen en de bijna-val van het kabinet.",
+      "nieuw": "Een oud-partijvoorzitter uit de interne kritiek op Yesilgöz publiekelijk.",
+      "soort": "journalistiek",
+      "belang": 2
+    },
+    {
+      "id": "nl-b3",
+      "verhaal": "nl-asml-match-act",
+      "titel": "'Alles op alles' om Amerikaanse wet tegen te houden: wat kan Nederland doen?",
+      "bron": "nos",
+      "url": "https://nos.nl/l/2641269",
+      "gepubliceerd": "2026-11-27T16:00:47+01:00",
+      "samenvatting": "De MATCH Act kan het voor ASML onmogelijk maken om chipmachines in China te verkopen of te onderhouden. Minister Sjoerdsma noemt het tegenhouden van de wet een landsbelang en zegt dat Nederland zelf over zijn exportbeleid gaat.",
+      "nieuw": "Het kabinet zet alle middelen in om aanname van de wet in de VS te voorkomen.",
+      "soort": "journalistiek",
+      "belang": 3
+    },
+    {
+      "id": "nl-b4",
+      "verhaal": "nl-asml-match-act",
+      "titel": "Netherlands draws line over U.S. plan to restrict ASML exports to China",
+      "bron": "nl-times",
+      "url": "https://nltimes.nl/2026/11/26/netherlands-draws-line-us-plan-restrict-asml-exports-china",
+      "gepubliceerd": "2026-11-26T12:00:00+01:00",
+      "samenvatting": "Sjoerdsma zei in de Tweede Kamer dat Nederland zich niet laat voorschrijven wat het moet doen en dat de Amerikaanse plannen 'veel te ver' gaan. De Kamer steunt die lijn breed.",
+      "nieuw": "Het kabinet onderzoekt diplomatieke en internationale tegenzetten tegen de wet.",
+      "soort": "journalistiek",
+      "belang": 2
+    },
+    {
+      "id": "nl-b5",
+      "verhaal": "nl-recordkou-natuurijs",
+      "titel": "Op veel plekken koudste 27 november ooit gemeten, ijsbanen open",
+      "bron": "nos",
+      "url": "https://nos.nl/l/2641196",
+      "gepubliceerd": "2026-11-27T08:03:20+01:00",
+      "samenvatting": "In Twente vroor het -8,1 graden en ook op 26 andere meetstations werd een kouderecord voor deze datum gemeten. In De Bilt bleef het bij -5,4 graden, geen record.",
+      "nieuw": "De afgelopen nacht was op tientallen plekken de koudste 27 november ooit gemeten.",
+      "soort": "journalistiek",
+      "belang": 3
+    },
+    {
+      "id": "nl-b6",
+      "verhaal": "nl-recordkou-natuurijs",
+      "titel": "Kou in Nederland: schaatsen op natuurijs, eerstedivisieduels en hockeyprogramma afgelast",
+      "bron": "nos",
+      "url": "https://nos.nl/l/2641224",
+      "gepubliceerd": "2026-11-27T11:46:22+01:00",
+      "samenvatting": "Vier van de zeven duels in de Keuken Kampioen Divisie en het hele weekendprogramma in de hoofdklasse hockey gaan niet door vanwege bevroren velden. Op steeds meer plekken wordt geschaatst op natuurijs.",
+      "nieuw": "De vorst leidt tot de eerste afgelastingen in het betaald voetbal en hockey.",
+      "soort": "journalistiek",
+      "belang": 2
+    },
+    {
+      "id": "nl-b7",
+      "verhaal": "nl-tarwekamp-eis",
+      "titel": "OM eist levenslang tegen opdrachtgever dodelijke explosie Tarwekamp",
+      "bron": "nos",
+      "url": "https://nos.nl/artikel/2640862-om-eist-levenslang-tegen-opdrachtgever-dodelijke-explosie-tarwekamp",
+      "gepubliceerd": "2026-11-24T12:00:00+01:00",
+      "samenvatting": "Het OM eist de hoogste straf tegen Moshtag B., die de explosie in Mariahoeve volgens justitie liet plegen uit wraak op zijn ex. Bij de ontploffing in december 2024 kwamen zes mensen om.",
+      "nieuw": "Het OM heeft zijn strafeisen bekendgemaakt in het proces om de explosie.",
+      "soort": "journalistiek",
+      "belang": 3
+    },
+    {
+      "id": "nl-b8",
+      "verhaal": "nl-tarwekamp-eis",
+      "titel": "Levenslang geëist tegen Rotterdammer voor explosie Haagse Tarwekamp",
+      "bron": "rijnmond",
+      "url": "https://www.rijnmond.nl/nieuws/2287526/levenslang-geeist-tegen-rotterdammer-voor-explosie-haagse-tarwekamp",
+      "gepubliceerd": "2026-11-24T12:00:00+01:00",
+      "samenvatting": "Tegen de twee vermeende uitvoerders eist het OM 30 en 28 jaar cel, tegen een man die bij de voorbereiding hielp vier jaar. Volgens het OM werd de aanslag maandenlang voorbereid.",
+      "nieuw": "Naast de eis tegen de opdrachtgever zijn ook de eisen tegen de medeverdachten bekend.",
+      "soort": "journalistiek",
+      "belang": 1
+    },
+    {
+      "id": "nl-b9",
+      "verhaal": "nl-zembla-neonazi-onderzoek",
+      "titel": "OM start onderzoek na neo-nazidocumentaire Zembla",
+      "bron": "nos",
+      "url": "https://nos.nl/l/2641206",
+      "gepubliceerd": "2026-11-27T10:14:50+01:00",
+      "samenvatting": "Justitie onderzoekt of mensen uit de Zembla-uitzending zich schuldig maakten aan activiteiten gericht op discriminatie. In de documentaire waren onder meer Hitlergroeten en hakenkruizen bij kooigevechten te zien.",
+      "nieuw": "Het OM is na de uitzending een strafrechtelijk onderzoek begonnen.",
+      "soort": "journalistiek",
+      "belang": 2
+    },
+    {
+      "id": "nl-b10",
+      "verhaal": "nl-defensie-cv90",
+      "titel": "Nederland schaft extra pantservoertuigen aan voor nieuw infanteriebataljon",
+      "bron": "nos",
+      "url": "https://nos.nl/l/2641281",
+      "gepubliceerd": "2026-11-27T17:00:07+01:00",
+      "samenvatting": "Via een gezamenlijke bestelling met vier bondgenoten krijgt Nederland enkele tientallen extra CV90's voor een nieuw bataljon in Budel. De hele order van ruim 400 voertuigen kost zo'n 5,5 miljard euro.",
+      "nieuw": "De gezamenlijke aankoop met vier bondgenoten is bekendgemaakt.",
+      "soort": "journalistiek",
+      "belang": 2
+    },
+    {
+      "id": "nl-b11",
+      "verhaal": "nl-corona-stijging",
+      "titel": "Weer meer mensen met corona, maar geen reden tot zorg, zegt RIVM",
+      "bron": "nos",
+      "url": "https://nos.nl/l/2641234",
+      "gepubliceerd": "2026-11-27T12:58:55+01:00",
+      "samenvatting": "RIVM-cijfers laten meer coronagevallen en een sterke stijging van virusdeeltjes in het rioolwater zien. Het instituut noemt dat normaal voor het luchtwegseizoen.",
+      "nieuw": "De coronacijfers lopen deze week op, zonder dat het RIVM extra maatregelen nodig vindt.",
+      "soort": "journalistiek",
+      "belang": 1
+    },
+    {
+      "id": "nl-b12",
+      "verhaal": "nl-feyenoord-champions-league",
+      "titel": "Feyenoord beaten by Porto as UEFA Champions League struggles continue",
+      "bron": "nl-times",
+      "url": "https://nltimes.nl/2026/11/24/feyenoord-beaten-porto-uefa-champions-league-struggles-continue",
+      "gepubliceerd": "2026-11-24T23:00:00+01:00",
+      "samenvatting": "Feyenoord verloor in De Kuip met 1-0 van FC Porto. Een vroeg eigen doelpunt besliste de wedstrijd.",
+      "nieuw": "Feyenoord lijdt opnieuw een nederlaag in de Champions League.",
+      "soort": "journalistiek",
+      "belang": 1
+    },
+    {
+      "id": "w-b1",
+      "verhaal": "w-eu-meerjarenbegroting",
+      "titel": "Hard tegen hard bij begrotingsonderhandelingen EU, geen akkoord na lange dag overleg",
+      "bron": "nos",
+      "url": "https://nos.nl/l/2641176",
+      "gepubliceerd": "2026-11-26T23:23:16+01:00",
+      "samenvatting": "De 27 regeringsleiders gingen na een lange dag uiteen zonder zicht op een compromis over de begroting van 1582 miljard euro. Nederland en andere zuinige landen botsten frontaal met Frankrijk, dat dreigt met een veto tegen kortingen.",
+      "nieuw": "De extra begrotingstop is vastgelopen; Jetten spreekt van een 'ijzige' sfeer.",
+      "soort": "journalistiek",
+      "belang": 3
+    },
+    {
+      "id": "w-b2",
+      "verhaal": "w-eu-meerjarenbegroting",
+      "titel": "A Ukraine loan is in limbo after EU budget talks stall. Leaders will try again in 3 weeks",
+      "bron": "washington-post",
+      "url": "https://www.washingtonpost.com/world/2026/11/27/europe-budget-ukraine-2028-summit-costa/5e86cf42-ea5d-11f1-8db0-6f1e3c389e7c_story.html",
+      "gepubliceerd": "2026-11-27T12:00:00+01:00",
+      "samenvatting": "De begrotingsbesprekingen zijn vastgelopen en de EU-leiders komen over ongeveer drie weken opnieuw bijeen. Ook een financieringsbesluit dat aan de top was gekoppeld, blijft daardoor liggen.",
+      "nieuw": "Er is een vervolgtop over drie weken in het vooruitzicht gesteld.",
+      "soort": "journalistiek",
+      "belang": 2
+    },
+    {
+      "id": "w-b3",
+      "verhaal": "w-spanje-verkiezingen",
+      "titel": "Podcast De Dag: de negen levens van de Spaanse premier",
+      "bron": "nos",
+      "url": "https://nos.nl/l/2641282",
+      "gepubliceerd": "2026-11-27T17:02:48+01:00",
+      "samenvatting": "Correspondent Miral de Bruijne blikt terug op de momenten waarop de loopbaan van Pedro Sánchez aan een zijden draadje hing en kijkt vooruit naar de verkiezingen van zondag. De peilingen wijzen op een nek-aan-nekrace.",
+      "nieuw": "Aanloop naar de Spaanse verkiezingen van zondag.",
+      "soort": "journalistiek",
+      "belang": 2
+    },
+    {
+      "id": "w-b4",
+      "verhaal": "w-nieuw-zeeland-uitslag",
+      "titel": "Definitieve uitslag verkiezingen Nieuw-Zeeland: geen meerderheid voor links of rechts",
+      "bron": "nos",
+      "url": "https://nos.nl/l/2641181",
+      "gepubliceerd": "2026-11-27T04:31:07+01:00",
+      "samenvatting": "Na het meetellen van zo'n 400.000 speciale stemmen verloor de National-partij van premier Luxon twee zetels, waardoor de regeringspartijen op 65 van de 130 zetels uitkomen. De nieuwe partij Opportunity wordt daardoor beslissend.",
+      "nieuw": "De definitieve telling kost de zittende coalitie haar meerderheid.",
+      "soort": "journalistiek",
+      "belang": 2
+    },
+    {
+      "id": "w-b5",
+      "verhaal": "w-vs-noodweer-thanksgiving",
+      "titel": "Honderdduizenden Amerikanen op feestdag zonder stroom door noodweer",
+      "bron": "nos",
+      "url": "https://nos.nl/l/2641174",
+      "gepubliceerd": "2026-11-26T23:07:42+01:00",
+      "samenvatting": "Storm, regen en sneeuw lieten op Thanksgiving ruim 800.000 Amerikanen zonder stroom zitten, vooral aan de oostkust. Honderden vluchten werden geschrapt en de parade in New York is uitgesteld.",
+      "nieuw": "Het noodweer valt samen met een van de drukste reisdagen van het jaar.",
+      "soort": "journalistiek",
+      "belang": 3
+    },
+    {
+      "id": "w-b6",
+      "verhaal": "w-hack-amerikaanse-luchtmacht",
+      "titel": "'Hackers breken in bij clouddienst Amerikaanse luchtmacht'",
+      "bron": "nos",
+      "url": "https://nos.nl/l/2641242",
+      "gepubliceerd": "2026-11-27T13:34:48+01:00",
+      "samenvatting": "Volgens Reuters kregen hackers toegang tot Cloud One, waar data over radarsystemen en munitievoorraden staan. De luchtmacht bevestigt de inbraak niet.",
+      "nieuw": "Reuters meldt een inbraak in het centrale cloudplatform van de luchtmacht.",
+      "soort": "journalistiek",
+      "belang": 3
+    },
+    {
+      "id": "w-b7",
+      "verhaal": "w-russische-sabotage-europa",
+      "titel": "'Meer Russische sabotage in Europa, brandstichting en explosieven vaker ingezet'",
+      "bron": "nos",
+      "url": "https://nos.nl/l/2641236",
+      "gepubliceerd": "2026-11-27T13:05:16+01:00",
+      "samenvatting": "Het IISS telde in een jaar rond de honderd meldingen van mogelijke Russische sabotage, 16 procent meer dan het jaar ervoor. Vooral militaire en industriële infrastructuur was doelwit.",
+      "nieuw": "Een nieuw rapport ziet een duidelijke toename en een verschuiving naar zwaardere middelen.",
+      "soort": "journalistiek",
+      "belang": 3
+    },
+    {
+      "id": "w-b8",
+      "verhaal": "w-duitsland-afd-wapenvergunningen",
+      "titel": "Wapenvergunningen van twee AfD'ers onterecht ingetrokken, oordeelt hoogste bestuursrechter",
+      "bron": "nos",
+      "url": "https://nos.nl/l/2641163",
+      "gepubliceerd": "2026-11-26T22:25:16+01:00",
+      "samenvatting": "Het Bundesverwaltungsgericht stelt twee leden van de opgeheven Junge Alternative in het gelijk. Hun vergunningen waren ingetrokken na een melding van de Beierse veiligheidsdienst.",
+      "nieuw": "De hoogste bestuursrechter wijst het intrekken van de vergunningen af.",
+      "soort": "journalistiek",
+      "belang": 1
+    },
+    {
+      "id": "w-b9",
+      "verhaal": "w-eurovisie-estland-poldvere",
+      "titel": "🇪🇪 Estonia: ERR Confirms Laura Põldvere Will Remain in Eesti Laul 2027",
+      "bron": "eurovoix",
+      "url": "https://eurovoix.com/2026/11/25/err-confirms-laura-poldvere-will-remain-in-eesti-laul-2027",
+      "gepubliceerd": "2026-11-25T12:00:00+01:00",
+      "samenvatting": "ERR-amusementschef Karmel Killandi zei op Raadio 2 dat Põldvere gewoon meedoet aan de Estse songfestivalvoorronde. De omroep zegt de zaak te volgen maar ziet nu geen reden haar te diskwalificeren.",
+      "nieuw": "De omroep heeft besloten de zangeres niet uit de voorronde te halen.",
+      "soort": "journalistiek",
+      "belang": 1
+    },
+    {
+      "id": "w-b10",
+      "verhaal": "w-eurovisie-estland-poldvere",
+      "titel": "Estonian Eurovision Star Laura Põldvere Involved in Drug Scandal",
+      "bron": "euromix",
+      "url": "https://en.euromix.co.il/2026/11/24/estonian-eurovision-star-laura-poldvere-involved-in-drug-scandal/",
+      "gepubliceerd": "2026-11-24T12:00:00+01:00",
+      "samenvatting": "De naam van Põldvere, een bekend Ests songfestivalgezicht, dook op in een onderzoek naar cocaïnehandel. Ze erkende eerder drugsgebruik.",
+      "nieuw": "De betrokkenheid van een Eesti Laul-deelnemer bij een drugszaak werd openbaar.",
+      "soort": "journalistiek",
+      "belang": 1
+    }
+  ]
+}

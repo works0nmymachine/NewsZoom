@@ -1,4 +1,6 @@
 import type { Metadata, Viewport } from 'next';
+import { Nav } from '@/components/nav';
+import { huidigeGebruiker } from '@/lib/sessie';
 import './globals.css';
 
 export const dynamic = 'force-dynamic';
@@ -12,16 +14,21 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
+  viewportFit: 'cover',
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#f8fafc' },
     { media: '(prefers-color-scheme: dark)', color: '#111827' },
   ],
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const gebruiker = await huidigeGebruiker().catch(() => null);
   return (
     <html lang="nl">
-      <body>{children}</body>
+      <body className={gebruiker ? 'met-tabbalk' : undefined}>
+        {children}
+        {gebruiker && <Nav />}
+      </body>
     </html>
   );
 }

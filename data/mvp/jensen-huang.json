@@ -1,0 +1,179 @@
+{
+  "bronnen": [
+    { "id": "nvidia", "naam": "Nvidia", "url": "https://nvidianews.nvidia.com", "soort": "bedrijf" },
+    { "id": "sec", "naam": "SEC (EDGAR)", "url": "https://www.sec.gov", "soort": "overheid" },
+    { "id": "cnbc", "naam": "CNBC", "url": "https://www.cnbc.com", "soort": "journalistiek" },
+    { "id": "bloomberg", "naam": "Bloomberg", "url": "https://www.bloomberg.com", "soort": "journalistiek" },
+    { "id": "techcrunch", "naam": "TechCrunch", "url": "https://techcrunch.com", "soort": "vakmedium" },
+    { "id": "ap", "naam": "Associated Press", "url": "https://apnews.com", "soort": "journalistiek" },
+    { "id": "cnn", "naam": "CNN", "url": "https://www.cnn.com", "soort": "journalistiek" },
+    { "id": "al-jazeera", "naam": "Al Jazeera", "url": "https://www.aljazeera.com", "soort": "journalistiek" },
+    { "id": "axios", "naam": "Axios", "url": "https://www.axios.com", "soort": "journalistiek" },
+    { "id": "fortune", "naam": "Fortune", "url": "https://fortune.com", "soort": "journalistiek" },
+    { "id": "yahoo-finance", "naam": "Yahoo Finance", "url": "https://finance.yahoo.com", "soort": "journalistiek" },
+    { "id": "motley-fool", "naam": "The Motley Fool", "url": "https://www.fool.com", "soort": "vakmedium" }
+  ],
+  "onderwerpen": [
+    { "id": "techniek", "naam": "Techniek" },
+    { "id": "economie", "naam": "Economie" }
+  ],
+  "verhalen": [
+    {
+      "id": "jensen-huang",
+      "titel": "Jensen Huang en Nvidia",
+      "onderwerpen": ["techniek", "economie"],
+      "reikwijdte": "wereld",
+      "laatsteOntwikkeling": "Elf dagen na zijn vertrek heeft het bestuur van Nvidia oprichter Jensen Huang op 23 november unaniem teruggehaald als topman, terwijl onderzoeken naar zijn contacten met een vermoedelijke Chinese informant doorlopen.",
+      "watVerandert": {
+        "tekst": "Huang is weer president, CEO en bestuurslid van Nvidia; financieel directeur Colette Kress, die sinds 12 november tijdelijk de leiding had, gaat terug naar haar eigen functie. Het bestuur zegt na overleg met hooggeplaatste Amerikaanse regeringsfunctionarissen te hebben vastgesteld dat zijn terugkeer geen risico voor de nationale veiligheid vormt. Voor beleggers en klanten verdwijnt daarmee de onzekerheid over wie het bedrijf leidt. Zakelijk blijft het beeld van de cijfers van 17 november staan: een omzetverwachting van 130 miljard dollar voor het lopende kwartaal, zonder inkomsten uit datacenterchips voor China.",
+        "onzeker": "Het onafhankelijke onderzoek van het bestuur, een onderzoek van de procureur-generaal van Californië en vragen vanuit het Amerikaanse Congres lopen nog. Niet publiek vastgesteld is of er via de betrokken vrouw gevoelige informatie bij China terechtkwam; China ontkent spionage. Ook is onduidelijk of de felle koersschommelingen van AI- en chipaandelen in november voorbij zijn.",
+        "bronnen": [
+          { "bron": "bloomberg", "titel": "Nvidia Reinstates Jensen Huang as CEO With Government Input", "url": "https://www.bloomberg.com/news/articles/2026-11-23/nvidia-reinstates-jensen-huang-as-ceo-with-government-input", "datum": "2026-11-23" },
+          { "bron": "cnbc", "titel": "Nvidia brought Jensen Huang back. But the investigations aren’t over", "url": "https://www.cnbc.com/2026/11/24/nvidia-jensen-huang-ceo-return.html", "datum": "2026-11-24" },
+          { "bron": "nvidia", "titel": "NVIDIA Announces Financial Results for Third Quarter Fiscal 2027", "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Third-Quarter-Fiscal-2027/default.aspx", "datum": "2026-11-17" }
+        ]
+      },
+      "partijen": [
+        { "naam": "Jensen Huang", "belang": "Medeoprichter en sinds 1993 topman; trad op 12 november af na berichten over buitenechtelijke relaties en werd op 23 november herbenoemd." },
+        { "naam": "Bestuur van Nvidia (voorzitter Harvey C. Jones)", "belang": "Aanvaardde het ontslag, zei op 17 november Huang niet terug te willen halen en draaide dat op 23 november unaniem terug." },
+        { "naam": "Colette Kress", "belang": "Financieel directeur; was van 12 tot 23 november interim-topman en presenteerde de kwartaalcijfers." },
+        { "naam": "President Trump en de Amerikaanse regering", "belang": "Trump zei een terugkeer van Huang te steunen; het bestuur noemt input van regeringsfunctionarissen bij het besluit." },
+        { "naam": "Onderzoekers en Congres", "belang": "Het onafhankelijke bestuursonderzoek, de procureur-generaal van Californië en het Congres kijken nog naar de zaak." },
+        { "naam": "Beleggers", "belang": "Zagen het aandeel en de hele AI-sector in november heftig op en neer gaan; de Nasdaq had in de week tot 20 november zijn zwaarste week sinds maart 2020." }
+      ],
+      "dossier": {
+        "kort": {
+          "tekst": "Nvidia, maker van de chips waarop de meeste AI-systemen draaien, maakte in november zijn roerigste maand in decennia door. Oprichter Jensen Huang stapte op 12 november op na berichten over relaties met twee vrouwen, van wie één volgens Amerikaanse functionarissen voor de Chinese inlichtingendienst informatie zou verzamelen. Vijf dagen later meldde het bedrijf onder interim-topman Colette Kress een kwartaalomzet van 115,8 miljard dollar, ruim twee keer zoveel als een jaar eerder. Op 23 november haalde het bestuur Huang toch terug, naar eigen zeggen na overleg met de Amerikaanse regering. De onderzoeken naar de zaak lopen door.",
+          "bronnen": [
+            { "bron": "nvidia", "titel": "NVIDIA Announces CEO Transition", "url": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition", "datum": "2026-11-12" },
+            { "bron": "nvidia", "titel": "NVIDIA Announces Financial Results for Third Quarter Fiscal 2027", "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Third-Quarter-Fiscal-2027/default.aspx", "datum": "2026-11-17" },
+            { "bron": "cnbc", "titel": "Jensen Huang reinstated as Nvidia CEO. Stock skyrockets 31%", "url": "https://www.cnbc.com/2026/11/23/nvidia-jensen-huang-ceo.html", "datum": "2026-11-23" }
+          ]
+        },
+        "dezeWeek": {
+          "tekst": "De week begon na een zware beursweek: in de week tot en met vrijdag 20 november verloor de Nasdaq 10 procent en volgens Yahoo Finance had Nvidia zijn slechtste week sinds oktober 2008. Op maandag 23 november maakte Nvidia bekend dat het bestuur Huang unaniem had herbenoemd als president, topman en bestuurslid. Het bestuur zei tevreden te zijn over zijn openheid en, na overleg met hooggeplaatste regeringsfunctionarissen, te hebben vastgesteld dat zijn terugkeer geen risico voor de nationale veiligheid is. Medewerkers ontvingen hem met applaus; Huang beloofde een betere topman te worden.\n\nHet aandeel sloot die maandag volgens CNBC 31 procent hoger, maar leverde dinsdag ruim 5 procent in. CNBC benadrukte dat de zaak niet voorbij is: het eigen onderzoek van het bestuur loopt door, net als een onderzoek in Californië en de aandacht vanuit het Congres. Nvidia zegt mee te werken aan alle lopende onderzoeken.",
+          "bronnen": [
+            { "bron": "yahoo-finance", "titel": "Stock market today: Dow and S&P 500 enter correction, Nasdaq sinks 5% to erase 2026 gains as AI trade melts down", "url": "https://finance.yahoo.com/markets/live/stock-market-today-friday-november-19-dow-sp-500-nasdaq-anthropic-nvidia-141644188.html", "datum": "2026-11-20" },
+            { "bron": "cnbc", "titel": "Jensen Huang reinstated as Nvidia CEO. Stock skyrockets 31%", "url": "https://www.cnbc.com/2026/11/23/nvidia-jensen-huang-ceo.html", "datum": "2026-11-23" },
+            { "bron": "cnbc", "titel": "Jensen Huang cheered by Nvidia employees after return, pledges to be a better CEO", "url": "https://www.cnbc.com/2026/11/23/jensen-huang-nvidia-ceo-return.html", "datum": "2026-11-23" },
+            { "bron": "cnbc", "titel": "Nvidia shares fall more than 5% as Huang comeback rally cools", "url": "https://www.cnbc.com/2026/11/24/nvidia-stock-jensen-huang-return.html", "datum": "2026-11-24" },
+            { "bron": "cnbc", "titel": "Nvidia brought Jensen Huang back. But the investigations aren’t over", "url": "https://www.cnbc.com/2026/11/24/nvidia-jensen-huang-ceo-return.html", "datum": "2026-11-24" }
+          ]
+        },
+        "afgelopenMaanden": {
+          "tekst": "Het najaar stond in het teken van twijfel over de AI-hausse. Na een record van de Nasdaq begin oktober volgde op 5 november een harde verkoopgolf: na een grote verkiezingswinst van de Democraten vreesden beleggers beperkingen voor nieuwe datacenters. De S&P 500 verloor die dag 4,4 procent en Nvidia, met een daling van 9,3 procent, drukte de index het meest.\n\nTegelijk kwam Huang persoonlijk onder vuur. The New York Times meldde eind oktober dat Amerikaanse functionarissen een zakenvrouw van Nvidia-klant Megaspeed zien als Chinese inlichtingenbron; Nvidia sprak het bericht tegen en China ontkent spionage. Na nieuwe berichten over een tweede relatie trad Huang op 12 november per direct af. Financieel directeur Colette Kress werd interim-topman en Harvey C. Jones de eerste bestuursvoorzitter in de geschiedenis van het bedrijf. Het aandeel opende die dag fors lager.\n\nBij de kwartaalcijfers op 17 november leek de zaak bedrijfsmatig door te lopen: omzet 115,8 miljard dollar (plus 103 procent), datacenteromzet 107,6 miljard, levering van de nieuwe Vera Rubin-generatie begonnen en een verwachting van 130 miljard dollar voor het vierde kwartaal. Kress zei dat leveringen aan China zijn gestopt; de prognose gaat uit van geen datacenteromzet uit China. Bestuursvoorzitter Jones zei dezelfde dag dat het bestuur Huang niet wilde terughalen, ondanks steun van president Trump voor een terugkeer.",
+          "bronnen": [
+            { "bron": "ap", "titel": "A brutal sell-off for AI stocks sends Wall Street reeling; S&P 500 sees worst day since 2025 ‘Liberation Day’ tariffs", "url": "https://www.wowt.com/2026/11/05/brutal-sell-off-ai-stocks-sends-wall-street-reeling-sp-500-sees-worst-day-since-2025-liberation-day-tariffs/", "datum": "2026-11-05" },
+            { "bron": "al-jazeera", "titel": "Nvidia CEO Jensen Huang resigns amid spy scandal and market loss", "url": "https://aljazeera.com/news/2026/11/12/ai-titan-jensen-huang-out-as-nvidia-ceo", "datum": "2026-11-12" },
+            { "bron": "nvidia", "titel": "NVIDIA Announces Financial Results for Third Quarter Fiscal 2027", "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Third-Quarter-Fiscal-2027/default.aspx", "datum": "2026-11-17" },
+            { "bron": "ap", "titel": "Nvidia chairman says board does not intend to reinstate Jensen Huang as CEO", "url": "https://www.wrdw.com/2026/11/17/former-nvidia-ceo-jensen-huang-appear-before-congress-national-security-questions-intensify/", "datum": "2026-11-17" },
+            { "bron": "cnn", "titel": "Four takeaways from Nvidia’s first earnings report after Jensen Huang scandal", "url": "https://krdo.com/news/2026/11/18/four-takeaways-from-nvidias-first-earnings-report-after-jensen-huang-scandal/", "datum": "2026-11-18" }
+          ]
+        },
+        "vanafBegin": {
+          "tekst": "Jensen Huang richtte Nvidia in 1993 mede op en leidde het bedrijf 33 jaar onafgebroken. Nvidia begon met grafische chips (GPU's) voor games; in 2006 kwam het met CUDA, software waarmee die chips ook voor ander rekenwerk te programmeren zijn. Dat bleek de basis voor de AI-omslag: het trainen van neurale netwerken draait vooral op GPU's, en met de opkomst van generatieve AI werd Nvidia een van de waardevolste bedrijven ter wereld.\n\nHuang verdedigde die groei steeds tegen het verwijt van een AI-bubbel. In Davos noemde hij in januari 2026 de AI-uitbouw de grootste infrastructuurbouw in de geschiedenis, en op de GTC-conferentie in maart sprak hij van een omslag naar 'inference', het dagelijks gebruik van AI-modellen, gesteund door een orderportefeuille van 1 biljoen dollar.\n\nDe zwakke plek bleek de nauwe band tussen het bedrijf en de persoon Huang, en de positie van Nvidia tussen Washington en Peking. De exportregels voor China hielden het bedrijf jarenlang bezig; in november 2026 rekent Nvidia niet meer op datacenteromzet uit China. Het vertrek en de terugkeer van Huang lieten zien hoe sterk beleggers, de Amerikaanse regering en de AI-sector aan hem hangen.",
+          "bronnen": [
+            { "bron": "nvidia", "titel": "NVIDIA Announces CEO Transition", "url": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition", "datum": "2026-11-12" },
+            { "bron": "fortune", "titel": "Jensen Huang says AI bubble fears are dwarfed by ‘the largest infrastructure build-out in human history’", "url": "https://fortune.com/2026/01/21/jensen-huang-on-ai-bubble-largest-infrastructure-buildout-history/", "datum": "2026-01-21" },
+            { "bron": "ap", "titel": "Nvidia CEO heralds 'inference inflection' as next phase of AI boom backed by $1 trillion in orders", "url": "https://ny1.com/nyc/all-boroughs/ap-top-news/2026/03/16/nvidia-ceo-heralds-inference-inflection-as-next-phase-of-ai-boom-backed-by-1-trillion-in-orders", "datum": "2026-03-16" },
+            { "bron": "nvidia", "titel": "NVIDIA Announces Financial Results for Third Quarter Fiscal 2027", "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Third-Quarter-Fiscal-2027/default.aspx", "datum": "2026-11-17" }
+          ]
+        }
+      },
+      "correcties": [
+        {
+          "datum": "2026-11-23",
+          "was": "Bestuursvoorzitter Harvey Jones zei op 17 november dat het bestuur niet van plan was Jensen Huang terug te halen als topman; Kress zou interim-topman blijven tot een vaste opvolger was gevonden.",
+          "wordt": "Op 23 november besloot het bestuur unaniem Huang te herbenoemen als president, topman en bestuurslid; de zoektocht naar een opvolger is daarmee van de baan.",
+          "bron": { "bron": "techcrunch", "titel": "Nvidia reverses course and brings Jensen Huang back as CEO", "url": "https://techcrunch.com/2026/11/23/nvidia-reverses-course-and-brings-jensen-huang-back-as-ceo/", "datum": "2026-11-23" }
+        }
+      ]
+    }
+  ],
+  "berichten": [
+    {
+      "id": "jh-1",
+      "verhaal": "jensen-huang",
+      "titel": "The AI boom faces a dot-com reckoning",
+      "bron": "axios",
+      "url": "https://www.axios.com/2026/11/16/nvidia-jensen-huang-ai-bubble",
+      "gepubliceerd": "2026-11-16T12:00:00-05:00",
+      "samenvatting": "Axios beschrijft het vertrek van Huang als extra risico voor een toch al gespannen AI-hausse. Een econoom van RSM waarschuwt dat het een bredere klap voor de AI-bubbel kan inluiden.",
+      "nieuw": "Economen koppelen het leiderschapsvacuüm bij Nvidia expliciet aan het risico van een leeglopende AI-bubbel.",
+      "soort": "journalistiek",
+      "belang": 2
+    },
+    {
+      "id": "jh-2",
+      "verhaal": "jensen-huang",
+      "titel": "NVIDIA Announces Financial Results for Third Quarter Fiscal 2027",
+      "bron": "nvidia",
+      "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Third-Quarter-Fiscal-2027/default.aspx",
+      "gepubliceerd": "2026-11-17T16:20:00-05:00",
+      "samenvatting": "Nvidia boekte over het kwartaal tot 25 oktober 115,8 miljard dollar omzet, 103 procent meer dan een jaar eerder, en verwacht voor het vierde kwartaal 130 miljard dollar. Het bestuur trok 150 miljard dollar extra uit voor de inkoop van eigen aandelen.",
+      "nieuw": "De eerste cijfers zonder Huang lagen boven de verwachtingen; de prognose gaat uit van geen datacenteromzet uit China.",
+      "soort": "mededeling",
+      "belang": 3
+    },
+    {
+      "id": "jh-3",
+      "verhaal": "jensen-huang",
+      "titel": "Nvidia chairman says board does not intend to reinstate Jensen Huang as CEO",
+      "bron": "ap",
+      "url": "https://www.wrdw.com/2026/11/17/former-nvidia-ceo-jensen-huang-appear-before-congress-national-security-questions-intensify/",
+      "gepubliceerd": "2026-11-17T12:00:00-05:00",
+      "samenvatting": "Voorzitter Harvey Jones zei dat het bestuur Huang niet wil terughalen, enkele uren nadat Huang had laten weten terug te willen komen als het bestuur hem zou vragen. President Trump had eerder gezegd een terugkeer niet erg te vinden.",
+      "nieuw": "Het bestuur wees een terugkeer van Huang publiek af.",
+      "soort": "journalistiek",
+      "belang": 2
+    },
+    {
+      "id": "jh-4",
+      "verhaal": "jensen-huang",
+      "titel": "Nvidia dismisses calls to reinstate Jensen Huang amid blockbuster earnings",
+      "bron": "al-jazeera",
+      "url": "https://www.aljazeera.com/economy/2026/11/18/nvidia-shoots-down-calls-for-jensen-huangs-return-amid-strong-earnings",
+      "gepubliceerd": "2026-11-18T12:00:00+03:00",
+      "samenvatting": "Al Jazeera zet de sterke kwartaalcijfers naast de weigering van het bestuur om Huang terug te halen. Interim-topman Kress leidt het bedrijf tot een vaste opvolger is gevonden.",
+      "nieuw": "Sterke cijfers en een afgewezen terugkeer kwamen in één dag samen.",
+      "soort": "journalistiek",
+      "belang": 1
+    },
+    {
+      "id": "jh-5",
+      "verhaal": "jensen-huang",
+      "titel": "Jensen Huang reinstated as Nvidia CEO. Stock skyrockets 31%",
+      "bron": "cnbc",
+      "url": "https://www.cnbc.com/2026/11/23/nvidia-jensen-huang-ceo.html",
+      "gepubliceerd": "2026-11-23T12:00:00-05:00",
+      "samenvatting": "Het bestuur van Nvidia heeft Huang herbenoemd als topman, elf dagen na zijn vertrek; president Trump had op zijn terugkeer aangedrongen. Het aandeel sloot volgens CNBC 31 procent hoger.",
+      "nieuw": "Huang is terug als president, topman en bestuurslid.",
+      "soort": "journalistiek",
+      "belang": 3
+    },
+    {
+      "id": "jh-6",
+      "verhaal": "jensen-huang",
+      "titel": "Jensen Huang cheered by Nvidia employees after return, pledges to be a better CEO",
+      "bron": "cnbc",
+      "url": "https://www.cnbc.com/2026/11/23/jensen-huang-nvidia-ceo-return.html",
+      "gepubliceerd": "2026-11-23T12:00:00-05:00",
+      "samenvatting": "Medewerkers ontvingen Huang met gejuich en applaus op het hoofdkantoor. Hij beloofde een betere topman te worden.",
+      "nieuw": "Huang reageerde voor het eerst als teruggekeerde topman.",
+      "soort": "journalistiek",
+      "belang": 1
+    },
+    {
+      "id": "jh-7",
+      "verhaal": "jensen-huang",
+      "titel": "Nvidia brought Jensen Huang back. But the investigations aren’t over",
+      "bron": "cnbc",
+      "url": "https://www.cnbc.com/2026/11/24/nvidia-jensen-huang-ceo-return.html",
+      "gepubliceerd": "2026-11-24T12:00:00-05:00",
+      "samenvatting": "Ondanks de terugkeer van Huang lopen het onafhankelijke onderzoek van het bestuur, een onderzoek in Californië en vragen uit het Congres door.",
+      "nieuw": "De herbenoeming sluit de onderzoeken niet af.",
+      "soort": "journalistiek",
+      "belang": 2
+    }
+  ]
+}

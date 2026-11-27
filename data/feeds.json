@@ -1,0 +1,138 @@
+{
+  "toelichting": "Bronnen die de ingest-worker periodiek ophaalt. reikwijdte bepaalt waar berichten verschijnen; gebied bij lokaal. Een bron zonder werkende feed blijft zichtbaar met een mislukte controle.",
+  "bronnen": [
+    {
+      "id": "nos",
+      "naam": "NOS",
+      "homepage": "https://nos.nl",
+      "feed": "https://feeds.nos.nl/nosnieuwsbinnenland",
+      "soort": "journalistiek",
+      "reikwijdte": "nederland"
+    },
+    {
+      "id": "nos-buitenland",
+      "naam": "NOS Buitenland",
+      "homepage": "https://nos.nl/nieuws/buitenland",
+      "feed": "https://feeds.nos.nl/nosnieuwsbuitenland",
+      "soort": "journalistiek",
+      "reikwijdte": "wereld"
+    },
+    {
+      "id": "nos-tech",
+      "naam": "NOS Tech",
+      "homepage": "https://nos.nl/nieuws/tech",
+      "feed": "https://feeds.nos.nl/nosnieuwstech",
+      "soort": "journalistiek",
+      "reikwijdte": "wereld",
+      "onderwerpen": [
+        "techniek"
+      ]
+    },
+    {
+      "id": "nu-nl",
+      "naam": "NU.nl",
+      "homepage": "https://www.nu.nl",
+      "feed": "https://www.nu.nl/rss/Algemeen",
+      "soort": "journalistiek",
+      "reikwijdte": "nederland"
+    },
+    {
+      "id": "nu-nl-economie",
+      "naam": "NU.nl Economie",
+      "homepage": "https://www.nu.nl/economie",
+      "feed": "https://www.nu.nl/rss/Economie",
+      "soort": "journalistiek",
+      "reikwijdte": "nederland",
+      "onderwerpen": [
+        "economie"
+      ]
+    },
+    {
+      "id": "parool",
+      "naam": "Het Parool",
+      "homepage": "https://www.parool.nl/amsterdam",
+      "feed": "https://www.parool.nl/amsterdam/rss.xml",
+      "soort": "journalistiek",
+      "reikwijdte": "lokaal",
+      "gebied": "amsterdam"
+    },
+    {
+      "id": "at5",
+      "naam": "AT5",
+      "homepage": "https://www.at5.nl",
+      "feed": "https://www.at5.nl/feeds/rss",
+      "soort": "journalistiek",
+      "reikwijdte": "lokaal",
+      "gebied": "amsterdam"
+    },
+    {
+      "id": "gemeente-amsterdam",
+      "naam": "Gemeente Amsterdam",
+      "homepage": "https://www.amsterdam.nl/nieuws",
+      "feed": "https://www.amsterdam.nl/nieuws/rss",
+      "soort": "overheid",
+      "reikwijdte": "lokaal",
+      "gebied": "amsterdam"
+    },
+    {
+      "id": "bbc",
+      "naam": "BBC News",
+      "homepage": "https://www.bbc.com/news/world",
+      "feed": "https://feeds.bbci.co.uk/news/world/rss.xml",
+      "soort": "journalistiek",
+      "reikwijdte": "wereld"
+    },
+    {
+      "id": "al-jazeera",
+      "naam": "Al Jazeera",
+      "homepage": "https://www.aljazeera.com",
+      "feed": "https://www.aljazeera.com/xml/rss/all.xml",
+      "soort": "journalistiek",
+      "reikwijdte": "wereld"
+    },
+    {
+      "id": "kyiv-independent",
+      "naam": "The Kyiv Independent",
+      "homepage": "https://kyivindependent.com",
+      "feed": "https://kyivindependent.com/news-archive/rss/",
+      "soort": "journalistiek",
+      "reikwijdte": "wereld",
+      "onderwerpen": [
+        "oorlog-en-conflict"
+      ]
+    },
+    {
+      "id": "techcrunch",
+      "naam": "TechCrunch",
+      "homepage": "https://techcrunch.com",
+      "feed": "https://techcrunch.com/feed/",
+      "soort": "vakmedium",
+      "reikwijdte": "wereld",
+      "onderwerpen": [
+        "techniek"
+      ]
+    },
+    {
+      "id": "nvidia",
+      "naam": "Nvidia Newsroom",
+      "homepage": "https://nvidianews.nvidia.com",
+      "feed": "https://nvidianews.nvidia.com/releases.xml",
+      "soort": "bedrijf",
+      "reikwijdte": "wereld",
+      "onderwerpen": [
+        "techniek"
+      ]
+    },
+    {
+      "id": "databricks",
+      "naam": "Databricks Blog",
+      "homepage": "https://www.databricks.com/blog",
+      "feed": "https://www.databricks.com/feed",
+      "soort": "bedrijf",
+      "reikwijdte": "wereld",
+      "onderwerpen": [
+        "techniek"
+      ]
+    }
+  ]
+}

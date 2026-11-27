@@ -1,0 +1,369 @@
+{
+  "bronnen": [
+    {
+      "id": "nos",
+      "naam": "NOS",
+      "url": "https://nos.nl",
+      "soort": "journalistiek"
+    },
+    {
+      "id": "al-jazeera",
+      "naam": "Al Jazeera",
+      "url": "https://www.aljazeera.com",
+      "soort": "journalistiek"
+    },
+    {
+      "id": "times-of-israel",
+      "naam": "The Times of Israel",
+      "url": "https://www.timesofisrael.com",
+      "soort": "journalistiek"
+    },
+    {
+      "id": "ocha",
+      "naam": "VN-bureau voor humanitaire zaken (OCHA), bezette Palestijnse gebieden",
+      "url": "https://www.ochaopt.org",
+      "soort": "organisatie"
+    },
+    {
+      "id": "npr",
+      "naam": "NPR",
+      "url": "https://www.npr.org",
+      "soort": "journalistiek"
+    },
+    {
+      "id": "ajc",
+      "naam": "The Atlanta Journal-Constitution (AP-bericht)",
+      "url": "https://www.ajc.com",
+      "soort": "journalistiek"
+    },
+    {
+      "id": "rijksoverheid",
+      "naam": "Rijksoverheid",
+      "url": "https://www.rijksoverheid.nl",
+      "soort": "overheid"
+    }
+  ],
+  "onderwerpen": [
+    {
+      "id": "oorlog-en-conflict",
+      "naam": "Oorlog en conflict"
+    },
+    {
+      "id": "internationale-politiek",
+      "naam": "Internationale politiek"
+    }
+  ],
+  "verhalen": [
+    {
+      "id": "israel-gaza",
+      "titel": "Israël en Gaza",
+      "onderwerpen": [
+        "oorlog-en-conflict",
+        "internationale-politiek"
+      ],
+      "reikwijdte": "wereld",
+      "laatsteOntwikkeling": "De Israëlische defensieminister Katz dreigde op 26 november met een nieuw groot offensief en een nieuwe massale verdrijving in Gaza als Hamas niet zelf ontwapent, terwijl Israëlische luchtaanvallen ondanks het bestand doorgaan.",
+      "watVerandert": {
+        "tekst": "Voor burgers in Gaza: het bestand van oktober 2025 heeft de oorlog niet echt beëindigd. Volgens het ministerie van Gezondheid in Gaza zijn sinds het bestand 1679 mensen gedood (stand 24 november). Ongeveer 1,36 miljoen mensen, 65 procent van de bevolking, wonen volgens de VN (OCHA) nog in tenten en noodonderkomens, terwijl winterregen kampen onder water zet. Artsen en de WHO waarschuwen voor een snelle toename van hersenvliesontsteking (meningitis), vooral bij baby's. Nieuwe tenten en winterspullen liggen deels nog aan de grens.\n\nMilitair en politiek: het staakt-het-vuren staat onder druk. Israël rukte half november voor het eerst sinds het bestand met tanks op voorbij de afgesproken 'gele lijn' en Katz dreigt met een veel groter offensief; volgens The Times of Israel gaat hij daarmee in tegen de koers van de Board of Peace. Hamas weigert eenzijdig te ontwapenen. De door de VS geleide Board of Peace, die het vredesplan moet uitvoeren, verwijt beide partijen hun afspraken niet na te komen. In Israël is premier Netanyahu na de verkiezingen van oktober demissionair en probeert oppositieleider Eisenkot een regering te vormen.",
+        "onzeker": "Of Israël het gedreigde offensief echt inzet: Katz noemde geen termijn. Of Netanyahu zijn toezegging aan VS-gezant Kushner om meer hulp toe te laten nakomt; volgens The Times of Israel kreeg de Board of Peace zulke signalen eerder en wil die nu eerst resultaat zien. Of Eisenkot binnen de wettelijke termijn (begin december, met mogelijke verlenging) een meerderheid vindt. Of de internationale stabilisatiemacht en een Palestijns technocratisch bestuur ooit echt in Gaza aan de slag gaan.",
+        "bronnen": [
+          {
+            "bron": "nos",
+            "titel": "Israëlische minister Katz voert druk op en dreigt met nieuw offensief in Gaza",
+            "url": "https://nos.nl/artikel/2641153-israelische-minister-katz-voert-druk-op-en-dreigt-met-nieuw-offensief-in-gaza",
+            "datum": "2026-11-26"
+          },
+          {
+            "bron": "al-jazeera",
+            "titel": "Israeli air strikes in Gaza kill 7 as doctors warn of meningitis outbreak",
+            "url": "https://www.aljazeera.com/news/2026/11/24/israeli-air-strikes-in-gaza-kill-7-as-doctors-warn-of-meningitis-outbreak",
+            "datum": "2026-11-24"
+          },
+          {
+            "bron": "ocha",
+            "titel": "Humanitarian Situation Report",
+            "url": "https://www.ochaopt.org/content/humanitarian-situation-report-26-november-2026",
+            "datum": "2026-11-26"
+          },
+          {
+            "bron": "al-jazeera",
+            "titel": "Board of Peace warns Gaza ceasefire faces imminent collapse without action",
+            "url": "https://www.aljazeera.com/news/2026/11/18/board-of-peace-warns-gaza-ceasefire-faces-imminent-collapse-without-action",
+            "datum": "2026-11-18"
+          },
+          {
+            "bron": "times-of-israel",
+            "titel": "Gaza's Board of Peace says it is encouraged by recent conversations with Netanyahu",
+            "url": "https://www.timesofisrael.com/gazas-board-of-peace-says-it-is-encouraged-by-recent-conversations-with-netanyahu/",
+            "datum": "2026-11-27"
+          }
+        ]
+      },
+      "partijen": [
+        {
+          "naam": "Israëlische regering (demissionair premier Netanyahu, defensieminister Katz)",
+          "belang": "Wil dat Hamas volledig ontwapent voordat het leger zich terugtrekt, en houdt de veroverde 'veiligheidszones' in Gaza vast. Vindt het gefaseerde ontwapeningsplan van de Board of Peace onvoldoende."
+        },
+        {
+          "naam": "Hamas",
+          "belang": "Wil overleven als politieke en militaire kracht en eist Israëlische terugtrekking. Stemde in juli in met een gefaseerd ontwapeningsplan, maar weigert eenzijdig de wapens in te leveren."
+        },
+        {
+          "naam": "Board of Peace en de VS (president Trump, gezant Kushner, hoge vertegenwoordiger Mladenov)",
+          "belang": "Moet Trumps vredesplan uitvoeren: ontwapening, een internationale stabilisatiemacht, een Palestijns technocratisch bestuur en wederopbouw. Waarschuwt dat het bestand zonder actie kan instorten."
+        },
+        {
+          "naam": "Burgers in Gaza",
+          "belang": "Ruim twee miljoen mensen, van wie de meesten ontheemd in tenten wonen; zij hebben veiligheid, voedsel, onderdak, zorg en wederopbouw nodig."
+        },
+        {
+          "naam": "VN en hulporganisaties (OCHA, WHO, UNRWA)",
+          "belang": "Willen onbelemmerde toegang voor hulp en winterspullen en meer geld; wijzen erop dat Israël goederen tegenhoudt die het als 'dual-use' ziet."
+        },
+        {
+          "naam": "Israëlische oppositie (Gadi Eisenkot)",
+          "belang": "Probeert na de verkiezingen van oktober een regering zonder Netanyahu's huidige coalitie te vormen en noemt geweld van kolonisten 'Joods terrorisme'."
+        },
+        {
+          "naam": "Europese Unie en Nederland",
+          "belang": "Eisen humanitaire toegang tot Gaza en nemen maatregelen tegen illegale nederzettingen; zijn verdeeld over zwaardere sancties tegen Israël."
+        }
+      ],
+      "dossier": {
+        "kort": {
+          "tekst": "Sinds 10 oktober 2025 geldt in Gaza een staakt-het-vuren op basis van het vredesplan van de Amerikaanse president Trump, maar het geweld is nooit gestopt. Alle gijzelaars, levend en dood, zijn inmiddels terug in Israël. De volgende stappen (ontwapening van Hamas, Israëlische terugtrekking, een internationale stabilisatiemacht en wederopbouw) zitten vast: Israël en Hamas wachten op elkaar. Israël controleert een groter deel van Gaza dan afgesproken en dreigt nu met een nieuw offensief, terwijl de meeste Gazanen een tweede winter in tenten doorbrengen.",
+          "bronnen": [
+            {
+              "bron": "al-jazeera",
+              "titel": "Board of Peace warns Gaza ceasefire faces imminent collapse without action",
+              "url": "https://www.aljazeera.com/news/2026/11/18/board-of-peace-warns-gaza-ceasefire-faces-imminent-collapse-without-action",
+              "datum": "2026-11-18"
+            },
+            {
+              "bron": "nos",
+              "titel": "Israëlische minister Katz voert druk op en dreigt met nieuw offensief in Gaza",
+              "url": "https://nos.nl/artikel/2641153-israelische-minister-katz-voert-druk-op-en-dreigt-met-nieuw-offensief-in-gaza",
+              "datum": "2026-11-26"
+            },
+            {
+              "bron": "npr",
+              "titel": "Israel finds the last hostage body in Gaza, paving the way for next steps in Trump plan",
+              "url": "https://www.npr.org/2026/01/26/g-s1-107340/israel-gaza-hostage-remains-hamas",
+              "datum": "2026-01-26"
+            },
+            {
+              "bron": "times-of-israel",
+              "titel": "Katz threatens to launch fresh Gaza offensive, bucking Board of Peace push",
+              "url": "https://www.timesofisrael.com/liveblog_entry/katz-threatens-to-launch-fresh-gaza-offensive-bucking-board-of-peace-push",
+              "datum": "2026-11-26"
+            }
+          ]
+        },
+        "dezeWeek": {
+          "tekst": "Israëlische aanvallen in Gaza gingen deze week door, met hoge Hamas-functionarissen als doelwit. Op 24 november kwamen volgens Al Jazeera zeker zeven Palestijnen om, onder wie een kind en politieagenten. Een drone doodde volgens het ministerie van Binnenlandse Zaken in Gaza Naim Abu Nahl, hoofd van de interne veiligheidsdienst van Hamas; het Israëlische leger en de Shin Bet bevestigden dat ze een hoge Hamas-figuur hadden aangevallen. Op 26 november doodde een aanval in Deir el-Balah Khaled Abu Nada, volgens Netanyahu en Katz een Hamas-functionaris voor economie en onderwijs, en zijn vrouw. Die dag vielen volgens Al Jazeera zeker tien doden.\n\nOp 26 november stelde defensieminister Katz Hamas voor de keus: vrijwillig ontwapenen volgens het plan-Trump, of een nieuw groot offensief waarbij opnieuw een groot deel van de bevolking moet vertrekken. Volgens de NOS zei hij dat Israël al 70 procent van Gaza in handen heeft. Een termijn noemde hij niet. Hamas weigert eenzijdig te ontwapenen. Israël en Hamas wachten zo op elkaar, terwijl de Board of Peace aandringt op uitvoering van het plan.\n\nDe humanitaire nood blijft groot. Het ministerie van Gezondheid in Gaza meldde in oktober 272 gevallen van meningitis, tegen normaal 30 tot 50 per maand. De WHO telde tussen 1 oktober en 23 november 692 vermoedelijke gevallen, vooral bij baby's. Volgens OCHA was op 26 november pas 35 procent van het geld voor de minimale winterhulp binnen. Ruim 150.000 tenten lagen nog buiten Gaza.\n\nOp de Westelijke Jordaanoever staken kolonisten in een weekend volgens Al Jazeera minstens een dozijn auto's en meerdere huizen in brand, in vijf Palestijnse dorpen. Eisenkot, die een nieuwe Israëlische regering probeert te vormen, sprak van 'Joods terrorisme' en gaf extreemrechtse ministers de schuld. De voorzitter van de kolonistenraad Yesha veroordeelde de branden, maar wees die term af.",
+          "bronnen": [
+            {
+              "bron": "al-jazeera",
+              "titel": "Israeli air strikes in Gaza kill 7 as doctors warn of meningitis outbreak",
+              "url": "https://www.aljazeera.com/news/2026/11/24/israeli-air-strikes-in-gaza-kill-7-as-doctors-warn-of-meningitis-outbreak",
+              "datum": "2026-11-24"
+            },
+            {
+              "bron": "al-jazeera",
+              "titel": "Israeli attacks on Gaza kill senior education official, nine other people",
+              "url": "https://www.aljazeera.com/news/2026/11/26/israeli-attacks-on-gaza-kill-senior-education-official-seven-other-people",
+              "datum": "2026-11-26"
+            },
+            {
+              "bron": "nos",
+              "titel": "Israëlische minister Katz voert druk op en dreigt met nieuw offensief in Gaza",
+              "url": "https://nos.nl/artikel/2641153-israelische-minister-katz-voert-druk-op-en-dreigt-met-nieuw-offensief-in-gaza",
+              "datum": "2026-11-26"
+            },
+            {
+              "bron": "ocha",
+              "titel": "Humanitarian Situation Report",
+              "url": "https://www.ochaopt.org/content/humanitarian-situation-report-26-november-2026",
+              "datum": "2026-11-26"
+            },
+            {
+              "bron": "al-jazeera",
+              "titel": "Palestine Weekly: A night of arson sees Israel ‘Jewish terrorism’ reckoning",
+              "url": "https://www.aljazeera.com/news/2026/11/24/palestine-weekly-a-night-of-arson-sees-israel-jewish-terrorism-reckoning",
+              "datum": "2026-11-24"
+            }
+          ]
+        },
+        "afgelopenMaanden": {
+          "tekst": "Het bestand bleef staan, maar het vredesplan kwam niet verder. Eind mei gaf Netanyahu het leger opdracht 70 procent van Gaza in handen te krijgen, terwijl in het bestand van oktober 2025 53 procent was afgesproken. Eind juli maakte de Board of Peace bekend dat Hamas had ingestemd met een gefaseerd plan om de wapens in te leveren terwijl Israël zich stap voor stap terugtrekt. Israël wees dat plan begin augustus af: Hamas moet eerst volledig ontwapenen. Bemiddeling door VS-gezant Kushner leverde in augustus alleen werkgroepen op. Een jaar na het bestand was volgens Al Jazeera vooral geld toegezegd, maar weinig wederopbouw zichtbaar.\n\nIn Israël verloor Netanyahu bij de verkiezingen van 27 oktober zijn meerderheid. Zijn blok kreeg 53 van de 120 zetels, de oppositie onder Gadi Eisenkot 48 en Arabische partijen een recordaantal van 19. President Herzog gaf op 8 november Eisenkot de eerste kans om een regering te vormen. Netanyahu regeert intussen demissionair door.\n\nIn november nam de druk toe. Begin november zette zware regen tienduizenden tenten onder water; OCHA telde schade aan meer dan 40.000 onderkomens. Volgens Israëlische legercijfers, gemeld door Haaretz, kwam maar ongeveer de helft van de afgesproken hulp binnen. Op 12 november kwamen bij een Israëlische aanval op het Nasser-ziekenhuis in Khan Younis zes mensen om, meldde de VN. De EU eiste op 14 november dat Israël alle grensovergangen opent. Op 18 november trokken Israëlische tanks voor het eerst sinds het bestand voorbij de gele lijn in midden-Gaza, en de Board of Peace waarschuwde de VN-Veiligheidsraad dat het bestand dreigt in te storten. Interpretatie: Israël won terrein op de grond en Hamas houdt de rest van Gaza vast, terwijl de Board of Peace en de Gazaanse burgers aan de verliezende kant staan.\n\nIn Nederland geldt sinds 22 september een verbod op invoer en verkoop van goederen uit illegale Israëlische nederzettingen. Op 8 november liepen in Amsterdam volgens de organisatie zeker 200.000 mensen mee met een Rode Lijn-demonstratie voor Gaza.",
+          "bronnen": [
+            {
+              "bron": "al-jazeera",
+              "titel": "Kushner to visit Israel after Netanyahu rejects Gaza Board of Peace plan",
+              "url": "https://www.aljazeera.com/news/2026/8/14/kushner-to-visit-israel-after-netanyahu-rejects-gaza-board-of-peace-plan",
+              "datum": "2026-08-14"
+            },
+            {
+              "bron": "al-jazeera",
+              "titel": "Israel election result shows no overall majority as vote count complete",
+              "url": "https://www.aljazeera.com/news/2026/10/29/israel-election-result-shows-no-overall-majority-as-vote-count-complete",
+              "datum": "2026-10-29"
+            },
+            {
+              "bron": "nos",
+              "titel": "Veel te weinig hulpgoederen komen Gaza binnen, laten Israëlische cijfers zien",
+              "url": "https://nos.nl/artikel/2639648-veel-te-weinig-hulpgoederen-komen-gaza-binnen-geeft-nu-ook-het-israelische-leger-toe",
+              "datum": "2026-11-15"
+            },
+            {
+              "bron": "rijksoverheid",
+              "titel": "Kabinet neemt maatregelen tegen goederen uit onrechtmatige Israëlische nederzettingen",
+              "url": "https://www.rijksoverheid.nl/actueel/nieuws/2026/07/21/kabinet-maatregelen-goederen-uit-onrechtmatige-israelische-nederzettingen",
+              "datum": "2026-07-21"
+            },
+            {
+              "bron": "nos",
+              "titel": "Zeker 200.000 mensen bij Rode Lijn-demonstratie in Amsterdam, zegt organisatie",
+              "url": "https://nos.nl/artikel/2638553-zeker-200-000-mensen-bij-rode-lijn-demonstratie-in-amsterdam-zegt-organisatie",
+              "datum": "2026-11-08"
+            }
+          ]
+        },
+        "vanafBegin": {
+          "tekst": "Hamas bestuurt de Gazastrook sinds 2007; Israël en Egypte houden het gebied sindsdien onder een blokkade. Op 7 oktober 2023 vielen Hamas en andere groepen Zuid-Israël binnen. Volgens Israëlische tellingen kwamen ongeveer 1200 mensen om en werden 251 mensen ontvoerd naar Gaza. Israël antwoordde met een oorlog die grote delen van Gaza verwoestte. Volgens het ministerie van Gezondheid in Gaza, dat onder Hamas valt en geen onderscheid maakt tussen burgers en strijders, zijn sinds oktober 2023 74.746 mensen gedood en 176.234 gewond (stand 24 november 2026). De VN gebruikt deze cijfers in haar eigen rapportages.\n\nSleutelmomenten na eerdere, mislukte bestanden: op 10 oktober 2025 ging een staakt-het-vuren in op basis van Trumps twintigpuntenplan. Op 26 januari 2026 haalde Israël het stoffelijk overschot van Ran Gvili uit Gaza, de laatste gijzelaar; daarmee was de eerste fase van het plan afgerond. De VN-Veiligheidsraad steunde het plan, en een Board of Peace onder leiding van Trump moet de uitvoering overzien, met een Palestijns technocratisch comité als bestuur. In februari zegden landen 7 miljard dollar toe voor wederopbouw, een fractie van de ongeveer 70 miljard die volgens internationale instanties nodig is.\n\nWat op het spel staat: of Gaza wordt herbouwd en door Palestijnen bestuurd, of dat de scheidslijn blijvend wordt. Board of Peace-gezant Mladenov waarschuwde in mei dat de gele lijn zonder vooruitgang kan uitgroeien tot 'een hek of muur, een permanente scheiding van Gaza'. Ook staan de veiligheid van Israël, het geweld op de Westelijke Jordaanoever en de vraag naar een Palestijnse staat op het spel.",
+          "bronnen": [
+            {
+              "bron": "npr",
+              "titel": "Israel finds the last hostage body in Gaza, paving the way for next steps in Trump plan",
+              "url": "https://www.npr.org/2026/01/26/g-s1-107340/israel-gaza-hostage-remains-hamas",
+              "datum": "2026-01-26"
+            },
+            {
+              "bron": "al-jazeera",
+              "titel": "Israeli air strikes in Gaza kill 7 as doctors warn of meningitis outbreak",
+              "url": "https://www.aljazeera.com/news/2026/11/24/israeli-air-strikes-in-gaza-kill-7-as-doctors-warn-of-meningitis-outbreak",
+              "datum": "2026-11-24"
+            },
+            {
+              "bron": "ajc",
+              "titel": "A high-stakes test for Trump’s Gaza ceasefire board as Hamas disarmament looms",
+              "url": "https://www.ajc.com/news/2026/07/a-high-stakes-test-for-trumps-gaza-ceasefire-board-as-hamas-disarmament-looms/",
+              "datum": "2026-07-31"
+            },
+            {
+              "bron": "al-jazeera",
+              "titel": "What has Trump’s Board of Peace achieved in a year since Gaza ‘ceasefire’?",
+              "url": "https://www.aljazeera.com/news/2026/10/10/what-has-trumps-board-of-peace-achieved-in-a-year-since-gaza",
+              "datum": "2026-10-10"
+            },
+            {
+              "bron": "al-jazeera",
+              "titel": "Israel’s Netanyahu directs army to seize 70 percent of Gaza Strip",
+              "url": "https://www.aljazeera.com/news/2026/5/28/israels-netanyahu-directs-army-to-seize-70-percent-of-gaza-strip",
+              "datum": "2026-05-28"
+            }
+          ]
+        }
+      },
+      "correcties": [
+        {
+          "datum": "2026-11-15",
+          "was": "De NOS kopte eerst dat ook het Israëlische leger nu toegeeft dat er veel te weinig hulpgoederen Gaza binnenkomen.",
+          "wordt": "Het leger heeft dat niet zelf toegegeven. De cijfers komen van Cogat, het Israëlische militaire orgaan dat de hulp coördineert, en werden door de krant Haaretz naar buiten gebracht. De NOS paste de kop aan naar 'Veel te weinig hulpgoederen komen Gaza binnen, laten Israëlische cijfers zien'.",
+          "bron": {
+            "bron": "nos",
+            "titel": "Veel te weinig hulpgoederen komen Gaza binnen, laten Israëlische cijfers zien",
+            "url": "https://nos.nl/artikel/2639648-veel-te-weinig-hulpgoederen-komen-gaza-binnen-geeft-nu-ook-het-israelische-leger-toe",
+            "datum": "2026-11-15"
+          }
+        }
+      ]
+    }
+  ],
+  "berichten": [
+    {
+      "id": "ig-1",
+      "verhaal": "israel-gaza",
+      "titel": "Board of Peace warns Gaza ceasefire faces imminent collapse without action",
+      "bron": "al-jazeera",
+      "url": "https://www.aljazeera.com/news/2026/11/18/board-of-peace-warns-gaza-ceasefire-faces-imminent-collapse-without-action",
+      "gepubliceerd": "2026-11-18T12:00:00+03:00",
+      "samenvatting": "De door de VS gesteunde Board of Peace meldt de VN-Veiligheidsraad dat Israël en Hamas belangrijke afspraken uit het bestand niet nakomen. Daardoor lopen het nieuwe Palestijnse bestuur en de internationale stabilisatiemacht vertraging op.",
+      "nieuw": "In zijn eerste rapport aan de Veiligheidsraad waarschuwt het orgaan dat het plan-Trump moet uitvoeren dat het bestand kan instorten, en het wijst beide partijen aan.",
+      "soort": "journalistiek",
+      "belang": 3
+    },
+    {
+      "id": "ig-2",
+      "verhaal": "israel-gaza",
+      "titel": "What does Israel’s new ground offensive mean for Palestinians in Gaza?",
+      "bron": "al-jazeera",
+      "url": "https://www.aljazeera.com/news/2026/11/18/what-does-israels-new-ground-offensive-mean-for-palestinians-in-gaza",
+      "gepubliceerd": "2026-11-18T12:00:00+03:00",
+      "samenvatting": "Israëlische tanks en bulldozers trokken in midden-Gaza op naar de Salah al-Din-weg bij de vluchtelingenkampen Nuseirat en Bureij, en bewoners kregen een evacuatiebevel. Hamas noemt dit een schending van het bestand; Israël zegt Hamas-infrastructuur aan te vallen.",
+      "nieuw": "Het is de eerste grondoperatie voorbij de gele lijn sinds het bestand van oktober 2025.",
+      "soort": "journalistiek",
+      "belang": 2
+    },
+    {
+      "id": "ig-3",
+      "verhaal": "israel-gaza",
+      "titel": "Israël doodt Palestijnen bij luchtaanvallen in Gaza, onder wie Hamas-kopstuk",
+      "bron": "nos",
+      "url": "https://nos.nl/artikel/2640835-israel-doodt-palestijnen-bij-luchtaanvallen-in-gaza-onder-wie-hamas-kopstuk",
+      "gepubliceerd": "2026-11-24T12:00:00+01:00",
+      "samenvatting": "Bij Israëlische luchtaanvallen op meerdere plekken in Gaza kwamen Palestijnen om, onder wie volgens Israël en Hamas het hoofd van de interne veiligheidsdienst van Hamas.",
+      "nieuw": "Onder de doden is volgens Israël en Hamas het hoofd van de interne veiligheidsdienst van Hamas.",
+      "soort": "journalistiek",
+      "belang": 2
+    },
+    {
+      "id": "ig-4",
+      "verhaal": "israel-gaza",
+      "titel": "Palestine Weekly: A night of arson sees Israel ‘Jewish terrorism’ reckoning",
+      "bron": "al-jazeera",
+      "url": "https://www.aljazeera.com/news/2026/11/24/palestine-weekly-a-night-of-arson-sees-israel-jewish-terrorism-reckoning",
+      "gepubliceerd": "2026-11-24T12:00:00+03:00",
+      "samenvatting": "Kolonisten staken op de Westelijke Jordaanoever auto's en huizen in brand in vijf Palestijnse dorpen. Formateur Eisenkot en oud-premier Bennett gaven de regering en extreemrechtse ministers de schuld.",
+      "nieuw": "De beoogde nieuwe premier noemt het kolonistengeweld openlijk 'Joods terrorisme'.",
+      "soort": "journalistiek",
+      "belang": 2
+    },
+    {
+      "id": "ig-5",
+      "verhaal": "israel-gaza",
+      "titel": "Gaza meningitis cases surge as collapsing infrastructure fuels health fears",
+      "bron": "al-jazeera",
+      "url": "https://www.aljazeera.com/news/2026/11/26/gaza-meningitis-cases-surge-as-collapsing-infrastructure-fuels-health-fears",
+      "gepubliceerd": "2026-11-26T12:00:00+03:00",
+      "samenvatting": "Het aantal gevallen van hersenvliesontsteking in Gaza stijgt snel. Artsen en gezondheidsdiensten koppelen dat aan de ingestorte infrastructuur.",
+      "nieuw": "Naast honger en kou is nu ook een besmettelijke ziekte een acuut gevaar voor kinderen in Gaza.",
+      "soort": "journalistiek",
+      "belang": 2
+    },
+    {
+      "id": "ig-6",
+      "verhaal": "israel-gaza",
+      "titel": "Israëlische minister Katz voert druk op en dreigt met nieuw offensief in Gaza",
+      "bron": "nos",
+      "url": "https://nos.nl/artikel/2641153-israelische-minister-katz-voert-druk-op-en-dreigt-met-nieuw-offensief-in-gaza",
+      "gepubliceerd": "2026-11-26T12:00:00+01:00",
+      "samenvatting": "Defensieminister Katz stelt Hamas een ultimatum: ontwapenen of een nieuw offensief. Volgens hem heeft Israël al 70 procent van Gaza in handen.",
+      "nieuw": "Israël dreigt nu openlijk met een nieuwe grote oorlogsfase en een nieuwe verdrijving van inwoners, tegen de koers van de Board of Peace in.",
+      "soort": "journalistiek",
+      "belang": 3
+    },
+    {
+      "id": "ig-7",
+      "verhaal": "israel-gaza",
+      "titel": "Humanitarian Situation Report",
+      "bron": "ocha",
+      "url": "https://www.ochaopt.org/content/humanitarian-situation-report-26-november-2026",
+      "gepubliceerd": "2026-11-26T12:00:00+02:00",
+      "samenvatting": "Volgens OCHA wonen ongeveer 1,36 miljoen mensen in Gaza in tenten of noodonderkomens. Pas 35 procent van de 283 miljoen dollar voor minimale winterhulp is binnen.",
+      "nieuw": "De VN geeft actuele cijfers over het geldtekort voor winterhulp en over het oplopende aantal vermoedelijke meningitisgevallen.",
+      "soort": "mededeling",
+      "belang": 1
+    }
+  ]
+}
