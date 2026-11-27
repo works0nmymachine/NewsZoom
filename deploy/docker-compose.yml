@@ -1,0 +1,26 @@
+name: newszoom
+services:
+  app:
+    image: newszoom-app:${NZ_TAG:?Release ontbreekt}
+    build:
+      context: ./releases/${NZ_TAG}
+      args:
+        APP_COMMIT: ${NZ_TAG}
+    env_file: .env.newszoom
+    environment:
+      NODE_OPTIONS: --max-old-space-size=256
+    ports:
+      - "127.0.0.1:${NZ_APP_PORT:-8096}:3000"
+    networks: [default, supabase_default]
+    restart: unless-stopped
+    mem_limit: 384m
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: [ALL]
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+networks:
+  supabase_default:
+    external: true

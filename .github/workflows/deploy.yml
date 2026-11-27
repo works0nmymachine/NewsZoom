@@ -1,0 +1,87 @@
+name: Deploy NewsZoom
+# Alleen handmatig: Actions → Deploy NewsZoom → Run workflow → main.
+# Een push start bewust geen workflow (Actions-minuten sparen).
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: newszoom-production
+  cancel-in-progress: false
+jobs:
+  check:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_USER: newszoom
+          POSTGRES_PASSWORD: test-only
+          POSTGRES_DB: newszoom_test
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U newszoom -d newszoom_test"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      DATABASE_URL: postgresql://newszoom:test-only@localhost:5432/newszoom_test
+      APP_URL: http://localhost:3000
+      NEXT_TELEMETRY_DISABLED: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run migrate
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+  deploy:
+    needs: check
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: production
+    env:
+      SERVER_IP: ${{ vars.SERVER_IP }}
+      SERVER_USERNAME: ${{ vars.SERVER_USERNAME }}
+      NZ_DOMAIN: ${{ vars.NZ_DOMAIN }}
+      NZ_APP_PORT: ${{ vars.NZ_APP_PORT }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configuratie controleren en SSH instellen
+        env:
+          SSH_KEY: ${{ secrets.SERVER_SSH_KEY }}
+          KNOWN_HOSTS: ${{ secrets.SERVER_SSH_KNOWN_HOSTS }}
+        run: |
+          set -euo pipefail
+          test -n "$SSH_KEY" || { echo '::error::Secret SERVER_SSH_KEY ontbreekt (docs/OWNER_SETUP.md)'; exit 1; }
+          test -n "$KNOWN_HOSTS" || { echo '::error::Secret SERVER_SSH_KNOWN_HOSTS ontbreekt'; exit 1; }
+          [[ "$SERVER_IP" =~ ^[0-9.]+$ ]] || { echo '::error::Variable SERVER_IP ontbreekt of is ongeldig'; exit 1; }
+          [[ "$SERVER_USERNAME" == deploy ]] || { echo '::error::Variable SERVER_USERNAME moet deploy zijn'; exit 1; }
+          [[ "$NZ_DOMAIN" == newszoom.craftstudio.work ]] || { echo '::error::Variable NZ_DOMAIN ontbreekt'; exit 1; }
+          [[ "$NZ_APP_PORT" =~ ^[0-9]+$ ]] || { echo '::error::Variable NZ_APP_PORT ontbreekt'; exit 1; }
+          install -d -m 700 ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/id_ed25519
+          printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/id_ed25519 ~/.ssh/known_hosts
+          printf 'Host *\n  BatchMode yes\n  StrictHostKeyChecking yes\n  ConnectTimeout 15\n' > ~/.ssh/config
+      - name: Precies deze commit uploaden
+        run: |
+          set -euo pipefail
+          dest="$SERVER_USERNAME@$SERVER_IP"
+          ssh "$dest" "test -s /srv/newszoom/app/.env.newszoom && mkdir -p /srv/newszoom/app/releases/$GITHUB_SHA"
+          git archive HEAD | ssh "$dest" "tar -xf - -C /srv/newszoom/app/releases/$GITHUB_SHA"
+      - name: Bouwen, backup, migreren en controleren
+        run: |
+          ssh "$SERVER_USERNAME@$SERVER_IP" "cd /srv/newszoom/app/releases/$GITHUB_SHA && bash scripts/deploy.sh '$GITHUB_SHA' '$NZ_APP_PORT' '$NZ_DOMAIN'"
+      - name: Van buitenaf controleren
+        run: |
+          curl -fsS --max-time 20 "https://$NZ_DOMAIN/api/health" > /tmp/health.json
+          node -e "const h=require('/tmp/health.json'); if(h.status!=='ok'||h.commit!==process.env.GITHUB_SHA) process.exit(1)"
+      - name: Tijdelijke SSH-key verwijderen
+        if: always()
+        run: rm -f ~/.ssh/id_ed25519

@@ -4,7 +4,16 @@ Volg wat je boeit. Zie wat er verandert.
 
 NewsZoom is een concept voor een persoonlijke nieuwsapp. Je kiest zelf welke onderwerpen en verhalen in je feed komen. Bij iedere update kun je uitzoomen naar de afgelopen week, de afgelopen maanden of het hele verhaal. In Finance doe je hetzelfde voor koersbewegingen en het nieuws eromheen. In Agenda zie je geplande evenementen, reisinformatie en filmreleases die bij je voorkeuren passen. Met de Uitagenda ontdek je wat er vandaag, deze week of deze maand te doen is in een stad of land.
 
-**Status:** productconcept met serverdraaiboek. De app is nog niet gebouwd. Beoogd adres: https://newszoom.craftstudio.work.
+**Status:** app-skelet met handmatige deploy; de functies uit het ontwerp zijn nog niet gebouwd. Beoogd adres: https://newszoom.craftstudio.work.
+
+## Lokaal draaien
+
+```bash
+npm install
+cp .env.example .env.local
+npm run migrate
+npm run dev
+```
 
 ## Documentatie
 

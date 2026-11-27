@@ -1,6 +1,6 @@
 # Deployment
 
-**Status: nog niet gebouwd.** Dit is het contract voor de code die nog moet komen. Werkwijze en scripts volgen helpout.
+**Status: gebouwd, nog nooit uitgevoerd.** De workflow werkt pas als de server ([SERVER_SETUP](SERVER_SETUP.md)) en GitHub ([OWNER_SETUP](OWNER_SETUP.md)) zijn ingericht. Werkwijze en scripts volgen helpout.
 
 ## Beleid (vastgesteld 27 november 2026)
 
@@ -17,10 +17,27 @@
 5. `/api/health` lokaal en publiek controleren op de juiste commit. Pas dan wordt `/srv/newszoom/deploy/last-successful` bijgewerkt.
 6. Bij een fout: vorige tag en compose terugzetten en opnieuw starten. De database wordt nooit automatisch teruggezet.
 
-## Nog te bouwen
+## Bestanden
 
-- `Dockerfile` (Next.js standalone, met `scripts/` en `db/migrations/`).
-- `/api/health` met commit en databasecheck.
-- `deploy/docker-compose.yml` (app op `127.0.0.1:${NZ_APP_PORT}`, geheugenlimiet, netwerk `supabase_default`).
-- `scripts/deploy.sh` en `.github/workflows/deploy.yml` (alleen `workflow_dispatch`).
-- CSP met nonce in de app.
+| Bestand | Rol |
+| --- | --- |
+| `.github/workflows/deploy.yml` | Handmatige workflow: checks, upload, deploy, controle van buitenaf |
+| `scripts/deploy.sh` | Draait op de server als `deploy`: build, dump, migratie, start, health, terugdraaien bij fout |
+| `deploy/docker-compose.yml` | App op `127.0.0.1:${NZ_APP_PORT}`, 384 MiB, netwerk `supabase_default` |
+| `Dockerfile` | Next.js standalone, met `scripts/` en `db/migrations/` |
+| `src/app/api/health/route.ts` | `{status, commit}` plus databasecheck |
+| `scripts/migrate.mjs` | Past `db/migrations/*.sql` toe, bijgehouden in `nz_migraties` |
+
+## Oude releases
+
+`deploy.sh` bewaart de huidige en de drie vorige releasemappen. Docker-images ruimt hij niet op. Doe dat af en toe als root, alleen voor NewsZoom:
+
+~~~bash
+docker images newszoom-app --format '{{.Tag}} {{.CreatedSince}}'
+~~~
+
+~~~bash
+docker rmi newszoom-app:OUDE_TAG
+~~~
+
+Houd de huidige (`/srv/newszoom/app/.env`) en de vorige tag.

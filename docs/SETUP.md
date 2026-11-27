@@ -1,6 +1,6 @@
 # NewsZoom: projectopzet
 
-Bijgewerkt 27 november 2026. **Status: alleen documentatie. Er is nog geen code, database of deployment.** Zie [BUILD_LOG](BUILD_LOG.md).
+Bijgewerkt 27 november 2026. **Status: app-skelet gebouwd (startpagina, healthcheck, deploy). Nog niet uitgerold.** Zie [BUILD_LOG](BUILD_LOG.md).
 
 ## Architectuur
 
@@ -10,7 +10,6 @@ Bijgewerkt 27 november 2026. **Status: alleen documentatie. Er is nog geen code,
 - Opslag op die server, in de bestaande gedeelde Supabase-PostgreSQL, met een eigen beperkte rol `newszoom` en eigen schema's. De hoeveelheid data is klein.
 - Gebruikers hebben een account. Inloggen gebeurt met het craftstudio-account (dezelfde e-mail en hetzelfde wachtwoord als de todo-app, via Supabase Auth). Voorkeuren en filters worden per account op de server bewaard.
 - Alleen branch `main`. Een push draait geen workflow. Deployen gebeurt handmatig.
-
 - Eén Next.js-app (`output: "standalone"`) in een Docker-container levert pagina's en API. Installeerbaar als PWA.
 - Een Capacitor-app (`work.craftstudio.newszoom`) als schil die de live site laadt. Android eerst. De schil komt nadat de webapp draait.
 
@@ -65,7 +64,7 @@ npm run dev
 
 1. Repo-basis en serverdraaiboek (gedaan, alleen documenten).
 2. Server inrichten volgens [SERVER_SETUP](SERVER_SETUP.md) en GitHub volgens [OWNER_SETUP](OWNER_SETUP.md).
-3. App-skelet: Next.js, healthroute, Dockerfile, compose, deployscript, handmatige deployworkflow. Eerste release met een lege pagina om de keten te testen.
+3. App-skelet: Next.js, healthroute, Dockerfile, compose, deployscript, handmatige deployworkflow (gedaan). Eerste release met de startpagina om de keten te testen.
 4. Inloggen met craftstudio-account.
 5. MVP: Vandaag, filters, één lokaal gebied, een paar dossiers met voorbeelddata.
 6. Na de proef: ingest-worker met echte bronnen.

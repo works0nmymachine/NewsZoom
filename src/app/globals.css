@@ -1,0 +1,41 @@
+:root {
+  --grond: #f8fafc;
+  --tekst: #111827;
+  --zacht: #4b5563;
+  --accent: #b45309;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --grond: #111827;
+    --tekst: #f3f4f6;
+    --zacht: #9ca3af;
+    --accent: #facc15;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; }
+
+body {
+  background: var(--grond);
+  color: var(--tekst);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+}
+
+.start {
+  max-width: 40rem;
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.start h1 { margin: 0; font-size: 2.5rem; letter-spacing: -0.02em; }
+.ondertitel { margin: 0.25rem 0 1.5rem; font-size: 1.25rem; color: var(--zacht); }
+.status { margin: 0; padding-left: 0.75rem; border-left: 3px solid var(--accent); color: var(--zacht); }
