@@ -4,7 +4,7 @@
 
 De commando's zijn voor een **Bash-rootconsole op de Linux-server**, niet voor je Mac. Voer ze per genummerde paragraaf uit en controleer de uitvoer. Stop bij fouten. **Tip:** de webconsole verminkt lange blokken; plak per blok.
 
-Stappen die afhangen van nog niet gebouwde code (Dockerfile, healthroute, deployworkflow) zijn gemarkeerd. Die doe je pas bij de eerste release.
+De code voor de eerste release is er; §10 (backup) doe je na die release.
 
 ## Waarden
 
@@ -33,7 +33,7 @@ Stappen die afhangen van nog niet gebouwde code (Dockerfile, healthroute, deploy
 5. §8.1–8.3 Cloudflare: DNS, SSL-modus, origin-certificaat.
 6. §7 certificaat opslaan, nginx schrijven en testen.
 7. §8.4–8.6 Cloudflare-instellingen; §9–11 controles en regressie.
-8. §12 eerste release, pas als de code er is.
+8. §12 eerste release, daarna §10 backup en hersteltest.
 
 ## 0. Inventaris (alleen lezen)
 
