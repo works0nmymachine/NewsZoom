@@ -94,3 +94,22 @@ export async function watchlistActie(form: FormData) {
   revalidatePath('/finance', 'layout');
   redirect(veiligTerug(form.get('terug')));
 }
+
+export async function agendaActie(form: FormData) {
+  const g = await vereisGebruiker();
+  const soort = String(form.get('soort'));
+  const id = String(form.get('id') ?? '').slice(0, 200);
+  const actie = String(form.get('actie'));
+  if (!['evenement', 'categorie', 'locatie'].includes(soort) || !id) throw new Error('Ongeldige keuze');
+  if (actie === 'wissen') {
+    await pool().query(`DELETE FROM nz_agendakeuzes WHERE gebruiker = $1 AND doel_soort = $2 AND doel_id = $3`, [g.id, soort, id]);
+  } else if (actie === 'volgen' || actie === 'verbergen') {
+    await pool().query(
+      `INSERT INTO nz_agendakeuzes (gebruiker, doel_soort, doel_id, actie) VALUES ($1, $2, $3, $4)
+       ON CONFLICT (gebruiker, doel_soort, doel_id) DO UPDATE SET actie = EXCLUDED.actie, aangemaakt_at = now()`,
+      [g.id, soort, id, actie],
+    );
+  } else throw new Error('Ongeldige actie');
+  revalidatePath('/agenda', 'layout');
+  redirect(veiligTerug(form.get('terug')));
+}
