@@ -79,9 +79,12 @@ Verwacht twee secrets en vier variables. Ruim daarna de private key op de server
 - Bij een privé-repository heeft een gratis GitHub-account 2.000 minuten per maand. Een deploy kost naar schatting 5–10 minuten.
 - Controleer onder https://github.com/settings/billing dat het uitgavenlimiet voor Actions op $0 staat; dan kan het nooit geld kosten.
 
-### Later: Android-app
+### Later: Capacitor-app
 
-Alleen als je een Android-app (TWA) wilt, zoals bij helpout: repository-secrets `ANDROID_KEYSTORE_BASE64` en `ANDROID_KEYSTORE_PASSWORD`. Zie helpout `docs/ANDROID.md` voor het maken van de sleutel.
+Pas nodig als de webapp draait.
+
+- **Android:** een eigen ondertekensleutel, als repository-secrets `ANDROID_KEYSTORE_BASE64` en `ANDROID_KEYSTORE_PASSWORD`. Bewaar de sleutel ook in je wachtwoordmanager: met een andere sleutel kun je de geïnstalleerde app niet bijwerken. Het maken van de sleutel gaat zoals in helpout `docs/ANDROID.md`, met alias `newszoom`.
+- **iPhone (optioneel):** een Mac met Xcode en een Apple Developer-account ($99 per jaar).
 
 ## Inhoud voor de eerste proef
 

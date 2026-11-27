@@ -27,10 +27,10 @@
 - **Git:** alleen `main`; wijzigingen gaan direct op `main`.
 - **Deployen:** alleen handmatig via de workflow Deploy NewsZoom. Een push start geen workflow, om Actions-minuten te sparen.
 - **Server:** inrichting volgens het helpout-patroon, zie [SERVER_SETUP](SERVER_SETUP.md).
+- **Platform:** één Next.js-webapp, installeerbaar als PWA, met een **Capacitor**-app als schil. De Capacitor-app laadt de live site (`server.url`), dus na een deploy is de app direct bijgewerkt. Pakketnaam `work.craftstudio.newszoom`, één vaste ondertekensleutel. Android eerst; iOS vraagt een Mac en een Apple Developer-account. Data loopt via API-routes en meldingen via Web Push, zodat native onderdelen later kunnen aanhaken.
 
 ## Voorstellen
 
-- Platform: één Next.js-webapp, installeerbaar als PWA; later eventueel een Android-schil (TWA) zoals helpout. Wacht op keuze van de eigenaar.
 - Hostpoort 8096, te bevestigen bij de serverinventaris.
 
 - Mijn Nieuws en Ontdekken krijgen elk een eigen tabblad.
@@ -39,7 +39,6 @@
 
 ## Open vragen
 
-- Welk platform krijgt voorrang? Zie het voorstel hierboven.
 - Welke nieuws- en koersdatabronnen passen bij het product en welke gebruiksrechten zijn nodig?
 - Hoe worden artikelen aan verhalen gekoppeld en wie controleert context en koersduiding?
 - Welke LLM-provider en welk maandbudget voor briefings en duiding?

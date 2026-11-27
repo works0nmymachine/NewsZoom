@@ -11,9 +11,11 @@ Bijgewerkt 27 november 2026. **Status: alleen documentatie. Er is nog geen code,
 - Gebruikers hebben een account. Inloggen gebeurt met het craftstudio-account (dezelfde e-mail en hetzelfde wachtwoord als de todo-app, via Supabase Auth). Voorkeuren en filters worden per account op de server bewaard.
 - Alleen branch `main`. Een push draait geen workflow. Deployen gebeurt handmatig.
 
-**Voorstel (platformkeuze nog open, zie [Besluiten](BESLUITEN.md)):**
+- Eén Next.js-app (`output: "standalone"`) in een Docker-container levert pagina's en API. Installeerbaar als PWA.
+- Een Capacitor-app (`work.craftstudio.newszoom`) als schil die de live site laadt. Android eerst. De schil komt nadat de webapp draait.
 
-- Eén Next.js-app (`output: "standalone"`) in een Docker-container levert pagina's en API. Installeerbaar als PWA. Later eventueel een Android-schil (TWA) zoals bij helpout.
+**Voorstel:**
+
 - Een aparte **ingest-worker** (zelfde image, ander startcommando) haalt periodiek bronnen op (RSS/Atom, API's, openbare pagina's) en houdt per bron de laatste geslaagde controle bij. De server heeft geen `pg_cron`; de worker plant zelf.
 - Directe PostgreSQL-verbinding (`pg`, `DATABASE_URL`) via Docker-netwerk `supabase_default` naar `supabase-db:5432`. Geen Supabase-API, geen service-role key.
 - Zoeken met `pg_trgm` (schrijfvarianten, deelwoorden zoals `haven` → `Open Havendag`). Artikelen aan verhalen koppelen kan later met `vector`. Beide extensies staan al op de server.
