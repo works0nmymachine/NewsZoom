@@ -19,7 +19,19 @@
 - Dossiers tonen de bronnen bij de duiding en vermelden inhoudelijke correcties met datum en bron.
 - De eerste proef focust op Vandaag, één lokaal gebied en een paar dossiers. Zie [MVP](MVP.md).
 
+## Techniek en werkwijze (vastgesteld 27 november 2026)
+
+- **Domein:** `newszoom.craftstudio.work`.
+- **Opslag:** op de eigen Hetzner-server, in de gedeelde Supabase-PostgreSQL met een eigen rol `newszoom` en eigen schema's. Het gaat om weinig data.
+- **Account:** gebruikers hebben een account en loggen in met hun craftstudio-account (zelfde login als de todo-app). Voorkeuren, filters en leeshistorie staan per account op de server.
+- **Git:** alleen `main`; wijzigingen gaan direct op `main`.
+- **Deployen:** alleen handmatig via de workflow Deploy NewsZoom. Een push start geen workflow, om Actions-minuten te sparen.
+- **Server:** inrichting volgens het helpout-patroon, zie [SERVER_SETUP](SERVER_SETUP.md).
+
 ## Voorstellen
+
+- Platform: één Next.js-webapp, installeerbaar als PWA; later eventueel een Android-schil (TWA) zoals helpout. Wacht op keuze van de eigenaar.
+- Hostpoort 8096, te bevestigen bij de serverinventaris.
 
 - Mijn Nieuws en Ontdekken krijgen elk een eigen tabblad.
 - Sinds je laatste bezoek vult de vaste tijdsvensters aan.
@@ -27,7 +39,8 @@
 
 ## Open vragen
 
-- Welk platform krijgt voorrang?
+- Welk platform krijgt voorrang? Zie het voorstel hierboven.
 - Welke nieuws- en koersdatabronnen passen bij het product en welke gebruiksrechten zijn nodig?
 - Hoe worden artikelen aan verhalen gekoppeld en wie controleert context en koersduiding?
-- Worden voorkeuren en leeshistorie lokaal opgeslagen of gekoppeld aan een account?
+- Welke LLM-provider en welk maandbudget voor briefings en duiding?
+- Inhoud van de eerste proef: welk lokaal gebied, welke dossiers, echte of verzonnen gebeurtenissen? Zie [OWNER_SETUP](OWNER_SETUP.md).

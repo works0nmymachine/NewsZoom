@@ -1,0 +1,25 @@
+# dependencies
+/node_modules
+
+# next.js
+/.next/
+/out/
+next-env.d.ts
+*.tsbuildinfo
+
+# testing
+/coverage
+/test-artifacts
+
+# env files
+.env*
+!.env.example
+
+# keys en certificaten
+*.pem
+*.key
+*.keystore
+
+# misc
+.DS_Store
+npm-debug.log*
