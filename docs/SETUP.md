@@ -17,7 +17,7 @@ Bijgewerkt 27 november 2026. **Status: alle fases gebouwd en lokaal getest (zie 
 
 - Een aparte **ingest-worker** (zelfde image, ander startcommando) haalt elke 20 minuten de bronnen uit `data/feeds.json` op (RSS/Atom), slaat nieuwe en gewijzigde berichten op en houdt per bron de laatste (geslaagde) controle bij. Elke 6 uur haalt hij ook dagkoersen op (Nasdaq, CoinGecko; geen API-sleutel). De server heeft geen `pg_cron`; de worker plant zelf.
 - Directe PostgreSQL-verbinding (`pg`, `DATABASE_URL`) via Docker-netwerk `supabase_default` naar `supabase-db:5432`. Geen Supabase-API, geen service-role key.
-- Inhoud komt uit twee lagen: de **voorbeeldset** in `data/mvp/*.json` (echte berichten met dossiers, handmatig verzameld en in eigen woorden samengevat) en de **feeds** uit de database. Feedberichten worden nog niet automatisch aan verhalen gekoppeld; dat vraagt later een taalmodel of embeddings (`vector` staat al op de server).
+- Inhoud komt uit twee lagen: de **voorbeeldset** in `data/mvp/*.json` (echte berichten met dossiers, handmatig verzameld en in eigen woorden samengevat) en de **feeds** uit de database. Feedberichten worden nog niet automatisch aan verhalen gekoppeld; dat vraagt later een taalmodel of embeddings (`vector` staat op de server, in schema `public`).
 - Zoeken in de Uitagenda gebruikt deelwoorden en accentloze vergelijking in de app; `pg_trgm` is nog niet nodig.
 
 ## Onderdelen

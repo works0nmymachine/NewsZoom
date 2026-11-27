@@ -1,6 +1,6 @@
 # NewsZoom: serverinrichting (eenmalig, als root)
 
-**Status: nog niets uitgevoerd.** Draaiboek volgens het helpout-patroon, met eigen NewsZoom-namen. Je hoeft geen andere repository te openen.
+**Status: §0 uitgevoerd op 27 november 2026** (poort 8096 vrij, 1,4 GiB beschikbaar, 7,2 GB schijf vrij, geen bestaande rol of schema). Draaiboek volgens het helpout-patroon, met eigen NewsZoom-namen. Je hoeft geen andere repository te openen.
 
 De commando's zijn voor een **Bash-rootconsole op de Linux-server**, niet voor je Mac. Voer ze per genummerde paragraaf uit en controleer de uitvoer. Stop bij fouten. **Tip:** de webconsole verminkt lange blokken; plak per blok.
 
@@ -63,7 +63,7 @@ Noteer:
 
 - **Geheugen.** Op 17 november was 1,5 GiB van 3,7 GiB beschikbaar, vóór helpout live ging. NewsZoom vraagt 384 MiB (app) plus 192 MiB (ingest). Is `available` in `free -h` onder ±900 MiB: eerst overleggen (bijvoorbeeld een grotere Hetzner-server), niet doorgaan.
 - **Poort.** 8096 mag niet in `ss -tulnp` staan. Anders een andere vrije poort kiezen.
-- **Extensies.** `pg_trgm` en `vector` horen in de lijst te staan, met hun schema (meestal `extensions`).
+- **Extensies.** Ter informatie; de app heeft nu geen extensies nodig.
 - **Rol/schema.** Geen regels met `bestaat al`. Wel: stoppen en beoordelen.
 
 ### 0.1 Waarden vastleggen
@@ -230,20 +230,16 @@ shred -u "$NZ_SQL"; unset NZ_SQL
 
 Mislukt de psql-stap, dan staat `DATABASE_URL` al in het bestand maar bestaat de rol niet. Verwijder dan alleen die regel uit `.env.newszoom` en draai het blok opnieuw.
 
-### 4.2 Isolatie en extensies controleren
+### 4.2 Isolatie controleren
 
 ~~~bash
-printf '%s\n' "select n.nspname || '.' || c.relname from pg_class c join pg_namespace n on n.oid = c.relnamespace where c.relkind in ('r','v','m','p','f') and n.nspname not in ('pg_catalog','information_schema','newszoom','newszoom_jobs') and has_schema_privilege('newszoom', n.oid, 'USAGE') and has_table_privilege('newszoom', c.oid, 'SELECT,INSERT,UPDATE,DELETE') order by 1;" \
-  "select 'extensions usage: ' || has_schema_privilege('newszoom', 'extensions', 'USAGE');" |
+printf '%s\n' "select n.nspname || '.' || c.relname from pg_class c join pg_namespace n on n.oid = c.relnamespace where c.relkind in ('r','v','m','p','f') and n.nspname not in ('pg_catalog','information_schema','newszoom','newszoom_jobs') and has_schema_privilege('newszoom', n.oid, 'USAGE') and has_table_privilege('newszoom', c.oid, 'SELECT,INSERT,UPDATE,DELETE') order by 1;" |
   /usr/local/sbin/newszoom-db psql -qAt
 ~~~
 
-- Verwacht geen tabellen van andere apps. Alleen `net._http_response` en `net.http_request_queue` (pg_net, Supabase-standaardrechten) zijn bekend en geaccepteerd, net als bij helpout.
-- `extensions usage: true` is nodig voor `pg_trgm` en `vector`. Staat er `false`, geef dan alleen deze rol toegang. Dit verandert niets voor andere apps:
+Verwacht geen tabellen van andere apps. Alleen `net._http_response` en `net.http_request_queue` (pg_net, Supabase-standaardrechten) zijn bekend en geaccepteerd, net als bij helpout.
 
-~~~bash
-printf '%s\n' 'GRANT USAGE ON SCHEMA extensions TO newszoom;' | /usr/local/sbin/newszoom-db psql -q
-~~~
+Op deze server staan `pg_trgm` en `vector` in schema `public` (gemeten 27 november 2026). De app gebruikt ze nu niet. Komt dat later wel, dan is dat een apart besluit; `public` hoort niet standaard in het `search_path` van de rol.
 
 ### 4.3 Verbinding vanuit het Docker-netwerk testen
 
@@ -251,10 +247,10 @@ printf '%s\n' 'GRANT USAGE ON SCHEMA extensions TO newszoom;' | /usr/local/sbin/
 NZ_PGIMAGE=$(docker inspect --format '{{.Config.Image}}' supabase-db)
 docker run --rm --network supabase_default \
   --env-file /srv/newszoom/app/.env.newszoom --entrypoint sh "$NZ_PGIMAGE" \
-  -c 'psql "$DATABASE_URL" -qAtc "select current_user, current_schema, similarity('\''havendag'\'', '\''haven'\'') > 0"'
+  -c 'psql "$DATABASE_URL" -qAtc "select current_user, current_schema"'
 ~~~
 
-Verwacht `newszoom|newszoom|t`. Geeft het `function similarity(...) does not exist`, dan staat `pg_trgm` niet in schema `extensions` of ontbreekt `USAGE` (§4.2): noteer het schema uit §0 en overleg. Bij `no pg_hba.conf entry` of een authenticatiefout: stoppen, niets aan de gedeelde Supabase aanpassen zonder apart besluit.
+Verwacht `newszoom|newszoom`. Bij `no pg_hba.conf entry` of een authenticatiefout: stoppen, niets aan de gedeelde Supabase aanpassen zonder apart besluit.
 
 ### 4.4 Applicatieregels
 
