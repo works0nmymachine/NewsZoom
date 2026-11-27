@@ -278,10 +278,16 @@ nano /srv/newszoom/app/.env.newszoom
 
 Geen aanhalingstekens rond waarden: Docker `env_file` neemt ze letterlijk over. Nooit de service-role key.
 
-De anon key opzoeken (alleen in de rootconsole):
+Zet de anon key niet met de hand: bij plakken in nano ging hij op 27 november mis (Supabase gaf 401). Neem hem rechtstreeks over uit de Supabase-configuratie, zonder hem te tonen:
 
 ~~~bash
-grep '^ANON_KEY=' /root/docker/webapps/infrastructure/supabase/.env
+sed -i '/^CRAFTSTUDIO_AUTH_KEY=/d' /srv/newszoom/app/.env.newszoom && printf 'CRAFTSTUDIO_AUTH_KEY=%s\n' "$(grep '^ANON_KEY=' /root/docker/webapps/infrastructure/supabase/.env | cut -d= -f2- | tr -d "\r\"' ")" >> /srv/newszoom/app/.env.newszoom && echo vervangen
+~~~
+
+Na een wijziging in dit bestand: `newszoom-stack up` (een herstart leest het niet opnieuw). Controle dat Supabase de sleutel accepteert (verwacht `200`):
+
+~~~bash
+docker exec newszoom-app-1 node -e "fetch(process.env.CRAFTSTUDIO_AUTH_URL+'/auth/v1/health',{headers:{apikey:process.env.CRAFTSTUDIO_AUTH_KEY}}).then(r=>console.log(r.status)).catch(e=>console.log('FOUT',e.message))"
 ~~~
 
 Controle zonder waarden te tonen:
