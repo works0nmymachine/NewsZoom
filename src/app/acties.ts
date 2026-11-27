@@ -10,7 +10,7 @@ import { vereisGebruiker } from '@/lib/sessie';
 /** Alleen interne paden als terugadres. */
 function veiligTerug(waarde: FormDataEntryValue | null): string {
   const t = String(waarde ?? '/');
-  return t.startsWith('/') && !t.startsWith('//') ? t : '/';
+  return /^\/(?![/\\])[^\s]*$/.test(t) && t.length <= 500 ? t : '/';
 }
 
 export async function regelActie(form: FormData) {
