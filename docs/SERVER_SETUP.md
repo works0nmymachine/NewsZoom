@@ -1,6 +1,6 @@
 # NewsZoom: serverinrichting (eenmalig, als root)
 
-**Status: §0 uitgevoerd op 27 november 2026** (poort 8096 vrij, 1,4 GiB beschikbaar, 7,2 GB schijf vrij, geen bestaande rol of schema). Draaiboek volgens het helpout-patroon, met eigen NewsZoom-namen. Je hoeft geen andere repository te openen.
+**Status: ingericht en eerste release gelukt op 27 november 2026** (commit `e35ded8`). §0 gemeten: poort 8096 vrij, 1,4 GiB beschikbaar, 7,2 GB schijf vrij. Nog te doen: §10 backup- en hersteltest.
 
 De commando's zijn voor een **Bash-rootconsole op de Linux-server**, niet voor je Mac. Voer ze per genummerde paragraaf uit en controleer de uitvoer. Stop bij fouten. **Tip:** de webconsole verminkt lange blokken; plak per blok.
 

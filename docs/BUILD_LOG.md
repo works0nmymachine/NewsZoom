@@ -61,3 +61,10 @@ Op verzoek van de eigenaar zijn alle fases achter elkaar uitgevoerd.
 - Amsterdam: Parool-artikelen zijn alleen op kop en RSS-gegevens samengevat; de correctie in het OLVG-dossier is een gelabeld voorbeeld (geen echte correctie gevonden). De correcties bij Oekraïne, Israël–Gaza en Nvidia zijn echt.
 - Bronnen in de voorbeeldset: niet alle grote titels waren doorzoekbaar (o.a. Reuters, NRC, Volkskrant). Waar alleen een datum bekend was, staat 12:00 als tijd.
 - Marktbeeld: de cijfers komen uit de bronnen; de bijdrage per bedrijf aan de index is niet berekend.
+
+## 2026-11-27: serverinrichting en eerste release
+
+- Eigenaar heeft de server ingericht volgens SERVER_SETUP §0–§9 en de GitHub-environment `production` gezet (secrets via `ssh … | gh secret set`).
+- Eerste release via de workflow Deploy NewsZoom: geslaagd volgens de eigenaar. Van buitenaf gecontroleerd: `https://newszoom.craftstudio.work/api/health` geeft `{"status":"ok","commit":"e35ded8…"}`, `/` stuurt door naar `/inloggen`, CSP en HSTS aanwezig.
+- Tijdens de inrichting is het root-wachtwoord per ongeluk in een terminal en de chat beland; de eigenaar heeft het gewijzigd. Inloggen als root met een SSH-sleutel in plaats van een wachtwoord staat nog open.
+- Nog niet bevestigd: inloggen met een echt craftstudio-account, ingest-logs op de server, §10 backup- en hersteltest, §11 regressiecontrole na de release.
