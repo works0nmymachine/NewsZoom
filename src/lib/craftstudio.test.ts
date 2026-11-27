@@ -22,6 +22,21 @@ describe('craftstudioControle', () => {
     await expect(craftstudioControle('a@b.nl', 'x', { env, doeFetch })).rejects.toBeInstanceOf(InlogFout);
   });
 
+  it('onderscheidt een geweigerde sleutel van een fout wachtwoord', async () => {
+    const doeFetch = vi.fn().mockResolvedValue(json(401, { message: 'Invalid authentication credentials' }));
+    await expect(craftstudioControle('a@b.nl', 'x', { env, doeFetch })).rejects.toThrow(/niet goed ingesteld/);
+  });
+
+  it('meldt een onbevestigd account', async () => {
+    const doeFetch = vi.fn().mockResolvedValue(json(400, { code: 400, error_code: 'email_not_confirmed', msg: 'Email not confirmed' }));
+    await expect(craftstudioControle('a@b.nl', 'x', { env, doeFetch })).rejects.toThrow(/niet bevestigd/);
+  });
+
+  it('fout wachtwoord met de nieuwe foutvorm', async () => {
+    const doeFetch = vi.fn().mockResolvedValue(json(400, { code: 400, error_code: 'invalid_credentials', msg: 'Invalid login credentials' }));
+    expect(await craftstudioControle('a@b.nl', 'x', { env, doeFetch })).toBeNull();
+  });
+
   it('weigert zonder instellingen', async () => {
     await expect(craftstudioControle('a@b.nl', 'x', { env: {} as NodeJS.ProcessEnv })).rejects.toBeInstanceOf(InlogFout);
   });

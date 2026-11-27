@@ -46,7 +46,22 @@ export async function craftstudioControle(
   } catch {
     throw new InlogFout('Craftstudio-login is nu niet bereikbaar. Probeer het later opnieuw.');
   }
-  if (antwoord.status === 400 || antwoord.status === 401 || antwoord.status === 422) return mislukt();
+  if (antwoord.status === 400 || antwoord.status === 401 || antwoord.status === 422) {
+    // Supabase (GoTrue) en de gateway (Kong) weigeren allebei met 4xx. Onderscheid ze, zodat een
+    // verkeerde anon key niet lijkt op een fout wachtwoord. Nooit e-mail of wachtwoord loggen.
+    const fout = await antwoord.json().catch(() => null) as
+      { error?: string; error_code?: string; error_description?: string; msg?: string; message?: string } | null;
+    const code = fout?.error_code ?? fout?.error ?? '';
+    const tekst = `${fout?.error_description ?? ''} ${fout?.msg ?? ''} ${fout?.message ?? ''}`.toLowerCase();
+    console.warn('[inloggen] craftstudio weigert:', antwoord.status, code || tekst.trim().slice(0, 80));
+    if (code === 'email_not_confirmed' || tekst.includes('email not confirmed')) {
+      throw new InlogFout('Je craftstudio-account is nog niet bevestigd. Bevestig eerst je e-mailadres.');
+    }
+    if (antwoord.status === 401 && !code) {
+      throw new InlogFout('Inloggen met craftstudio is op de server niet goed ingesteld (sleutel geweigerd).');
+    }
+    return mislukt();
+  }
   if (antwoord.status === 429) throw new InlogFout('Te veel inlogpogingen. Wacht even en probeer het opnieuw.');
   if (!antwoord.ok) throw new InlogFout('Craftstudio-login is nu niet bereikbaar. Probeer het later opnieuw.');
   const data = await antwoord.json().catch(() => null) as { access_token?: string; user?: { id?: string; email?: string } } | null;
