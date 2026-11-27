@@ -6,6 +6,12 @@ NewsZoom is een concept voor een persoonlijke nieuwsapp. Je kiest zelf welke ond
 
 **Status:** alle fases gebouwd en lokaal getest: Vandaag, Mijn Nieuws, Ontdekken met Lokaal Amsterdam, dossiers, filters, Finance, Agenda/Uitagenda, ingest-worker en Android-app. Nog niet uitgerold; de server moet eerst worden ingericht. Beoogd adres: https://newszoom.craftstudio.work.
 
+## Zo ziet het eruit
+
+![NewsZoom op een telefoon: Vandaag, verhaal, Lokaal, Finance, Uitagenda en Mijn Nieuws](docs/schermen/overzicht.png)
+
+Losse schermen staan in [docs/schermen](docs/schermen).
+
 ## Lokaal draaien
 
 ```bash
