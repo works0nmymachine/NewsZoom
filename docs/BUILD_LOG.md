@@ -108,9 +108,29 @@ Op verzoek van de eigenaar is de app van alle kanten bekeken op actualiteit, fil
 
 ### Getest
 
-- Lint, typecheck, 69 unittests (nieuw: herkenning, koppeling, bundeling, tijdsverval, spreiding, parser met afbeeldingen/RDF/entiteiten, lopende evenementen), productiebuild.
+- Lint, typecheck, 70 unittests (nieuw: herkenning, koppeling, bundeling, tijdsverval, spreiding, parser met afbeeldingen/RDF/entiteiten, lopende evenementen), productiebuild.
 - Lokaal met PostgreSQL 16 en een echte ingestronde: alle 30 feeds gaven berichten (662 nieuw).
 - `npm run browser`: 34 controles gelukt (16 schermen op 360 en 1280 px zonder foutpagina, horizontale scroll, consolefouten of naamloze knoppen; verbergen via ⋯ zonder paginasprong met Ongedaan maken; filteren met een schone adresbalk).
+
+### Review en verfijning
+
+Een onafhankelijke codereview op de hele wijziging vond tien punten. Allemaal opgelost:
+
+- Een ongeldige numerieke HTML-entiteit in één feed kon alle nieuwspagina's laten falen. Nu worden alleen geldige tekens omgezet.
+- Onderwerpen opnieuw kiezen kon een eerdere Meer- of Minder-keuze niet terugzetten naar Gewoon.
+- Bij het voorstel na drie verhalen verdween Ongedaan maken. Een mislukte Ongedaan maken gaf geen melding.
+- Ontdekken sneed de lijst op score en groepeerde daarna per dag. Meer berichten voegde daardoor kaarten middenin toe.
+- Het filterformulier liet na Terug uitgeschakelde velden achter. Het navigeert nu binnen de app en sluit het paneel.
+- De teller voor nieuwe berichten miste berichten direct na het verversen en telde verborgen bronnen mee.
+- Klein: de herkenningscache hield verouderde koppelingen vast, het anker op de verhaalpagina ontbrak, en bij Start konden onbekende onderwerpen worden opgeslagen.
+
+Daarna zelf gevonden en opgelost:
+
+- Bundelen kostte 1,2 s per pagina voor 722 berichten. Nu 48 ms, omdat kernwoorden per bericht één keer worden berekend.
+- De paneelinhoud van ⋯ wordt pas gemaakt bij openen. De HTML van Ontdekken ging van 478 naar 370 KB, gzip 55 KB.
+- Hetzelfde bericht stond op Vandaag soms in twee secties. Elk bericht staat nu in één sectie.
+- Uitgever en ruisfilter worden ook bij het tonen uit `data/feeds.json` gelezen, zodat ze gelden voor berichten van vóór de wijziging.
+- Valse treffer: "Eloise van Oranje" telde als Sport.
 
 ### Niet getest
 

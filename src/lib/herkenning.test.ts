@@ -85,6 +85,12 @@ describe('taalVan', () => {
   });
 });
 
+describe('valse treffers', () => {
+  it('van Oranje is geen sport', () => {
+    expect(ids(herkenOnderwerpen({ titel: 'Geheime profielfoto koningin Máxima onthuld en Eloise van Oranje doet geheimzinnig', samenvatting: '', reikwijdte: 'nederland' }))).not.toContain('sport');
+  });
+});
+
 describe('taalgebonden termen', () => {
   it('brand is vuur in het Nederlands, niet in het Engels', () => {
     expect(ids(herkenOnderwerpen({ titel: 'Gewonden bij brand in winkel Rotterdam', samenvatting: '', reikwijdte: 'nederland', taal: 'nl' }))).toContain('veiligheid');

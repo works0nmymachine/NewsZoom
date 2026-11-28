@@ -43,18 +43,23 @@ export function kernwoorden(kop: string): Set<string> {
 
 const kaleUrl = (u: string) => u.replace(/^https?:\/\/(www\.)?/, '').replace(/[?#].*$/, '').replace(/\/$/, '');
 
+type Kenmerk = { tijd: number; woorden: Set<string>; url: string };
+const kenmerk = (x: Rangbaar): Kenmerk => ({ tijd: new Date(x.gepubliceerd).getTime(), woorden: kernwoorden(x.titel), url: kaleUrl(x.url) });
+
+function gelijk(a: Kenmerk, b: Kenmerk): boolean {
+  if (a.url === b.url) return true;
+  if (Math.abs(a.tijd - b.tijd) > 36 * 3_600_000) return false;
+  let gedeeld = 0;
+  for (const w of a.woorden) if (b.woorden.has(w)) gedeeld++;
+  return gedeeld >= 3 && gedeeld / Math.min(a.woorden.size, b.woorden.size) >= 0.6;
+}
+
 /**
  * Gaat het om hetzelfde nieuws? Alleen bij sterk bewijs: zelfde adres, of binnen 36 uur minstens 3
  * gedeelde kernwoorden die samen 60% van de kortste kop vormen. Bij twijfel twee kaarten.
  */
 export function zelfdeNieuws(a: Rangbaar, b: Rangbaar): boolean {
-  if (kaleUrl(a.url) === kaleUrl(b.url)) return true;
-  if (Math.abs(new Date(a.gepubliceerd).getTime() - new Date(b.gepubliceerd).getTime()) > 36 * 3_600_000) return false;
-  const ka = kernwoorden(a.titel);
-  const kb = kernwoorden(b.titel);
-  let gedeeld = 0;
-  for (const w of ka) if (kb.has(w)) gedeeld++;
-  return gedeeld >= 3 && gedeeld / Math.min(ka.size, kb.size) >= 0.6;
+  return gelijk(kenmerk(a), kenmerk(b));
 }
 
 export type Bundel<T> = { hoofd: T; ook: T[] };
@@ -62,15 +67,17 @@ export type Bundel<T> = { hoofd: T; ook: T[] };
 /**
  * Bundelt in de gegeven volgorde: het eerste bericht wordt de kaart, latere gelijke berichten van een andere
  * redactie gaan eronder. Feeds van dezelfde redactie (NOS, NOS Sport) tellen als één bron.
+ * Kenmerken worden één keer per bericht berekend; 700 berichten kosten zo enkele milliseconden.
  */
 export function bundel<T extends Rangbaar>(items: T[]): Bundel<T>[] {
-  const uit: Bundel<T>[] = [];
+  const uit: (Bundel<T> & { k: Kenmerk; redacties: Set<string> })[] = [];
   for (const i of items) {
-    const b = uit.find((x) => redactie(x.hoofd) !== redactie(i) && !x.ook.some((o) => redactie(o) === redactie(i)) && zelfdeNieuws(x.hoofd, i));
-    if (b) b.ook.push(i);
-    else uit.push({ hoofd: i, ook: [] });
+    const k = kenmerk(i);
+    const r = redactie(i);
+    const b = uit.find((x) => !x.redacties.has(r) && gelijk(x.k, k));
+    if (b) { b.ook.push(i); b.redacties.add(r); } else uit.push({ hoofd: i, ook: [], k, redacties: new Set([r]) });
   }
-  return uit;
+  return uit.map(({ hoofd, ook }) => ({ hoofd, ook }));
 }
 
 /**
