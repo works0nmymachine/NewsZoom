@@ -396,3 +396,11 @@ input:focus, textarea:focus, select:focus, .knop:focus-visible, .chip:focus-visi
 .cat-chip .cat-aantal { font-size: 0.75rem; color: var(--zacht); }
 .cat-rij { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.5rem 0; }
 .cat-rij form { margin: 0; }
+
+/* Agenda controls remain above the global navigation. */
+.met-agendadock { padding-bottom: 10rem; }
+.agenda-dock { position: fixed; left: 0; right: 0; bottom: calc(var(--tabbalk) + env(safe-area-inset-bottom)); z-index: 15; background: var(--grond); border-top: 1px solid var(--lijn); padding: .35rem .75rem; }
+.agenda-dock .segmenten { margin: 0 auto; max-width: 46rem; }
+.agenda-dock-knoppen { display: flex; justify-content: space-around; max-width: 46rem; margin: auto; }
+.agenda-dock-knoppen > div { display: flex; flex-direction: column; align-items: center; min-width: 0; font-size: .75rem; }
+@media (min-width: 900px) { .agenda-dock { position: sticky; bottom: 0; } .met-agendadock { padding-bottom: 2rem; } }
