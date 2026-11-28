@@ -1,29 +1,98 @@
 'use server';
 
-import { revalidatePath } from 'next/cache';
+import { refresh, revalidatePath } from 'next/cache';
+import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { pool } from '@/lib/db';
 import type { Actie, DoelSoort } from '@/lib/filters';
-import { ACTIES, DOEL_SOORTEN, wisRegel, zetRegel } from '@/lib/regels';
+import { GEBIEDEN } from '@/lib/gebieden';
+import { inhoud } from '@/lib/inhoud';
+import { ACTIES, DOEL_SOORTEN, regelsVan, wisRegel, zetRegel } from '@/lib/regels';
 import { vereisGebruiker } from '@/lib/sessie';
+
+export type RegelUitkomst = {
+  vorige: Actie | null;
+  suggestie?: { onderwerp: string; naam: string; aantal: number };
+};
+
+/**
+ * Meer / Minder / Verbergen / wissen zonder paginasprong: de client roept dit aan, toont een melding met
+ * Ongedaan maken (de vorige actie terugzetten) en de pagina ververst op dezelfde plek.
+ * Na drie verborgen of minder getoonde verhalen met hetzelfde onderwerp volgt een voorstel, geen automatische regel.
+ */
+export async function regelWijzigen(soort: DoelSoort, id: string, actie: Actie | 'wissen'): Promise<RegelUitkomst> {
+  const g = await vereisGebruiker();
+  id = String(id ?? '').slice(0, 200);
+  if (!DOEL_SOORTEN.includes(soort) || !id) throw new Error('Ongeldige regel');
+  if (actie !== 'wissen' && !ACTIES.includes(actie)) throw new Error('Ongeldige actie');
+  const regels = await regelsVan(g.id);
+  const vorige = regels.find((r) => r.doelSoort === soort && r.doelId === id)?.actie ?? null;
+  if (actie === 'wissen') await wisRegel(g.id, soort, id);
+  else await zetRegel(g.id, soort, id, actie);
+
+  let suggestie: RegelUitkomst['suggestie'];
+  if (soort === 'verhaal' && (actie === 'minder' || actie === 'verbergen')) {
+    const verhalen = inhoud().verhalen;
+    const negatief = [...regels.filter((r) => !(r.doelSoort === 'verhaal' && r.doelId === id)), { doelSoort: 'verhaal', doelId: id, actie }]
+      .filter((r) => r.doelSoort === 'verhaal' && (r.actie === 'minder' || r.actie === 'verbergen'));
+    const telling = new Map<string, number>();
+    for (const r of negatief) for (const o of verhalen.get(r.doelId)?.onderwerpen ?? []) telling.set(o, (telling.get(o) ?? 0) + 1);
+    const [o, aantal] = [...telling.entries()].sort((a, b) => b[1] - a[1])[0] ?? [];
+    if (o && aantal >= 3 && !regels.some((r) => r.doelSoort === 'onderwerp' && r.doelId === o)) {
+      suggestie = { onderwerp: o, naam: inhoud().onderwerpen.get(o)?.naam ?? o, aantal };
+    }
+  }
+  refresh();
+  return { vorige, suggestie };
+}
+
+/** Lokaal gebied kiezen (Instellingen en eerste keer). */
+export async function gebiedKiezen(form: FormData) {
+  const g = await vereisGebruiker();
+  const gebied = String(form.get('gebied') ?? '');
+  const geldig = gebied === 'geen' || GEBIEDEN.some((x) => x.id === gebied);
+  if (!geldig) throw new Error('Onbekend gebied');
+  await pool().query(
+    `INSERT INTO nz_instellingen (gebruiker, gebied) VALUES ($1, $2) ON CONFLICT (gebruiker) DO UPDATE SET gebied = EXCLUDED.gebied`,
+    [g.id, gebied],
+  );
+  refresh();
+}
+
+/** Thema: systeem, licht of donker. Bewaard als cookie, zodat de eerste weergave al klopt. */
+export async function themaKiezen(form: FormData) {
+  const thema = String(form.get('thema') ?? 'systeem');
+  const jar = await cookies();
+  if (thema === 'licht' || thema === 'donker') jar.set('nz_thema', thema, { path: '/', maxAge: 365 * 86400, sameSite: 'lax' });
+  else jar.delete('nz_thema');
+  refresh();
+}
+
+/** Eerste keer: onderwerpen kiezen (Meer of Minder) en een gebied. Ook Overslaan komt hier. */
+export async function startOpslaan(form: FormData) {
+  const g = await vereisGebruiker();
+  if (form.get('wat') !== 'overslaan') {
+    for (const [k, v] of form.entries()) {
+      if (!k.startsWith('o:')) continue;
+      const id = k.slice(2, 100);
+      if (v === 'meer' || v === 'minder') await zetRegel(g.id, 'onderwerp', id, v);
+    }
+  }
+  const gebied = String(form.get('gebied') ?? '');
+  const geldig = gebied === 'geen' || GEBIEDEN.some((x) => x.id === gebied);
+  await pool().query(
+    `INSERT INTO nz_instellingen (gebruiker, gebied, start_klaar_at) VALUES ($1, $2, now())
+     ON CONFLICT (gebruiker) DO UPDATE SET start_klaar_at = now(), gebied = COALESCE(EXCLUDED.gebied, nz_instellingen.gebied)`,
+    [g.id, geldig && form.get('wat') !== 'overslaan' ? gebied : null],
+  );
+  revalidatePath('/', 'layout');
+  redirect('/');
+}
 
 /** Alleen interne paden als terugadres. */
 function veiligTerug(waarde: FormDataEntryValue | null): string {
   const t = String(waarde ?? '/');
   return /^\/(?![/\\])[^\s]*$/.test(t) && t.length <= 500 ? t : '/';
-}
-
-export async function regelActie(form: FormData) {
-  const g = await vereisGebruiker();
-  const soort = String(form.get('soort')) as DoelSoort;
-  const id = String(form.get('id') ?? '').slice(0, 200);
-  const actie = String(form.get('actie'));
-  if (!DOEL_SOORTEN.includes(soort) || !id) throw new Error('Ongeldige regel');
-  if (actie === 'wissen') await wisRegel(g.id, soort, id);
-  else if (ACTIES.includes(actie as Actie)) await zetRegel(g.id, soort, id, actie as Actie);
-  else throw new Error('Ongeldige actie');
-  revalidatePath('/', 'layout');
-  redirect(veiligTerug(form.get('terug')));
 }
 
 export async function bronVoorstellen(form: FormData) {
@@ -37,14 +106,14 @@ export async function bronVoorstellen(form: FormData) {
     terug.searchParams.set(sleutel, waarde);
     redirect(`${terug.pathname}${terug.search}#bronnen`);
   };
-  if (!naam || !gebied) naarTerug('bron', 'leeg');
-  if (url && !/^https?:\/\//i.test(url)) naarTerug('bron', 'url');
+  if (!naam || !gebied) naarTerug('bron_status', 'leeg');
+  if (url && !/^https?:\/\//i.test(url)) naarTerug('bron_status', 'url');
   await pool().query(
     `INSERT INTO nz_bronvoorstellen (gebruiker, gebied, naam, url, toelichting) VALUES ($1, $2, $3, $4, $5)`,
     [g.id, gebied, naam, url, toelichting],
   );
   revalidatePath('/ontdekken');
-  naarTerug('bron', 'toegevoegd');
+  naarTerug('bron_status', 'toegevoegd');
 }
 
 export async function interesseOpslaan(form: FormData) {
@@ -95,23 +164,27 @@ export async function watchlistActie(form: FormData) {
   redirect(veiligTerug(form.get('terug')));
 }
 
-export async function agendaActie(form: FormData) {
+type AgendaSoort = 'evenement' | 'categorie' | 'locatie';
+type AgendaActie = 'volgen' | 'verbergen';
+
+/** Agenda: volgen of verbergen zonder paginasprong. Geeft de vorige keuze terug voor Ongedaan maken. */
+export async function agendaWijzigen(soort: AgendaSoort, id: string, actie: AgendaActie | 'wissen'): Promise<{ vorige: AgendaActie | null }> {
   const g = await vereisGebruiker();
-  const soort = String(form.get('soort'));
-  const id = String(form.get('id') ?? '').slice(0, 200);
-  const actie = String(form.get('actie'));
+  id = String(id ?? '').slice(0, 200);
   if (!['evenement', 'categorie', 'locatie'].includes(soort) || !id) throw new Error('Ongeldige keuze');
+  if (!['volgen', 'verbergen', 'wissen'].includes(actie)) throw new Error('Ongeldige actie');
+  const { rows } = await pool().query(`SELECT actie FROM nz_agendakeuzes WHERE gebruiker = $1 AND doel_soort = $2 AND doel_id = $3`, [g.id, soort, id]);
   if (actie === 'wissen') {
     await pool().query(`DELETE FROM nz_agendakeuzes WHERE gebruiker = $1 AND doel_soort = $2 AND doel_id = $3`, [g.id, soort, id]);
-  } else if (actie === 'volgen' || actie === 'verbergen') {
+  } else {
     await pool().query(
       `INSERT INTO nz_agendakeuzes (gebruiker, doel_soort, doel_id, actie) VALUES ($1, $2, $3, $4)
        ON CONFLICT (gebruiker, doel_soort, doel_id) DO UPDATE SET actie = EXCLUDED.actie, aangemaakt_at = now()`,
       [g.id, soort, id, actie],
     );
-  } else throw new Error('Ongeldige actie');
-  revalidatePath('/agenda', 'layout');
-  redirect(veiligTerug(form.get('terug')));
+  }
+  refresh();
+  return { vorige: rows[0]?.actie ?? null };
 }
 
 /** Zet een achtergrond in de wachtrij; de ingest-worker voert hem uit binnen het maandbudget. */
@@ -148,6 +221,9 @@ export async function achtergrondAanvragen(form: FormData) {
 const naarInstellingen = (params: Record<string, string>, anker: string): never => {
   redirect(`/instellingen?${new URLSearchParams(params)}#${anker}`);
 };
+const naarBronnen = (params: Record<string, string>, anker: string): never => {
+  redirect(`/bronnen?${new URLSearchParams(params)}#${anker}`);
+};
 
 /** Bron toevoegen voor een doel: feed zoeken (SSRF-veilig), direct de eerste berichten ophalen. Geen feed: voorstel. */
 export async function bronToevoegen(form: FormData) {
@@ -160,7 +236,7 @@ export async function bronToevoegen(form: FormData) {
   const anker = `bronnen-${doel}`;
   const url = String(form.get('url') ?? '').trim().slice(0, 500);
   const naamInvoer = String(form.get('naam') ?? '').trim().slice(0, 200);
-  if (!/^https?:\/\//i.test(url)) naarInstellingen({ doel, bron: 'url' }, anker);
+  if (!/^https?:\/\//i.test(url)) naarBronnen({ doel, bron: 'url' }, anker);
 
   const voorstel = async (naam: string) => {
     await pool().query(
@@ -170,25 +246,25 @@ export async function bronToevoegen(form: FormData) {
   };
   if (!FEED_DOELEN.includes(doel)) {
     await voorstel(naamInvoer);
-    revalidatePath('/instellingen');
-    naarInstellingen({ doel, bron: 'voorstel' }, anker);
+    revalidatePath('/bronnen');
+    naarBronnen({ doel, bron: 'voorstel' }, anker);
   }
 
   let gevonden: Awaited<ReturnType<typeof zoekFeed>>;
   try {
     gevonden = await zoekFeed(url);
   } catch (e) {
-    naarInstellingen({ doel, bron: e instanceof NietToegestaan ? 'geweigerd' : 'onbereikbaar' }, anker);
+    naarBronnen({ doel, bron: e instanceof NietToegestaan ? 'geweigerd' : 'onbereikbaar' }, anker);
   }
   const { vondst, titel } = gevonden!;
   if (!vondst) {
     await voorstel(naamInvoer || titel);
-    revalidatePath('/instellingen');
-    naarInstellingen({ doel, bron: 'voorstel' }, anker);
+    revalidatePath('/bronnen');
+    naarBronnen({ doel, bron: 'voorstel' }, anker);
   }
   const v = vondst!;
   const bestaand = await pool().query(`SELECT id FROM nz_feedbronnen WHERE feed_url = $1 AND actief`, [v.feedUrl]);
-  if (bestaand.rows.length) naarInstellingen({ doel, bron: 'bestaat' }, anker);
+  if (bestaand.rows.length) naarBronnen({ doel, bron: 'bestaat' }, anker);
 
   const d = DOELEN[doel];
   const host = new URL(v.homepage).hostname.replace(/^www\./, '');
@@ -202,7 +278,7 @@ export async function bronToevoegen(form: FormData) {
   );
   const nieuw = await slaItemsOp(pool(), id, v.items);
   revalidatePath('/', 'layout');
-  naarInstellingen({ doel, bron: nieuw ? 'toegevoegd' : 'leeg', n: String(nieuw) }, anker);
+  naarBronnen({ doel, bron: nieuw ? 'toegevoegd' : 'leeg', n: String(nieuw) }, anker);
 }
 
 export async function bronWijzig(form: FormData) {
@@ -217,7 +293,7 @@ export async function bronWijzig(form: FormData) {
     await pool().query(`DELETE FROM nz_feedbronnen WHERE id = $1 AND herkomst = 'gebruiker'`, [id]);
   } else throw new Error('Ongeldige actie');
   revalidatePath('/', 'layout');
-  redirect(`/instellingen#bronnen-${doel}`);
+  redirect(`/bronnen#bronnen-${doel}`);
 }
 
 export async function aiInstellen(form: FormData) {
@@ -229,7 +305,7 @@ export async function aiInstellen(form: FormData) {
   if (!['openai', 'anthropic', 'uit'].includes(provider)) throw new Error('Onbekende provider');
   if (!Number.isFinite(budget) || budget < 0 || budget > 500) naarInstellingen({ ai: 'budget' }, 'ai');
   const zet = (sleutel: string, waarde: unknown) => pool().query(
-    `INSERT INTO nz_instellingen (sleutel, waarde) VALUES ($1, $2) ON CONFLICT (sleutel) DO UPDATE SET waarde = EXCLUDED.waarde, gewijzigd_at = now()`,
+    `INSERT INTO nz_app_instellingen (sleutel, waarde) VALUES ($1, $2) ON CONFLICT (sleutel) DO UPDATE SET waarde = EXCLUDED.waarde, gewijzigd_at = now()`,
     [sleutel, JSON.stringify(waarde)],
   );
   await zet('llm_provider', provider);

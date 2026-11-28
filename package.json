@@ -1,6 +1,6 @@
 {
   "name": "newszoom",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -10,7 +10,8 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run --passWithNoTests",
     "migrate": "node --env-file-if-exists=.env.local scripts/migrate.mjs",
-    "ingest": "node --env-file-if-exists=.env.local scripts/ingest-worker.mjs"
+    "ingest": "node --env-file-if-exists=.env.local scripts/ingest-worker.mjs",
+    "browser": "node scripts/browser-check.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "1.14.0",

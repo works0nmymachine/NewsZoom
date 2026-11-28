@@ -1,6 +1,6 @@
 # NewsZoom: projectopzet
 
-Bijgewerkt 28 november 2026. **Status: live; zie [BUILD_LOG](BUILD_LOG.md).**
+Bijgewerkt 28 november 2026. **Status: 0.1 draait op de server; 0.3.0 staat op `main`, lokaal getest, nog niet uitgerold.** Zie [BUILD_LOG](BUILD_LOG.md) en [CHANGELOG](../CHANGELOG.md).
 
 ## Architectuur
 
@@ -18,7 +18,8 @@ Bijgewerkt 28 november 2026. **Status: live; zie [BUILD_LOG](BUILD_LOG.md).**
 - De ingest-worker voert ook aangevraagde **achtergronden** uit: één tegelijk, binnen het maandbudget, met de provider uit Instellingen. Bronnen die gebruikers toevoegen haalt hij op via `scripts/veilig-ophalen.mjs` (geen interne adressen).
 - Een aparte **ingest-worker** (zelfde image, ander startcommando) haalt elke 20 minuten de bronnen uit `data/feeds.json` op (RSS/Atom), slaat nieuwe en gewijzigde berichten op en houdt per bron de laatste (geslaagde) controle bij. Elke 6 uur haalt hij ook dagkoersen op (Nasdaq, CoinGecko; geen API-sleutel). De server heeft geen `pg_cron`; de worker plant zelf.
 - Directe PostgreSQL-verbinding (`pg`, `DATABASE_URL`) via Docker-netwerk `supabase_default` naar `supabase-db:5432`. Geen Supabase-API, geen service-role key.
-- Inhoud komt uit twee lagen: de **voorbeeldset** in `data/mvp/*.json` (echte berichten met dossiers, handmatig verzameld en in eigen woorden samengevat) en de **feeds** uit de database. Feedberichten worden nog niet automatisch aan verhalen gekoppeld; dat vraagt later een taalmodel of embeddings (`vector` staat op de server, in schema `public`).
+- Inhoud komt uit twee lagen: de **voorbeeldset** in `data/mvp/*.json` (echte berichten met dossiers, handmatig verzameld en in eigen woorden samengevat) en de **feeds** uit de database (30 bronnen, zie [BRONNEN](BRONNEN.md)). Feedberichten krijgen in de app onderwerpen (feedcategorie of trefwoorden) en worden bij een sterke match aan een lopend verhaal gekoppeld (`src/lib/herkenning.ts`). Een taalmodel of embeddings blijft een open keuze.
+- Volgorde en bundeling: `src/lib/rangorde.ts` (tijdsverval, hetzelfde nieuws herkennen, spreiding) en `src/lib/selectie.ts` (van berichten naar kaarten).
 - Zoeken in de Uitagenda gebruikt deelwoorden en accentloze vergelijking in de app; `pg_trgm` is nog niet nodig.
 
 ## Onderdelen
@@ -31,12 +32,14 @@ Bijgewerkt 28 november 2026. **Status: live; zie [BUILD_LOG](BUILD_LOG.md).**
 | Verhaalpagina met achtergrondlagen, Wat verandert dit?, correcties | `src/app/verhaal/[id]` | Gebouwd |
 | Eigen interesses met afbakening en voorproef | `/mijn-nieuws#interesse` | Gebouwd (zoektermen; geen taalmodel) |
 | Bronnen in dit gebied en Bron toevoegen | `/ontdekken?r=lokaal` | Gebouwd |
-| Ingest-worker | `scripts/ingest-worker.mjs`, `data/feeds.json` | Gebouwd, lokaal getest |
+| Ingest-worker | `scripts/ingest-worker.mjs`, `data/feeds.json` | Gebouwd, lokaal getest; 30 feeds sinds 0.2.0 |
+| Onderwerpen, verhaalkoppeling, bundeling | `src/lib/herkenning.ts`, `src/lib/rangorde.ts` | Gebouwd 0.2.0, getest |
+| Zoeken en filters, Bronnen, Instellingen, eerste keer | `/ontdekken`, `/bronnen`, `/instellingen`, `/start` | Gebouwd 0.2.0 |
 | Finance: watchlist, grafiek, % per bericht, marktbeeld | `/finance`, `src/lib/koersmeting.ts` | Gebouwd, getest |
 | Agenda, Uitagenda, Films | `/agenda` | Gebouwd, getest |
 | Android-app | `capacitor.config.ts`, `android/`, [ANDROID](ANDROID.md) | Gebouwd, nog geen APK gemaakt |
 | Achtergrond op aanvraag (AI) | `scripts/achtergrond.mjs`, `scripts/llm/`, `/verhaal/[id]`, `/achtergrond/[id]` | Gebouwd; getest met nep-model, nog niet met een echte key |
-| Instellingen: AI, budget, tokenteller, bronnen per doel | `/instellingen`, `src/lib/bronnen.ts`, `scripts/veilig-ophalen.mjs` | Gebouwd |
+| AI en budget met tokenteller; bronnen per doel met toevoegen | `/instellingen#ai`, `/bronnen`, `src/lib/bronnen.ts`, `scripts/veilig-ophalen.mjs` | Gebouwd |
 
 ## Gegevens
 
@@ -49,10 +52,13 @@ Bijgewerkt 28 november 2026. **Status: live; zie [BUILD_LOG](BUILD_LOG.md).**
 | `nz_bronvoorstellen` | Voorgestelde bronnen (Bron toevoegen) |
 | `nz_feedbronnen`, `nz_feeditems` | Gevolgde feeds, controlestatus en opgehaalde berichten (60 dagen bewaard) |
 | `nz_koersen`, `nz_koersbronnen` | Dagkoersen en status van de koersbron |
-| `nz_instellingen` | Instellingen voor de hele app: provider, model, budget |
+| `nz_app_instellingen` | Instellingen voor de hele app: provider, model, budget |
 | `nz_llm_gebruik` | Tokenteller: één rij per aanroep van een taalmodel (tokens, zoekopdrachten, kosten) |
 | `nz_achtergronden` | Automatische achtergronden met wachtrijstatus |
 | `nz_watchlist`, `nz_agendakeuzes` | Watchlist en volgen/verbergen in Agenda |
+| `nz_ingest_rondes` | Logboek per ophaalronde (14 dagen bewaard), voor de pagina Bronnen |
+| `nz_bezoeken` | Laatste moment van het vorige bezoek, voor het label Nieuw |
+| `nz_instellingen` | Lokaal gebied en of de eerste keuze (onderwerpen) is gedaan |
 
 Voorbeeldset: `data/mvp/*.json`, beschreven in `src/lib/inhoud-types.ts` en `src/lib/finance-agenda-types.ts`. Elk bestand is een deel; de app voegt ze samen. `src/lib/inhoud.test.ts` controleert ids, verwijzingen, links en datums.
 
@@ -73,7 +79,7 @@ Zonder craftstudio-instellingen toont `/inloggen` lokaal een knop **Inloggen als
 npm run ingest -- --once
 ```
 
-Tests: `npm test`. Koersmomentopname vernieuwen: `node scripts/koersen-ophalen.mjs`.
+Tests: `npm test`. Browsercontrole tegen de draaiende dev-server: `npm run browser` (Playwright met Chromium vereist, niet in `package.json`). Achter een HTTP-proxy haalt Node feeds op met `NODE_USE_ENV_PROXY=1 npm run ingest -- --once`. Koersmomentopname vernieuwen: `node scripts/koersen-ophalen.mjs`.
 
 ## Bouwvolgorde
 

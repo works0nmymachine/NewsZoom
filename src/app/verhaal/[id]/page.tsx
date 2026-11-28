@@ -1,17 +1,18 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { regelActie } from '@/app/acties';
-import { BerichtKaart } from '@/components/bericht-kaart';
 import { AutoAchtergrondStatus } from '@/components/auto-achtergrond';
+import { BerichtKaart } from '@/components/bericht-kaart';
 import { Kop } from '@/components/kop';
+import { VolgKnoppen } from '@/components/volg-knoppen';
 import { aiBeschikbaar, alsDossier, autoAchtergrond } from '@/lib/achtergrond';
 import { pool } from '@/lib/db';
 import type { Laag, Link as BronLink } from '@/lib/inhoud-types';
 import { paginaContext } from '@/lib/pagina';
+import { kaarten, perDag } from '@/lib/selectie';
 import { alineas, datumKort, wanneer } from '@/lib/weergave';
 
 type Params = Promise<{ id: string }>;
-type Zoek = Promise<{ laag?: string; bericht?: string }>;
+type Zoek = Promise<{ laag?: string; bericht?: string; alle?: string }>;
 
 const LAGEN = [
   { id: 'sinds', naam: 'Sinds je laatste bezoek' },
@@ -55,24 +56,17 @@ export default async function VerhaalPagina({ params, searchParams }: { params: 
 
   const regel = regels.find((r) => r.doelSoort === 'verhaal' && r.doelId === id);
   const basis = `/verhaal/${id}${z.bericht ? `?bericht=${encodeURIComponent(z.bericht)}&` : '?'}`;
-  const terug = `/verhaal/${id}`;
+  const dossierDatum = berichten.find((b) => b.herkomst === 'voorbeeldset')?.gepubliceerd;
+  const nu = new Date();
+  const verhaalKaarten = kaarten(berichten, regels, nu, { breed: true }).sort((a, b) => b.nieuwst.localeCompare(a.nieuwst));
+  const getoond = z.alle ? verhaalKaarten : verhaalKaarten.slice(0, 15);
+  const nieuwereFeed = berichten.filter((b) => b.herkomst === 'feed' && (!dossierDatum || b.gepubliceerd > dossierDatum));
   const bronNaam = (l: BronLink) => inhoud.bronnen.get(l.bron)?.naam ?? l.bron;
 
   return (
     <main className="pagina">
-      <Kop titel={verhaal.titel} sub={verhaal.onderwerpen.map((o) => inhoud.onderwerpen.get(o)?.naam ?? o).join(' · ')} />
-
-      <form action={regelActie} className="verhaal-acties">
-        <input type="hidden" name="soort" value="verhaal" />
-        <input type="hidden" name="id" value={id} />
-        <input type="hidden" name="terug" value={terug} />
-        {regel?.actie === 'meer'
-          ? <button name="actie" value="wissen" className="knop knop-klein" aria-pressed="true">✓ Je volgt dit verhaal</button>
-          : <button name="actie" value="meer" className="knop knop-klein knop-hoofd">Volg dit verhaal</button>}
-        {regel?.actie === 'verbergen'
-          ? <button name="actie" value="wissen" className="knop knop-klein knop-zacht">Niet meer verbergen</button>
-          : <button name="actie" value="verbergen" className="knop knop-klein knop-zacht">Verberg dit verhaal</button>}
-      </form>
+      <Kop titel={verhaal.titel} sub={verhaal.onderwerpen.map((o) => inhoud.onderwerpen.get(o)?.naam ?? o).join(' · ')} terug="/" />
+      <VolgKnoppen id={id} naam={verhaal.titel} huidig={regel?.actie ?? null} />
 
       {geopend && (
         <section className="geopend">
@@ -83,8 +77,21 @@ export default async function VerhaalPagina({ params, searchParams }: { params: 
         </section>
       )}
 
+      {nieuwereFeed.length > 0 && (
+        <section className="sectie">
+          <h2>Nieuwste berichten</h2>
+          <p className="zacht">Na de laatste samenvatting automatisch gekoppeld op trefwoorden. Nog niet in het dossier verwerkt.</p>
+          <ul className="tijdlijn">
+            {nieuwereFeed.slice(0, 6).map((b) => (
+              <li key={b.id}><span className="zacht">{wanneer(b.gepubliceerd)} · {inhoud.bronnen.get(b.bron)?.naam ?? b.bron}</span><br />
+                <a href={b.url} rel="noopener noreferrer" target="_blank">{b.titel}</a></li>
+            ))}
+          </ul>
+        </section>
+      )}
+
       <section className="sectie">
-        <h2>Laatste ontwikkeling</h2>
+        <h2>Laatste ontwikkeling{dossierDatum ? <span className="zacht" style={{ fontWeight: 400, fontSize: '0.85rem' }}> · samenvatting van {datumKort(dossierDatum)}</span> : null}</h2>
         <p>{verhaal.laatsteOntwikkeling}</p>
       </section>
 
@@ -100,7 +107,7 @@ export default async function VerhaalPagina({ params, searchParams }: { params: 
 
       <section className="sectie" id="achtergrond">
         <h2>Achtergrond</h2>
-        {!verhaal.dossier && <AutoAchtergrondStatus a={auto} soort="verhaal" id={id} terug={`${terug}#achtergrond`} beschikbaar={aiBeschikbaar()} />}
+        {!verhaal.dossier && <AutoAchtergrondStatus a={auto} soort="verhaal" id={id} terug={`/verhaal/${id}#achtergrond`} beschikbaar={aiBeschikbaar()} />}
         <nav className="segmenten segmenten-klein" aria-label="Kies diepgang">
           {beschikbaar.map((l) => <Link key={l.id} href={`${basis}laag=${l.id}#achtergrond`} aria-current={l.id === laag ? 'page' : undefined}>{l.naam}</Link>)}
         </nav>
@@ -147,8 +154,14 @@ export default async function VerhaalPagina({ params, searchParams }: { params: 
       )}
 
       <section className="sectie">
-        <h2>Alle berichten in dit verhaal</h2>
-        {berichten.map((b) => <BerichtKaart key={b.id} item={b} inhoud={inhoud} regels={regels} terug={terug} toonVerhaal={false} />)}
+        <h2>Alle berichten in dit verhaal ({berichten.length})</h2>
+        {perDag(getoond, nu).map((d) => (
+          <div key={d.dag}>
+            <h3 className="dag-kop">{d.naam}</h3>
+            {d.kaarten.map((k) => <BerichtKaart key={k.item.id} item={k.item} ook={k.ook} b={k.b} inhoud={inhoud} regels={regels} toonVerhaal={false} nieuwSinds={vorigBezoek} />)}
+          </div>
+        ))}
+        {verhaalKaarten.length > getoond.length && <p><Link className="knop" scroll={false} href={`${basis}alle=1#alle`}>Alle {verhaalKaarten.length} tonen</Link></p>}
       </section>
     </main>
   );

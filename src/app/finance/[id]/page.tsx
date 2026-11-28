@@ -51,7 +51,7 @@ export default async function InstrumentPagina({ params, searchParams }: { param
 
   return (
     <main className="pagina">
-      <Kop titel={inst.naam} sub={[inst.ticker, inst.beurs, inst.valuta].filter(Boolean).join(' · ') || 'Bedrijf zonder beursnotering'} />
+      <Kop terug="/finance" titel={inst.naam} sub={[inst.ticker, inst.beurs, inst.valuta].filter(Boolean).join(' · ') || 'Bedrijf zonder beursnotering'} />
       <p><Link href="/finance">← Finance</Link></p>
 
       {data && data.koersen.length > 0 ? (

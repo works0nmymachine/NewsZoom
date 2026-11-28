@@ -31,8 +31,19 @@
 - **Eerste proef (27 november 2026):** lokaal gebied **Amsterdam**; dossiers **Oekraïne**, **Israël–Gaza** en **Jensen Huang/Nvidia**. Echt nieuws, geen verzonnen voorbeelden: samenvattingen in eigen woorden met links naar de oorspronkelijke berichten. De voorbeeldset is een momentopname; de ingest-worker vult aan met actuele feedberichten.
 - **Werkwijze:** alle bouwfases achter elkaar uitvoeren (27 november 2026).
 - **AI-achtergrond (28 november 2026):** achtergrond op aanvraag via OpenAI (live) of Claude (Anthropic), met webzoeken. Maandbudget **$10**, te wijzigen in Instellingen. Een tokenteller boekt per aanroep tokens, zoekopdrachten en kosten, berekend met de publieke API-prijzen van 27 november 2026. Vóór elke aanroep wordt de maximale prijs gereserveerd; past die niet meer, dan start de aanroep niet. Automatische achtergronden worden gelabeld als niet gecontroleerd en tonen alleen links die het model echt vond.
-- **Instellingen en bronnen (28 november 2026):** een menu met Instellingen: AI en budget, bronnen per doel (Nederland, Wereld, Lokaal, Finance, Agenda, Achtergrond) en per doel een bron toevoegen. Een toegevoegde website wordt alleen opgehaald als het een publiek adres is (bescherming tegen SSRF). Instellingen gelden voor de hele app; iedereen die kan inloggen kan ze wijzigen.
+- **Instellingen en bronnen (28 november 2026):** in het menu staan AI en budget (Instellingen) en Bronnen per doel (Nederland, Wereld, Lokaal, Finance, Agenda, Achtergrond), met per doel een bron toevoegen. Een toegevoegde website wordt alleen opgehaald als het een publiek adres is (bescherming tegen SSRF). AI-instellingen gelden voor de hele app; iedereen die kan inloggen kan ze wijzigen.
 - **Filters per sectie (28 november 2026):** Mijn filters is opgedeeld in Nieuws, Eigen interesses, Finance en Agenda. Agendacategorieën hebben een eigen kleur en pictogram.
+
+## UI/UX-ronde (goedgekeurd 28 november 2026)
+
+De eigenaar keurde de verbeterlijst goed ("Bouw alles"). Gebouwd in 0.2.0, zie [CHANGELOG](../CHANGELOG.md). De keuzes hieronder zijn **voorstellen** die in de app zitten; ze blijven aanpasbaar.
+
+- Rangschikking met tijdsverval (halfwaarde 18 uur), bundeling van hetzelfde nieuws en spreiding over redacties.
+- Onderwerpen en verhaalkoppeling op vaste trefwoorden, zonder taalmodel. Bij twijfel geen koppeling.
+- Afbeeldingen uit de feed direct van de uitgever (lazy, zonder referrer). Open: via de eigen server laden voor meer privacy.
+- Ontdekken is de zoektab; Menu rechtsboven voor filters, bronnen, instellingen en uitloggen; zijbalk vanaf 768 px.
+- Meer/Minder/Verbergen zonder paginasprong, met Ongedaan maken; zoeken toont ook verborgen berichten.
+- Niet in deze ronde: pushmeldingen, offline-modus, native terugknop en delen, vertalen en AI-duiding.
 
 ## Voorstellen
 
@@ -47,4 +58,4 @@
 - Welke nieuws- en koersdatabronnen passen bij het product en welke gebruiksrechten zijn nodig?
 - Hoe worden artikelen aan verhalen gekoppeld en wie controleert context en koersduiding?
 - Wie houdt de dossiers bij na de momentopname? Handmatig, of later met een taalmodel en een controle vóór publicatie?
-- Moeten feedberichten automatisch aan lopende verhalen worden gekoppeld (taalmodel of embeddings)?
+- Moeten feedberichten automatisch aan lopende verhalen worden gekoppeld met een taalmodel of embeddings? Sinds 0.2.0 gebeurt dat op trefwoorden per verhaal (`koppel`); een taalmodel blijft open.

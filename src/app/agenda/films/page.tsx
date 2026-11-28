@@ -19,8 +19,8 @@ export default async function Films({ searchParams }: { searchParams: Zoek }) {
       <Kop titel="Films" sub="Nederlandse bioscoopreleases" />
       <AgendaTabs actief="films" />
       <div className="filters-rij">
-        <Link className="chip" href="/agenda/films" aria-pressed={!z.genre}>Alle genres</Link>
-        {genres.map((g) => <Link key={g} className="chip" href={`/agenda/films?genre=${encodeURIComponent(g)}`} aria-pressed={z.genre === g}>{g}</Link>)}
+        <Link className="chip" href="/agenda/films" aria-current={(!z.genre) ? 'true' : undefined}>Alle genres</Link>
+        {genres.map((g) => <Link key={g} className="chip" href={`/agenda/films?genre=${encodeURIComponent(g)}`} aria-current={(z.genre === g) ? 'true' : undefined}>{g}</Link>)}
       </div>
       {lijst.length === 0 && <p className="leeg">Geen aankomende releases gevonden.</p>}
       {lijst.map((f) => (

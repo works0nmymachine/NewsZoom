@@ -27,7 +27,7 @@ export default async function BerichtAchtergrond({ params }: { params: Params })
   const terug = `/achtergrond/${encodeURIComponent(item.id)}`;
   return (
     <main className="pagina">
-      <Kop titel="Achtergrond" sub={item.titel} />
+      <Kop titel="Achtergrond" terug="/" />
       <section className="geopend">
         <h2><a href={item.url} rel="noopener noreferrer" target="_blank">{item.titel} ↗</a></h2>
         <p className="kaart-meta"><span>{inhoud.bronnen.get(item.bron)?.naam ?? item.bron}</span><span>{wanneer(item.gepubliceerd)}</span></p>

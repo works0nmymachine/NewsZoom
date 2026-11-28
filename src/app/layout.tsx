@@ -1,5 +1,8 @@
 import type { Metadata, Viewport } from 'next';
+import { cookies } from 'next/headers';
+import { Meldingen } from '@/components/meldingen';
 import { Nav } from '@/components/nav';
+import { Verversen } from '@/components/verversen';
 import { huidigeGebruiker } from '@/lib/sessie';
 import './globals.css';
 
@@ -16,18 +19,22 @@ export const viewport: Viewport = {
   initialScale: 1,
   viewportFit: 'cover',
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#f8fafc' },
-    { media: '(prefers-color-scheme: dark)', color: '#111827' },
+    { media: '(prefers-color-scheme: light)', color: '#f3f4f6' },
+    { media: '(prefers-color-scheme: dark)', color: '#0b1120' },
   ],
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const gebruiker = await huidigeGebruiker().catch(() => null);
+  const [gebruiker, jar] = await Promise.all([huidigeGebruiker().catch(() => null), cookies()]);
+  const thema = jar.get('nz_thema')?.value;
   return (
-    <html lang="nl">
+    <html lang="nl" data-theme={thema === 'licht' ? 'light' : thema === 'donker' ? 'dark' : undefined}>
       <body className={gebruiker ? 'met-tabbalk' : undefined}>
-        {children}
-        {gebruiker && <Nav />}
+        <Meldingen>
+          {children}
+          {gebruiker && <Nav />}
+          {gebruiker && <Verversen />}
+        </Meldingen>
       </body>
     </html>
   );

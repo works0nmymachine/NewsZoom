@@ -1,18 +1,29 @@
 import Link from 'next/link';
 import type { Samengevoegd } from '@/lib/inhoud';
 import type { Verhaal } from '@/lib/inhoud-types';
-import { wanneer } from '@/lib/weergave';
+import { datumKort, wanneerKort } from '@/lib/weergave';
 
-/** Eén lopend verhaal met de laatste ontwikkeling en wat die verandert (Mijn Nieuws). */
+/**
+ * Eén lopend verhaal. De samenvatting komt uit het handmatige dossier en draagt daarom de datum ervan.
+ * Is er daarna een nieuwer feedbericht aan het verhaal gekoppeld, dan staat dat erboven.
+ */
 export function VerhaalKaart({ verhaal, inhoud, sinds }: { verhaal: Verhaal; inhoud: Samengevoegd; sinds?: number }) {
-  const laatste = inhoud.items.filter((i) => i.verhaal === verhaal.id).sort((a, b) => b.gepubliceerd.localeCompare(a.gepubliceerd))[0];
+  const berichten = inhoud.items.filter((i) => i.verhaal === verhaal.id).sort((a, b) => b.gepubliceerd.localeCompare(a.gepubliceerd));
+  const laatste = berichten[0];
+  const dossierDatum = berichten.filter((i) => i.herkomst === 'voorbeeldset').map((i) => i.gepubliceerd)[0];
+  const nieuwer = laatste && laatste.herkomst === 'feed' ? laatste : null;
   return (
     <article className="kaart">
       <p className="kaart-verhaal">{verhaal.onderwerpen.map((o) => inhoud.onderwerpen.get(o)?.naam ?? o).join(' · ')}</p>
       <h3 className="kaart-titel"><Link href={`/verhaal/${verhaal.id}`}>{verhaal.titel}</Link></h3>
-      {laatste && <p className="kaart-meta"><span>Laatste update {wanneer(laatste.gepubliceerd)}</span>{sinds ? <span className="label">{sinds} nieuw sinds je laatste bezoek</span> : null}</p>}
-      <p><strong>Laatste ontwikkeling:</strong> {verhaal.laatsteOntwikkeling}</p>
-      {verhaal.watVerandert && <p className="zacht">{verhaal.watVerandert.tekst.split(/(?<=[.!?])\s/)[0]}</p>}
+      <p className="kaart-meta">
+        {laatste && <span>Laatste bericht {wanneerKort(laatste.gepubliceerd)}</span>}
+        {sinds ? <span className="label label-nieuw">{sinds} nieuw sinds je laatste bezoek</span> : null}
+      </p>
+      {nieuwer && (
+        <p className="nieuw"><strong>Nieuwste:</strong> <a href={nieuwer.url} rel="noopener noreferrer" target="_blank">{nieuwer.titel}</a> <span className="zacht">({inhoud.bronnen.get(nieuwer.bron)?.naam ?? nieuwer.bron})</span></p>
+      )}
+      <p className="nieuw"><strong>{nieuwer ? 'Samenvatting' : 'Laatste ontwikkeling'}{dossierDatum ? ` (${datumKort(dossierDatum)})` : ''}:</strong> {verhaal.laatsteOntwikkeling}</p>
     </article>
   );
 }

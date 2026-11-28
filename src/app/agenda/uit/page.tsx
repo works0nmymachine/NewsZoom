@@ -1,7 +1,9 @@
 import Link from 'next/link';
 import { AgendaTabs } from '@/components/agenda-tabs';
 import { EvenementKaart } from '@/components/evenement-kaart';
+import { Icoon } from '@/components/iconen';
 import { Kop } from '@/components/kop';
+import { PlaatsKeuze } from '@/components/plaats-keuze';
 import { agendaBeoordeel, CATEGORIE_ICOON, CATEGORIE_NAAM, inPeriode, LOCATIETYPE_NAAM, zoekScore, type Periode } from '@/lib/agenda';
 import { agenda, agendaKeuzes, vandaagIso } from '@/lib/agenda-data';
 import type { EvenementCategorie } from '@/lib/finance-agenda-types';
@@ -28,7 +30,6 @@ export default async function Uitagenda({ searchParams }: { searchParams: Zoek }
     for (const [k, v] of Object.entries({ ...params, ...extra })) if (v) s.set(k, v);
     return `/agenda/uit?${s}`;
   };
-  const hier = url({});
 
   const inGebied = uit.filter((e) => plaats === 'Nederland' || e.plaats === plaats);
   const resultaten = inGebied
@@ -42,7 +43,7 @@ export default async function Uitagenda({ searchParams }: { searchParams: Zoek }
     .sort((a, b) => b.score - a.score || a.e.start.localeCompare(b.e.start))
     .map((x) => x.e);
   const categorieen = [...new Set(uit.map((e) => e.categorie))] as EvenementCategorie[];
-  const types = [...new Set(uit.map((e) => e.locatieType).filter(Boolean))] as string[];
+  const types = [...new Set(uit.map((e) => e.locatieType).filter((t) => t && t !== 'overig'))] as string[];
   const podia = [...new Set(inGebied.filter((e) => e.locatieType && e.locatieType !== 'buiten').map((e) => `${e.locatie}|${e.plaats}`))].sort();
 
   return (
@@ -51,32 +52,31 @@ export default async function Uitagenda({ searchParams }: { searchParams: Zoek }
       <AgendaTabs actief="uit" />
       <form action="/agenda/uit" className="formulier">
         <div className="werkbalk">
-          <select name="plaats" defaultValue={plaats} aria-label="Stad of land">
-            <option value="Nederland">Heel Nederland</option>
-            {plaatsen.map((p) => <option key={p}>{p}</option>)}
-          </select>
+          <PlaatsKeuze plaatsen={plaatsen} waarde={plaats} label="Stad of land" />
           <input type="hidden" name="periode" value={periode} />
           {cat && <input type="hidden" name="cat" value={cat} />}
-          <input name="q" defaultValue={q} placeholder="Zoek bv. dickens, jazz, kerstmarkt" aria-label="Zoeken" style={{ flex: '1 1 10rem' }} />
-          <button className="knop knop-klein">Zoek</button>
+          <span className="zoekrij">
+            <input type="search" name="q" defaultValue={q} placeholder="Zoek bv. dickens, jazz, kerstmarkt" aria-label="Zoeken" />
+            <button className="icoonknop" aria-label="Zoek"><Icoon naam="zoek" /></button>
+          </span>
         </div>
       </form>
       <nav className="segmenten" aria-label="Periode">
         {PERIODES.map((p) => <Link key={p.id} href={url({ periode: p.id })} aria-current={p.id === periode ? 'page' : undefined}>{p.naam}</Link>)}
       </nav>
-      <div className="filters-rij">
-        <Link className="chip" href={url({ cat: undefined })} aria-pressed={!cat}>Alles</Link>
-        {categorieen.map((c) => <Link key={c} className="cat-chip" data-cat={c} href={url({ cat: cat === c ? undefined : c })} aria-pressed={!cat || cat === c}><span className="cat-icoon" aria-hidden="true">{CATEGORIE_ICOON[c]}</span><span className="cat-tekst">{CATEGORIE_NAAM[c]}</span></Link>)}
+      <div className="filters-rij" role="group" aria-label="Soort">
+        <Link className="chip" href={url({ cat: undefined })} aria-current={(!cat) ? 'true' : undefined}>Alles</Link>
+        {categorieen.map((c) => <Link key={c} className="cat-chip" data-cat={c} href={url({ cat: cat === c ? undefined : c })} aria-current={cat === c ? 'true' : undefined} aria-pressed={!cat || cat === c}><span className="cat-icoon" aria-hidden="true">{CATEGORIE_ICOON[c]}</span><span className="cat-tekst">{CATEGORIE_NAAM[c]}</span></Link>)}
       </div>
-      <div className="filters-rij">
-        {types.map((t) => <Link key={t} className="chip" href={url({ type: z.type === t ? undefined : t })} aria-pressed={z.type === t}>{LOCATIETYPE_NAAM[t] ?? t}</Link>)}
-        <Link className="chip" href={url({ gratis: z.gratis ? undefined : '1' })} aria-pressed={!!z.gratis}>Gratis</Link>
+      <div className="filters-rij" role="group" aria-label="Locatie en prijs">
+        {types.map((t) => <Link key={t} className="chip" href={url({ type: z.type === t ? undefined : t })} aria-current={(z.type === t) ? 'true' : undefined}>{LOCATIETYPE_NAAM[t] ?? t}</Link>)}
+        <Link className="chip" href={url({ gratis: z.gratis ? undefined : '1' })} aria-current={(!!z.gratis) ? 'true' : undefined}>Gratis</Link>
       </div>
 
       <section className="sectie">
         <h2>{resultaten.length} {resultaten.length === 1 ? 'resultaat' : 'resultaten'}</h2>
         {resultaten.length === 0 && <p className="leeg">Niets gevonden in deze periode{q ? ` voor “${q}”` : ''}. Probeer een langere periode of heel Nederland.</p>}
-        {resultaten.map((e) => <EvenementKaart key={e.id} e={e} keuzes={keuzes} terug={hier} toonPlaats={plaats === 'Nederland'} />)}
+        {resultaten.map((e) => <EvenementKaart key={e.id} e={e} keuzes={keuzes} toonPlaats={plaats === 'Nederland'} />)}
       </section>
 
       <details className="sectie blok">

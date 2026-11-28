@@ -5,8 +5,8 @@ ALTER TABLE nz_feedbronnen
   ADD COLUMN toegevoegd_door uuid REFERENCES nz_gebruikers ON DELETE SET NULL,
   ADD COLUMN aangemaakt_at timestamptz NOT NULL DEFAULT now();
 
--- Instellingen voor de hele installatie (provider, model, budget).
-CREATE TABLE nz_instellingen (
+-- Instellingen voor de hele app (provider, model, budget). nz_instellingen is per gebruiker.
+CREATE TABLE nz_app_instellingen (
   sleutel text PRIMARY KEY,
   waarde jsonb NOT NULL,
   gewijzigd_at timestamptz NOT NULL DEFAULT now()

@@ -5,7 +5,7 @@ import { maandVan } from './prijzen.mjs';
 export class BudgetOp extends Error {}
 
 export async function instelling(db, sleutel, standaard) {
-  const { rows } = await db.query(`SELECT waarde FROM nz_instellingen WHERE sleutel = $1`, [sleutel]);
+  const { rows } = await db.query(`SELECT waarde FROM nz_app_instellingen WHERE sleutel = $1`, [sleutel]);
   return rows[0] ? rows[0].waarde : standaard;
 }
 

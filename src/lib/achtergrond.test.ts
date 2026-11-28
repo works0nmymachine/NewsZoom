@@ -76,13 +76,13 @@ describe('budget en uitvoering (database)', () => {
   it.runIf(process.env.NZ_TEST_DB)('database is bereikbaar', () => { expect(db).not.toBeNull(); });
   const schoon = async () => {
     await db!.query(`DELETE FROM nz_llm_gebruik WHERE doel LIKE 'test:%' OR doel LIKE 'achtergrond:test:%'`);
-    await db!.query(`DELETE FROM nz_instellingen`);
+    await db!.query(`DELETE FROM nz_app_instellingen`);
   };
 
   it('weigert boven het budget en telt mislukt zonder kosten niet mee', async () => {
     if (!db) return;
     await schoon();
-    await db.query(`INSERT INTO nz_instellingen (sleutel, waarde) VALUES ('llm_budget_usd', '1')`);
+    await db.query(`INSERT INTO nz_app_instellingen (sleutel, waarde) VALUES ('llm_budget_usd', '1')`);
     const maand = maandVan();
     const voor = await besteedDezeMaand(db, maand);
     await db.query(`INSERT INTO nz_llm_gebruik (maand, doel, provider, model, status, geschat_usd) VALUES ($1, 'test:x', 'openai', 'm', 'mislukt', 5)`, [maand]);
@@ -98,10 +98,10 @@ describe('budget en uitvoering (database)', () => {
     await schoon();
     expect(await kiesProvider(db, {})).toBeNull();
     expect(await kiesProvider(db, { OPENAI_API_KEY: 'x' })).toEqual({ provider: 'openai', model: 'gpt-6.2-sol' });
-    await db.query(`INSERT INTO nz_instellingen (sleutel, waarde) VALUES ('llm_provider', '"anthropic"'), ('anthropic_model', '"claude-sonnet-5-5"')`);
+    await db.query(`INSERT INTO nz_app_instellingen (sleutel, waarde) VALUES ('llm_provider', '"anthropic"'), ('anthropic_model', '"claude-sonnet-5-5"')`);
     expect(await kiesProvider(db, { OPENAI_API_KEY: 'x' })).toEqual({ provider: 'openai', model: 'gpt-6.2-sol' }); // geen anthropic-key
     expect(await kiesProvider(db, { OPENAI_API_KEY: 'x', ANTHROPIC_API_KEY: 'y' })).toEqual({ provider: 'anthropic', model: 'claude-sonnet-5-5' });
-    await db.query(`UPDATE nz_instellingen SET waarde = '"uit"' WHERE sleutel = 'llm_provider'`);
+    await db.query(`UPDATE nz_app_instellingen SET waarde = '"uit"' WHERE sleutel = 'llm_provider'`);
     expect(await kiesProvider(db, { OPENAI_API_KEY: 'x' })).toBeNull();
     await schoon();
   });

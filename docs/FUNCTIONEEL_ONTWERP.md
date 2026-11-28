@@ -35,6 +35,7 @@ In **Breed overzicht** staan de belangrijkste ontwikkelingen van de dag bovenaan
 - Per bericht kun je **Meer hiervan**, **Minder hiervan** of **Verbergen** kiezen. Geef aan of de keuze geldt voor dit verhaal, een onderwerp of een bron. Minder hiervan verlaagt de prioriteit. Verbergen sluit de gekozen selectie uit van de gefilterde weergave.
 - Met **Ik mis iets** kun je een onderwerp, ontwikkeling of bron toevoegen. NewsZoom zoekt ook buiten de bestaande bronnen naar passende berichten en laat voorbeelden zien voordat je de nieuwe voorkeur opslaat.
 - Via **Waarom zie ik dit?** toont NewsZoom welke voorkeur of algemene selectiecriteria meespeelden. In **Mijn filters** kun je iedere opgeslagen voorkeur bekijken, aanpassen of verwijderen. Een leesklik wijzigt je voorkeuren niet automatisch.
+- Een keuze is direct zichtbaar zonder dat de pagina verspringt, en is met **Ongedaan maken** terug te draaien. Na drie verborgen of minder getoonde verhalen met hetzelfde onderwerp stelt NewsZoom voor dat onderwerp minder te tonen; dat gebeurt alleen na bevestiging.
 
 ### Als regels botsen
 

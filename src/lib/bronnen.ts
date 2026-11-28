@@ -19,7 +19,7 @@ export const FEED_DOELEN: Doel[] = ['nederland', 'wereld', 'lokaal', 'finance'];
 
 export type FeedBronRij = {
   id: string; naam: string; homepage: string; feed_url: string; soort: string; reikwijdte: string; gebied: string | null;
-  onderwerpen: string[]; actief: boolean; gepauzeerd: boolean; herkomst: 'bestand' | 'gebruiker';
+  onderwerpen: string[]; actief: boolean; gepauzeerd: boolean; herkomst: 'bestand' | 'gebruiker'; taal: string;
   laatste_controle: Date | null; laatste_succes: Date | null; laatste_fout: string | null; items_7d: number;
 };
 

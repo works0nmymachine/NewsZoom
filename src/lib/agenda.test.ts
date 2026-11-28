@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { agendaBeoordeel, groep, inPeriode, zoekScore } from './agenda';
+import { agendaBeoordeel, groep, inPeriode, loopt, zoekScore } from './agenda';
 import type { Evenement } from './finance-agenda-types';
 
 const ev = (x: Partial<Evenement>): Evenement => ({
@@ -53,5 +53,13 @@ describe('agendaBeoordeel', () => {
   });
   it('een keuze voor het hoofdevenement geldt voor onderdelen', () => {
     expect(agendaBeoordeel(ev({ id: 'optocht', hoofdevenement: 'dickens' }), [{ doelSoort: 'evenement', doelId: 'dickens', actie: 'verbergen' }]).zichtbaar).toBe(false);
+  });
+});
+
+describe('loopt', () => {
+  it('lopende tentoonstelling wel, nieuw evenement en verstoring niet', () => {
+    expect(loopt({ start: '2026-09-11', eind: '2027-01-17', categorie: 'expositie' }, '2026-11-28')).toBe(true);
+    expect(loopt({ start: '2026-11-28', eind: '2026-11-30', categorie: 'festival' }, '2026-11-28')).toBe(false);
+    expect(loopt({ start: '2026-11-01', eind: '2026-12-31', categorie: 'verstoring' }, '2026-11-28')).toBe(false);
   });
 });

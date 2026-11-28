@@ -99,6 +99,20 @@
       ],
       "reikwijdte": "lokaal",
       "gebied": "amsterdam",
+      "koppel": [
+        [
+          "OLVG",
+          "spoed"
+        ],
+        [
+          "OLVG",
+          "SEH"
+        ],
+        [
+          "OLVG",
+          "Oost"
+        ]
+      ],
       "laatsteOntwikkeling": "OLVG heeft het voornemen bekendgemaakt om vanaf 2032 de spoedeisende hulp en de huisartsenspoedpost bij het Oosterpark te sluiten en alle spoedzorg in OLVG West onder te brengen.",
       "watVerandert": {
         "tekst": "Voorlopig verandert er voor patiënten niets: tot 2032 blijven de SEH en de huisartsenspoedpost in Oost open. Daarna houdt Amsterdam drie SEH's over: OLVG West, BovenIJ in Noord en Amsterdam UMC locatie AMC. Wie in Oost woont en 's avonds, 's nachts of in het weekend een arts nodig heeft, belt nog steeds de huisartsenspoedpost, maar krijgt dan een afspraak op een van die drie locaties. OLVG Oost blijft open voor poliklinische zorg, onderzoeken en planbare operaties.",
@@ -239,6 +253,20 @@
       ],
       "reikwijdte": "lokaal",
       "gebied": "amsterdam",
+      "koppel": [
+        [
+          "A10",
+          "Zuidasdok"
+        ],
+        [
+          "A10",
+          "afsluiting"
+        ],
+        [
+          "A10",
+          "dicht$"
+        ]
+      ],
       "laatsteOntwikkeling": "Van vrijdagavond 27 november tot maandagochtend 30 november is de verbinding van de A10 West naar de A10 Zuid dicht, omdat bij knooppunt De Nieuwe Meer onderdelen van een nieuw viaduct worden geplaatst.",
       "watVerandert": {
         "tekst": "Het gaat om de buitenring van de A10 West naar de A10 Zuid en oprit S107, van vrijdag 22.00 uur tot maandag 05.00 uur; de binnenring blijft open. Verkeer wordt via de A9 omgeleid en moet rekenen op 10 tot 30 minuten extra reistijd. De afsluiting hoort bij Zuidasdok, het project van Rijkswaterstaat, ProRail en de gemeente om de A10 Zuid te verbreden, dat tot 2036 loopt.",
@@ -268,6 +296,16 @@
       ],
       "reikwijdte": "lokaal",
       "gebied": "amsterdam",
+      "koppel": [
+        [
+          "roltrap",
+          "Bijlmer"
+        ],
+        [
+          "roltrappen",
+          "Bijlmer"
+        ]
+      ],
       "laatsteOntwikkeling": "ProRail heeft op 26 november meerdere roltrappen op station Bijlmer ArenA buiten werking gesteld, vier dagen nadat acht mensen gewond raakten toen een roltrap plotseling op hol sloeg.",
       "watVerandert": {
         "tekst": "De drie roltrappen naar de sporen 2 en 3 staan stil: één voor gepland onderhoud, één vanwege het ongeluk en één uit voorzorg omdat er speling is gevonden. De roltrappen naar de sporen 1, 6, 7 en 8 zijn vergrendeld en alleen nog als gewone trap te gebruiken. Bij drukte zet ProRail mensen in om de reizigersstromen te begeleiden.",
@@ -297,6 +335,15 @@
       ],
       "reikwijdte": "lokaal",
       "gebied": "amsterdam",
+      "koppel": [
+        [
+          "Willinklaan"
+        ],
+        [
+          "azc",
+          "Osdorp"
+        ]
+      ],
       "laatsteOntwikkeling": "De gemeente wil het azc aan de Willinklaan in Osdorp minstens tien jaar langer openhouden, met een optie op nog vijf jaar, zo schreef wethouder Pels aan de gemeenteraad.",
       "watVerandert": {
         "tekst": "Bij de opening in 2018 kreeg de buurt te horen dat de opvang tijdelijk was en zou sluiten zodra het nieuwe azc in de Houthaven open is; dat gaat nu niet door. Het aantal bewoners moet van zo'n 700 naar 650. Het COA gaat er meer alleenstaanden en minder gezinnen plaatsen, betaalt voor taallessen en jongerenwerk en laat de pendelbus blijven rijden. De gemeente zegt de plek nodig te hebben om minder geschikte noodopvang te sluiten en aan de Spreidingswet te voldoen.",
@@ -331,6 +378,12 @@
       ],
       "reikwijdte": "lokaal",
       "gebied": "amsterdam",
+      "koppel": [
+        [
+          "studentenwoningen",
+          "Amsterdam"
+        ]
+      ],
       "laatsteOntwikkeling": "Amsterdam trekt 2 miljoen euro uit voor de bouw van 408 studentenwoningen met gedeelde voorzieningen, meldde Het Parool op 25 november.",
       "watVerandert": {
         "tekst": "Er komen 408 woningen voor studenten bij waarin bewoners voorzieningen delen; de gemeente draagt daar 2 miljoen euro aan bij.",
@@ -354,6 +407,11 @@
       ],
       "reikwijdte": "lokaal",
       "gebied": "amsterdam",
+      "koppel": [
+        [
+          "Music On"
+        ]
+      ],
       "laatsteOntwikkeling": "Een gemeentelijke evaluatie concludeert dat de afgelasting van Music On in mei alle kenmerken had van een crisis, maar dat gemeente, Omgevingsdienst en organisatie daar niet naar handelden.",
       "watVerandert": {
         "tekst": "Burgemeester Halsema blies het tweedaagse festival op de ochtend van 9 mei af omdat er geen goedgekeurde vergunning lag voor een andere hoofdtent; 20.000 bezoekers werden teleurgesteld. Uit de evaluatie blijkt dat het wijzigingsverzoek voor de nieuwe tent bij de Omgevingsdienst in een al gesloten dossier belandde, waardoor meldingen niet aankwamen, en dat de technische gegevens van de tent onvolledig waren. Ook had de organisatie de tent niet mogen opbouwen zonder toestemming. De Omgevingsdienst heeft haar e-mailsysteem inmiddels aangepast en adviezen moeten voortaan begrijpelijker worden opgeschreven.",
@@ -383,6 +441,12 @@
       ],
       "reikwijdte": "lokaal",
       "gebied": "amsterdam",
+      "koppel": [
+        [
+          "jongerenwerk",
+          "Nieuw-West"
+        ]
+      ],
       "laatsteOntwikkeling": "De rechtbank heeft de besturen van de stichtingen Be Ok en IMD, actief in het jongerenwerk in Nieuw-West, per direct geschorst; de gemeente stopt de samenwerking, vordert subsidie terug en doet aangifte.",
       "watVerandert": {
         "tekst": "Be Ok en IMD komen voor in een strafrechtelijk onderzoek naar een netwerk dat geldstromen voor criminele organisaties regelt. De oude bestuurders kunnen niet meer bij de bankrekeningen; tijdelijke onafhankelijke besturen nemen het over. Om te voorkomen dat het jongerenwerk stilvalt, komt er een overgangsperiode tot 1 juli 2027. De alliantie ONE, waar beide stichtingen deel van uitmaken, kreeg in 2025 zo'n 7,6 miljoen euro en in 2026 zo'n 6,9 miljoen euro subsidie.",

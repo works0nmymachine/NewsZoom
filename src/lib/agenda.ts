@@ -39,6 +39,11 @@ export function groep(e: Pick<Evenement, 'start' | 'eind'>, vandaag: string): 'v
   return 'later';
 }
 
+/** Meerdaagse evenementen die al vóór vandaag begonnen en nog lopen, zoals tentoonstellingen. Verstoringen niet. */
+export function loopt(e: Pick<Evenement, 'start' | 'eind' | 'categorie'>, vandaag: string): boolean {
+  return e.categorie !== 'verstoring' && dag(e.start) < vandaag && dag(e.eind ?? e.start) >= vandaag;
+}
+
 export const normaal = (s: string) => s.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase();
 
 /** Doorzoekt titel, beschrijving, locatie, plaats, wijk, organisator, genre en zoektermen.
