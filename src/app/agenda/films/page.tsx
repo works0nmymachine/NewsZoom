@@ -1,4 +1,5 @@
 import { AgendaTabs } from '@/components/agenda-tabs';
+import { Paneel } from '@/components/paneel';
 import { Kop } from '@/components/kop';
 import { agenda, vandaagIso } from '@/lib/agenda-data';
 import { vereisGebruiker } from '@/lib/sessie';
@@ -15,13 +16,8 @@ export default async function Films({ searchParams }: { searchParams: Zoek }) {
   const genres = [...new Set(films.flatMap((f) => f.genre.split(/[,/]\s*/)))].filter((g) => g && !g.startsWith('onbekend')).sort();
   const lijst = films.filter((f) => f.releasedatum >= vandaag && (!z.genre || f.genre.includes(z.genre))).sort((a, b) => a.releasedatum.localeCompare(b.releasedatum));
   return (
-    <main className="pagina">
+    <main className="pagina met-agendadock">
       <Kop titel="Films" sub="Nederlandse bioscoopreleases" />
-      <AgendaTabs actief="films" />
-      <div className="filters-rij">
-        <Link className="chip" href="/agenda/films" aria-current={(!z.genre) ? 'true' : undefined}>Alle genres</Link>
-        {genres.map((g) => <Link key={g} className="chip" href={`/agenda/films?genre=${encodeURIComponent(g)}`} aria-current={(z.genre === g) ? 'true' : undefined}>{g}</Link>)}
-      </div>
       {lijst.length === 0 && <p className="leeg">Geen aankomende releases gevonden.</p>}
       {lijst.map((f) => (
         <article key={f.id} className="kaart">
@@ -31,6 +27,12 @@ export default async function Films({ searchParams }: { searchParams: Zoek }) {
         </article>
       ))}
       <p className="zacht">Lokale voorstellingen per bioscoop en streamingreleases volgen later als aparte vermeldingen.</p>
+      <div className="agenda-dock">      <AgendaTabs actief="films" />
+      <div className="agenda-dock-knoppen"><div><Paneel titel="Genres" icoon="filter" label="Genres" actief={!!z.genre}><div className="filters-rij">
+        <Link className="chip" href="/agenda/films" aria-current={(!z.genre) ? 'true' : undefined}>Alle genres</Link>
+        {genres.map((g) => <Link key={g} className="chip" href={`/agenda/films?genre=${encodeURIComponent(g)}`} aria-current={(z.genre === g) ? 'true' : undefined}>{g}</Link>)}
+      </div></Paneel><span>Genres</span></div></div>
+</div>
     </main>
   );
 }
