@@ -3,6 +3,7 @@ import { AgendaTabs } from '@/components/agenda-tabs';
 import { CategorieFilter } from '@/components/categorie-filter';
 import { EvenementKaart } from '@/components/evenement-kaart';
 import { Kop } from '@/components/kop';
+import { Paneel } from '@/components/paneel';
 import { PlaatsKeuze } from '@/components/plaats-keuze';
 import { agendaBeoordeel, ALLE_CATEGORIEEN, groep, loopt } from '@/lib/agenda';
 import { agenda, agendaKeuzes, vandaagIso } from '@/lib/agenda-data';
@@ -14,7 +15,7 @@ const GROEPEN = [{ id: 'vandaag', naam: 'Vandaag' }, { id: 'week', naam: 'Deze w
 export default async function AgendaPagina({ searchParams }: { searchParams: Zoek }) {
   const z = await searchParams;
   const g = await vereisGebruiker();
-  const { evenementen } = agenda();
+  const evenementen = agenda().evenementen.filter(e => e.categorie === 'verstoring' || e.categorie === 'demonstratie');
   const keuzes = await agendaKeuzes(g.id);
   const vandaag = vandaagIso();
   const plaatsen = [...new Set(evenementen.map((e) => e.plaats))].sort();
@@ -32,29 +33,9 @@ export default async function AgendaPagina({ searchParams }: { searchParams: Zoe
   const lopend = lijst.filter((e) => loopt(e, vandaag)).sort((a, b) => (a.eind ?? a.start).localeCompare(b.eind ?? b.start));
 
   return (
-    <main className="pagina">
-      <Kop titel="Agenda" sub="Wat er binnenkort gebeurt en wat vandaag verstoort" />
-      <AgendaTabs actief="agenda" />
-      <div className="werkbalk">
-        <form action="/agenda" className="zoek">
-          <PlaatsKeuze plaatsen={plaatsen} waarde={plaats} />
-          {breed && <input type="hidden" name="weergave" value="breed" />}
-          <noscript><button className="knop knop-klein">Toon</button></noscript>
-        </form>
-        <div className="schakel" role="group" aria-label="Weergave">
-          <Link href={`/agenda?plaats=${encodeURIComponent(plaats)}`} aria-current={!breed ? 'page' : undefined}>Met mijn filters</Link>
-          <Link href={`/agenda?plaats=${encodeURIComponent(plaats)}&weergave=breed`} aria-current={breed ? 'page' : undefined}>Alles</Link>
-        </div>
-      </div>
+    <main className="pagina met-agendadock">
+      <Kop titel="Bereikbaarheid" sub="Verstoringen en demonstraties" />
       <p className="voorbeeld">Voorbeeldset van 27 november 2026: echte aankondigingen, nog niet automatisch bijgewerkt. Controleer tijden bij de bron.</p>
-
-      <section className="sectie" aria-label="Categorieën">
-        <p className="zacht" style={{ margin: 0 }}>Tik op een categorie om hem te verbergen of weer te tonen. Een gevolgd evenement blijft altijd zichtbaar.</p>
-        <CategorieFilter categorieen={categorieen} keuzes={keuzes} aantallen={aantallen} />
-        {keuzes.length === 0
-          ? <p className="zacht">Geen filters actief: je ziet alles.</p>
-          : !breed && verborgen > 0 && <p className="melding">{verborgen} {verborgen === 1 ? 'item is' : 'items zijn'} verborgen door je keuzes. <Link href={`/agenda?plaats=${encodeURIComponent(plaats)}&weergave=breed`}>Toon alles</Link> · <Link href="/filters?sectie=agenda">Agendafilters</Link></p>}
-      </section>
 
       {GROEPEN.map((gr) => {
         const items = lijst.filter((e) => groep(e, vandaag) === gr.id && !loopt(e, vandaag));
@@ -72,6 +53,27 @@ export default async function AgendaPagina({ searchParams }: { searchParams: Zoe
           {lopend.map((e) => <EvenementKaart key={e.id} e={e} keuzes={keuzes} toonPlaats={plaats === 'Nederland'} />)}
         </details>
       )}
+      <div className="agenda-dock">      <AgendaTabs actief="agenda" />
+      <div className="agenda-dock-knoppen"><div><Paneel titel="Locatie en weergave" icoon="filter" label="Locatie en weergave"><div className="werkbalk">
+        <form action="/agenda" className="zoek">
+          <PlaatsKeuze plaatsen={plaatsen} waarde={plaats} />
+          {breed && <input type="hidden" name="weergave" value="breed" />}
+          <noscript><button className="knop knop-klein">Toon</button></noscript>
+        </form>
+        <div className="schakel" role="group" aria-label="Weergave">
+          <Link href={`/agenda?plaats=${encodeURIComponent(plaats)}`} aria-current={!breed ? 'page' : undefined}>Met mijn filters</Link>
+          <Link href={`/agenda?plaats=${encodeURIComponent(plaats)}&weergave=breed`} aria-current={breed ? 'page' : undefined}>Alles</Link>
+        </div>
+      </div>
+</Paneel><span>{plaats}</span></div><div><Paneel titel="Categorieën" icoon="filter" label="Categorieën">      <section className="sectie" aria-label="Categorieën">
+        <p className="zacht" style={{ margin: 0 }}>Tik op een categorie om hem te verbergen of weer te tonen. Een gevolgd evenement blijft altijd zichtbaar.</p>
+        <CategorieFilter categorieen={categorieen} keuzes={keuzes} aantallen={aantallen} />
+        {keuzes.length === 0
+          ? <p className="zacht">Geen filters actief: je ziet alles.</p>
+          : !breed && verborgen > 0 && <p className="melding">{verborgen} {verborgen === 1 ? 'item is' : 'items zijn'} verborgen door je keuzes. <Link href={`/agenda?plaats=${encodeURIComponent(plaats)}&weergave=breed`}>Toon alles</Link> · <Link href="/filters?sectie=agenda">Agendafilters</Link></p>}
+      </section>
+
+</Paneel><span>Filters</span></div></div></div>
     </main>
   );
 }
