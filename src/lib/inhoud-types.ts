@@ -29,6 +29,9 @@ export type Verhaal = {
   onderwerpen: string[]; // Onderwerp.id
   reikwijdte: 'nederland' | 'wereld' | 'lokaal';
   gebied?: string; // bij lokaal: 'amsterdam'
+  // Trefwoordgroepen om nieuwe feedberichten aan dit verhaal te koppelen: alle termen van één groep
+  // moeten voorkomen, minstens één in de kop. Zie src/lib/herkenning.ts. Bij twijfel geen koppeling.
+  koppel?: string[][];
   laatsteOntwikkeling: string; // één zin: wat is het nieuwste
   watVerandert?: {
     tekst: string; // wat veranderde, voor wie

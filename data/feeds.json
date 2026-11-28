@@ -1,78 +1,212 @@
 {
-  "toelichting": "Bronnen die de ingest-worker periodiek ophaalt. reikwijdte bepaalt waar berichten verschijnen; gebied bij lokaal. Een bron zonder werkende feed blijft zichtbaar met een mislukte controle.",
+  "toelichting": "Bronnen die de ingest-worker periodiek ophaalt. reikwijdte bepaalt waar berichten verschijnen; gebied bij lokaal; taal nl of en; uitgever groepeert feeds van dezelfde redactie (NOS, NU.nl, AD), zodat ze niet als aparte bronnen tellen. negeer: titelpatronen (regex) of feedcategorieën die niet worden opgeslagen, zoals puzzels en aanbiedingen. Bronnen zonder werkende feed (AT5, gemeente Amsterdam) staan niet hier maar in de voorbeeldset en docs/BRONNEN.md.",
   "bronnen": [
     {
       "id": "nos",
       "naam": "NOS",
+      "uitgever": "nos",
       "homepage": "https://nos.nl",
       "feed": "https://feeds.nos.nl/nosnieuwsbinnenland",
       "soort": "journalistiek",
-      "reikwijdte": "nederland"
+      "reikwijdte": "nederland",
+      "taal": "nl",
+      "negeer": {
+        "titels": [
+          "^Wekdienst "
+        ]
+      }
     },
     {
-      "id": "nos-buitenland",
-      "naam": "NOS Buitenland",
-      "homepage": "https://nos.nl/nieuws/buitenland",
-      "feed": "https://feeds.nos.nl/nosnieuwsbuitenland",
+      "id": "nos-politiek",
+      "naam": "NOS Politiek",
+      "uitgever": "nos",
+      "homepage": "https://nos.nl/nieuws/politiek",
+      "feed": "https://feeds.nos.nl/nosnieuwspolitiek",
       "soort": "journalistiek",
-      "reikwijdte": "wereld"
-    },
-    {
-      "id": "nos-tech",
-      "naam": "NOS Tech",
-      "homepage": "https://nos.nl/nieuws/tech",
-      "feed": "https://feeds.nos.nl/nosnieuwstech",
-      "soort": "journalistiek",
-      "reikwijdte": "wereld",
+      "reikwijdte": "nederland",
+      "taal": "nl",
       "onderwerpen": [
-        "techniek"
+        "binnenland-politiek"
       ]
     },
     {
-      "id": "nu-nl",
-      "naam": "NU.nl",
-      "homepage": "https://www.nu.nl",
-      "feed": "https://www.nu.nl/rss/Algemeen",
-      "soort": "journalistiek",
-      "reikwijdte": "nederland"
-    },
-    {
-      "id": "nu-nl-economie",
-      "naam": "NU.nl Economie",
-      "homepage": "https://www.nu.nl/economie",
-      "feed": "https://www.nu.nl/rss/Economie",
+      "id": "nos-economie",
+      "naam": "NOS Economie",
+      "uitgever": "nos",
+      "homepage": "https://nos.nl/nieuws/economie",
+      "feed": "https://feeds.nos.nl/nosnieuwseconomie",
       "soort": "journalistiek",
       "reikwijdte": "nederland",
+      "taal": "nl",
       "onderwerpen": [
         "economie"
       ]
     },
     {
-      "id": "parool",
-      "naam": "Het Parool",
-      "homepage": "https://www.parool.nl/amsterdam",
-      "feed": "https://www.parool.nl/amsterdam/rss.xml",
+      "id": "nos-cultuur",
+      "naam": "NOS Cultuur en media",
+      "uitgever": "nos",
+      "homepage": "https://nos.nl/nieuws/cultuur-en-media",
+      "feed": "https://feeds.nos.nl/nosnieuwscultuurenmedia",
       "soort": "journalistiek",
-      "reikwijdte": "lokaal",
-      "gebied": "amsterdam"
+      "reikwijdte": "nederland",
+      "taal": "nl",
+      "onderwerpen": [
+        "cultuur"
+      ]
     },
     {
-      "id": "at5",
-      "naam": "AT5",
-      "homepage": "https://www.at5.nl",
-      "feed": "https://www.at5.nl/feeds/rss",
+      "id": "nos-sport",
+      "naam": "NOS Sport",
+      "uitgever": "nos",
+      "homepage": "https://nos.nl/sport",
+      "feed": "https://feeds.nos.nl/nossportalgemeen",
       "soort": "journalistiek",
-      "reikwijdte": "lokaal",
-      "gebied": "amsterdam"
+      "reikwijdte": "nederland",
+      "taal": "nl",
+      "onderwerpen": [
+        "sport"
+      ]
     },
     {
-      "id": "gemeente-amsterdam",
-      "naam": "Gemeente Amsterdam",
-      "homepage": "https://www.amsterdam.nl/nieuws",
-      "feed": "https://www.amsterdam.nl/nieuws/rss",
-      "soort": "overheid",
-      "reikwijdte": "lokaal",
-      "gebied": "amsterdam"
+      "id": "nu-nl",
+      "naam": "NU.nl",
+      "uitgever": "nu-nl",
+      "homepage": "https://www.nu.nl",
+      "feed": "https://www.nu.nl/rss/Algemeen",
+      "soort": "journalistiek",
+      "reikwijdte": "nederland",
+      "taal": "nl"
+    },
+    {
+      "id": "nu-nl-economie",
+      "naam": "NU.nl Economie",
+      "uitgever": "nu-nl",
+      "homepage": "https://www.nu.nl/economie",
+      "feed": "https://www.nu.nl/rss/Economie",
+      "soort": "journalistiek",
+      "reikwijdte": "nederland",
+      "taal": "nl",
+      "onderwerpen": [
+        "economie"
+      ]
+    },
+    {
+      "id": "nu-nl-wetenschap",
+      "naam": "NU.nl Wetenschap",
+      "uitgever": "nu-nl",
+      "homepage": "https://www.nu.nl/wetenschap",
+      "feed": "https://www.nu.nl/rss/Wetenschap",
+      "soort": "journalistiek",
+      "reikwijdte": "nederland",
+      "taal": "nl",
+      "onderwerpen": [
+        "wetenschap"
+      ]
+    },
+    {
+      "id": "rtl-nieuws",
+      "naam": "RTL Nieuws",
+      "homepage": "https://www.rtl.nl/nieuws",
+      "feed": "https://www.rtl.nl/rss.xml",
+      "soort": "journalistiek",
+      "reikwijdte": "nederland",
+      "taal": "nl"
+    },
+    {
+      "id": "telegraaf",
+      "naam": "De Telegraaf",
+      "homepage": "https://www.telegraaf.nl",
+      "feed": "https://www.telegraaf.nl/rss/",
+      "soort": "journalistiek",
+      "reikwijdte": "nederland",
+      "taal": "nl",
+      "negeer": {
+        "categorieen": [
+          "Podcast",
+          "Horoscoop"
+        ],
+        "titels": [
+          "^Daghoroscoop\\b"
+        ]
+      }
+    },
+    {
+      "id": "nrc",
+      "naam": "NRC",
+      "homepage": "https://www.nrc.nl",
+      "feed": "https://www.nrc.nl/rss/",
+      "soort": "journalistiek",
+      "reikwijdte": "nederland",
+      "taal": "nl",
+      "negeer": {
+        "categorieen": [
+          "De puzzels van vandaag"
+        ],
+        "titels": [
+          "^(Briljant|Aan Zet|Woordzoeker|Sudoku|Kruiswoord|Cryptogram)\\b"
+        ]
+      }
+    },
+    {
+      "id": "volkskrant",
+      "naam": "de Volkskrant",
+      "homepage": "https://www.volkskrant.nl",
+      "feed": "https://www.volkskrant.nl/voorpagina/rss.xml",
+      "soort": "journalistiek",
+      "reikwijdte": "nederland",
+      "taal": "nl"
+    },
+    {
+      "id": "trouw",
+      "naam": "Trouw",
+      "homepage": "https://www.trouw.nl",
+      "feed": "https://www.trouw.nl/voorpagina/rss.xml",
+      "soort": "journalistiek",
+      "reikwijdte": "nederland",
+      "taal": "nl"
+    },
+    {
+      "id": "ad",
+      "naam": "AD",
+      "uitgever": "ad",
+      "homepage": "https://www.ad.nl",
+      "feed": "https://www.ad.nl/home/rss.xml",
+      "soort": "journalistiek",
+      "reikwijdte": "nederland",
+      "taal": "nl"
+    },
+    {
+      "id": "dutchnews",
+      "naam": "DutchNews",
+      "homepage": "https://www.dutchnews.nl",
+      "feed": "https://www.dutchnews.nl/feed/",
+      "soort": "journalistiek",
+      "reikwijdte": "nederland",
+      "taal": "en"
+    },
+    {
+      "id": "nos-buitenland",
+      "naam": "NOS Buitenland",
+      "uitgever": "nos",
+      "homepage": "https://nos.nl/nieuws/buitenland",
+      "feed": "https://feeds.nos.nl/nosnieuwsbuitenland",
+      "soort": "journalistiek",
+      "reikwijdte": "wereld",
+      "taal": "nl"
+    },
+    {
+      "id": "nos-tech",
+      "naam": "NOS Tech",
+      "uitgever": "nos",
+      "homepage": "https://nos.nl/nieuws/tech",
+      "feed": "https://feeds.nos.nl/nosnieuwstech",
+      "soort": "journalistiek",
+      "reikwijdte": "wereld",
+      "taal": "nl",
+      "onderwerpen": [
+        "techniek"
+      ]
     },
     {
       "id": "bbc",
@@ -80,7 +214,8 @@
       "homepage": "https://www.bbc.com/news/world",
       "feed": "https://feeds.bbci.co.uk/news/world/rss.xml",
       "soort": "journalistiek",
-      "reikwijdte": "wereld"
+      "reikwijdte": "wereld",
+      "taal": "en"
     },
     {
       "id": "al-jazeera",
@@ -88,7 +223,35 @@
       "homepage": "https://www.aljazeera.com",
       "feed": "https://www.aljazeera.com/xml/rss/all.xml",
       "soort": "journalistiek",
-      "reikwijdte": "wereld"
+      "reikwijdte": "wereld",
+      "taal": "en"
+    },
+    {
+      "id": "dw",
+      "naam": "DW",
+      "homepage": "https://www.dw.com/en",
+      "feed": "https://rss.dw.com/rdf/rss-en-world",
+      "soort": "journalistiek",
+      "reikwijdte": "wereld",
+      "taal": "en"
+    },
+    {
+      "id": "france24",
+      "naam": "France 24",
+      "homepage": "https://www.france24.com/en",
+      "feed": "https://www.france24.com/en/rss",
+      "soort": "journalistiek",
+      "reikwijdte": "wereld",
+      "taal": "en"
+    },
+    {
+      "id": "euronews",
+      "naam": "Euronews",
+      "homepage": "https://www.euronews.com",
+      "feed": "https://www.euronews.com/rss",
+      "soort": "journalistiek",
+      "reikwijdte": "wereld",
+      "taal": "en"
     },
     {
       "id": "kyiv-independent",
@@ -97,6 +260,7 @@
       "feed": "https://kyivindependent.com/news-archive/rss/",
       "soort": "journalistiek",
       "reikwijdte": "wereld",
+      "taal": "en",
       "onderwerpen": [
         "oorlog-en-conflict"
       ]
@@ -108,6 +272,37 @@
       "feed": "https://techcrunch.com/feed/",
       "soort": "vakmedium",
       "reikwijdte": "wereld",
+      "taal": "en",
+      "onderwerpen": [
+        "techniek"
+      ]
+    },
+    {
+      "id": "the-verge",
+      "naam": "The Verge",
+      "homepage": "https://www.theverge.com",
+      "feed": "https://www.theverge.com/rss/index.xml",
+      "soort": "vakmedium",
+      "reikwijdte": "wereld",
+      "taal": "en",
+      "onderwerpen": [
+        "techniek"
+      ],
+      "negeer": {
+        "categorieen": [
+          "Deals",
+          "Verge Shopping"
+        ]
+      }
+    },
+    {
+      "id": "ars-technica",
+      "naam": "Ars Technica",
+      "homepage": "https://arstechnica.com",
+      "feed": "https://feeds.arstechnica.com/arstechnica/index",
+      "soort": "vakmedium",
+      "reikwijdte": "wereld",
+      "taal": "en",
       "onderwerpen": [
         "techniek"
       ]
@@ -119,6 +314,7 @@
       "feed": "https://nvidianews.nvidia.com/releases.xml",
       "soort": "bedrijf",
       "reikwijdte": "wereld",
+      "taal": "en",
       "onderwerpen": [
         "techniek"
       ]
@@ -130,9 +326,31 @@
       "feed": "https://www.databricks.com/feed",
       "soort": "bedrijf",
       "reikwijdte": "wereld",
+      "taal": "en",
       "onderwerpen": [
         "techniek"
       ]
+    },
+    {
+      "id": "parool",
+      "naam": "Het Parool",
+      "homepage": "https://www.parool.nl/amsterdam",
+      "feed": "https://www.parool.nl/amsterdam/rss.xml",
+      "soort": "journalistiek",
+      "reikwijdte": "lokaal",
+      "taal": "nl",
+      "gebied": "amsterdam"
+    },
+    {
+      "id": "ad-amsterdam",
+      "naam": "AD Amsterdam",
+      "uitgever": "ad",
+      "homepage": "https://www.ad.nl/amsterdam",
+      "feed": "https://www.ad.nl/amsterdam/rss.xml",
+      "soort": "journalistiek",
+      "reikwijdte": "lokaal",
+      "taal": "nl",
+      "gebied": "amsterdam"
     }
   ]
 }

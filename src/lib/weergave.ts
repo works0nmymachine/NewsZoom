@@ -18,6 +18,17 @@ export function wanneer(iso: string, nu = new Date()): string {
   return /T/.test(iso) ? `${kortFmt.format(d)} ${tijdFmt.format(d)}` : kortFmt.format(d);
 }
 
+/** Kort en vers: "12 min geleden", "3 uur geleden", daarna als wanneer(). */
+export function wanneerKort(iso: string, nu = new Date()): string {
+  const min = Math.round((nu.getTime() - new Date(iso).getTime()) / 60000);
+  if (min >= 0 && min < 1) return 'zojuist';
+  if (min >= 0 && min < 60) return `${min} min geleden`;
+  if (min >= 0 && min < 6 * 60) return `${Math.floor(min / 60)} uur geleden`;
+  return wanneer(iso, nu);
+}
+
+export const tijd = (d: Date | string) => tijdFmt.format(typeof d === 'string' ? new Date(d) : d);
+
 export const datumLang = (iso: string | Date) => langFmt.format(typeof iso === 'string' ? new Date(iso) : iso);
 export const datumKort = (iso: string) => kortFmt.format(new Date(iso));
 

@@ -1,17 +1,29 @@
 import Link from 'next/link';
 import { watchlistActie } from '@/app/acties';
 import { Kop } from '@/components/kop';
+import { inhoudMetFeeds, versheid } from '@/lib/feeds';
 import { finance, koersen, REEKS_VAN, watchlistVan } from '@/lib/finance';
+import { patroon } from '@/lib/herkenning';
 import { procent, rendement } from '@/lib/koersmeting';
 import { vereisGebruiker } from '@/lib/sessie';
-import { datumKort, wanneer } from '@/lib/weergave';
+import { datumKort, wanneer, wanneerKort } from '@/lib/weergave';
+
+/** Trefwoorden om feedberichten bij een instrument te vinden (in de kop). */
+const TERMEN: Record<string, string[]> = { nvda: ['Nvidia', 'Jensen Huang'], btc: ['Bitcoin', 'crypto', 'cryptomunt'], databricks: ['Databricks'] };
 
 const geld = (n: number, valuta = 'USD') => new Intl.NumberFormat('nl-NL', { style: 'currency', currency: valuta, maximumFractionDigits: n > 1000 ? 0 : 2 }).format(n);
 
 export default async function FinancePagina() {
   const g = await vereisGebruiker();
   const f = finance();
-  const watch = await watchlistVan(g.id);
+  const [watch, inhoud, vers] = await Promise.all([watchlistVan(g.id), inhoudMetFeeds(), versheid()]);
+  const nu = new Date();
+  const feedNieuws = f.instrumenten.map((i) => {
+    const r = (TERMEN[i.id] ?? [i.naam]).map(patroon);
+    const items = inhoud.items.filter((x) => x.herkomst === 'feed' && r.some((p) => p.test(x.titel)))
+      .sort((a, b) => b.gepubliceerd.localeCompare(a.gepubliceerd)).slice(0, 4);
+    return { i, items };
+  }).filter((x) => x.items.length);
   const bronNaam = (id: string) => f.bronnen.find((b) => b.id === id)?.naam ?? id;
   const kaarten = await Promise.all(f.instrumenten.map(async (i) => {
     const reeks = REEKS_VAN[i.id];
@@ -25,7 +37,7 @@ export default async function FinancePagina() {
 
   return (
     <main className="pagina">
-      <Kop titel="Finance" sub="Koersen met het nieuws eromheen" />
+      <Kop titel="Finance" sub="Koersen met het nieuws eromheen" versheid={vers} />
 
       {r && (
         <section className="sectie blok">
@@ -55,7 +67,7 @@ export default async function FinancePagina() {
                 <span className="zacht">{i.ticker ?? 'Niet beursgenoteerd'}{watch.has(i.id) ? ' · ★' : ''}</span>
                 <strong>{i.naam}</strong>
                 {laatste
-                  ? <span>{geld(laatste.slot, i.valuta)} {week != null && <span className={week < 0 ? 'daal' : 'stijg'}>{procent(week)} 7 dagen</span>}<br /><span className="zacht">slot {datumKort(laatste.datum)}</span></span>
+                  ? <span>{geld(laatste.slot, i.valuta)} {week != null && <span className={week < 0 ? 'daal' : 'stijg'}>{procent(week)} 7 dagen</span>}<br /><span className="zacht">slot {datumKort(laatste.datum)}</span>{nu.getTime() - new Date(laatste.datum).getTime() > 4 * 86_400_000 && <> <span className="label">verouderd</span></>}</span>
                   : <span className="zacht">Geen koersdata</span>}
               </Link>
               <form action={watchlistActie}>
@@ -68,8 +80,25 @@ export default async function FinancePagina() {
         </div>
       </section>
 
+      {feedNieuws.length > 0 && (
+        <section className="sectie">
+          <h2>Nieuws uit de feeds</h2>
+          <p className="zacht">Recente koppen die het bedrijf of de munt noemen. Zonder koersduiding.</p>
+          {feedNieuws.map(({ i, items }) => (
+            <div key={i.id} className="blok" style={{ marginBottom: '0.5rem' }}>
+              <h3 style={{ margin: '0 0 0.25rem' }}><Link href={`/finance/${i.id}`}>{i.naam}</Link></h3>
+              <ul className="tijdlijn">
+                {items.map((x) => (
+                  <li key={x.id}><a href={x.url} rel="noopener noreferrer" target="_blank">{x.titel}</a> <span className="zacht">{inhoud.bronnen.get(x.bron)?.naam ?? x.bron} · {wanneerKort(x.gepubliceerd)}</span></li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </section>
+      )}
+
       <section className="sectie">
-        <h2>Laatste berichten</h2>
+        <h2>Duiding uit de voorbeeldset</h2>
         <ul className="tijdlijn">
           {[...f.berichten].sort((a, b) => b.gepubliceerd.localeCompare(a.gepubliceerd)).slice(0, 6).map((b) => (
             <li key={b.id}><span className="zacht">{wanneer(b.gepubliceerd)} · {f.instrumenten.find((i) => i.id === b.instrument)?.naam}</span><br />

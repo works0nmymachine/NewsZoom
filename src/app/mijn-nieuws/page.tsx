@@ -9,6 +9,7 @@ import type { Item } from '@/lib/inhoud';
 import { past, termen, type Interesse } from '@/lib/interesses';
 import { interessesVan } from '@/lib/interesses-db';
 import { paginaContext } from '@/lib/pagina';
+import { kaarten, reden } from '@/lib/selectie';
 
 type Zoek = Promise<{ naam?: string; zoektermen?: string; uitsluitingen?: string; interesse?: string }>;
 
@@ -25,9 +26,7 @@ export default async function MijnNieuws({ searchParams }: { searchParams: Zoek 
   const verhalen = [...inhoud.verhalen.values()].filter((v) => gevolgd({ verhaal: v.id, onderwerpen: v.onderwerpen, bron: '' }, regels));
   const volgOnderwerpen = regels.filter((r) => r.doelSoort === 'onderwerp' && r.actie === 'meer');
   const volgVerhaalIds = new Set(verhalen.map((v) => v.id));
-  const losseBerichten = inhoud.items
-    .filter((i) => (!i.verhaal || !volgVerhaalIds.has(i.verhaal)) && gevolgd(i, regels))
-    .sort(nieuwsteEerst).slice(0, 10);
+  const losseBerichten = kaarten(inhoud.items.filter((i) => (!i.verhaal || !volgVerhaalIds.has(i.verhaal)) && gevolgd(i, regels)), regels, new Date()).slice(0, 15);
 
   const bewerk = z.interesse ? interesses.find((i) => i.id === Number(z.interesse)) : undefined;
   const concept = z.naam ? {
@@ -40,7 +39,7 @@ export default async function MijnNieuws({ searchParams }: { searchParams: Zoek 
 
       <section className="sectie">
         <h2>Gevolgde verhalen</h2>
-        {verhalen.length === 0 && <p className="leeg">Je volgt nog geen verhaal. Open een verhaal en kies <strong>Volg dit verhaal</strong>, of kies bij een bericht <strong>Aanpassen → Meer hiervan</strong>.</p>}
+        {verhalen.length === 0 && <p className="leeg">Je volgt nog geen verhaal. Open een verhaal en kies <strong>Volg dit verhaal</strong>, of kies bij een bericht ⋯ → <strong>Meer</strong>.</p>}
         {verhalen.map((v) => {
           const vorig = gelezen.get(v.id);
           const sinds = vorig ? inhoud.items.filter((i) => i.verhaal === v.id && new Date(i.gepubliceerd) > vorig).length : 0;
@@ -52,7 +51,7 @@ export default async function MijnNieuws({ searchParams }: { searchParams: Zoek 
         <section className="sectie">
           <h2>Uit gevolgde onderwerpen en bronnen</h2>
           {volgOnderwerpen.length > 0 && <p className="zacht">Je volgt: {volgOnderwerpen.map((r) => inhoud.onderwerpen.get(r.doelId)?.naam ?? r.doelId).join(', ')}.</p>}
-          {losseBerichten.map((i) => <BerichtKaart key={i.id} item={i} inhoud={inhoud} regels={regels} terug="/mijn-nieuws" />)}
+          {losseBerichten.map((k) => <BerichtKaart key={k.item.id} item={k.item} ook={k.ook} b={k.b} reden={reden(k, inhoud)} inhoud={inhoud} regels={regels} />)}
         </section>
       )}
 
@@ -94,7 +93,7 @@ function InteresseBlok({ it, items, inhoud, regels }: { it: Interesse; items: It
       </div>
       <p className="zacht">Zoekt op: {(it.zoektermen.length ? it.zoektermen : [it.naam]).join(', ')}{it.uitsluitingen.length ? `; niet: ${it.uitsluitingen.join(', ')}` : ''}</p>
       {!it.gedempt && treffers.length === 0 && <p className="leeg">Nog geen nieuws gevonden. De interesse blijft bewaard; nieuwe berichten uit de gevolgde bronnen verschijnen hier vanzelf.</p>}
-      {treffers.map((i) => <BerichtKaart key={i.id} item={i} inhoud={inhoud} regels={regels} terug="/mijn-nieuws" />)}
+      {treffers.map((i) => <BerichtKaart key={i.id} item={i} inhoud={inhoud} regels={regels} />)}
     </div>
   );
 }

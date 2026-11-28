@@ -123,6 +123,24 @@
         "binnenland-politiek"
       ],
       "reikwijdte": "nederland",
+      "koppel": [
+        [
+          "Yesilgoz",
+          "VVD"
+        ],
+        [
+          "VVD",
+          "partijcongres"
+        ],
+        [
+          "VVD",
+          "congres"
+        ],
+        [
+          "VVD",
+          "Van der Wal"
+        ]
+      ],
       "laatsteOntwikkeling": "VVD-ministers springen voor Yesilgöz in de bres na kritiek van oud-partijvoorzitter Van der Wal, terwijl Yesilgöz zelf de pers vrijdag ontliep.",
       "watVerandert": {
         "tekst": "Oud-partijvoorzitter Christianne van der Wal zei op televisie dat veel leden zich ongemakkelijk voelen bij de combinatie van partijleider, vicepremier en minister van Defensie. Dat legt de spanning binnen de grootste rechtse partij in het minderheidskabinet open, kort nadat het kabinet-Jetten eerder deze maand bijna viel. De VVD-bewindspersonen Karremans, Van Weel, Aartsen en Heinen spraken vrijdag hun steun uit.",
@@ -152,6 +170,31 @@
         "internationale-politiek"
       ],
       "reikwijdte": "nederland",
+      "koppel": [
+        [
+          "MATCH Act"
+        ],
+        [
+          "ASML",
+          "China"
+        ],
+        [
+          "ASML",
+          "VS$"
+        ],
+        [
+          "ASML",
+          "chipwet"
+        ],
+        [
+          "ASML",
+          "Amerikaanse"
+        ],
+        [
+          "ASML",
+          "exportregels"
+        ]
+      ],
       "laatsteOntwikkeling": "Minister Sjoerdsma (Buitenlandse Handel) zegt dat het kabinet 'alles op alles' zet om de Amerikaanse MATCH Act tegen te houden, omdat die ASML grotendeels uit China kan weren.",
       "watVerandert": {
         "tekst": "Het Amerikaanse wetsvoorstel moet Chinese bedrijven de toegang tot chiptechnologie ontzeggen en geeft Washington zeggenschap over wat andere landen naar China mogen exporteren. Voor ASML kan dat betekenen dat verkoop en onderhoud van machines in China onmogelijk of veel moeilijker wordt. Het kabinet noemt het tegenhouden van de wet een landsbelang; een brede Kamermeerderheid steunt die lijn.",
@@ -330,6 +373,22 @@
         "sport"
       ],
       "reikwijdte": "nederland",
+      "koppel": [
+        [
+          "natuurijs"
+        ],
+        [
+          "kouderecord"
+        ],
+        [
+          "schaatsen",
+          "ijsbaan"
+        ],
+        [
+          "schaatsen",
+          "natuurijs"
+        ]
+      ],
       "laatsteOntwikkeling": "Op 27 meetstations was de nacht van 27 november de koudste ooit voor die datum, met -8,1 graden in Twente; de KNVB en de hockeybond schrappen wedstrijden.",
       "watVerandert": {
         "tekst": "Op meerdere plekken wordt geschaatst op natuurijs en ijsbanen zijn open. Vier van de zeven duels in de Keuken Kampioen Divisie gaan vrijdagavond niet door en het hele weekendprogramma in de hoofdklasse hockey is afgelast. In De Bilt werd met -5,4 graden geen record gehaald; daar staat het record sinds 1921 op -9,6 graden.",
@@ -358,6 +417,11 @@
         "veiligheid"
       ],
       "reikwijdte": "nederland",
+      "koppel": [
+        [
+          "Tarwekamp"
+        ]
+      ],
       "laatsteOntwikkeling": "Het OM eist levenslang tegen de vermeende opdrachtgever van de explosie aan de Haagse Tarwekamp, waarbij in december 2024 zes doden vielen.",
       "watVerandert": {
         "tekst": "Volgens het OM handelde de 35-jarige Rotterdammer Moshtag B. uit wraak op zijn ex-partner, die een bruidsmodezaak had in het getroffen complex in Mariahoeve. Tegen de twee vermeende uitvoerders eist het OM 30 en 28 jaar cel, tegen een man die bij de voorbereiding betrokken was vier jaar.",
@@ -386,6 +450,16 @@
         "veiligheid"
       ],
       "reikwijdte": "nederland",
+      "koppel": [
+        [
+          "Zembla",
+          "neonazi"
+        ],
+        [
+          "neonazi",
+          "OM"
+        ]
+      ],
       "laatsteOntwikkeling": "Het Openbaar Ministerie is een onderzoek begonnen naar de mensen die in de Zembla-uitzending over neonazi's te zien waren.",
       "watVerandert": {
         "tekst": "Het OM kijkt onder meer of er sprake is van strafbare 'activiteiten gericht op discriminatie'. De documentaire toonde kooigevechten met Hitlergroeten en hakenkruizen, en verbanden tussen neonazistische groepen en Forum voor Democratie; FvD royeerde daarna meerdere leden.",
@@ -407,6 +481,11 @@
         "veiligheid"
       ],
       "reikwijdte": "nederland",
+      "koppel": [
+        [
+          "CV90"
+        ]
+      ],
       "laatsteOntwikkeling": "Nederland krijgt via een gezamenlijke Noord-Europese bestelling enkele tientallen extra CV90-gevechtsvoertuigen voor een nieuw pantserinfanteriebataljon in Budel.",
       "watVerandert": {
         "tekst": "Samen met Zweden, Noorwegen, Litouwen en Finland bestelt Nederland in totaal meer dan 400 voertuigen bij BAE Systems, voor zo'n 5,5 miljard euro. Voor het nieuwe bataljon op de Nassau-Dietz kazerne zijn er ruim veertig nodig. De ruim honderd CV90's die Nederland al heeft, worden gemoderniseerd zodat ze tot ongeveer 2039 meegaan.",
@@ -428,6 +507,19 @@
         "zorg"
       ],
       "reikwijdte": "nederland",
+      "koppel": [
+        [
+          "corona",
+          "RIVM"
+        ],
+        [
+          "coronabesmettingen"
+        ],
+        [
+          "covid",
+          "RIVM"
+        ]
+      ],
       "laatsteOntwikkeling": "Het aantal mensen met corona en de hoeveelheid virus in het rioolwater stijgen, maar het RIVM ziet geen reden tot zorg.",
       "watVerandert": {
         "tekst": "Volgens het RIVM past de stijging bij het luchtwegseizoen, waarin griep, corona en het rhinovirus vaker klachten geven. Corona verloopt nu meestal mild door opgebouwde afweer. De varianten XFG en KP.3 overheersen.",
@@ -449,6 +541,12 @@
         "sport"
       ],
       "reikwijdte": "nederland",
+      "koppel": [
+        [
+          "Feyenoord",
+          "Champions League"
+        ]
+      ],
       "laatsteOntwikkeling": "Feyenoord verloor dinsdag thuis met 1-0 van FC Porto door een vroeg eigen doelpunt.",
       "watVerandert": {
         "tekst": "De nederlaag zet de moeizame Europese campagne van Feyenoord voort en verkleint de ruimte om in de Champions League verder te komen.",
@@ -471,6 +569,16 @@
         "economie"
       ],
       "reikwijdte": "wereld",
+      "koppel": [
+        [
+          "meerjarenbegroting"
+        ],
+        [
+          "EU",
+          "begroting",
+          "2028"
+        ]
+      ],
       "laatsteOntwikkeling": "Een extra EU-top over de begroting voor 2028-2034 eindigde zonder akkoord; de leiders proberen het over ongeveer drie weken opnieuw.",
       "watVerandert": {
         "tekst": "Op tafel ligt een voorstel van Europese Raad-voorzitter Costa van 1582 miljard euro. Een groep 'zuinige' landen, onder wie Nederland, Duitsland, Denemarken, Zweden, Oostenrijk, Finland en België, wil fors minder uitgeven. Premier Jetten eist een lager totaal, behoud van de Nederlandse korting plus een extra korting, en 25 in plaats van 10 procent van de douane-inkomsten. Frankrijk dreigt elk voorstel met een korting te vetoën en een meerderheid van zeventien landen wil het geld voor landbouw en armere regio's behouden.",
@@ -498,6 +606,28 @@
         "internationale-politiek"
       ],
       "reikwijdte": "wereld",
+      "koppel": [
+        [
+          "Spanje",
+          "verkiezingen"
+        ],
+        [
+          "Sanchez",
+          "verkiezingen"
+        ],
+        [
+          "Spain",
+          "election"
+        ],
+        [
+          "Sanchez",
+          "election"
+        ],
+        [
+          "Spanish",
+          "election"
+        ]
+      ],
       "laatsteOntwikkeling": "Spanje gaat zondag naar de stembus en de peilingen tonen een nek-aan-nekrace tussen de socialistische premier Sánchez en rechts.",
       "watVerandert": {
         "tekst": "De verkiezingen bepalen of Spanje een socialistische regering houdt of naar rechts opschuift. Ook bij een goede uitslag wordt het voor Sánchez moeilijk een coalitie te vormen.",
@@ -519,6 +649,20 @@
         "internationale-politiek"
       ],
       "reikwijdte": "wereld",
+      "koppel": [
+        [
+          "Nieuw-Zeeland",
+          "verkiezingen"
+        ],
+        [
+          "Nieuw-Zeeland",
+          "uitslag"
+        ],
+        [
+          "New Zealand",
+          "election"
+        ]
+      ],
       "laatsteOntwikkeling": "Na het tellen van de buitenlandse en speciale stemmen heeft de regeringscoalitie van premier Luxon 65 van de 130 zetels, één te weinig voor een meerderheid.",
       "watVerandert": {
         "tekst": "De National-partij van Luxon zakte naar 40 zetels; met ACT (13) en NZ First (12) komt het centrumrechtse blok net tekort. Ook het linkse blok heeft geen meerderheid. De nieuwe centrumpartij Opportunity (7 zetels) krijgt daardoor een sleutelrol en zegt met beide kanten te willen praten.",
@@ -540,6 +684,28 @@
         "klimaat"
       ],
       "reikwijdte": "wereld",
+      "koppel": [
+        [
+          "Thanksgiving",
+          "storm"
+        ],
+        [
+          "Thanksgiving",
+          "sneeuw"
+        ],
+        [
+          "Thanksgiving",
+          "noodweer"
+        ],
+        [
+          "Thanksgiving",
+          "snow"
+        ],
+        [
+          "Thanksgiving",
+          "weather"
+        ]
+      ],
       "laatsteOntwikkeling": "Meer dan 800.000 Amerikanen zaten op Thanksgiving zonder stroom door storm, regen en sneeuw, vooral aan de oostkust.",
       "watVerandert": {
         "tekst": "Ook in Missouri zitten tienduizenden mensen zonder elektriciteit. Zo'n 1600 binnenlandse vluchten liepen vertraging op en meer dan 400 werden geschrapt, vooral via Washington en New York. De Thanksgiving-parade in New York is uitgesteld tot zaterdag; in Virginia staan wegen onder water.",
@@ -562,6 +728,20 @@
         "veiligheid"
       ],
       "reikwijdte": "wereld",
+      "koppel": [
+        [
+          "luchtmacht",
+          "hackers"
+        ],
+        [
+          "Air Force",
+          "hack"
+        ],
+        [
+          "Air Force",
+          "hackers"
+        ]
+      ],
       "laatsteOntwikkeling": "Hackers hebben volgens bronnen van Reuters toegang gekregen tot Cloud One, het belangrijkste cloudplatform van de Amerikaanse luchtmacht.",
       "watVerandert": {
         "tekst": "Op het platform staan onder meer gegevens over radarsystemen en munitievoorraden op luchtmachtbases. De inbraak werd eerder deze maand ontdekt bij een software-update; uit voorzorg zijn onder meer migraties naar de cloud stilgelegd. Het is de zoveelste cyberinbraak bij Amerikaanse overheidsdiensten.",
@@ -584,6 +764,24 @@
         "internationale-politiek"
       ],
       "reikwijdte": "wereld",
+      "koppel": [
+        [
+          "Russische",
+          "sabotage"
+        ],
+        [
+          "Rusland",
+          "sabotage"
+        ],
+        [
+          "Russian",
+          "sabotage"
+        ],
+        [
+          "Russia",
+          "sabotage"
+        ]
+      ],
       "laatsteOntwikkeling": "Denktank IISS telt 16 procent meer vermoedelijke Russische sabotageacties in Europa, met verdubbeld gebruik van brandstichting en explosieven.",
       "watVerandert": {
         "tekst": "Tussen september 2025 en september 2026 registreerde het Britse IISS rond de honderd meldingen. Ruim de helft was gericht op militaire en industriële infrastructuur. De meeste acties worden uitgevoerd door ingehuurde 'wegwerpspionnen', aangevuld met beter getrainde tussenpersonen.",
@@ -606,6 +804,16 @@
         "internationale-politiek"
       ],
       "reikwijdte": "wereld",
+      "koppel": [
+        [
+          "AfD",
+          "wapenvergunning"
+        ],
+        [
+          "AfD",
+          "wapen"
+        ]
+      ],
       "laatsteOntwikkeling": "Het Bundesverwaltungsgericht in Leipzig oordeelt dat twee leden van de opgeheven AfD-jongerentak hun wapenvergunning ten onrechte kwijtraakten.",
       "watVerandert": {
         "tekst": "De Beierse binnenlandse veiligheidsdienst had in 2022 gemeld dat de twee banden hadden met de Junge Alternative, waarna hun vergunningen werden ingetrokken. De hoogste bestuursrechter vindt dat onterecht, wat gevolgen kan hebben voor hoe Duitsland zijn strenge wapenwet toepast op leden van als extremistisch aangemerkte groepen.",
@@ -627,6 +835,19 @@
         "cultuur"
       ],
       "reikwijdte": "wereld",
+      "koppel": [
+        [
+          "Poldvere"
+        ],
+        [
+          "songfestival",
+          "Estland"
+        ],
+        [
+          "Eurovision",
+          "Estonia"
+        ]
+      ],
       "laatsteOntwikkeling": "De Estse omroep ERR laat zangeres Laura Põldvere meedoen aan Eesti Laul 2027, de voorronde voor het Eurovisie Songfestival, nadat haar naam opdook in een cocaïne-onderzoek.",
       "watVerandert": {
         "tekst": "Põldvere werd genoemd in een onderzoek naar een veroordeelde drugsdealer en erkende eerder drugsgebruik; ze zegt geen drugs meer te gebruiken. ERR-amusementschef Karmel Killandi bevestigde op Raadio 2 dat ze in de race blijft met het lied 'Metsapiiga'. De Eesti Laul-finale is op 30 januari 2027; het songfestival zelf is in mei 2027 in het Bulgaarse Burgas.",

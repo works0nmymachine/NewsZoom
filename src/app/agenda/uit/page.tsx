@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { AgendaTabs } from '@/components/agenda-tabs';
 import { EvenementKaart } from '@/components/evenement-kaart';
 import { Kop } from '@/components/kop';
+import { PlaatsKeuze } from '@/components/plaats-keuze';
 import { agendaBeoordeel, CATEGORIE_NAAM, inPeriode, LOCATIETYPE_NAAM, zoekScore, type Periode } from '@/lib/agenda';
 import { agenda, agendaKeuzes, vandaagIso } from '@/lib/agenda-data';
 import type { EvenementCategorie } from '@/lib/finance-agenda-types';
@@ -28,7 +29,6 @@ export default async function Uitagenda({ searchParams }: { searchParams: Zoek }
     for (const [k, v] of Object.entries({ ...params, ...extra })) if (v) s.set(k, v);
     return `/agenda/uit?${s}`;
   };
-  const hier = url({});
 
   const inGebied = uit.filter((e) => plaats === 'Nederland' || e.plaats === plaats);
   const resultaten = inGebied
@@ -51,10 +51,7 @@ export default async function Uitagenda({ searchParams }: { searchParams: Zoek }
       <AgendaTabs actief="uit" />
       <form action="/agenda/uit" className="formulier">
         <div className="werkbalk">
-          <select name="plaats" defaultValue={plaats} aria-label="Stad of land">
-            <option value="Nederland">Heel Nederland</option>
-            {plaatsen.map((p) => <option key={p}>{p}</option>)}
-          </select>
+          <PlaatsKeuze plaatsen={plaatsen} waarde={plaats} label="Stad of land" />
           <input type="hidden" name="periode" value={periode} />
           {cat && <input type="hidden" name="cat" value={cat} />}
           <input name="q" defaultValue={q} placeholder="Zoek bv. dickens, jazz, kerstmarkt" aria-label="Zoeken" style={{ flex: '1 1 10rem' }} />
@@ -76,7 +73,7 @@ export default async function Uitagenda({ searchParams }: { searchParams: Zoek }
       <section className="sectie">
         <h2>{resultaten.length} {resultaten.length === 1 ? 'resultaat' : 'resultaten'}</h2>
         {resultaten.length === 0 && <p className="leeg">Niets gevonden in deze periode{q ? ` voor “${q}”` : ''}. Probeer een langere periode of heel Nederland.</p>}
-        {resultaten.map((e) => <EvenementKaart key={e.id} e={e} keuzes={keuzes} terug={hier} toonPlaats={plaats === 'Nederland'} />)}
+        {resultaten.map((e) => <EvenementKaart key={e.id} e={e} keuzes={keuzes} toonPlaats={plaats === 'Nederland'} />)}
       </section>
 
       <details className="sectie blok">

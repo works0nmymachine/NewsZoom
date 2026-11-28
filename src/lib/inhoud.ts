@@ -1,6 +1,7 @@
 import 'server-only';
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 import path from 'node:path';
+import { ONDERWERPEN, taalVan, type Herkomst } from './herkenning';
 import type { Bericht, Bron, Inhoud, Onderwerp, Verhaal } from './inhoud-types';
 
 export const DATA_MAP = path.join(process.cwd(), 'data', 'mvp');
@@ -11,6 +12,7 @@ export type Item = {
   verhaal?: string;
   titel: string;
   bron: string;
+  uitgever?: string; // feeds van dezelfde redactie (NOS, NOS Sport) tellen als één bron
   url: string;
   gepubliceerd: string;
   samenvatting: string;
@@ -21,6 +23,10 @@ export type Item = {
   gebied?: string;
   onderwerpen: string[];
   herkomst: 'voorbeeldset' | 'feed';
+  taal: 'nl' | 'en';
+  afbeelding?: string;
+  waaromOnderwerp?: Herkomst[]; // feedberichten: waarom elk onderwerp is toegekend
+  gekoppeld?: boolean; // feedbericht automatisch aan een lopend verhaal gekoppeld
 };
 
 export type Samengevoegd = {
@@ -53,6 +59,9 @@ export function voegSamen(delen: Partial<Inhoud>[]): Samengevoegd {
   for (const d of delen) {
     for (const b of d.bronnen ?? []) if (!bronnen.has(b.id) || (b.gebied && !bronnen.get(b.id)?.gebied)) bronnen.set(b.id, b);
     for (const o of d.onderwerpen ?? []) if (!onderwerpen.has(o.id)) onderwerpen.set(o.id, o);
+  }
+  for (const o of ONDERWERPEN) if (!onderwerpen.has(o.id)) onderwerpen.set(o.id, { id: o.id, naam: o.naam });
+  for (const d of delen) {
     for (const v of d.verhalen ?? []) verhalen.set(v.id, v);
     berichten.push(...(d.berichten ?? []));
   }
@@ -64,6 +73,7 @@ export function voegSamen(delen: Partial<Inhoud>[]): Samengevoegd {
     gezien.add(b.id);
     items.push({
       ...b, reikwijdte: v.reikwijdte, gebied: v.gebied, onderwerpen: v.onderwerpen, herkomst: 'voorbeeldset',
+      taal: taalVan(`${b.titel} ${b.samenvatting}`),
     });
   }
   const peildatum = items.reduce<string | null>((m, i) => (!m || i.gepubliceerd > m ? i.gepubliceerd : m), null);
