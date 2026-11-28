@@ -119,6 +119,9 @@ p { margin: 0.35rem 0; }
 .kaart-titel { margin: 0 0 0.2rem; font-size: 1.02rem; overflow-wrap: anywhere; }
 .kaart-titel a { text-decoration: none; }
 .kaart-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.15rem 0.6rem; font-size: 0.8rem; color: var(--zacht); margin: 0; }
+.kaart-voet .bronlink { font-size: 0.82rem; }
+.zoekrij { display: flex; flex: 1 1 14rem; gap: 0.25rem; align-items: center; min-width: 0; }
+.zoekrij input { flex: 1; min-width: 0; }
 .kaart-meta-menu { margin: -0.4rem -0.45rem -0.4rem auto; }
 .bronlink { display: inline-flex; align-items: center; gap: 0.15rem; font-weight: 600; color: var(--zacht); text-decoration: none; min-height: 24px; }
 .kaart-beeld { width: 84px; height: 84px; object-fit: cover; border-radius: 10px; background: var(--vlak-2); flex-shrink: 0; }

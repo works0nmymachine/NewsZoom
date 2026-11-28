@@ -63,7 +63,7 @@ export default async function MijnNieuws({ searchParams }: { searchParams: Zoek 
 
       <section className="sectie blok" id="interesse">
         <h2>{bewerk ? `Interesse aanpassen: ${bewerk.naam}` : 'Interesse toevoegen of Ik mis iets'}</h2>
-        <p className="zacht">Typ wat je wilt volgen. Met zoektermen en uitsluitingen baken je de interesse af. Je ziet eerst een voorproef; pas bij Opslaan verandert je voorkeur.</p>
+        <p className="zacht">Eerst een voorproef; pas bij Opslaan verandert er iets.</p>
         <form action="/mijn-nieuws#interesse" className="formulier">
           {bewerk && <input type="hidden" name="interesse" value={bewerk.id} />}
           <label>Naam<input name="naam" required maxLength={100} defaultValue={concept?.naam ?? bewerk?.naam ?? ''} placeholder="Bijvoorbeeld Databricks of AI-modellen" /></label>
