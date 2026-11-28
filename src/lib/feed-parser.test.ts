@@ -24,6 +24,7 @@ describe('parseFeed', () => {
 
   it('schoon zet numerieke entiteiten om', () => {
     expect(schoon('clearly marked&#039; en &#8216;kop&#8217; &#x2014; klaar')).toBe("clearly marked' en ‘kop’ — klaar");
+    expect(schoon('fout &#99999999; &#x110000; &#0; &#xD800; blijft')).toBe('fout &#99999999; &#x110000; &#0; &#xD800; blijft');
   });
 
   it('schoon kort in op een woordgrens', () => {

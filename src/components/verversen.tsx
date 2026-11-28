@@ -1,6 +1,6 @@
 'use client';
 
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useCallback, useEffect, useRef, useState, useTransition } from 'react';
 import { Icoon } from './iconen';
 
@@ -19,6 +19,8 @@ export function Verversen() {
   const router = useRouter();
   const pad = usePathname();
   const nieuwsPagina = NIEUWS.includes(pad);
+  const zoekParams = useSearchParams();
+  const r = pad === '/ontdekken' ? zoekParams.get('r') : null;
   const [teller, zetTeller] = useState({ pad: '', n: 0 });
   const aantal = teller.pad === pad ? teller.n : 0;
   const [bezig, start] = useTransition();
@@ -26,13 +28,15 @@ export function Verversen() {
   const basis = useRef<string | null>(null);
   const weg = useRef<number | null>(null);
 
+  const telRef = useRef<() => Promise<void>>(async () => {});
   const ververs = useCallback((naarBoven = false) => {
     start(async () => {
-      const min = new Promise((r) => setTimeout(r, 450));
+      const min = new Promise((klaar) => setTimeout(klaar, 450));
+      basis.current = null;
       router.refresh();
       await min;
-      basis.current = null;
       zetTeller({ pad, n: 0 });
+      await telRef.current(); // nieuw beginpunt direct na het verversen, zodat er niets tussendoor valt
       if (naarBoven) window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }, [router, pad]);
@@ -40,20 +44,25 @@ export function Verversen() {
   const tel = useCallback(async () => {
     if (document.visibilityState !== 'visible') return;
     try {
-      const r = await fetch(`/api/nieuw${basis.current ? `?sinds=${encodeURIComponent(basis.current)}` : ''}`, { cache: 'no-store' });
-      if (!r.ok) return;
-      const j = await r.json();
+      const zoek = new URLSearchParams();
+      if (basis.current) zoek.set('sinds', basis.current);
+      if (r && r !== 'alles') zoek.set('r', r);
+      const antwoord = await fetch(`/api/nieuw?${zoek}`, { cache: 'no-store' });
+      if (!antwoord.ok) return;
+      const j = await antwoord.json();
       if (!basis.current) basis.current = j.nu;
       else zetTeller({ pad, n: j.aantal });
     } catch { /* offline: volgende keer */ }
-  }, [pad]);
+  }, [pad, r]);
+
+  useEffect(() => { telRef.current = tel; }, [tel]);
 
   useEffect(() => {
     basis.current = null;
     if (!nieuwsPagina) return;
-    tel();
+    const eerste = setTimeout(tel, 0);
     const t = setInterval(tel, ELKE);
-    return () => clearInterval(t);
+    return () => { clearTimeout(eerste); clearInterval(t); };
   }, [pad, nieuwsPagina, tel]);
 
   useEffect(() => {

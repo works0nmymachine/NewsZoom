@@ -17,6 +17,9 @@ const tekst = (x) => {
   return '';
 };
 
+/** Zet een numerieke entiteit om, maar alleen bij een geldig teken (geen NUL, geen surrogaat, niet boven U+10FFFF). */
+const teken = (n, origineel) => (n > 0 && n <= 0x10ffff && !(n >= 0xd800 && n <= 0xdfff) ? String.fromCodePoint(n) : origineel);
+
 /** HTML eruit, witruimte samen, ingekort tot max tekens op een woordgrens. */
 export function schoon(html, max = 400) {
   const t = String(html ?? '')
@@ -24,8 +27,8 @@ export function schoon(html, max = 400) {
     .replace(/<style[\s\S]*?<\/style>/gi, ' ')
     .replace(/<[^>]+>/g, ' ')
     .replace(/&nbsp;/g, ' ')
-    .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
-    .replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCodePoint(parseInt(n, 16)))
+    .replace(/&#(\d+);/g, (m, n) => teken(Number(n), m))
+    .replace(/&#x([0-9a-f]+);/gi, (m, n) => teken(parseInt(n, 16), m))
     .replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, "'")
     .replace(/\s+/g, ' ')
     .trim();

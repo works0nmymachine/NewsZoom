@@ -25,8 +25,9 @@ export default async function Start() {
                 <span aria-hidden="true">{o.naam}</span>
                 <span className="keuzes">
                   <label className="keuze"><input type="radio" name={`o:${o.id}`} value="meer" defaultChecked={huidig(o.id) === 'meer'} /><span>Meer</span></label>
-                  <label className="keuze keuze-neutraal"><input type="radio" name={`o:${o.id}`} value="" defaultChecked={!huidig(o.id) || huidig(o.id) === 'verbergen'} /><span>Gewoon</span></label>
+                  <label className="keuze keuze-neutraal"><input type="radio" name={`o:${o.id}`} value="" defaultChecked={!huidig(o.id)} /><span>Gewoon</span></label>
                   <label className="keuze"><input type="radio" name={`o:${o.id}`} value="minder" defaultChecked={huidig(o.id) === 'minder'} /><span>Minder</span></label>
+                  {huidig(o.id) === 'verbergen' && <label className="keuze"><input type="radio" name={`o:${o.id}`} value="verbergen" defaultChecked /><span>Verborgen</span></label>}
                 </span>
               </fieldset>
             ))}

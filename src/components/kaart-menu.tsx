@@ -58,16 +58,23 @@ export function useRegel() {
   return async (soort: DoelSoort, id: string, naam: string, actie: Actie | 'wissen') => {
     try {
       const r = await regelWijzigen(soort, id, actie);
+      const ongedaan = { tekst: 'Ongedaan maken', actie: async () => { await regelWijzigen(soort, id, r.vorige ?? 'wissen'); toon('Teruggezet'); } };
       if (r.suggestie) {
         const s = r.suggestie;
-        toon(`${s.aantal} verhalen over ${s.naam} minder of verborgen.`, {
-          knop: { tekst: `${s.naam} minder tonen`, actie: async () => { await regelWijzigen('onderwerp', s.onderwerp, 'minder'); toon(bevestiging('minder', s.naam)); } },
+        toon(`Opgeslagen. Je hebt nu ${s.aantal} verhalen over ${s.naam} verborgen of minder.`, {
+          knoppen: [ongedaan, {
+            tekst: `${s.naam} minder tonen`,
+            actie: async () => {
+              const o = await regelWijzigen('onderwerp', s.onderwerp, 'minder');
+              toon(bevestiging('minder', s.naam), {
+                knop: { tekst: 'Ongedaan maken', actie: async () => { await regelWijzigen('onderwerp', s.onderwerp, o.vorige ?? 'wissen'); toon('Teruggezet'); } },
+              });
+            },
+          }],
           duur: 10000,
         });
       } else {
-        toon(bevestiging(actie, naam), {
-          knop: { tekst: 'Ongedaan maken', actie: async () => { await regelWijzigen(soort, id, r.vorige ?? 'wissen'); toon('Teruggezet'); } },
-        });
+        toon(bevestiging(actie, naam), { knop: ongedaan });
       }
     } catch {
       toon('Opslaan lukte niet. Probeer het opnieuw.', { fout: true });

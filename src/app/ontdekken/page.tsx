@@ -76,7 +76,8 @@ export default async function Ontdekken({ searchParams }: { searchParams: Zoek }
   const alles = kaarten(items, regels, nu, { breed: breed || !!q });
   const verborgen = !breed && !q ? items.filter((i) => !beoordeel(i, regels).zichtbaar).length : 0;
   const belangrijkst = gefilterd ? [] : top(alles.filter((k) => k.b.zichtbaar), 5);
-  const rest = alles.filter((k) => !belangrijkst.includes(k));
+  // De lijst staat per dag; daarom op tijd snijden, zodat "Meer berichten" onderaan aanvult.
+  const rest = alles.filter((k) => !belangrijkst.includes(k)).sort((a, b) => b.nieuwst.localeCompare(a.nieuwst));
   const getoond = rest.slice(0, aantal);
   const dagen = perDag(getoond, nu);
 
@@ -103,7 +104,7 @@ export default async function Ontdekken({ searchParams }: { searchParams: Zoek }
 
       <div className="zoekdock">
         <div className="zoekdock-rij">
-          <form action="/ontdekken" role="search">
+          <SchoonFormulier action="/ontdekken" role="search">
             {rWaarde && <input type="hidden" name="r" value={r} />}
             {r === 'lokaal' && <input type="hidden" name="gebied" value={gebied.id} />}
             {breed && <input type="hidden" name="weergave" value="breed" />}
@@ -114,7 +115,7 @@ export default async function Ontdekken({ searchParams }: { searchParams: Zoek }
             {onderwerpen.map((o) => <input key={o} type="hidden" name="o" value={o} />)}
             <Zoekveld waarde={q} focus={een(p.zoek) === '1'} />
             <button className="icoonknop" aria-label="Zoek"><Icoon naam="zoek" /></button>
-          </form>
+          </SchoonFormulier>
           <Paneel titel="Filters" icoon="filter" label="Filters" actief={!!(periode || onderwerpen.length || bron || soort || taal || breed)}>
             <FilterFormulier r={r} gebied={gebied.id} q={q} breed={breed} periode={periode} onderwerpen={onderwerpen} bron={bron} soort={soort} taal={taal}
               bronKeuzes={bronKeuzes} onderwerpKeuzes={onderwerpKeuzes} />

@@ -144,7 +144,7 @@ export default async function VerhaalPagina({ params, searchParams }: { params: 
         </section>
       )}
 
-      <section className="sectie">
+      <section className="sectie" id="alle">
         <h2>Alle berichten in dit verhaal ({berichten.length})</h2>
         {perDag(getoond, nu).map((d) => (
           <div key={d.dag}>
@@ -152,7 +152,7 @@ export default async function VerhaalPagina({ params, searchParams }: { params: 
             {d.kaarten.map((k) => <BerichtKaart key={k.item.id} item={k.item} ook={k.ook} b={k.b} inhoud={inhoud} regels={regels} toonVerhaal={false} nieuwSinds={vorigBezoek} />)}
           </div>
         ))}
-        {verhaalKaarten.length > getoond.length && <p><Link className="knop" scroll={false} href={`${basis}alle=1#alle`}>Alle {verhaalKaarten.length} tonen</Link></p>}
+        {verhaalKaarten.length > getoond.length && <p><Link className="knop" scroll={false} href={`${basis}alle=1`}>Meer tonen ({verhaalKaarten.length - getoond.length})</Link></p>}
       </section>
     </main>
   );

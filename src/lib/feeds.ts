@@ -19,13 +19,18 @@ const feedBronnen = cache(async (): Promise<FeedBron[]> => {
   }
 });
 
+/** Zet een numerieke entiteit om, maar alleen bij een geldig teken (geen NUL, geen surrogaat, niet boven U+10FFFF). */
+const teken = (n: number, origineel: string) => (n > 0 && n <= 0x10ffff && !(n >= 0xd800 && n <= 0xdfff) ? String.fromCodePoint(n) : origineel);
+
 /** Numerieke HTML-entiteiten die oudere ingestrondes niet omzetten (&#039;, &#8216;). */
 const ontsleutel = (t: string) => t
-  .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
-  .replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCodePoint(parseInt(n, 16)));
+  .replace(/&#(\d+);/g, (m, n) => teken(Number(n), m))
+  .replace(/&#x([0-9a-f]+);/gi, (m, n) => teken(parseInt(n, 16), m));
 
 // Herkenning per feedbericht hoeft maar één keer: dezelfde id en kop geven dezelfde uitkomst.
+// Leeg zodra de voorbeeldset (met de koppel-trefwoorden) opnieuw is ingelezen.
 const herkend = new Map<string, { onderwerpen: Herkomst[]; verhaal?: string }>();
+let herkendVoor: Samengevoegd | null = null;
 
 /** Voorbeeldset plus berichten van de afgelopen 7 dagen uit de ingest-worker, met onderwerpen en verhalen. */
 export const inhoudMetFeeds = cache(async (): Promise<Samengevoegd> => {
@@ -42,7 +47,7 @@ export const inhoudMetFeeds = cache(async (): Promise<Samengevoegd> => {
   const bekend = new Set(basis.items.map((i) => i.url));
   const zelfdeRedactie = new Set<string>();
   const items: Item[] = [];
-  if (herkend.size > 20000) herkend.clear();
+  if (herkend.size > 20000 || herkendVoor !== basis) { herkend.clear(); herkendVoor = basis; }
   for (const r of rows) {
     r.titel = ontsleutel(r.titel);
     r.samenvatting = ontsleutel(r.samenvatting ?? '');
@@ -53,7 +58,7 @@ export const inhoudMetFeeds = cache(async (): Promise<Samengevoegd> => {
     if (zelfdeRedactie.has(sleutel)) continue;
     zelfdeRedactie.add(sleutel);
     bekend.add(r.url);
-    const cacheSleutel = `${r.id}|${r.titel}`;
+    const cacheSleutel = [r.id, r.titel, r.samenvatting, (r.categorieen ?? []).join(','), b.reikwijdte, b.taal, b.onderwerpen.join(',')].join('|');
     let h = herkend.get(cacheSleutel);
     if (!h) {
       const verhaal = koppelVerhaal({ titel: r.titel, samenvatting: r.samenvatting }, koppelbaar);
