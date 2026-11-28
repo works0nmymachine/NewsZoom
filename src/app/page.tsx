@@ -23,6 +23,12 @@ export default async function Vandaag() {
     <main className="pagina">
       <Kop titel="Vandaag" sub={datumLang(new Date())} />
       <Voorbeeldlabel peildatum={inhoud.peildatum} />
+      <p className="zacht uitleg-selectie">
+        Vandaag is een selectie: per sectie de drie belangrijkste berichten, één per verhaal.{' '}
+        {regels.length === 0
+          ? <>Je hebt geen filters; alles telt mee. Alle berichten staan onder <Link href="/ontdekken">Alles bekijken</Link>.</>
+          : <>Je {regels.length === 1 ? 'filter telt' : `${regels.length} filters tellen`} mee. <Link href="/filters">Mijn filters</Link></>}
+      </p>
 
       <Sectie titel="Nederland" meer="/ontdekken?r=nederland">
         {top('nederland', 3).map((i) => <BerichtKaart key={i.id} item={i} inhoud={inhoud} regels={regels} terug="/" compact />)}

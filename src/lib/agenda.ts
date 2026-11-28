@@ -7,6 +7,13 @@ export const CATEGORIE_NAAM: Record<EvenementCategorie, string> = {
   demonstratie: 'Demonstraties', verstoring: 'Verstoringen', overig: 'Overig',
 };
 
+/** Pictogram per categorie. De kleur staat in globals.css ([data-cat]), met een lichtere tint in donkere modus. */
+export const CATEGORIE_ICOON: Record<EvenementCategorie, string> = {
+  festival: '🎪', concert: '🎵', livemuziek: '🎷', theater: '🎭', expositie: '🖼️', 'open-dag': '🏭', markt: '🛍️',
+  traditie: '🎉', wijkfeest: '🏘️', film: '🎬', demonstratie: '📢', verstoring: '⚠️', overig: '✨',
+};
+export const ALLE_CATEGORIEEN = Object.keys(CATEGORIE_NAAM) as EvenementCategorie[];
+
 export const LOCATIETYPE_NAAM: Record<string, string> = {
   kroeg: 'Kroeg', cafe: 'Café', 'klein-theater': 'Klein theater', podium: 'Podium', museum: 'Museum', buiten: 'Buiten', bedrijf: 'Bedrijf', overig: 'Overig',
 };

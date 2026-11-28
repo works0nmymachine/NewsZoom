@@ -61,10 +61,12 @@ export default async function Ontdekken({ searchParams }: { searchParams: Zoek }
       )}
 
       <div className="werkbalk">
-        <div className="schakel" role="group" aria-label="Weergave">
-          <Link href={url({ weergave: undefined })} aria-current={!breed ? 'page' : undefined}>Met mijn filters</Link>
-          <Link href={url({ weergave: 'breed' })} aria-current={breed ? 'page' : undefined}>Breed overzicht</Link>
-        </div>
+        {regels.length > 0 && (
+          <div className="schakel" role="group" aria-label="Weergave">
+            <Link href={url({ weergave: undefined })} aria-current={!breed ? 'page' : undefined}>Met mijn filters</Link>
+            <Link href={url({ weergave: 'breed' })} aria-current={breed ? 'page' : undefined}>Breed overzicht</Link>
+          </div>
+        )}
         <form className="zoek" action="/ontdekken">
           <input type="hidden" name="r" value={r} />
           {breed && <input type="hidden" name="weergave" value="breed" />}
@@ -74,6 +76,7 @@ export default async function Ontdekken({ searchParams }: { searchParams: Zoek }
       </div>
 
       <Voorbeeldlabel peildatum={inhoud.peildatum} />
+      {regels.length === 0 && <p className="zacht">Geen filters actief: je ziet alle berichten, gesorteerd op belang en tijd.</p>}
       {!breed && verborgen > 0 && (
         <p className="melding">{verborgen} {verborgen === 1 ? 'bericht is' : 'berichten zijn'} verborgen door je filters. <Link href={url({ weergave: 'breed' })}>Bekijk in Breed overzicht</Link></p>
       )}

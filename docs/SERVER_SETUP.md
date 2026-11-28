@@ -274,7 +274,9 @@ nano /srv/newszoom/app/.env.newszoom
 | CRAFTSTUDIO_AUTH_URL | http://supabase-kong:8000 | Nu |
 | CRAFTSTUDIO_AUTH_KEY | De publieke **anon key** van supabase.craftstudio.work (dezelfde als in de todo-app en helpout) | Nu |
 | NZ_INGEST_MINUTEN e.a. | Optioneel, zie [DEPLOYMENT](DEPLOYMENT.md) | Niet nodig |
-| Later | LLM-key | Pas na besluit over provider |
+| OPENAI_API_KEY | API-key van platform.openai.com, voor Achtergrond laten samenstellen | Zodra je AI wilt gebruiken |
+| ANTHROPIC_API_KEY | API-key van console.anthropic.com | Optioneel |
+| NZ_LLM_BUDGET_USD | Maandbudget in dollar (standaard 10; ook in de app te wijzigen) | Niet nodig |
 
 Geen aanhalingstekens rond waarden: Docker `env_file` neemt ze letterlijk over. Nooit de service-role key.
 
@@ -289,6 +291,14 @@ Na een wijziging in dit bestand: `newszoom-stack up` (een herstart leest het nie
 ~~~bash
 docker exec newszoom-app-1 node -e "fetch(process.env.CRAFTSTUDIO_AUTH_URL+'/auth/v1/health',{headers:{apikey:process.env.CRAFTSTUDIO_AUTH_KEY}}).then(r=>console.log(r.status)).catch(e=>console.log('FOUT',e.message))"
 ~~~
+
+Een API-key zet je zonder dat hij op het scherm of in de shellgeschiedenis komt (plak de key bij de vraag; je ziet niets):
+
+~~~bash
+read -rsp 'OpenAI-key: ' K && sed -i '/^OPENAI_API_KEY=/d' /srv/newszoom/app/.env.newszoom && printf 'OPENAI_API_KEY=%s\n' "$K" >> /srv/newszoom/app/.env.newszoom && unset K && echo && echo opgeslagen
+~~~
+
+Voor Claude hetzelfde met `ANTHROPIC_API_KEY`. Daarna `newszoom-stack up`; de app en de ingest-worker lezen de key. Controleer in de app onder **Menu → Instellingen → AI en budget** dat er geen "(geen key op de server)" meer staat.
 
 Controle zonder waarden te tonen:
 

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { AgendaTabs } from '@/components/agenda-tabs';
 import { EvenementKaart } from '@/components/evenement-kaart';
 import { Kop } from '@/components/kop';
-import { agendaBeoordeel, CATEGORIE_NAAM, inPeriode, LOCATIETYPE_NAAM, zoekScore, type Periode } from '@/lib/agenda';
+import { agendaBeoordeel, CATEGORIE_ICOON, CATEGORIE_NAAM, inPeriode, LOCATIETYPE_NAAM, zoekScore, type Periode } from '@/lib/agenda';
 import { agenda, agendaKeuzes, vandaagIso } from '@/lib/agenda-data';
 import type { EvenementCategorie } from '@/lib/finance-agenda-types';
 import { vereisGebruiker } from '@/lib/sessie';
@@ -66,7 +66,7 @@ export default async function Uitagenda({ searchParams }: { searchParams: Zoek }
       </nav>
       <div className="filters-rij">
         <Link className="chip" href={url({ cat: undefined })} aria-pressed={!cat}>Alles</Link>
-        {categorieen.map((c) => <Link key={c} className="chip" href={url({ cat: c })} aria-pressed={cat === c}>{CATEGORIE_NAAM[c]}</Link>)}
+        {categorieen.map((c) => <Link key={c} className="cat-chip" data-cat={c} href={url({ cat: cat === c ? undefined : c })} aria-pressed={!cat || cat === c}><span className="cat-icoon" aria-hidden="true">{CATEGORIE_ICOON[c]}</span><span className="cat-tekst">{CATEGORIE_NAAM[c]}</span></Link>)}
       </div>
       <div className="filters-rij">
         {types.map((t) => <Link key={t} className="chip" href={url({ type: z.type === t ? undefined : t })} aria-pressed={z.type === t}>{LOCATIETYPE_NAAM[t] ?? t}</Link>)}

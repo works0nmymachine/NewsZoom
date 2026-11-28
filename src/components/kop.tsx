@@ -7,10 +7,16 @@ export function Kop({ titel, sub }: { titel: string; sub?: string }) {
         <h1>{titel}</h1>
         {sub && <p className="zacht">{sub}</p>}
       </div>
-      <div className="kop-acties">
-        <Link className="knop knop-klein knop-zacht" href="/filters">Mijn filters</Link>
-        <form action="/uitloggen" method="post"><button className="knop knop-klein knop-zacht">Uitloggen</button></form>
-      </div>
+      <details className="menu">
+        <summary className="knop knop-klein knop-zacht" aria-label="Menu">☰ Menu</summary>
+        <nav className="menu-paneel" aria-label="Menu">
+          <Link href="/instellingen">Instellingen</Link>
+          <Link href="/filters">Mijn filters</Link>
+          <Link href="/instellingen#bronnen">Bronnen</Link>
+          <Link href="/instellingen#ai">AI en budget</Link>
+          <form action="/uitloggen" method="post"><button>Uitloggen</button></form>
+        </nav>
+      </details>
     </header>
   );
 }

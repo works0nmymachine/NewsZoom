@@ -13,8 +13,10 @@
     "ingest": "node --env-file-if-exists=.env.local scripts/ingest-worker.mjs"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "1.14.0",
     "fast-xml-parser": "5.12.1",
     "next": "16.4.6",
+    "openai": "7.65.0",
     "pg": "8.23.1",
     "react": "19.3.0",
     "react-dom": "19.3.0",

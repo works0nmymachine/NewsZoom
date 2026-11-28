@@ -2,7 +2,9 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { regelActie } from '@/app/acties';
 import { BerichtKaart } from '@/components/bericht-kaart';
+import { AutoAchtergrondStatus } from '@/components/auto-achtergrond';
 import { Kop } from '@/components/kop';
+import { aiBeschikbaar, alsDossier, autoAchtergrond } from '@/lib/achtergrond';
 import { pool } from '@/lib/db';
 import type { Laag, Link as BronLink } from '@/lib/inhoud-types';
 import { paginaContext } from '@/lib/pagina';
@@ -35,11 +37,16 @@ export default async function VerhaalPagina({ params, searchParams }: { params: 
     [gebruiker.id, id],
   );
   const sindsdien = vorigBezoek ? berichten.filter((b) => new Date(b.gepubliceerd) > vorigBezoek) : [];
+  // Zonder handmatig dossier: de automatisch samengestelde achtergrond, als die er is.
+  const auto = verhaal.dossier ? null : await autoAchtergrond(`verhaal:${id}`);
+  const autoKlaar = auto?.status === 'klaar' && auto.inhoud ? auto.inhoud : null;
 
-  const beschikbaar = LAGEN.filter((l) => (l.id === 'sinds' ? !!vorigBezoek : l.id === 'kort' || !!verhaal.dossier));
+  const beschikbaar = LAGEN.filter((l) => (l.id === 'sinds' ? !!vorigBezoek : l.id === 'kort' || !!verhaal.dossier || !!autoKlaar));
   const standaard = vorigBezoek && sindsdien.length > 0 ? 'sinds' : 'kort';
   const laag = beschikbaar.find((l) => l.id === z.laag)?.id ?? standaard;
-  const d = verhaal.dossier;
+  const d = verhaal.dossier ?? (autoKlaar ? alsDossier(autoKlaar) : undefined);
+  const watVerandert = verhaal.watVerandert ?? (autoKlaar?.watVerandert?.tekst ? { ...autoKlaar.watVerandert, bronnen: [] } : undefined);
+  const partijen = verhaal.partijen?.length ? verhaal.partijen : autoKlaar?.partijen;
   const inhoudLaag: Laag | null =
     laag === 'kort' ? (d?.kort ?? null)
     : laag === 'week' ? (d?.dezeWeek ?? null)
@@ -81,17 +88,19 @@ export default async function VerhaalPagina({ params, searchParams }: { params: 
         <p>{verhaal.laatsteOntwikkeling}</p>
       </section>
 
-      {verhaal.watVerandert && (
+      {watVerandert && (
         <section className="sectie blok">
           <h2>Wat verandert dit?</h2>
-          {alineas(verhaal.watVerandert.tekst).map((a, n) => <p key={n}>{a}</p>)}
-          <p><strong>Nog onzeker:</strong> {verhaal.watVerandert.onzeker}</p>
-          <Bronnen links={verhaal.watVerandert.bronnen} naam={bronNaam} />
+          {!verhaal.watVerandert && <p className="zacht"><span className="label">Automatisch samengesteld</span></p>}
+          {alineas(watVerandert.tekst).map((a, n) => <p key={n}>{a}</p>)}
+          {watVerandert.onzeker && <p><strong>Nog onzeker:</strong> {watVerandert.onzeker}</p>}
+          <Bronnen links={watVerandert.bronnen} naam={bronNaam} />
         </section>
       )}
 
       <section className="sectie" id="achtergrond">
         <h2>Achtergrond</h2>
+        {!verhaal.dossier && <AutoAchtergrondStatus a={auto} soort="verhaal" id={id} terug={`${terug}#achtergrond`} beschikbaar={aiBeschikbaar()} />}
         <nav className="segmenten segmenten-klein" aria-label="Kies diepgang">
           {beschikbaar.map((l) => <Link key={l.id} href={`${basis}laag=${l.id}#achtergrond`} aria-current={l.id === laag ? 'page' : undefined}>{l.naam}</Link>)}
         </nav>
@@ -111,15 +120,15 @@ export default async function VerhaalPagina({ params, searchParams }: { params: 
           <div className="leeg">
             <p>Er is nog geen uitgebreid dossier voor dit verhaal.</p>
             <p><strong>Wel beschikbaar:</strong> de laatste ontwikkeling{verhaal.watVerandert ? ', wat het verandert' : ''} en {berichten.length} {berichten.length === 1 ? 'bericht' : 'berichten'}.</p>
-            <p><strong>Ontbreekt nog:</strong> een overzicht van deze week, de afgelopen maanden en het begin.</p>
+            <p><strong>Ontbreekt nog:</strong> een overzicht van deze week, de afgelopen maanden en het begin. Laat hem hierboven samenstellen.</p>
           </div>
         )}
       </section>
 
-      {verhaal.partijen && verhaal.partijen.length > 0 && (
+      {partijen && partijen.length > 0 && (
         <section className="sectie">
           <h2>Betrokken partijen</h2>
-          <dl className="partijen">{verhaal.partijen.map((p) => <div key={p.naam}><dt>{p.naam}</dt><dd>{p.belang}</dd></div>)}</dl>
+          <dl className="partijen">{partijen.map((p) => <div key={p.naam}><dt>{p.naam}</dt><dd>{p.belang}</dd></div>)}</dl>
         </section>
       )}
 

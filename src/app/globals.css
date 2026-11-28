@@ -195,3 +195,55 @@ input:focus, textarea:focus, select:focus, .knop:focus-visible, .chip:focus-visi
 @media (min-width: 900px) {
   .pagina { padding-top: 2rem; }
 }
+
+/* Menu in de kop */
+.menu { position: relative; flex-shrink: 0; }
+.menu > summary { list-style: none; cursor: pointer; }
+.menu > summary::-webkit-details-marker { display: none; }
+.menu-paneel { position: absolute; right: 0; top: calc(100% + 0.3rem); z-index: 20; min-width: 12rem; background: var(--vlak); border: 1px solid var(--lijn); border-radius: var(--radius); box-shadow: 0 8px 24px rgb(0 0 0 / 0.15); padding: 0.35rem; display: flex; flex-direction: column; }
+.menu-paneel a, .menu-paneel button { display: block; text-align: left; padding: 0.6rem 0.75rem; border-radius: 8px; color: var(--tekst); text-decoration: none; font: inherit; background: none; border: 0; width: 100%; cursor: pointer; min-height: 40px; }
+.menu-paneel a:hover, .menu-paneel button:hover { background: var(--vlak-2); color: var(--tekst); }
+.menu-paneel form { margin: 0; border-top: 1px solid var(--lijn); margin-top: 0.25rem; padding-top: 0.25rem; }
+
+/* Instellingen */
+.meter { height: 10px; background: var(--vlak-2); border-radius: 999px; overflow: hidden; margin: 0.4rem 0; }
+.meter > span { display: block; height: 100%; background: var(--accent); border-radius: 999px; }
+.meter-vol > span { background: var(--fout); }
+.cijfers { display: grid; grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr)); gap: 0.5rem; margin: 0.6rem 0; }
+.cijfers > div { background: var(--vlak-2); border-radius: 8px; padding: 0.45rem 0.6rem; }
+.cijfers dt { font-size: 0.75rem; color: var(--zacht); }
+.cijfers dd { margin: 0; font-weight: 700; font-variant-numeric: tabular-nums; }
+.tabel-wrap { overflow-x: auto; }
+.tabel-klein { width: 100%; border-collapse: collapse; font-size: 0.82rem; font-variant-numeric: tabular-nums; }
+.tabel-klein th, .tabel-klein td { text-align: left; padding: 0.35rem 0.4rem; border-bottom: 1px solid var(--lijn); white-space: nowrap; }
+.tabel-klein th { color: var(--zacht); font-weight: 600; }
+.bronrij { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.3rem 0.75rem; padding: 0.5rem 0; border-bottom: 1px solid var(--lijn); }
+.bronrij:last-child { border-bottom: 0; }
+.bronrij form { display: flex; gap: 0.3rem; margin: 0; }
+.formulier > *, .formulier label { min-width: 0; }
+.formulier select { width: 100%; max-width: 100%; font: inherit; padding: 0.45rem; border-radius: 8px; border: 1px solid var(--lijn); background: var(--vlak); color: var(--tekst); }
+.auto-label { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; justify-content: space-between; }
+.auto-label p { margin: 0.25rem 0; flex: 1 1 16rem; }
+
+/* Agendacategorieën: kleur per categorie, lichtere tint in donkere modus */
+[data-cat="festival"] { --cat: #c026d3; } [data-cat="concert"] { --cat: #7c3aed; } [data-cat="livemuziek"] { --cat: #4f46e5; }
+[data-cat="theater"] { --cat: #dc2626; } [data-cat="expositie"] { --cat: #0d9488; } [data-cat="open-dag"] { --cat: #2563eb; }
+[data-cat="markt"] { --cat: #ea580c; } [data-cat="traditie"] { --cat: #b45309; } [data-cat="wijkfeest"] { --cat: #16a34a; }
+[data-cat="film"] { --cat: #0284c7; } [data-cat="demonstratie"] { --cat: #e11d48; } [data-cat="verstoring"] { --cat: #ca8a04; }
+[data-cat="overig"] { --cat: #64748b; }
+@media (prefers-color-scheme: dark) {
+  [data-cat="festival"] { --cat: #e879f9; } [data-cat="concert"] { --cat: #a78bfa; } [data-cat="livemuziek"] { --cat: #818cf8; }
+  [data-cat="theater"] { --cat: #f87171; } [data-cat="expositie"] { --cat: #2dd4bf; } [data-cat="open-dag"] { --cat: #60a5fa; }
+  [data-cat="markt"] { --cat: #fb923c; } [data-cat="traditie"] { --cat: #fbbf24; } [data-cat="wijkfeest"] { --cat: #4ade80; }
+  [data-cat="film"] { --cat: #38bdf8; } [data-cat="demonstratie"] { --cat: #fb7185; } [data-cat="verstoring"] { --cat: #facc15; }
+  [data-cat="overig"] { --cat: #94a3b8; }
+}
+.kaart[data-cat] { border-left: 5px solid var(--cat); }
+.cat-naam { color: var(--cat); font-weight: 600; }
+.cat-chip { border: 2px solid var(--cat); background: color-mix(in srgb, var(--cat) 16%, var(--vlak)); color: var(--tekst); border-radius: 999px; padding: 0.2rem 0.7rem; font: inherit; font-size: 0.85rem; cursor: pointer; min-height: 36px; display: inline-flex; align-items: center; gap: 0.35rem; text-decoration: none; }
+.cat-chip[aria-pressed="false"] { background: var(--vlak); border-style: dashed; color: var(--zacht); }
+.cat-chip[aria-pressed="false"] .cat-icoon { filter: grayscale(1); opacity: 0.6; }
+.cat-chip[aria-pressed="false"] .cat-tekst { text-decoration: line-through; }
+.cat-chip .cat-aantal { font-size: 0.75rem; color: var(--zacht); }
+.cat-rij { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.5rem 0; }
+.cat-rij form { margin: 0; }

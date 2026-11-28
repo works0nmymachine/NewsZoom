@@ -1,11 +1,15 @@
 // Ingest-worker: haalt de bronnen uit data/feeds.json periodiek op en bewaart nieuwe of gewijzigde
 // berichten in nz_feeditems. Houdt per bron de laatste (geslaagde) controle bij. Haalt ook koersen op.
+// Voert ook aangevraagde achtergronddossiers uit (nz_achtergronden), binnen het maandbudget.
 // Gebruik: node scripts/ingest-worker.mjs [--once]
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import pg from 'pg';
 import { parseFeed } from './feed-parser.mjs';
 import { haalAlles } from './koersen-ophalen.mjs';
+import { maakAchtergrond } from './achtergrond.mjs';
+import { veiligOphalen } from './veilig-ophalen.mjs';
+import { slaItemsOp } from './feed-opslaan.mjs';
 
 const ROOT = path.join(path.dirname(new URL(import.meta.url).pathname), '..');
 const MINUTEN = Number(process.env.NZ_INGEST_MINUTEN ?? 20);
@@ -28,7 +32,8 @@ async function bronnenBijwerken() {
       [b.id, b.naam, b.homepage, b.feed, b.soort, b.reikwijdte, b.gebied ?? null, b.onderwerpen ?? []],
     );
   }
-  await db.query(`UPDATE nz_feedbronnen SET actief = false WHERE NOT (id = ANY($1))`, [bronnen.map((b) => b.id)]);
+  // Alleen bronnen uit het bestand uitzetten; bronnen die gebruikers toevoegden blijven staan.
+  await db.query(`UPDATE nz_feedbronnen SET actief = false WHERE herkomst = 'bestand' AND NOT (id = ANY($1))`, [bronnen.map((b) => b.id)]);
 }
 
 async function haalBron(b) {
@@ -36,7 +41,12 @@ async function haalBron(b) {
   if (b.etag) kop['if-none-match'] = b.etag;
   if (b.last_modified) kop['if-modified-since'] = b.last_modified;
   try {
-    const r = await fetch(b.feed_url, { headers: kop, signal: AbortSignal.timeout(20000), redirect: 'follow' });
+    // Bronnen van gebruikers via de SSRF-veilige ophaler; de vaste bronnen uit het bestand via fetch.
+    const r = b.herkomst === 'gebruiker'
+      ? await veiligOphalen(b.feed_url, { headers: kop, timeoutMs: 20000 }).then((x) => ({
+          status: x.status, ok: x.status >= 200 && x.status < 300, text: async () => x.body, headers: { get: (k) => x.headers[k] ?? null },
+        }))
+      : await fetch(b.feed_url, { headers: kop, signal: AbortSignal.timeout(20000), redirect: 'follow' });
     if (r.status === 304) {
       await db.query(`UPDATE nz_feedbronnen SET laatste_controle = now(), laatste_succes = now(), laatste_fout = NULL WHERE id = $1`, [b.id]);
       return { nieuw: 0, ongewijzigd: true };
@@ -45,20 +55,7 @@ async function haalBron(b) {
     const tekst = await r.text();
     if (tekst.length > 5_000_000) throw new Error('Feed te groot');
     const items = parseFeed(tekst);
-    let nieuw = 0;
-    for (const i of items) {
-      // Nieuw: invoegen. Bekend en ongewijzigd: overslaan. Gewijzigde titel of samenvatting: bijwerken.
-      const res = await db.query(
-        `INSERT INTO nz_feeditems (bron, guid, url, titel, samenvatting, gepubliceerd)
-         VALUES ($1, $2, $3, $4, $5, $6)
-         ON CONFLICT (bron, guid) DO UPDATE SET titel = EXCLUDED.titel, samenvatting = EXCLUDED.samenvatting,
-           url = EXCLUDED.url, gewijzigd_at = now()
-         WHERE nz_feeditems.titel IS DISTINCT FROM EXCLUDED.titel OR nz_feeditems.samenvatting IS DISTINCT FROM EXCLUDED.samenvatting
-         RETURNING (xmax = 0) AS ingevoegd`,
-        [b.id, i.guid.slice(0, 500), i.url.slice(0, 1000), i.titel, i.samenvatting, i.gepubliceerd],
-      );
-      if (res.rows[0]?.ingevoegd) nieuw++;
-    }
+    const nieuw = await slaItemsOp(db, b.id, items);
     await db.query(
       `UPDATE nz_feedbronnen SET laatste_controle = now(), laatste_succes = now(), laatste_fout = NULL, etag = $2, last_modified = $3 WHERE id = $1`,
       [b.id, r.headers.get('etag'), r.headers.get('last-modified')],
@@ -73,7 +70,7 @@ async function haalBron(b) {
 
 async function rondeFeeds() {
   await bronnenBijwerken();
-  const { rows } = await db.query(`SELECT * FROM nz_feedbronnen WHERE actief ORDER BY laatste_controle NULLS FIRST`);
+  const { rows } = await db.query(`SELECT * FROM nz_feedbronnen WHERE actief AND NOT gepauzeerd ORDER BY laatste_controle NULLS FIRST`);
   for (const b of rows) log(b.id, JSON.stringify(await haalBron(b)));
   await db.query(`DELETE FROM nz_feeditems WHERE gepubliceerd < now() - make_interval(days => $1)`, [BEWAAR_DAGEN]);
 }
@@ -96,10 +93,48 @@ async function rondeKoersen() {
   }
 }
 
+// Achtergrond op aanvraag: één opdracht tegelijk; een vastgelopen opdracht gaat na 20 minuten terug in de rij.
+async function volgendeAchtergrond() {
+  await db.query(`UPDATE nz_achtergronden SET status = 'wachtend', gestart_at = NULL
+                   WHERE status = 'bezig' AND gestart_at < now() - interval '20 minutes'`);
+  const { rows } = await db.query(
+    `UPDATE nz_achtergronden SET status = 'bezig', gestart_at = now(), fout = NULL
+     WHERE sleutel = (SELECT sleutel FROM nz_achtergronden WHERE status = 'wachtend' ORDER BY aangevraagd_at LIMIT 1 FOR UPDATE SKIP LOCKED)
+     RETURNING sleutel, invoer`,
+  );
+  const opdracht = rows[0];
+  if (!opdracht) return false;
+  log('achtergrond', opdracht.sleutel, 'gestart');
+  try {
+    const { vraagOpenAI } = await import('./llm/openai.mjs');
+    const { vraagAnthropic } = await import('./llm/anthropic.mjs');
+    const vandaag = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Amsterdam' }).format(new Date());
+    const r = await maakAchtergrond(db, opdracht, { aanroepen: { openai: vraagOpenAI, anthropic: vraagAnthropic }, vandaag });
+    await db.query(
+      `UPDATE nz_achtergronden SET status = 'klaar', inhoud = $2, provider = $3, model = $4, kosten_usd = $5, klaar_at = now() WHERE sleutel = $1`,
+      [opdracht.sleutel, r.inhoud, r.provider, r.model, r.kosten_usd],
+    );
+    log('achtergrond', opdracht.sleutel, 'klaar', r.provider, r.model, `$${r.kosten_usd}`);
+  } catch (e) {
+    const fout = String(e?.message ?? e).slice(0, 500);
+    await db.query(`UPDATE nz_achtergronden SET status = 'mislukt', fout = $2, klaar_at = now() WHERE sleutel = $1`, [opdracht.sleutel, fout]);
+    log('achtergrond', opdracht.sleutel, 'MISLUKT', fout);
+  }
+  return true;
+}
+
 const veilig = (naam, fn) => fn().catch((e) => log(naam, 'MISLUKT', e?.message ?? e));
 
 let gestopt = false;
 for (const s of ['SIGTERM', 'SIGINT']) process.on(s, () => { gestopt = true; });
+
+async function lusAchtergronden() {
+  while (!gestopt) {
+    const gedaan = await volgendeAchtergrond().catch((e) => { log('achtergrond', 'MISLUKT', e?.message ?? e); return false; });
+    if (!gedaan) await new Promise((r) => setTimeout(r, 5000));
+  }
+}
+const achtergronden = eenmalig ? Promise.resolve() : lusAchtergronden();
 
 let laatsteKoers = 0;
 do {
@@ -111,4 +146,5 @@ do {
   if (eenmalig) break;
   for (let s = 0; s < MINUTEN * 60 && !gestopt; s++) await new Promise((r) => setTimeout(r, 1000));
 } while (!gestopt);
+await achtergronden;
 await db.end();

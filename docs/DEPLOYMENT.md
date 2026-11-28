@@ -48,4 +48,5 @@ Houd de huidige (`/srv/newszoom/app/.env`) en de vorige tag.
 - Inloggen: open https://newszoom.craftstudio.work en log in met je craftstudio-account.
 - Ingest controleren (als root): `newszoom-stack logs` toont per bron `{"nieuw":…}` of een fout. In de app: Ontdekken → Lokaal → Bronnen in dit gebied.
 - Instelbaar in `.env.newszoom` (optioneel): `NZ_INGEST_MINUTEN` (standaard 20), `NZ_KOERS_UREN` (6), `NZ_BEWAAR_DAGEN` (60), `NZ_USER_AGENT`. Na wijzigen: `newszoom-stack up`.
-- Nieuwe feed toevoegen: `data/feeds.json` aanpassen, committen en deployen.
+- Nieuwe feed toevoegen: in de app via **Menu → Instellingen → Bronnen** (per doel), of vast in `data/feeds.json` (committen en deployen).
+- AI-achtergrond: zet `OPENAI_API_KEY` (en eventueel `ANTHROPIC_API_KEY`) volgens [SERVER_SETUP §5.1](SERVER_SETUP.md#51-geheimen), dan `newszoom-stack up`. Provider, model en budget wijzig je in Instellingen. In de logs van de worker staat per opdracht `achtergrond … klaar` met de kosten, of `MISLUKT` met de reden.

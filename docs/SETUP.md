@@ -1,6 +1,6 @@
 # NewsZoom: projectopzet
 
-Bijgewerkt 27 november 2026. **Status: alle fases gebouwd en lokaal getest (zie [BUILD_LOG](BUILD_LOG.md)). Nog niet uitgerold.** Zie [BUILD_LOG](BUILD_LOG.md).
+Bijgewerkt 28 november 2026. **Status: live; zie [BUILD_LOG](BUILD_LOG.md).**
 
 ## Architectuur
 
@@ -15,6 +15,7 @@ Bijgewerkt 27 november 2026. **Status: alle fases gebouwd en lokaal getest (zie 
 
 **Gebouwd (27 november 2026):**
 
+- De ingest-worker voert ook aangevraagde **achtergronden** uit: één tegelijk, binnen het maandbudget, met de provider uit Instellingen. Bronnen die gebruikers toevoegen haalt hij op via `scripts/veilig-ophalen.mjs` (geen interne adressen).
 - Een aparte **ingest-worker** (zelfde image, ander startcommando) haalt elke 20 minuten de bronnen uit `data/feeds.json` op (RSS/Atom), slaat nieuwe en gewijzigde berichten op en houdt per bron de laatste (geslaagde) controle bij. Elke 6 uur haalt hij ook dagkoersen op (Nasdaq, CoinGecko; geen API-sleutel). De server heeft geen `pg_cron`; de worker plant zelf.
 - Directe PostgreSQL-verbinding (`pg`, `DATABASE_URL`) via Docker-netwerk `supabase_default` naar `supabase-db:5432`. Geen Supabase-API, geen service-role key.
 - Inhoud komt uit twee lagen: de **voorbeeldset** in `data/mvp/*.json` (echte berichten met dossiers, handmatig verzameld en in eigen woorden samengevat) en de **feeds** uit de database. Feedberichten worden nog niet automatisch aan verhalen gekoppeld; dat vraagt later een taalmodel of embeddings (`vector` staat op de server, in schema `public`).
@@ -34,7 +35,8 @@ Bijgewerkt 27 november 2026. **Status: alle fases gebouwd en lokaal getest (zie 
 | Finance: watchlist, grafiek, % per bericht, marktbeeld | `/finance`, `src/lib/koersmeting.ts` | Gebouwd, getest |
 | Agenda, Uitagenda, Films | `/agenda` | Gebouwd, getest |
 | Android-app | `capacitor.config.ts`, `android/`, [ANDROID](ANDROID.md) | Gebouwd, nog geen APK gemaakt |
-| LLM-duiding | – | Open: provider en budget |
+| Achtergrond op aanvraag (AI) | `scripts/achtergrond.mjs`, `scripts/llm/`, `/verhaal/[id]`, `/achtergrond/[id]` | Gebouwd; getest met nep-model, nog niet met een echte key |
+| Instellingen: AI, budget, tokenteller, bronnen per doel | `/instellingen`, `src/lib/bronnen.ts`, `scripts/veilig-ophalen.mjs` | Gebouwd |
 
 ## Gegevens
 
@@ -47,6 +49,9 @@ Bijgewerkt 27 november 2026. **Status: alle fases gebouwd en lokaal getest (zie 
 | `nz_bronvoorstellen` | Voorgestelde bronnen (Bron toevoegen) |
 | `nz_feedbronnen`, `nz_feeditems` | Gevolgde feeds, controlestatus en opgehaalde berichten (60 dagen bewaard) |
 | `nz_koersen`, `nz_koersbronnen` | Dagkoersen en status van de koersbron |
+| `nz_instellingen` | Instellingen voor de hele app: provider, model, budget |
+| `nz_llm_gebruik` | Tokenteller: één rij per aanroep van een taalmodel (tokens, zoekopdrachten, kosten) |
+| `nz_achtergronden` | Automatische achtergronden met wachtrijstatus |
 | `nz_watchlist`, `nz_agendakeuzes` | Watchlist en volgen/verbergen in Agenda |
 
 Voorbeeldset: `data/mvp/*.json`, beschreven in `src/lib/inhoud-types.ts` en `src/lib/finance-agenda-types.ts`. Elk bestand is een deel; de app voegt ze samen. `src/lib/inhoud.test.ts` controleert ids, verwijzingen, links en datums.

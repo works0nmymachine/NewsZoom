@@ -30,6 +30,9 @@
 - **Platform:** één Next.js-webapp, installeerbaar als PWA, met een **Capacitor**-app als schil. De Capacitor-app laadt de live site (`server.url`), dus na een deploy is de app direct bijgewerkt. Pakketnaam `work.craftstudio.newszoom`, één vaste ondertekensleutel. Android eerst; iOS vraagt een Mac en een Apple Developer-account. Data loopt via API-routes en meldingen via Web Push, zodat native onderdelen later kunnen aanhaken.
 - **Eerste proef (27 november 2026):** lokaal gebied **Amsterdam**; dossiers **Oekraïne**, **Israël–Gaza** en **Jensen Huang/Nvidia**. Echt nieuws, geen verzonnen voorbeelden: samenvattingen in eigen woorden met links naar de oorspronkelijke berichten. De voorbeeldset is een momentopname; de ingest-worker vult aan met actuele feedberichten.
 - **Werkwijze:** alle bouwfases achter elkaar uitvoeren (27 november 2026).
+- **AI-achtergrond (28 november 2026):** achtergrond op aanvraag via OpenAI (live) of Claude (Anthropic), met webzoeken. Maandbudget **$10**, te wijzigen in Instellingen. Een tokenteller boekt per aanroep tokens, zoekopdrachten en kosten, berekend met de publieke API-prijzen van 27 november 2026. Vóór elke aanroep wordt de maximale prijs gereserveerd; past die niet meer, dan start de aanroep niet. Automatische achtergronden worden gelabeld als niet gecontroleerd en tonen alleen links die het model echt vond.
+- **Instellingen en bronnen (28 november 2026):** een menu met Instellingen: AI en budget, bronnen per doel (Nederland, Wereld, Lokaal, Finance, Agenda, Achtergrond) en per doel een bron toevoegen. Een toegevoegde website wordt alleen opgehaald als het een publiek adres is (bescherming tegen SSRF). Instellingen gelden voor de hele app; iedereen die kan inloggen kan ze wijzigen.
+- **Filters per sectie (28 november 2026):** Mijn filters is opgedeeld in Nieuws, Eigen interesses, Finance en Agenda. Agendacategorieën hebben een eigen kleur en pictogram.
 
 ## Voorstellen
 
@@ -43,6 +46,5 @@
 
 - Welke nieuws- en koersdatabronnen passen bij het product en welke gebruiksrechten zijn nodig?
 - Hoe worden artikelen aan verhalen gekoppeld en wie controleert context en koersduiding?
-- Welke LLM-provider en welk maandbudget voor briefings en duiding?
 - Wie houdt de dossiers bij na de momentopname? Handmatig, of later met een taalmodel en een controle vóór publicatie?
 - Moeten feedberichten automatisch aan lopende verhalen worden gekoppeld (taalmodel of embeddings)?

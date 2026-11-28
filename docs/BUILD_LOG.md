@@ -68,3 +68,22 @@ Op verzoek van de eigenaar zijn alle fases achter elkaar uitgevoerd.
 - Eerste release via de workflow Deploy NewsZoom: geslaagd volgens de eigenaar. Van buitenaf gecontroleerd: `https://newszoom.craftstudio.work/api/health` geeft `{"status":"ok","commit":"e35ded8…"}`, `/` stuurt door naar `/inloggen`, CSP en HSTS aanwezig.
 - Tijdens de inrichting is het root-wachtwoord per ongeluk in een terminal en de chat beland; de eigenaar heeft het gewijzigd. Inloggen als root met een SSH-sleutel in plaats van een wachtwoord staat nog open.
 - Nog niet bevestigd: inloggen met een echt craftstudio-account, ingest-logs op de server, §10 backup- en hersteltest, §11 regressiecontrole na de release.
+
+## 2026-11-28: AI-achtergrond, Instellingen, filters per sectie
+
+- **Achtergrond op aanvraag:** op een verhaal zonder dossier en bij elk los bericht (`/achtergrond/[id]`) staat **Achtergrond laten samenstellen**. De opdracht gaat in een wachtrij (`nz_achtergronden`); de ingest-worker roept OpenAI (Responses API met `web_search`) of Claude (Messages API met de web search tool, fallbacks `default`) aan. Het resultaat heeft dezelfde lagen als een handmatig dossier en is gelabeld als automatisch samengesteld en niet gecontroleerd. Links die het model niet tijdens de opdracht vond worden weggelaten.
+- **Budget en tokenteller:** maandbudget $10 (instelbaar). Vóór elke aanroep wordt de maximale prijs gereserveerd onder een advisory lock; daarna worden de echte tokens, zoekopdrachten en kosten geboekt (`nz_llm_gebruik`). Prijzen uit `scripts/llm/prijzen.mjs` (peildatum 27 november 2026), overschrijfbaar met `NZ_LLM_PRIJZEN`.
+- **Menu en Instellingen:** menu in de kop met Instellingen, Mijn filters, Bronnen, AI en budget en Uitloggen. Instellingen toont de tokenteller, de laatste aanroepen, provider- en modelkeuze, en bronnen per doel met status. Per doel een bron toevoegen: de app zoekt de RSS/Atom-feed (ook via `<link rel="alternate">`), haalt direct de eerste berichten op en slaat anders een voorstel op. Bronnen pauzeren; zelf toegevoegde bronnen verwijderen.
+- **SSRF-bescherming:** `scripts/veilig-ophalen.mjs` laat alleen http(s) op poort 80/443 naar publieke adressen toe, controleert het IP bij het verbinden (ook na DNS) en volgt redirects zelf. De worker gebruikt dit voor bronnen van gebruikers.
+- **Filters:** Mijn filters per sectie (Nieuws, Eigen interesses, Finance, Agenda). Agendacategorieën als gekleurde chips met pictogram (ook in donkere modus) en een gekleurde rand op de kaarten. Zonder filters verdwijnt de schakelaar Met mijn filters/Breed overzicht en zegt de app dat er geen filters actief zijn; Vandaag legt uit dat het een selectie is (drie per sectie, één per verhaal).
+
+### Getest
+
+- 58 unittests, waaronder prijzen, maand in Amsterdamse tijd, budgetreservering en -weigering, providerkeuze, een volledige achtergrond met een nep-model tegen PostgreSQL 16, linkcontrole, feeddetectie en SSRF (interne IP's, poorten, schema's, `localhost` via DNS).
+- Productiebuild als standalone server: alle pagina's 200, geen horizontale scroll op 390 px, geen consolefouten. Doorlopen: menu, achtergrond aanvragen (wachtrij, verversen), klaar dossier tonen, AI-instellingen opslaan, intern adres als bron geweigerd, agendabron als voorstel, bron pauzeren/hervatten, agendacategorie uit en weer aan.
+- Worker: opdracht zonder key wordt netjes `mislukt`; bron van een gebruiker op een interne poort wordt geweigerd.
+
+### Niet getest
+
+- Een echte aanroep van OpenAI of Claude (geen key in de ontwikkelomgeving). De eerste echte achtergrond na het zetten van de key is de test; controleer daarna de kosten in Instellingen tegen het dashboard van de provider.
+- Een externe site als bron toevoegen: de ontwikkelomgeving heeft alleen internet via een proxy, die `veilig-ophalen` bewust niet gebruikt. Op de server speelt dit niet.

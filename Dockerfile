@@ -6,7 +6,7 @@ RUN npm ci
 # Losse, kleine dependencies voor de ingest-worker (draait buiten Next.js).
 FROM node:22-bookworm-slim AS worker-deps
 WORKDIR /w
-RUN npm init -y >/dev/null && npm install --omit=dev --no-audit --no-fund --save-exact pg@8.23.1 fast-xml-parser@5.12.1
+RUN npm init -y >/dev/null && npm install --omit=dev --no-audit --no-fund --save-exact pg@8.23.1 fast-xml-parser@5.12.1 @anthropic-ai/sdk@1.14.0 openai@7.65.0
 
 FROM dependencies AS build
 COPY . .

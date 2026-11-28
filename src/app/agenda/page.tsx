@@ -1,11 +1,10 @@
 import Link from 'next/link';
-import { agendaActie } from '@/app/acties';
 import { AgendaTabs } from '@/components/agenda-tabs';
+import { CategorieFilter } from '@/components/categorie-filter';
 import { EvenementKaart } from '@/components/evenement-kaart';
 import { Kop } from '@/components/kop';
-import { agendaBeoordeel, CATEGORIE_NAAM, groep } from '@/lib/agenda';
+import { agendaBeoordeel, ALLE_CATEGORIEEN, groep } from '@/lib/agenda';
 import { agenda, agendaKeuzes, vandaagIso } from '@/lib/agenda-data';
-import type { EvenementCategorie } from '@/lib/finance-agenda-types';
 import { vereisGebruiker } from '@/lib/sessie';
 
 type Zoek = Promise<{ plaats?: string; weergave?: string }>;
@@ -25,7 +24,11 @@ export default async function AgendaPagina({ searchParams }: { searchParams: Zoe
     .filter((e) => plaats === 'Nederland' || e.plaats === plaats || agendaBeoordeel(e, keuzes).gevolgd)
     .filter((e) => breed || agendaBeoordeel(e, keuzes).zichtbaar)
     .sort((a, b) => a.start.localeCompare(b.start));
-  const categorieen = [...new Set(evenementen.map((e) => e.categorie))] as EvenementCategorie[];
+  const inPlaats = evenementen.filter((e) => plaats === 'Nederland' || e.plaats === plaats);
+  const aantallen = new Map<string, number>();
+  for (const e of inPlaats) aantallen.set(e.categorie, (aantallen.get(e.categorie) ?? 0) + 1);
+  const categorieen = ALLE_CATEGORIEEN.filter((c) => aantallen.has(c) || keuzes.some((k) => k.doelSoort === 'categorie' && k.doelId === c));
+  const verborgen = inPlaats.filter((e) => !agendaBeoordeel(e, keuzes).zichtbaar).length;
 
   return (
     <main className="pagina">
@@ -47,24 +50,13 @@ export default async function AgendaPagina({ searchParams }: { searchParams: Zoe
       </div>
       <p className="voorbeeld">Voorbeeldset: echte aankondigingen, handmatig verzameld op 27 november 2026. Controleer tijden altijd bij de bron.</p>
 
-      <details className="sectie blok">
-        <summary><strong>Categorieën</strong> <span className="zacht">(aan/uit; een gevolgd evenement blijft zichtbaar)</span></summary>
-        <div className="filters-rij">
-          {categorieen.map((c) => {
-            const k = keuzes.find((x) => x.doelSoort === 'categorie' && x.doelId === c);
-            return (
-              <form key={c} action={agendaActie}>
-                <input type="hidden" name="soort" value="categorie" />
-                <input type="hidden" name="id" value={c} />
-                <input type="hidden" name="terug" value={hier} />
-                <button className="chip" name="actie" value={k?.actie === 'verbergen' ? 'wissen' : 'verbergen'} aria-pressed={k?.actie !== 'verbergen'}>
-                  {k?.actie === 'verbergen' ? '○' : '●'} {CATEGORIE_NAAM[c]}
-                </button>
-              </form>
-            );
-          })}
-        </div>
-      </details>
+      <section className="sectie" aria-label="Categorieën">
+        <p className="zacht" style={{ margin: 0 }}>Tik op een categorie om hem te verbergen of weer te tonen. Een gevolgd evenement blijft altijd zichtbaar.</p>
+        <CategorieFilter categorieen={categorieen} keuzes={keuzes} terug={hier} aantallen={aantallen} />
+        {keuzes.length === 0
+          ? <p className="zacht">Geen filters actief: je ziet alles.</p>
+          : !breed && verborgen > 0 && <p className="melding">{verborgen} {verborgen === 1 ? 'item is' : 'items zijn'} verborgen door je keuzes. <Link href={`/agenda?plaats=${encodeURIComponent(plaats)}&weergave=breed`}>Toon alles</Link> · <Link href="/filters?sectie=agenda">Agendafilters</Link></p>}
+      </section>
 
       {GROEPEN.map((gr) => {
         const items = lijst.filter((e) => groep(e, vandaag) === gr.id);

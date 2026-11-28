@@ -34,7 +34,9 @@ export function BerichtKaart({ item, inhoud, regels, terug, toonVerhaal = true, 
       {item.samenvatting && !compact && <p>{item.samenvatting}</p>}
       {item.nieuw && <p className="nieuw"><strong>Nieuw:</strong> {item.nieuw}</p>}
       <div className="kaart-acties">
-        {verhaal && <Link className="knop knop-klein" href={`/verhaal/${verhaal.id}?bericht=${encodeURIComponent(item.id)}#achtergrond`}>Achtergrond</Link>}
+        {verhaal
+          ? <Link className="knop knop-klein" href={`/verhaal/${verhaal.id}?bericht=${encodeURIComponent(item.id)}#achtergrond`}>Achtergrond</Link>
+          : <Link className="knop knop-klein" href={`/achtergrond/${encodeURIComponent(item.id)}`}>Achtergrond</Link>}
         <a className="knop knop-klein knop-zacht" href={item.url} rel="noopener noreferrer" target="_blank">Lees bij {bron?.naam ?? 'de bron'} ↗</a>
         <details className="waarom">
           <summary>Waarom zie ik dit?</summary>

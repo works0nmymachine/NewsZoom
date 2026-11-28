@@ -74,3 +74,26 @@ export async function bronnenInGebied(gebied: string): Promise<BronStatus[]> {
   }
   return uit;
 }
+
+/** Eén bericht op id; feedberichten ouder dan 7 dagen komen rechtstreeks uit de database. */
+export async function itemOpId(id: string): Promise<{ item: Item; inhoud: Samengevoegd } | null> {
+  const i = await inhoudMetFeeds();
+  const gevonden = i.items.find((x) => x.id === id);
+  if (gevonden) return { item: gevonden, inhoud: i };
+  const m = /^feed-(\d{1,18})$/.exec(id);
+  if (!m) return null;
+  const { rows } = await pool().query(
+    `SELECT f.id, f.bron, f.url, f.titel, f.samenvatting, f.gepubliceerd, b.soort, b.reikwijdte, b.gebied, b.onderwerpen
+     FROM nz_feeditems f JOIN nz_feedbronnen b ON b.id = f.bron WHERE f.id = $1`, [m[1]],
+  );
+  const r = rows[0];
+  if (!r) return null;
+  return {
+    inhoud: i,
+    item: {
+      id, titel: r.titel, bron: r.bron, url: r.url, gepubliceerd: new Date(r.gepubliceerd).toISOString(), samenvatting: r.samenvatting,
+      soort: r.soort === 'overheid' || r.soort === 'bedrijf' ? 'mededeling' : 'journalistiek', belang: 1, reikwijdte: r.reikwijdte,
+      gebied: r.gebied ?? undefined, onderwerpen: r.onderwerpen, herkomst: 'feed',
+    },
+  };
+}

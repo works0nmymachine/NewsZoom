@@ -1,4 +1,5 @@
 import { agendaActie } from '@/app/acties';
+import { CategorieLabel } from './categorie-filter';
 import { agendaBeoordeel, CATEGORIE_NAAM, LOCATIETYPE_NAAM, type AgendaKeuze } from '@/lib/agenda';
 import type { Evenement } from '@/lib/finance-agenda-types';
 
@@ -20,7 +21,7 @@ export function EvenementKaart({ e, keuzes, terug, toonPlaats = true }: { e: Eve
   const podium = keuzes.find((k) => k.doelSoort === 'locatie' && k.doelId === e.locatie);
   const verstoring = e.categorie === 'verstoring';
   return (
-    <article className={`kaart${b.zichtbaar ? '' : ' kaart-verborgen'}`}>
+    <article className={`kaart${b.zichtbaar ? '' : ' kaart-verborgen'}`} data-cat={e.categorie}>
       <p className="evenement-datum">
         {wanneerEvenement(e)}
         {verstoring && <span className={`label${e.verstoring === 'actueel' || e.status === 'actueel' ? ' status-actueel' : ''}`}>{e.verstoring === 'actueel' || e.status === 'actueel' ? 'Actuele verstoring' : 'Gepland werk'}</span>}
@@ -31,7 +32,7 @@ export function EvenementKaart({ e, keuzes, terug, toonPlaats = true }: { e: Eve
       <h3 className="kaart-titel">{e.titel}</h3>
       <p className="kaart-meta">
         <span>{e.locatie}{toonPlaats ? `, ${e.plaats}` : ''}{e.wijk ? ` (${e.wijk})` : ''}</span>
-        <span>{CATEGORIE_NAAM[e.categorie]}</span>
+        <CategorieLabel c={e.categorie} />
         {e.locatieType && <span>{LOCATIETYPE_NAAM[e.locatieType]}</span>}
         {e.genre && <span>{e.genre}</span>}
         {e.gratis && <span className="label label-zacht">Gratis</span>}
