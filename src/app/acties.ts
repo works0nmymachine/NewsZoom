@@ -72,10 +72,13 @@ export async function themaKiezen(form: FormData) {
 export async function startOpslaan(form: FormData) {
   const g = await vereisGebruiker();
   if (form.get('wat') !== 'overslaan') {
+    const bekend = inhoud().onderwerpen;
     for (const [k, v] of form.entries()) {
       if (!k.startsWith('o:')) continue;
-      const id = k.slice(2, 100);
-      if (v === 'meer' || v === 'minder') await zetRegel(g.id, 'onderwerp', id, v);
+      const id = k.slice(2);
+      if (!bekend.has(id)) continue;
+      if (v === 'meer' || v === 'minder' || v === 'verbergen') await zetRegel(g.id, 'onderwerp', id, v);
+      else if (v === '') await wisRegel(g.id, 'onderwerp', id);
     }
   }
   const gebied = String(form.get('gebied') ?? '');

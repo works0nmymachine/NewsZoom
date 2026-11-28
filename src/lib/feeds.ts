@@ -1,5 +1,8 @@
 import 'server-only';
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
 import { cache } from 'react';
+import { negeren } from '../../scripts/feed-parser.mjs';
 import { pool } from './db';
 import { herkenOnderwerpen, koppelVerhaal, zonderAccenten, type Herkomst } from './herkenning';
 import { inhoud, type Item, type Samengevoegd } from './inhoud';
@@ -10,6 +13,18 @@ type FeedBron = {
   taal: 'nl' | 'en'; uitgever: string | null; laatste_aantal: number | null;
 };
 
+type FeedConfig = { id: string; uitgever?: string; negeer?: { titels?: string[]; categorieen?: string[] } };
+
+/** data/feeds.json zelf: uitgever en ruisfilter gelden zo ook voor berichten van vóór een wijziging. */
+function feedConfig(): Map<string, FeedConfig> {
+  try {
+    const { bronnen } = JSON.parse(readFileSync(path.join(process.cwd(), 'data', 'feeds.json'), 'utf8')) as { bronnen: FeedConfig[] };
+    return new Map(bronnen.map((b) => [b.id, b]));
+  } catch {
+    return new Map();
+  }
+}
+
 const feedBronnen = cache(async (): Promise<FeedBron[]> => {
   try {
     const { rows } = await pool().query(`SELECT * FROM nz_feedbronnen WHERE actief ORDER BY naam`);
@@ -19,13 +34,18 @@ const feedBronnen = cache(async (): Promise<FeedBron[]> => {
   }
 });
 
+/** Zet een numerieke entiteit om, maar alleen bij een geldig teken (geen NUL, geen surrogaat, niet boven U+10FFFF). */
+const teken = (n: number, origineel: string) => (n > 0 && n <= 0x10ffff && !(n >= 0xd800 && n <= 0xdfff) ? String.fromCodePoint(n) : origineel);
+
 /** Numerieke HTML-entiteiten die oudere ingestrondes niet omzetten (&#039;, &#8216;). */
 const ontsleutel = (t: string) => t
-  .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
-  .replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCodePoint(parseInt(n, 16)));
+  .replace(/&#(\d+);/g, (m, n) => teken(Number(n), m))
+  .replace(/&#x([0-9a-f]+);/gi, (m, n) => teken(parseInt(n, 16), m));
 
 // Herkenning per feedbericht hoeft maar één keer: dezelfde id en kop geven dezelfde uitkomst.
+// Leeg zodra de voorbeeldset (met de koppel-trefwoorden) opnieuw is ingelezen.
 const herkend = new Map<string, { onderwerpen: Herkomst[]; verhaal?: string }>();
+let herkendVoor: Samengevoegd | null = null;
 
 /** Voorbeeldset plus berichten van de afgelopen 7 dagen uit de ingest-worker, met onderwerpen en verhalen. */
 export const inhoudMetFeeds = cache(async (): Promise<Samengevoegd> => {
@@ -37,23 +57,25 @@ export const inhoudMetFeeds = cache(async (): Promise<Samengevoegd> => {
      WHERE gepubliceerd > now() - interval '7 days' AND gepubliceerd < now() + interval '1 hour'
      ORDER BY gepubliceerd DESC LIMIT 2000`,
   );
-  const perBron = new Map(bronnen.map((b) => [b.id, b]));
+  const config = feedConfig();
+  const perBron = new Map(bronnen.map((b) => [b.id, { ...b, uitgever: config.get(b.id)?.uitgever ?? b.uitgever }]));
   const koppelbaar = [...basis.verhalen.values()].filter((v) => v.koppel?.length);
   const bekend = new Set(basis.items.map((i) => i.url));
   const zelfdeRedactie = new Set<string>();
   const items: Item[] = [];
-  if (herkend.size > 20000) herkend.clear();
+  if (herkend.size > 20000 || herkendVoor !== basis) { herkend.clear(); herkendVoor = basis; }
   for (const r of rows) {
     r.titel = ontsleutel(r.titel);
     r.samenvatting = ontsleutel(r.samenvatting ?? '');
     const b = perBron.get(r.bron);
     if (!b || bekend.has(r.url)) continue;
+    if (negeren({ titel: r.titel, categorieen: r.categorieen ?? [] }, config.get(r.bron)?.negeer)) continue;
     // Dezelfde kop van dezelfde redactie in twee feeds (NOS en NOS Buitenland): één keer tonen.
     const sleutel = `${b.uitgever ?? b.id}|${zonderAccenten(r.titel).toLowerCase()}`;
     if (zelfdeRedactie.has(sleutel)) continue;
     zelfdeRedactie.add(sleutel);
     bekend.add(r.url);
-    const cacheSleutel = `${r.id}|${r.titel}`;
+    const cacheSleutel = [r.id, r.titel, r.samenvatting, (r.categorieen ?? []).join(','), b.reikwijdte, b.taal, b.onderwerpen.join(',')].join('|');
     let h = herkend.get(cacheSleutel);
     if (!h) {
       const verhaal = koppelVerhaal({ titel: r.titel, samenvatting: r.samenvatting }, koppelbaar);

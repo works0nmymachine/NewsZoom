@@ -108,7 +108,7 @@ export const ONDERWERPEN: OnderwerpDef[] = [
   {
     id: 'sport', naam: 'Sport', categorie: ['sport', 'voetbal', 'wielrennen', 'tennis', 'schaatsen', 'formule 1', 'football', 'darts'],
     termen: ['voetbal', 'football', 'soccer', 'Eredivisie', 'Champions League', 'Europa League', 'Conference League', 'Ajax', 'PSV',
-      'Feyenoord', 'AZ', 'Oranje', 'KNVB', 'wedstrijd', 'doelpunt', 'schaatsen', 'schaatser', 'skating', 'wielrennen', 'wielrenner',
+      'Feyenoord', 'AZ', 'Oranjeleeuwinnen', 'Oranjevrouwen', 'Koeman', 'KNVB', 'wedstrijd', 'doelpunt', 'schaatsen', 'schaatser', 'skating', 'wielrennen', 'wielrenner',
       'tennis', 'Formule 1', 'Formula 1', 'F1', 'Verstappen', 'olympisch', 'Olympic', 'WK', 'EK', 'World Cup', 'atletiek', 'hockey',
       'darts', 'shorttrack', 'NBA', 'NFL', 'MLS', 'Premier League', 'Tour de France', 'FC', 'NEC', 'Messi', 'basketbal',
       'nl:trainer$', 'nl:keeper$', 'nl:aanvoerder'],

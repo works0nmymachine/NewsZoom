@@ -17,13 +17,21 @@ export default async function Vandaag() {
   const { gebruiker, regels, inhoud } = await paginaContext();
   const [vers, instellingen, vorigBezoek] = await Promise.all([versheid(), instellingenVan(gebruiker.id), bezoek(gebruiker.id)]);
   const nu = new Date();
-  const sectie = (filter: (i: Item) => boolean, n: number) => top(kaarten(recent(inhoud.items.filter(filter), nu, UREN, n * 2), regels, nu), n);
+  // Elk bericht staat maar in één sectie: wat eerder op de pagina staat, valt later weg.
+  const getoond = new Set<string>();
+  const sectie = (filter: (i: Item) => boolean, n: number) => {
+    const k = top(kaarten(recent(inhoud.items.filter((i) => filter(i) && !getoond.has(i.id)), nu, UREN, n * 2), regels, nu), n);
+    for (const x of k) for (const i of [x.item, ...x.ook]) getoond.add(i.id);
+    return k;
+  };
 
-  const gebied = instellingen.gebied;
-  const lokaal = gebied ? sectie((i) => i.reikwijdte === 'lokaal' && i.gebied === (gebied.ouder ?? gebied.id) && noemtGebied(`${i.titel} ${i.samenvatting}`, gebied), 3) : [];
+  const nederland = sectie((i) => i.reikwijdte === 'nederland', 4);
+  const wereld = sectie((i) => i.reikwijdte === 'wereld', 4);
   const volgVerhalen = [...inhoud.verhalen.values()].filter((v) => gevolgd({ verhaal: v.id, onderwerpen: v.onderwerpen, bron: '' }, regels));
   const volgtOnderwerp = regels.some((r) => r.actie === 'meer' && r.doelSoort !== 'verhaal');
   const uitInteresses = volgtOnderwerp ? sectie((i) => gevolgd(i, regels) && !volgVerhalen.some((v) => v.id === i.verhaal), 3) : [];
+  const gebied = instellingen.gebied;
+  const lokaal = gebied ? sectie((i) => i.reikwijdte === 'lokaal' && i.gebied === (gebied.ouder ?? gebied.id) && noemtGebied(`${i.titel} ${i.samenvatting}`, gebied), 3) : [];
   const nieuw = vorigBezoek ? inhoud.items.filter((i) => new Date(i.gepubliceerd) > vorigBezoek).length : 0;
 
   const lijst = (k: Kaart[]) => k.map((x) => (
@@ -46,8 +54,8 @@ export default async function Vandaag() {
         <p className="zacht">Geen filters actief: je ziet het nieuws van de afgelopen anderhalve dag op actualiteit en belang, vier per sectie. <Link href="/filters">Mijn filters</Link></p>
       )}
 
-      <Sectie titel="Nederland" meer="/ontdekken?r=nederland">{lijst(sectie((i) => i.reikwijdte === 'nederland', 4))}</Sectie>
-      <Sectie titel="Wereld" meer="/ontdekken?r=wereld">{lijst(sectie((i) => i.reikwijdte === 'wereld', 4))}</Sectie>
+      <Sectie titel="Nederland" meer="/ontdekken?r=nederland">{lijst(nederland)}</Sectie>
+      <Sectie titel="Wereld" meer="/ontdekken?r=wereld">{lijst(wereld)}</Sectie>
 
       <Sectie titel="Uit je interesses" meer="/mijn-nieuws">
         {volgVerhalen.length === 0 && uitInteresses.length === 0
