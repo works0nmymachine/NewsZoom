@@ -50,10 +50,6 @@ export default async function Vandaag() {
         <p className="zacht nieuw-regel"><span className="label label-nieuw">Nieuw</span> {nieuw} {nieuw === 1 ? 'bericht' : 'berichten'} sinds je vorige bezoek om {tijd(vorigBezoek)}</p>
       )}
 
-      {instellingen.startKlaar && regels.length === 0 && (
-        <p className="zacht">Geen filters actief: je ziet het nieuws van de afgelopen anderhalve dag op actualiteit en belang, vier per sectie. <Link href="/filters">Mijn filters</Link></p>
-      )}
-
       <Sectie titel="Nederland" meer="/ontdekken?r=nederland">{lijst(nederland)}</Sectie>
       <Sectie titel="Wereld" meer="/ontdekken?r=wereld">{lijst(wereld)}</Sectie>
 
